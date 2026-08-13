@@ -88,9 +88,3 @@ Describe the local coordinate system.
 ```text
 03_Simulation/CASPR/...
 
-### 4.2 Relevant XML / Parameters
-
-XML
-...
-
-### 4.3 
