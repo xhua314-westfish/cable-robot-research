@@ -75,5 +75,37 @@ Avoid jumping directly into advanced mathematics without first establishing phys
 
 ---
 
+# 3. Current Learning Platform
+
+The main simulation platform is CASPR.
+
+CASPR is being used to study:
+
+- Cable robot modelling
+- Kinematics
+- Cable lengths
+- Cable direction vectors
+- Jacobians
+- Stactis
+- Dynamics
+- Trajectory planning
+- Control
+
+The initial model is the CASPR plannar XY example.
+
+The Planar XY platform has three degrees of freedom:
+
+q = [x, y, theta]
+
+where:
+
+- x = platform translation in X
+- y = platform translation in Y
+- theta = platform rotation
+
+---
+
+# 4. Current Learning Progress
+
 
 
