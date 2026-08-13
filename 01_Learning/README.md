@@ -205,17 +205,24 @@ The ultimate purpose of this learning path is to support the development of a ca
 The research direction is:
 
 Rigid Cable Robot
+
         ↓
 Cable Kinematics
+
         ↓
 Cable Jacobian
+
         ↓
 Statics and Dynamics
+
         ↓
 Cable-based Measurement
+
         ↓
 Flexible / Deformable Object
+
         ↓
 Position Estimation
+
         ↓
 Shape Estimation
