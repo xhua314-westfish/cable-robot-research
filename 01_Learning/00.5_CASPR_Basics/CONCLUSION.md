@@ -1,31 +1,32 @@
-# Lesson X.X — Topic Name
+# Lesson 0 — Cable Robot Fundamentals
 
 > Status: 🔴 Not Started / 🟡 In Progress / 🟢 Completed  
-> Last Updated: YYYY-MM-DD
+> Last Updated: 2026-08-17
 
 ---
 
-## 1. Learning Objectives
+## 1. Learning goal
 
-### 1.1 What I should understand
-
-- 
-- 
-- 
-
-### 1.2 What I should be able to do
-
-- 
-- 
-- 
-
----
+建立基本概念 
 
 ## 2. Core Theory
 
 ### 2.1 Concept
 
-Explain the core concept in simple language.
+Cable-robot 
+
+Cable-Driven parallel robot (CDPR) 使用cable代替传统刚性节点控制moving platform
+
+基本结构
+
+Anchor → Cable → Attachment → Platform
+
+Cable只能产生拉力 因此tension必须满足 T＞0
+
+anchor通常使用世界坐标系，
+比如 a1 = （0， 0），a2 = （1， 0）.....
+attachment point使用local coordinate，
+比如 r = （-0.125， 0） 表示attachment位于平台左侧0.125
 
 ### 2.2 Mathematical Model
 
