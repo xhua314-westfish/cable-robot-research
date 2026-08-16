@@ -101,12 +101,16 @@ trajectories.xml, q(t) = [x(t), y(t), θ(t)] (定义运动位置和时间步)
 
 Balloon deformation
         ↓
+        
 Attachment movement
         ↓
+        
 Cable length change
         ↓
+        
 Cable measurement
         ↓
+        
 Position / Shape estimation
 
 通过这一课基本知道基本框架 cable 和刚体怎么定义 
