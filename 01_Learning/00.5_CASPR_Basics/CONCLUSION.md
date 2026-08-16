@@ -87,10 +87,30 @@ WrenchMatrix = [
 ## 4. CASPR simulation
 
 xy_planar_example,
+
 bodies.xml, Platform, DOF, Initial Pose, Joint Limits, Mass, Inertia
+
 cables.xml, Cable, Anchor, Attachment, Minimum Tension, Maximum Tension
+
 trajectories.xml, q(t) = [x(t), y(t), θ(t)] (定义运动位置和时间步)
 
 
-## 5. My research simulation
+## 5. My research connection
 
+我的研究目标:使用 Cable Robot 构建一个 balloon position / shape measurement system。
+
+Balloon deformation
+        ↓
+Attachment movement
+        ↓
+Cable length change
+        ↓
+Cable measurement
+        ↓
+Position / Shape estimation
+
+通过这一课基本知道基本框架 cable 和刚体怎么定义 
+
+## 5. My next plan
+
+1.研究下在cable systmen里面怎么定义气球？
