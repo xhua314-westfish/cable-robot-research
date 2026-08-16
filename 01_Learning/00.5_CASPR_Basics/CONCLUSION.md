@@ -7,85 +7,49 @@
 
 ## 1. Learning goal
 
-建立基本概念 
+1.弄懂基本概念
+
+2.弄懂公式计算
+
+3.使用matlab把公式计算复现
+
 
 ## 2. Core Theory
 
 ### 2.1 Concept
 
-Cable-robot 
+1. Cable-robot, Cable-Driven parallel robot (CDPR) 使用cable代替传统刚性节点控制moving platform
 
-Cable-Driven parallel robot (CDPR) 使用cable代替传统刚性节点控制moving platform
+2. 基本结构, Anchor → Cable → Attachment → Platform
 
-基本结构
+3. Cable只能产生拉力 因此tension必须满足 T＞0
 
-Anchor → Cable → Attachment → Platform
+4. anchor通常使用世界坐标系，比如 a1 = （0， 0），a2 = （1， 0）.....
+attachment point使用local coordinate，比如 r = （-0.125， 0） 表示attachment位于平台左侧0.125
 
-Cable只能产生拉力 因此tension必须满足 T＞0
+5.计算时需要讲局部坐标系转换为世界坐标系 
 
-anchor通常使用世界坐标系，
-比如 a1 = （0， 0），a2 = （1， 0）.....
-attachment point使用local coordinate，
-比如 r = （-0.125， 0） 表示attachment位于平台左侧0.125
+6. rx,ry是attactment的局部坐标，ux,uy是单位长度向量
 
-### 2.2 Mathematical Model
+### 2.2 Mathematical Model and derivation
 
-Key equations:
+cable标准计算流程：
 
-\[
-...
-\]
+anchor(1,0) attachment(0.625,0.5) attachment局部坐标 (rx, ry)
 
-Where:
+a. 长度向量 anchor - attachment = (0.375, -0.5) (x,y)
 
-- \( ... \) =
-- \( ... \) =
-- \( ... \) =
+b. cable长度 l = sprt(x^2 + y^2)
 
-### 2.3 Derivation
+c. 单位向量长度 (x, y) / l = (0.6, -0.8) (ux, uy)
 
-Step-by-step derivation:
+d. 力矩系数 m = rx*ux - ryux 
 
-1. 
-2. 
-3. 
+f. matrix = [ux, uy, m]
 
-### 2.4 Physical Meaning
 
-Explain what the equations mean physically.
+## 3. Matlab realization
 
----
-
-## 3. Geometry & Coordinate System
-
-### 3.1 World Coordinate System
-
-Describe the world coordinate system.
-
-### 3.2 Local Coordinate System
-
-Describe the local coordinate system.
-
-### 3.3 Coordinate Transformation
-
-\[
-...
-\]
-
-### 3.4 Key Geometry
-
-- Anchor point:
-- Attachment point:
-- Platform position:
-- Platform orientation:
-- Cable direction:
-
----
 
 ## 4. CASPR Connection
-
-### 4.1 Relevant CASPR Files
-
-```text
-03_Simulation/CASPR/...
 
