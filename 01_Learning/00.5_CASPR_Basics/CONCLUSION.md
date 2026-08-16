@@ -50,6 +50,39 @@ f. matrix = [ux, uy, m]
 
 ## 3. Matlab realization
 
+Anchor = [
+    0 0;
+    1 0;
+    1 1;
+    0 1
+];
+
+Platform = [0.5 0.5];
+
+AttachmentLocal = [
+    -0.125 0;
+     0.125 0;
+     0.125 0;
+    -0.125 0
+];
+
+AttachmentWorld = AttachmentLocal + Platform;
+
+LengthVector = Anchor - AttachmentWorld;
+
+CableLength = vecnorm(LengthVector,2,2); (矩阵长度计算公式)
+
+UnitVector = LengthVector ./ CableLength;
+
+MomentArm = ...
+    AttachmentLocal(:,1).*UnitVector(:,2) ...
+    - AttachmentLocal(:,2).*UnitVector(:,1);
+
+WrenchMatrix = [
+    UnitVector(:,1)';
+    UnitVector(:,2)';
+    MomentArm'
+];
 
 ## 4. CASPR Connection
 
