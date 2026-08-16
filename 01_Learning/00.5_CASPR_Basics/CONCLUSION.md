@@ -84,5 +84,13 @@ WrenchMatrix = [
     MomentArm'
 ];
 
-## 4. CASPR Connection
+## 4. CASPR simulation
+
+xy_planar_example,
+bodies.xml, Platform, DOF, Initial Pose, Joint Limits, Mass, Inertia
+cables.xml, Cable, Anchor, Attachment, Minimum Tension, Maximum Tension
+trajectories.xml, q(t) = [x(t), y(t), θ(t)] (定义运动位置和时间步)
+
+
+## 5. My research simulation
 
