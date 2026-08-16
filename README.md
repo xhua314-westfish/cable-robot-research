@@ -1,23 +1,23 @@
 Cable Robot Research
 
 │
-├── AGENTS.md                ← AI 怎么帮助你
+├── AGENTS.md                ← How can AI help you?
 
-├── README.md                ← 整个项目是什么
+├── README.md                ← What the project is about?
 
 │
-├── 01_Learning              ← 我在学什么
+├── 01_Learning              ← What I am learning?
 
-├── 02_Paper_Reading         ← 我读了什么
+├── 02_Paper_Reading         ← What I have read?
 
-├── 03_Simulation            ← 我模拟了什么
+├── 03_Simulation            ← What I have simulated?
 
-├── 04_Code_Exercises        ← 我写了什么
+├── 04_Code_Exercises        ← What I have code?
 
-├── 05_My_Research           ← 我的研究
+├── 05_My_Research           ← My reseach 
 
-├── 06_Research_Log          ← 我每天做了什么
+├── 06_Research_Log          ← What I do every day?
 
-├── 07_Resources             ← 我的资料库
+├── 07_Resources             ← My resouce library
 
-└── 08_Project_Management    ← 我现在在哪里、下一步去哪
+└── 08_Project_Management    ← Where I am / Where to go next? 
