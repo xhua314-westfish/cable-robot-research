@@ -7,11 +7,11 @@
 
 ## 1. Learning goal
 
-1.弄懂基本概念
+弄懂基本概念
 
-2.弄懂公式计算
+弄懂公式计算
 
-3.使用matlab把公式计算复现
+使用matlab把公式计算复现
 
 
 ## 2. Core Theory
