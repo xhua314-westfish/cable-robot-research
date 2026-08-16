@@ -100,15 +100,19 @@ trajectories.xml, q(t) = [x(t), y(t), θ(t)] (定义运动位置和时间步)
 我的研究目标:使用 Cable Robot 构建一个 balloon position / shape measurement system。
 
 Balloon deformation
+
         ↓
         
 Attachment movement
+
         ↓
         
 Cable length change
+
         ↓
         
 Cable measurement
+
         ↓
         
 Position / Shape estimation
