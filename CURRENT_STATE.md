@@ -146,6 +146,22 @@ L2(theta) = L4(theta)
 
 ---
 
+#### Lesson 1.4 — Rotation and Cable Length
+Completed:
+- cable length as a function of platform motion
+- numerical derivative
+- dL/dtheta
+- cable velocity
+- chain rule
+- positive and negative cable velocity
+- relationship between platform angular velocity and cable velocity
+
+Key equation:
+
+dL/dt = (dL/dtheta)(dtheta/dt)
+
+---
+
 ## 4. Current CASPR Model
 
 Status: Basic planar model understood
@@ -250,7 +266,7 @@ Lesson 1 — Cable Robot Kinematics
     1.1 Cable Length                      [Completed]
     1.2 Cable Direction                   [Completed]
     1.3 Rotation and cable length         [Completed]
-    1.4 Cable Velocity                    [Next]
+    1.4 Cable Velocity                    [Completed]
     1.5 Cable Jacobian                    [Next]
 
 Lesson 2 — Cable Robot Statics
