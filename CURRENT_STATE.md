@@ -1,4 +1,4 @@
-<img width="392" height="105" alt="image" src="https://github.com/user-attachments/assets/b3716410-4921-4591-a207-e9f0da138f24" /><img width="392" height="105" alt="image" src="https://github.com/user-attachments/assets/7f59808d-6bd7-410b-a767-f61884f0f405" /><img width="392" height="105" alt="image" src="https://github.com/user-attachments/assets/b265896b-32af-4c6b-8cd1-6d26ee536c4b" /># Current State
+# Current State
 
 Last updated: 2026-08-18
 
