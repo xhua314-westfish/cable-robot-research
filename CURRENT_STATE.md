@@ -120,7 +120,7 @@ u_i = d_i / l_i
 ---
 
 #### Cable Wrench / Force Mapping
-Status: Partially Completed
+Status: Completed
 
 Currently understood:
 
