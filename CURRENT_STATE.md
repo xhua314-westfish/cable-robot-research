@@ -249,9 +249,9 @@ Lesson 1 — Cable Robot Kinematics
 
     1.1 Cable Length                      [Completed]
     1.2 Cable Direction                   [Completed]
-    1.3 Rotation and Rigid Transformation [Completed]
+    1.3 Rotation and cable length         [Completed]
     1.4 Cable Velocity                    [Next]
-    1.5 Cable Jacobian                   [Next]
+    1.5 Cable Jacobian                    [Next]
 
 Lesson 2 — Cable Robot Statics
 
