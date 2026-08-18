@@ -197,12 +197,19 @@ The next MATLAB step is to calculate cable velocity and the cable Jacobian.
 I currently understand the basic geometric relationship between:
 
 Platform pose
+
     ↓
+    
 Attachment positions
+
     ↓
+    
 Cable vectors
+
     ↓
+    
 Cable lengths
+
 
 I can independently implement the basic planar cable geometry in MATLAB.
 The main remaining gap is moving from position-level kinematics to differential kinematics, especially:
