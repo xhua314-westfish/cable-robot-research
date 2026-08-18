@@ -194,16 +194,20 @@ The next MATLAB step is to calculate cable velocity and the cable Jacobian.
 
 ## 6. Current Understanding
 
-I currently understand:
+I currently understand the basic geometric relationship between:
 
-- why local and world coordinate systems are needed
-- how to transform an attachment point from local to world coordinates
-- how cable length is calculated
-- how cable direction is calculated
-- why the cable vector needs to be normalized
-- how cable tension creates force
-- how the attachment point creates torque
-- how four cable forces can be represented using a wrench matrix
+Platform pose
+    ↓
+Attachment positions
+    ↓
+Cable vectors
+    ↓
+Cable lengths
+
+I can independently implement the basic planar cable geometry in MATLAB.
+The main remaining gap is moving from position-level kinematics to differential kinematics, especially:
+ L = J q
+where the cable Jacobian J describes how platform motion affects cable motion.
 
 ---
 
@@ -232,34 +236,58 @@ The following topics still need to be learned:
 
 The current planned sequence is:
 
+Phase 1 — Rigid-body Cable Robot Foundation
+
 Lesson 1 — Cable Robot Kinematics
 
-    1.1 Cable Length                    [Completed]
-    1.2 Cable Direction                 [Completed]
+    1.1 Cable Length                      [Completed]
+    1.2 Cable Direction                   [Completed]
     1.3 Rotation and Rigid Transformation [Completed]
-    1.4 Cable Velocity
-    1.5 Cable Jacobian
+    1.4 Cable Velocity                    [Next]
+    1.5 Cable Jacobian                   [Next]
 
-Lesson 2 — Cable Jacobian
+Lesson 2 — Cable Robot Statics
 
-Lesson 3 — Statics
+Lesson 3 — Dynamics
 
-Lesson 4 — Dynamics
+Lesson 4 — Workspace
 
-Lesson 5 — Workspace
+Lesson 5 — Trajectory Planning
 
-Lesson 6 — Trajectory Planning
+Lesson 6 — Control
 
-Lesson 7 — Control
+Phase 2 — Cable-based Measurement
 
 After the rigid-body cable robot foundation is established:
 
-    Cable Robot
-        ↓
-    Flexible / Deformable Object
+    Rigid-body Cable Robot
         ↓
     Cable-based Measurement
+        ↓
+    Flexible / Deformable Object
         ↓
     Position Estimation
         ↓
     Shape Estimation
+
+The completed route
+
+Cable Kinematics
+       ↓
+Jacobian
+       ↓
+Statics
+       ↓
+Dynamics
+       ↓
+Control
+       ↓
+Cable Coupling
+       ↓
+Flexible Object
+       ↓
+Measurement
+       ↓
+Shape Estimation
+
+---
