@@ -1,6 +1,7 @@
 2026-08-18
 
 Lau et al. 2013 (CRM) — Deferred
+Generalized Modeling of Multilink Cable-Driven Manipulators With Arbitrary Routing Using the Cable-Routing Matrix
 
 Reason: assumes multilink (p>1) spatial (3D) dynamics; current work is
 single-body (p=1) planar (2D).
