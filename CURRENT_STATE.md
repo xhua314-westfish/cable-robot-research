@@ -119,19 +119,30 @@ u_i = d_i / l_i
 
 ---
 
-#### Cable Wrench / Force Mapping
-Status: Completed
+#### Lesson 1.3 — Rotation and Cable Length
+Completed:
+- 2D rotation matrix
+- Local-to-world transformation
+- Attachment point transformation
+- Cable vector calculation
+- Cable length calculation
+- MATLAB for-loop
+- MATLAB 3-D arrays
+- squeeze()
+- Cable length vs platform rotation plot
 
-Currently understood:
+Key equations:
 
-- cable tension produces a force on the platform
-- force has x and y components
-- cable attachment position creates a moment
-- a cable can therefore contribute:
+B_i = P + R(theta) r_i
 
-[Fx, Fy, Mz]
+d_i = A_i - B_i
 
-The current planar cable wrench matrix has been implemented in MATLAB.
+L_i = ||d_i||
+
+For the symmetric geometry:
+
+L1(theta) = L3(theta)
+L2(theta) = L4(theta)
 
 ---
 
