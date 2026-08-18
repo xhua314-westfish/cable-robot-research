@@ -148,48 +148,47 @@ L2(theta) = L4(theta)
 
 ## 4. Current CASPR Model
 
-Current example:
+Status: Basic planar model understood
+
+Current model:
 
 Planar XY cable robot
+4 cables
+Platform DOF: q=[x,y,θ]
+Platform attachment points defined in local coordinates
+Cable anchor points defined in world coordinates
 
-Degrees of freedom:
+CASPR has been used mainly to understand:
 
-q = [x, y, theta]
+model structure
+coordinate systems
+cable geometry
+platform motion
+trajectory configuration
 
-Number of cables:
-
-4
-
-Anchor points:
-
-A1 = [0, 0]
-
-A2 = [1, 0]
-
-A3 = [1, 1]
-
-A4 = [0, 1]
-
-The platform reference point is currently:
-
-P = [0.5, 0.5]
-
-The platform attachment points are defined in the local coordinate system.
+The current focus is shifting from CASPR model setup to understanding the underlying cable-robot kinematics mathematically and implementing them independently in MATLAB.
 
 ---
 
 ## 5. Current MATLAB Practice
 
-A basic MATLAB implementation has been developed to calculate:
+A MATLAB simulation has been independently implemented to:
 
-1. attachment points in world coordinates
-2. cable vectors
-3. cable lengths
-4. unit cable direction vectors
-5. cable moment contributions
-6. wrench matrix
+rotate the platform from 0° to 360°
+transform attachment points from local to world coordinates
+calculate cable vectors
+calculate cable lengths
+plot cable length versus platform rotation
 
-Current implementation is still being refined.
+Current implementation uses:
+
+for loops
+matrices
+3-D arrays
+squeeze()
+basic plotting
+
+The next MATLAB step is to calculate cable velocity and the cable Jacobian.
 
 ---
 
