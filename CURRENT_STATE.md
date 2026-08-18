@@ -1,6 +1,6 @@
-# Current State
+<img width="392" height="105" alt="image" src="https://github.com/user-attachments/assets/b3716410-4921-4591-a207-e9f0da138f24" /><img width="392" height="105" alt="image" src="https://github.com/user-attachments/assets/7f59808d-6bd7-410b-a767-f61884f0f405" /><img width="392" height="105" alt="image" src="https://github.com/user-attachments/assets/b265896b-32af-4c6b-8cd1-6d26ee536c4b" /># Current State
 
-Last updated: 2026-08-13
+Last updated: 2026-08-18
 
 ## 1. Research Direction
 
@@ -201,8 +201,8 @@ I currently understand:
 
 The following topics still need to be learned:
 
-- rotation matrix
-- complete planar rigid-body transformation
+- rotation matrix (completed)
+- complete planar rigid-body transformation (completed)
 - cable Jacobian
 - relationship between cable length and platform motion
 - differential kinematics
@@ -226,7 +226,7 @@ Lesson 1 — Cable Robot Kinematics
 
     1.1 Cable Length                    [Completed]
     1.2 Cable Direction                 [Completed]
-    1.3 Rotation and Rigid Transformation
+    1.3 Rotation and Rigid Transformation [Completed]
     1.4 Cable Velocity
     1.5 Cable Jacobian
 
