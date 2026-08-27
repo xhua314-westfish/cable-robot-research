@@ -162,6 +162,19 @@ dL/dt = (dL/dtheta)(dtheta/dt)
 
 ---
 
+#### Lesson 1.5 — Cable Jacobian
+Completed:
+- Analytical Jacobian derivation
+- Manual calculation
+- MATLAB implementation
+- Numerical differentiation
+- Analytical vs numerical Jacobian verification
+
+Current understanding:
+q → P → L → u → J → L_dot
+
+---
+
 ## 4. Current CASPR Model
 
 Status: Basic planar model understood
