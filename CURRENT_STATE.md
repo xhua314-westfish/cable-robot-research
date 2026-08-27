@@ -274,16 +274,23 @@ The current planned sequence is:
 
 Phase 1 — Rigid-body Cable Robot Foundation
 
-Lesson 1 — Cable Robot Kinematics
+Lesson 1 — Cable Robot Kinematics         [Completed]
 
-    1.1 Cable Length                      [Completed]
-    1.2 Cable Direction                   [Completed]
-    1.3 Rotation and cable length         [Completed]
-    1.4 Cable Velocity                    [Completed]
-    1.5 Cable Jacobian                    [Completed]
+    1.1 Cable Length                     
+    1.2 Cable Direction                   
+    1.3 Rotation and cable length         
+    1.4 Cable Velocity                    
+    1.5 Cable Jacobian                   
 
-Lesson 2 — Cable Robot Statics            [Next]
+Lesson 2 — Cable Robot Statics
 
+    2.1 From Kinematics to Statics: Principle of Virtual Work and Duality        [Next]                
+    2.2 Structure Matrix (Tension Matrix) A                   
+    2.3 Static Equilibrium Equations and Tension Distribution         
+    2.4 Non-Negative Tension Constraint: Concept of Wrench-Closure
+    2.5 MATLAB Implementation: Static Tension Solver
+    2.6 (Optional) Statics Module in CASPR
+    
 Lesson 3 — Dynamics
 
 Lesson 4 — Workspace
