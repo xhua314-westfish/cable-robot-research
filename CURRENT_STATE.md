@@ -284,12 +284,41 @@ Lesson 1 — Cable Robot Kinematics         [Completed]
 
 Lesson 2 — Cable Robot Statics
 
-    2.1 From Kinematics to Statics: Principle of Virtual Work and Duality        [Next]                
-    2.2 Structure Matrix (Tension Matrix) A                   
-    2.3 Static Equilibrium Equations and Tension Distribution         
-    2.4 Non-Negative Tension Constraint: Concept of Wrench-Closure
-    2.5 MATLAB Implementation: Static Tension Solver
-    2.6 (Optional) Statics Module in CASPR
+2.1 From Kinematics to Statics
+    ├─ Cable tension
+    ├─ Cable force
+    ├─ Cable moment
+    ├─ Principle of Virtual Work
+    └─ Kinematic–Static Duality
+       J ↔ Jᵀ
+
+2.2 Structure Matrix
+    ├─ Structure matrix A
+    ├─ Cable wrench
+    ├─ Force + moment
+    └─ A = Jᵀ
+
+2.3 Static Equilibrium
+    ├─ External wrench
+    ├─ Equilibrium equation
+    ├─ A T + w_ext = 0
+    └─ Tension distribution
+
+2.4 Cable Tension Constraints
+    ├─ T_i ≥ 0
+    ├─ Why cables cannot push
+    ├─ Feasible tension
+    └─ Wrench closure / force closure
+
+2.5 MATLAB Static Tension Solver
+    ├─ Build A
+    ├─ Given external wrench
+    ├─ Solve T
+    ├─ Check T ≥ 0
+    └─ Visualise cable forces
+
+2.6 CASPR Statics
+    └─ Verify MATLAB results
     
 Lesson 3 — Dynamics
 
