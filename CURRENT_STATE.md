@@ -353,7 +353,7 @@ Lesson 2 — Cable Robot Statics
     ─ Kinematic–Static Duality
        J ↔ Jᵀ
 
-    2.2 Structure Matrix
+    2.2 Structure Matrix            [Completed]
     ─ Definition of structure matrix(A)
     ─ Relationship between (A) and (J)
     ─ Cable wrench vectors
