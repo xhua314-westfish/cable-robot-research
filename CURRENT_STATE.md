@@ -175,6 +175,56 @@ q → P → L → u → J → L_dot
 
 ---
 
+#### Lesson 2 — Cable Robot statics
+#### Lesson 2.1 - From Kinematics to Statics
+Completed:
+- cable tension
+- cable force
+- cable moment
+- cable wrench
+- virtual displacement
+- principle of virtual work
+- kinematic-static duality
+- relationship bewteen jacobian and cable wrench
+- static equilibrium
+- non-negative cable tension constraint
+- sign convention for cable direction and jacobian
+
+Key equations:
+Cable kinematics:
+delta L = J * delta q
+
+Cable velocity:
+dot L = J * dot q
+
+Cable force:
+F_i=T_i * u_i
+
+Cable moment:
+tau_i=r_i\times * F_i
+
+For the current sign convention:
+w_{c,i}=-J_i^T * T_i
+
+For the complete cable system:
+w_c=-J^T * T
+
+Static equilibrium:
+
+-J^T * T + w_{ext}=0
+
+Therefore:
+J^T * T = w_{ext}
+
+Physical constraint:
+Ti ≥ 0
+because a cable can generate tension but cannot generate compression.
+
+This establishes the connection:
+{Cable Kinematics} → {Jacobian} → {Virtual Work} → {Cable Wrench} → {Static Equilibrium}
+
+---
+
 ## 4. Current CASPR Model
 
 Status: Basic planar model understood
