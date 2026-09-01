@@ -334,7 +334,7 @@ Lesson 1 — Cable Robot Kinematics         [Completed]
 
 Lesson 2 — Cable Robot Statics
 
-    2.1 From Kinematics to Statics
+    2.1 From Kinematics to Statics  [Completed]
     ├─ Cable tension
     ├─ Cable force
     ├─ Cable moment
