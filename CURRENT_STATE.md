@@ -394,30 +394,22 @@ After the rigid-body cable robot foundation is established:
 
 The completed route
 
-Cable Kinematics
-       
+    Cable Kinematics
+        ↓
+    Jacobian
+        ↓
+    Statics
+        ↓
+    Dynamics
+        ↓
+    Control
+        ↓
+    Cable Coupling 
+        ↓
+    Flexible Object
        ↓
-Jacobian
-       
+    Measurement
        ↓
-Statics
-       
-       ↓
-Dynamics
-       
-       ↓
-Control
-       
-       ↓
-Cable Coupling
-       
-       ↓
-Flexible Object
-       
-       ↓
-Measurement
-       
-       ↓
-Shape Estimation
+    Shape Estimation
 
 ---
