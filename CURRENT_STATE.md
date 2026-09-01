@@ -223,6 +223,22 @@ This establishes the connection:
 
 ---
 
+#### Lesson 2.2 - Structure Matrix
+Completed:
+- definition of the structure matrix(A)
+- unit-tension wrench of an individual cable
+- physical meaing of each column of A
+- relationship between structure matrix and jacobian
+- direct construction of A from cable geometry
+- matrix dimensions
+- total
+- relationship bewteen jacobian and cable wrench
+- static equilibrium
+- non-negative cable tension constraint
+- sign convention for cable direction and jacobian
+
+---
+
 ## 4. Current CASPR Model
 
 Status: Basic planar model understood
