@@ -1,6 +1,6 @@
 # Current State
 
-Last updated: 2026-08-19
+Last updated: 2026-09-01
 
 ## 1. Research Direction
 
@@ -41,8 +41,6 @@ The basic concept is:
 ---
 
 ## 3. Current Learning Stage
-
-### Completed
 
 #### Lesson 0 — MATLAB Basics
 Status: Completed
