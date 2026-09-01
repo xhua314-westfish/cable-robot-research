@@ -362,11 +362,16 @@ Lesson 2 — Cable Robot Statics
     ─ Static equilibrium using (A)
     ─ Relationship between (A T) and external wrench
 
-    2.3 Static Equilibrium
-    ─ External wrench
-    ─ Equilibrium equation
-    ─ A T + w_ext = 0
-    ─ Tension distribution
+    2.3 Static Equilibrium and Tension Distribution
+    ─ Static equilibrium equations
+    ─ External wrench 
+    ─ (AT+w_{ext}=0)
+    ─ Force equilibrium
+    ─ Moment equilibrium
+    ─ Underdetermined tension equations
+    ─ Multiple possible tension distributions
+    ─ Physical tension constraints
+    ─ introduction to tension optimization
 
     2.4 Cable Tension Constraints
     ─ T_i ≥ 0
