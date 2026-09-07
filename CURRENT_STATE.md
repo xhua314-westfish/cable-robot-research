@@ -1,6 +1,6 @@
 # Current State
 
-Last updated: 2026-09-01
+Last updated: 2026-09-07
 
 ## 1. Research Direction
 
@@ -236,6 +236,25 @@ Completed:
 
 ---
 
+#### Lesson 2.3 - Static Equilibrium and Tension Distribution
+Status: Completed
+
+Topics understood:
+external wrench
+force equilibrium
+moment equilibrium
+static equilibrium equations
+3 equilibrium equations for a planar rigid body
+4 unknown cable tensions
+underdetermined tension equations
+free variables
+multiple tension distributions
+physical tension constraints
+basic idea of tension distribution / tension optimization
+
+---
+
+
 ## 4. Current CASPR Model
 
 Status: Basic planar model understood
@@ -362,7 +381,7 @@ Lesson 2 — Cable Robot Statics
     ─ Static equilibrium using (A)
     ─ Relationship between (A T) and external wrench
 
-    2.3 Static Equilibrium and Tension Distribution
+    2.3 Static Equilibrium and Tension Distribution  [Completed]
     ─ Static equilibrium equations
     ─ External wrench 
     ─ (AT+w_{ext}=0)
