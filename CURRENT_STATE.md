@@ -1,6 +1,6 @@
 # Current State
 
-Last updated: 2026-09-07
+Last updated: 2026-09-08
 
 ## 1. Research Direction
 
@@ -254,6 +254,100 @@ basic idea of tension distribution / tension optimization
 
 ---
 
+#### Lesson 2.4 - Cable Tension Constraints
+
+Status: Completed
+
+Topics understood:
+
+Cable tension constraint
+Physical feasibility
+Practical tension limits
+Tension margin
+Tension optimization
+Wrench cone
+Wrench feasibility
+Basic concept of wrench closure
+
+Key equations:
+
+Cable tension constraint:
+
+T_i ≥ 0
+
+Practical tension constraint:
+
+T_min ≤ T_i ≤ T_max
+
+Physical feasibility:
+
+AT = -w_ext
+
+T ≥ 0
+
+Feasible wrench set:
+
+W = {AT | T ≥ 0}
+
+A target external wrench is feasible when:
+
+-w_ext ∈ W
+
+Tension distribution can be represented as:
+
+T = T_0 + λn
+
+where:
+
+An = 0
+
+Tension optimization can be used to select one solution from multiple feasible tension distributions.
+
+Example objective:
+
+min ΣT_i
+
+subject to:
+
+AT = -w_ext
+
+T_min ≤ T_i ≤ T_max
+
+Connection to My Research
+
+In the future cable-based measurement system, the deformable object will continuously change the cable geometry.
+
+Therefore:
+
+q → A(q)
+
+and the feasible tension distribution also changes:
+
+A(q)T = -w_ext
+
+This means cable tension constraints are important for maintaining:
+
+Cable tension
+Cable engagement
+Measurement stability
+Avoidance of cable slack
+Avoidance of excessive cable tension
+
+The wrench cone also provides a geometric way to understand whether the cable configuration can generate the wrench required to maintain equilibrium.
+
+This is important for the future transition:
+
+Rigid-body cable robot
+↓
+Cable tension / wrench analysis
+↓
+Cable-based measurement
+↓
+Flexible / deformable object
+↓
+Position and shape estimation
+
+---
 
 ## 4. Current CASPR Model
 
