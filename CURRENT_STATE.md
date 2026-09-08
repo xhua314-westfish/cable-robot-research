@@ -486,18 +486,20 @@ Lesson 2 — Cable Robot Statics
     ─ Physical tension constraints
     ─ introduction to tension optimization
 
-    2.4 Cable Tension Constraints
+    2.4 Cable Tension Constraints [Completed]
     ─ T_i ≥ 0
     ─ Why cables cannot push
     ─ Feasible tension
     ─ Wrench closure / force closure
 
     2.5 MATLAB Static Tension Solver
-    ─ Build A
-    ─ Given external wrench
-    ─ Solve T
+    ─ Build structure matrix A
+    ─ Define external wrench
+    ─ Solve for cable tensions T
     ─ Check T ≥ 0
+    ─ Apply T_min / T_max constraints
     ─ Visualise cable forces
+    ─ Test different platform configurations
 
     2.6 CASPR Statics
     ─ Verify MATLAB results
