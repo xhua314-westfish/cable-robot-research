@@ -388,8 +388,8 @@ Therefore, linprog searches for the feasible tension distribution with the minim
 Connection to My Research
 As the balloon moves or deforms, the cable geometry changes, which changes (A(q)).
 This means the feasible tension distribution and the cable tension state can also change.
-Understanding tension optimisation is therefore important for future:
 
+Understanding tension optimisation is therefore important for future:
 cable engagement
 cable slack avoidance
 tension measurement
@@ -542,7 +542,7 @@ Lesson 2 — Cable Robot Statics
     ─ Feasible tension
     ─ Wrench closure / force closure
 
-    2.5 MATLAB Static Tension Solver
+    2.5 MATLAB Static Tension Solver [Completed]
     ─ Build structure matrix A
     ─ Define external wrench
     ─ Solve for cable tensions T
