@@ -551,10 +551,18 @@ Lesson 2 — Cable Robot Statics
     ─ Visualise cable forces
     ─ Test different platform configurations
 
-    2.6 CASPR Statics
+    2.6 CASPR Statics (留到动力学结束后再对比)
     ─ Verify MATLAB results
     
 Lesson 3 — Dynamics
+
+    3.1 Why dynamics?                   
+    3.2 Newton-Euler dynamics                   
+    3.3 Cable force in dynamics         
+    3.4 Rigid-body Dynamic model                    
+    3.5 Cable velocity and acceleration
+    3.6 Matlab dynamics
+    3.7 CASPR Dynamics
 
 Lesson 4 — Workspace
 
