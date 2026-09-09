@@ -4,7 +4,7 @@ Last updated: 2026-09-09
 
 ## 1. Research Direction
 
-My research focuses on developing a cable-robot-based measurement system for a deformable balloon-like object.
+My research focuses on developing a cable-robot-based measurement system and sensing system for a deformable balloon-like object.
 
 The long-term goal is:
 
@@ -27,7 +27,7 @@ Shape and position estimation
 The basic concept is:
 
 1. Attach cables to a balloon or deformable object.
-2. Drive or deform the balloon.
+2. The balloon moves or deforms due to external or controlled motion.
 3. The balloon motion changes cable positions and cable lengths.
 4. Measure cable-related quantities such as:
    - cable length
@@ -144,7 +144,7 @@ L2(theta) = L4(theta)
 
 ---
 
-#### Lesson 1.4 — Rotation and Cable Length
+#### Lesson 1.4 — Cable velocity
 Completed:
 - cable length as a function of platform motion
 - numerical derivative
@@ -169,8 +169,8 @@ Completed:
 - Analytical vs numerical Jacobian verification
 
 Current understanding:
-q → P → L → u → J → L_dot
-
+q → P → d → L → u → J → L_dot
+d = A - B 
 ---
 
 #### Lesson 2 — Cable Robot statics
@@ -267,6 +267,7 @@ Tension margin
 Tension optimization
 Wrench cone
 Wrench feasibility
+Introduction to wrench feasibility
 Basic concept of wrench closure
 
 Key equations:
@@ -369,7 +370,7 @@ Topics understood:
 MATLAB Implementation
 
 The MATLAB solver uses:
-f = ones(num_cables,1);
+f = ones(num_cables,1); 
 b = -w_ext;
 
 [T, fval, exitflag] = linprog( ...
@@ -419,76 +420,58 @@ cable geometry
 platform motion
 trajectory configuration
 
-The current focus is shifting from CASPR model setup to understanding the underlying cable-robot kinematics mathematically and implementing them independently in MATLAB.
-
+CASPR is currently used mainly as a simulation and verification platform rather than the primary learning tool.
 ---
 
 ## 5. Current MATLAB Practice
 
 A MATLAB simulation has been independently implemented to:
 
-rotate the platform from 0° to 360°
-transform attachment points from local to world coordinates
-calculate cable vectors
-calculate cable lengths
-plot cable length versus platform rotation
+- calculate cable geometry
+- calculate cable length
+- calculate cable velocity
+- calculate the cable Jacobian
+- verify the analytical Jacobian using numerical differentiation
+- calculate the structure matrix
+- solve static cable tension distributions
+- apply tension constraints
+- use MATLAB linprog for tension optimisation
 
-Current implementation uses:
-
-for loops
-matrices
-3-D arrays
-squeeze()
-basic plotting
-
-The next MATLAB step is to calculate cable velocity and the cable Jacobian.
-
+The next MATLAB step is to develop a basic rigid-body dynamic model.
 ---
 
 ## 6. Current Understanding
 
-I currently understand the basic geometric relationship between:
+I currently understand the basic kinematic and static relationships of a planar rigid-body cable robot.
+Kinematics: 
+q → P → d → L → u → J → L˙
+Statics:
+J→ A=−JT → AT+wext​=0 → T
 
-Platform pose
-
-    ↓
-    
-Attachment positions
-
-    ↓
-    
-Cable vectors
-
-    ↓
-    
-Cable lengths
-
-
-I can independently implement the basic planar cable geometry in MATLAB.
-The main remaining gap is moving from position-level kinematics to differential kinematics, especially:
- L = J q
-where the cable Jacobian J describes how platform motion affects cable motion.
+The main remaining gap is moving from static equilibrium to dynamic modeling, especially understanding how cable tensions and external wrenches generate platform acceleration.
 
 ---
 
 ## 7. Current Knowledge Gaps
 
 The following topics still need to be learned:
-
-- rotation matrix (completed)
-- complete planar rigid-body transformation (completed)
-- cable Jacobian
-- relationship between cable length and platform motion
-- differential kinematics
-- static equilibrium
-- tension distribution
-- workspace
-- dynamics
-- trajectory planning
-- control
-- cable interference / coupling
-- flexible-body modelling
-- deformable object shape estimation
+-rigid-body dynamics
+-Newton–Euler equations
+-mass and inertia
+-cable forces in dynamic motion
+-dynamic equations of a planar cable robot
+-cable acceleration
+-\(\dot J\)
+-relationship between cable tension and platform acceleration
+-dynamic simulation in MATLAB
+-CASPR dynamics verification
+-workspace
+-trajectory planning
+-control
+-cable interference / coupling
+-flexible-body modelling
+-deformable-object state estimation
+-shape reconstruction
 
 ---
 
@@ -542,29 +525,31 @@ Lesson 2 — Cable Robot Statics
     ─ Feasible tension
     ─ Wrench closure / force closure
 
-    2.5 MATLAB Static Tension Solver [Completed]
-    ─ Build structure matrix A
-    ─ Define external wrench
-    ─ Solve for cable tensions T
-    ─ Check T ≥ 0
-    ─ Apply T_min / T_max constraints
-    ─ Visualise cable forces
-    ─ Test different platform configurations
+    2.5 MATLAB Static Tension Solver 
+    ─ Build structure matrix A      [Completed]   
+    ─ Define external wrench        [Completed]
+    ─ Solve for cable tensions T    [Completed]
+    ─ Check T ≥ 0                   [Completed]
+    ─ Apply T_min / T_max constraints [Completed]
+    ─ Visualise cable forces (future task)
+    ─ Test different platform configurations (future task)
 
-    2.6 CASPR Statics (留到动力学结束后再对比)
-    ─ Verify MATLAB results
+    2.6 CASPR Statics (future task)
+    ─ Revisit after completing rigid-body dynamics
+    ─ Compare CASPR results with independent MATLAB implementation
     
-Lesson 3 — Dynamics
+Lesson 3 — Dynamics 
 
-    3.1 Why dynamics?                   
+    3.1 Why dynamics?                     (next task)           
     3.2 Newton-Euler dynamics                   
-    3.3 Cable force in dynamics         
-    3.4 Rigid-body Dynamic model                    
+    3.3 Cable forces and moments in dynamics         
+    3.4 Planar Rigid-Body Dynamic Model                
     3.5 Cable velocity and acceleration
-    3.6 Matlab dynamics
-    3.7 CASPR Dynamics
+    3.6 Matlab dynamics simulation
+    3.7 CASPR Dynamics verification
 
 Lesson 4 — Workspace
+Topics to be defined after completing dynamics.
 
 Lesson 5 — Trajectory Planning
 
@@ -586,22 +571,26 @@ After the rigid-body cable robot foundation is established:
 
 The completed route
 
-    Cable Kinematics
+    Cable Kinematics √
         ↓
-    Jacobian
+    Jacobian √
+        ↓ 
+    Statics √
+        ↓ 
+    Dynamics (current)
         ↓
-    Statics
+    Workspace
         ↓
-    Dynamics
+    Trajectory planning
         ↓
-    Control
+    Control 
         ↓
-    Cable Coupling 
-        ↓
-    Flexible Object
+    Cable coupling
        ↓
-    Measurement
+    Cable-based measurement
        ↓
-    Shape Estimation
+    Shape reconstruction
+        ↓
+    experimental validation
 
 ---
