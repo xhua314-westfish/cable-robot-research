@@ -349,6 +349,56 @@ Position and shape estimation
 
 ---
 
+#### Lesson 2.5 - MATLAB Static Tension Solver
+Status: Completed
+
+Topics understood:
+-Building the structure matrix (A)
+-Defining the external wrench (w_{ext})
+-Formulating static equilibrium
+-Solving cable tension equations
+-Understanding underdetermined tension distribution
+-Understanding why a mathematical solution may be physically infeasible
+-Applying cable tension constraints
+-Applying minimum and maximum tension limits
+-Linear programming with MATLAB linprog
+-Minimising total cable tension
+-Checking equilibrium error
+-Interpreting the optimal tension distribution
+
+MATLAB Implementation
+
+The MATLAB solver uses:
+f = ones(num_cables,1);
+b = -w_ext;
+
+[T, fval, exitflag] = linprog( ...
+    f, [], [], ...
+    a_matrix, b, ...
+    T_min, T_max);
+
+The vector:
+f = [1;1;1;1]
+
+defines the objective:
+[f^TT=T_1+T_2+T_3+T_4]
+
+Therefore, linprog searches for the feasible tension distribution with the minimum total tension.
+
+Connection to My Research
+As the balloon moves or deforms, the cable geometry changes, which changes (A(q)).
+This means the feasible tension distribution and the cable tension state can also change.
+Understanding tension optimisation is therefore important for future:
+
+cable engagement
+cable slack avoidance
+tension measurement
+measurement stability
+cable interference
+deformable-object state estimation
+
+---
+
 ## 4. Current CASPR Model
 
 Status: Basic planar model understood
