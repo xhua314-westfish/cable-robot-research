@@ -700,26 +700,50 @@ Lesson 2 — Cable Robot Statics
     
 Lesson 3 — Dynamics 
 
-    3.1 Why dynamics?                     (next task)        
+    3.1 Why dynamics?                     (completed)        
     为什么 Statics 不够？
     
-    3.2 Newton-Euler dynamics    
+    3.2 Newton-Euler dynamics             (completed)  
     力和力矩到底如何产生 acceleration？
     
-    3.3 Cable forces and moments in dynamics    
+    3.3 Cable forces and moments in dynamics  (completed)     
     Cable tension 如何进入 Newton–Euler 方程？
     
-    3.4 Planar Rigid-Body Dynamic Model 
+    3.4 Planar Rigid-Body Dynamic Model  (next)  
     把前面的东西组合起来
+    ─ Combine the previous concepts into one complete model 
+    ─ Four-cable planar rigid-body system 
+    ─ Dimensions of A, T, M and q_ddot 
+    ─ Translation and rotation together 
+    ─ Numerical dynamic example 
+    ─ Physical interpretation of each term
     
     3.5 Cable velocity and acceleration
     再连接回之前的Kinematics
+    ─ Cable velocity 
+    ─ Cable acceleration 
+    ─ Relationship between q_dot and L_dot 
+    ─ Relationship between q_ddot and L_ddot 
+    ─ Time-varying Jacobian 
+    ─ J_dot ─ Relationship between platform dynamics and cable motion
     
     3.6 Matlab dynamics simulation
     让公式真正跑起来
+    ─ Build the planar dynamic model 
+    ─ Calculate platform acceleration 
+    ─ Integrate acceleration to velocity 
+    ─ Integrate velocity to position 
+    ─ Calculate cable length during motion 
+    ─ Calculate cable velocity and acceleration 
+    ─ Plot platform and cable states
     
     3.7 CASPR Dynamics verification
     用 CASPR 验证 MATLAB 模型
+    ─ Build / modify the dynamic CASPR model 
+    ─ Compare CASPR with independent MATLAB results 
+    ─ Check platform motion 
+    ─ Check cable motion 
+    ─ Interpret differences between the two models
     
 Lesson 4 — Workspace
 Topics to be defined after completing dynamics.
