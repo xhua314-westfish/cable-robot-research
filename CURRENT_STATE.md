@@ -1,4 +1,4 @@
-x# Current State
+# Current State
 
 Last updated: 2026-09-10
 
