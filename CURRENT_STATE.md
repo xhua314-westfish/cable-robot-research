@@ -170,7 +170,6 @@ Completed:
 - MATLAB implementation
 - Numerical differentiation
 - Analytical vs numerical Jacobian verification
-
 Current understanding:
 q → P → d → L → u → J → L_dot
 d = A - B 
