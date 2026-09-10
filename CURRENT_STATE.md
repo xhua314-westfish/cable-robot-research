@@ -540,14 +540,27 @@ Lesson 2 — Cable Robot Statics
     
 Lesson 3 — Dynamics 
 
-    3.1 Why dynamics?                     (next task)           
-    3.2 Newton-Euler dynamics                   
-    3.3 Cable forces and moments in dynamics         
-    3.4 Planar Rigid-Body Dynamic Model                
+    3.1 Why dynamics?                     (next task)        
+    为什么 Statics 不够？
+    
+    3.2 Newton-Euler dynamics    
+    力和力矩到底如何产生 acceleration？
+    
+    3.3 Cable forces and moments in dynamics    
+    Cable tension 如何进入 Newton–Euler 方程？
+    
+    3.4 Planar Rigid-Body Dynamic Model 
+    把前面的东西组合起来
+    
     3.5 Cable velocity and acceleration
+    再连接回之前的Kinematics
+    
     3.6 Matlab dynamics simulation
+    让公式真正跑起来
+    
     3.7 CASPR Dynamics verification
-
+    用 CASPR 验证 MATLAB 模型
+    
 Lesson 4 — Workspace
 Topics to be defined after completing dynamics.
 
