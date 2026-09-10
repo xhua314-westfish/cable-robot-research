@@ -13,10 +13,13 @@ The long-term goal is:
 The research involves a transition from:
 
 Rigid-body cable robot
+
         ↓
 Cable-driven measurement system
+
         ↓
 Flexible / deformable object
+
         ↓
 Shape and position estimation
 
