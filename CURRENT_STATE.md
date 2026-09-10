@@ -1,6 +1,6 @@
-# Current State
+x# Current State
 
-Last updated: 2026-09-09
+Last updated: 2026-09-10
 
 ## 1. Research Direction
 
@@ -400,6 +400,24 @@ deformable-object state estimation
 
 ---
 
+#### Lesson 3 - Dynamics
+## Lesson 3.1 Why Dynamics? 
+Status: Completed
+
+─ Why statics is not enough 
+─ Difference between statics and dynamics 
+─ Net force and net moment 
+─ Zero net wrench vs zero velocity 
+─ Zero acceleration as the special case of dynamics 
+─ Why cable robots need dynamic modelling 
+Key concepts: Statics: AT + w_ext = 0 
+Dynamics: AT + w_ext = M*q_ddot 
+Important understanding: 
+Zero net wrench means: q_ddot = 0 
+This does not necessarily mean that the platform is stationary. The platform may still have constant linear or angular velocity.
+
+---
+
 ## 4. Current CASPR Model
 
 Status: Basic planar model understood
@@ -442,36 +460,116 @@ The next MATLAB step is to develop a basic rigid-body dynamic model.
 
 ## 6. Current Understanding
 
-I currently understand the basic kinematic and static relationships of a planar rigid-body cable robot.
+I currently understand the basic kinematic, static, and introductory dynamic relationships of a planar rigid-body cable robot.
 Kinematics: 
-q → P → d → L → u → J → L˙
-Statics:
-J→ A=−JT → AT+wext​=0 → T
+q → P → d → L → u → J → L_dot
+where:
+q = platform pose 
+p = cable attachment point position
+d = cable vetor
+L = cable length
+u = cable unit direction
+J = cable jacobian
+L_dot = cable velocity
+The Jacobian describes how platform motion changes cable length.
 
-The main remaining gap is moving from static equilibrium to dynamic modeling, especially understanding how cable tensions and external wrenches generate platform acceleration.
+Statics:
+J→ A = −JT → AT + w_ext​ = 0 → T
+where：
+J = cable jacobian
+A = strcture matrix 
+T = cable tension vector
+AT = total cable wrench
+w_ext = external wrench
+
+Static equilibrium means that the cable wrench and external wrench balance:
+AT + w_ext = 0
+Cable tensions must also satisfy physical constraints such as:
+T_i ≥ 0
+and practical limits:
+T_min ≤ T_i ≤ T_max
+
+Dynamics:
+the current understanding is:
+T → cable force → cable moment → cable wrench → net wrench → platform acceleration
+For a planar rigid body:
+q = [x, y, theta]^T
+q_ddot = [x_ddot, y_ddot, theta_ddot]^T
+The cable-generated wrench is:
+w_c = AT
+The net wrench is:
+w_net = AT + w_ext
+Using Newton–Euler dynamics:
+AT + w_ext = M q_ddot
+where:
+M = diag(m, m, I_z)
+This establishes the connection:
+Kinematics
+↓
+Jacobian
+↓
+Statics
+↓
+Dynamics
+
+The main remaining gap is to develop the complete planar rigid-body dynamic model and connect platform dynamics back to cable velocity and cable acceleration.
 
 ---
 
 ## 7. Current Knowledge Gaps
+Completed Foundations
+The following topics have been studied and understood at the current beginner learning level:
+-cable geometry
+-cable length
+-cable direction
+-platform rotation
+-cable velocity
+-cable Jacobian
+-analytical and numerical Jacobian verification
+-cable tension
+-cable force
+-cable moment
+-cable wrench
+-structure matrix
+-static equilibrium
+-tension distribution
+-cable tension constraints
+-wrench feasibility
+-basic tension optimisation
+-Newton's second law
+-rotational Newton–Euler equation
+-mass and rotational inertia
+-net wrench and platform acceleration
+-cable forces and moments in dynamics
+-basic relationship between cable tension and platform acceleration
 
-The following topics still need to be learned:
--rigid-body dynamics
--Newton–Euler equations
--mass and inertia
--cable forces in dynamic motion
--dynamic equations of a planar cable robot
--cable acceleration
--\(\dot J\)
--relationship between cable tension and platform acceleration
--dynamic simulation in MATLAB
--CASPR dynamics verification
--workspace
--trajectory planning
--control
--cable interference / coupling
--flexible-body modelling
--deformable-object state estimation
--shape reconstruction
+Remaining Dynamics Topics
+complete planar rigid-body dynamic model
+detailed matrix formulation of the dynamic model
+cable velocity and cable acceleration
+time-varying Jacobian
+J_dot
+relationship between platform acceleration and cable acceleration
+dynamic simulation in MATLAB
+CASPR dynamics verification
+
+Future Motion Planning and Control Topics
+workspace
+trajectory planning
+control
+cable interference / coupling
+tension-aware control
+
+Future Cable-Based Measurement Topics
+cable displacement sensing
+cable tension sensing
+state estimation
+flexible-body modelling
+deformable-object kinematics
+deformable-object dynamics
+position estimation
+shape reconstruction
+experimental validation
 
 ---
 
