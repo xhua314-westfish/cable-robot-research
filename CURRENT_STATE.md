@@ -418,6 +418,68 @@ This does not necessarily mean that the platform is stationary. The platform may
 
 ---
 
+## Lesson 3.1 Newton–Euler Dynamics 
+Status: Completed
+
+─ Newton's second law 
+─ Rotational Newton–Euler equation 
+─ Translational acceleration 
+─ Angular acceleration 
+─ Mass 
+─ Rotational inertia 
+─ Mass matrix 
+─ Net wrench and platform acceleration
+
+For the planar rigid body: 
+q = [x, y, theta]^T 
+q_ddot = [x_ddot, y_ddot, theta_ddot]^T 
+Newton–Euler equations: 
+Sigma Fx = m*x_ddot 
+Sigma Fy = m*y_ddot 
+Sigma tau_z = I_z*theta_ddot 
+Mass matrix: M = diag(m, m, I_z) 
+Therefore: w_net = M*q_ddot
+
+---
+
+## Lesson 3.3 Cable Forces and Moments in Dynamics 
+Status: Completed
+
+─ Cable tension 
+─ Cable force 
+─ Cable moment 
+─ Cable wrench 
+─ Total wrench from multiple cables 
+─ External wrench 
+─ Net wrench 
+─ Cable coupling between x, y and theta 
+─ Relationship between structure matrix and dynamics 
+─ Relationship between Jacobian and structure matrix
+
+For an individual cable: F_i = T_i*u_i 
+Cable moment: tau_i = r_i x F_i 
+For a planar system: tau_i = r_x*F_y - r_y*F_x 
+Cable wrench: w_i = [F_xi, F_yi, tau_i]^T 
+For multiple cables: w_c = A*T 
+Net wrench: w_net = A*T + w_ext 
+Planar rigid-body dynamics: A*T + w_ext = M*q_ddot 
+Relationship with the Jacobian: A = -J^T 
+Therefore: -J^T*T + w_ext = M*q_ddot 
+Important conceptual chain: 
+Cable tension → Cable force → Cable moment → Cable wrench → A*T → Net wrench → M*q_ddot → Platform acceleration 
+Important distinction: 
+q = [x, y, theta]^T → platform pose 
+w = [Fx, Fy, tau_z]^T → force and moment acting on platform 
+q_ddot = [x_ddot, y_ddot, theta_ddot]^T → platform acceleration
+
+---
+
+## Lesson 3.4 Planar Rigid-Body Dynamic Model [Next]
+Status: 
+
+
+---
+
 ## 4. Current CASPR Model
 
 Status: Basic planar model understood
