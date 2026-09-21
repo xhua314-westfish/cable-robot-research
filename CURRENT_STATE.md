@@ -982,9 +982,11 @@ The completed route
         ↓ 
     Statics √
         ↓ 
-    Dynamics (current)
+    Dynamics √
+        ↓ 
+    CASPR Dynamics Verification ← CURRENT NEXT STEP
         ↓
-    Workspace
+    Workspace 
         ↓
     Trajectory planning
         ↓
