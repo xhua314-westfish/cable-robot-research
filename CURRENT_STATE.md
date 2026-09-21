@@ -1001,3 +1001,74 @@ The completed route
     experimental validation
 
 ---
+
+## 9. Overall Research Learning Chain
+
+The completed learning foundation is:
+Cable Geometry
+↓
+Cable Length
+↓
+Cable Direction
+↓
+Platform Rotation
+↓
+Cable Velocity
+↓
+Jacobian
+↓
+Structure Matrix
+↓
+Statics
+↓
+Cable Tension
+↓
+Cable Wrench
+↓
+Dynamics
+↓
+Platform Acceleration
+↓
+Platform Motion
+↓
+Changing Cable Geometry
+↓
+Cable Velocity / Acceleration
+↓
+CASPR Verification
+↓
+Workspace
+↓
+Trajectory Planning
+↓
+Control
+↓
+Cable Coupling
+↓
+Cable-based Measurement
+↓
+Flexible / Deformable Object
+↓
+State Estimation
+↓
+Shape Reconstruction
+↓
+Experimental Validation
+
+The long-term research transition remains:
+
+Rigid-body cable robot
+↓
+Cable-driven measurement system
+↓
+Flexible / deformable object
+↓
+Cable measurements
+↓
+Mathematical model
+↓
+State estimation
+↓
+Position and shape reconstruction
+   
+---
