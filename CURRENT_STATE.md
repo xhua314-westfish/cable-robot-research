@@ -1005,16 +1005,16 @@ The completed route
 ## 9. Overall Research Learning Chain
 
 The completed learning foundation is:
-Cable Geometry
-↓
-Cable Length
-↓
-Cable Direction
-↓
-Platform Rotation
-↓
-Cable Velocity
-↓
+        Cable Geometry
+        ↓
+        Cable Length
+        ↓
+        Cable Direction
+        ↓
+        Platform Rotation
+        ↓
+        Cable Velocity
+        ↓
 Jacobian
 ↓
 Structure Matrix
