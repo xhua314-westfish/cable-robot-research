@@ -499,32 +499,104 @@ A numerical example was implemented in MATLAB to calculate acceleration from the
 
 ---
 
-## Lesson 3.4 Planar Rigid-Body Dynamic Model 
+## Lesson 3.5 Cable Velocity and Acceleration
 Status: Completed
-The previous translational 2-DOF dynamic model was extended to a complete 3-DOF planar rigid-body model.
-Current state:
-q = [x, y, theta]
-q_dot = [x_dot, y_dot, theta_dot]
-q_ddot = [....]
-M = [m 0 0; 0 m 0; 0 0 Iz]
+Topics understood and implemented:
+- cable velocity
+- cable acceleration
+- time-varying Jacobian
+- numerical J_dot
+- relationship between q_dot and L_dot
+- relationship between q_ddot and L_ddot
+- product rule
+- numerical verificatio
 
-complete dynamic equation:
-AT + W_ext = M * q_ddot 
+J is 3 x 4, rows correspond to x, y, theta; 
+columns correspond to cable1, ..., cable4
 
-the model now includes:
-─ x and y translation
-─ platfrom rotation
-─ Cable force 
-─ Cable moments 
-─ couple translational and rotational dynaimcs
+cable velocity: L_dot = J^T * q_dot
+cable accerelation : L_ddot = J^T * q_ddot + J_dot^T * q_dot
+The two acceleration terms have different physical meanings.
+first term: J^T * q_ddot means Cable acceleration caused directly by platform acceleration.
+second term: J_dot^T * q_dot means Additional cable acceleration caused by the changing cable geometry while the platform is moving.
 
-A numerical example was implemented in MATLAB to calculate acceleration from the new wrench
+The time-varying Jacobian was implemented numerically as:
+J_dot = (J_k - J_(k-1)) / dt
+
+Important matrix dimensions:
+J: 3 x 4
+J_dot: 3 x 4
+J^T: 4 x 3
+q_dot: 3 x 1
+q_ddot: 3 x 1
+L_dot: 4 x 1
+L_ddot: 4 x 1
+The dimensions have been checked and understood in MATLAB.
+
+---
+
+## Lesson 3.6 MATLAB Dynamics Simulation
+Status: Completed
+A complete MATLAB simulation has been implemented for a 4-cable, 3-DOF planar rigid-body platform.
+
+The simulation includes:
+- platform mass m
+- platform rotational inertia I_z
+- mass matrix M
+- cable wrench
+- external wrench
+- net wrench
+- platform acceleration
+- platform velocity integration
+- platform position integration
+- platform rotation
+- rotating attachment points
+- cable vectors
+- cable lengths
+- cable unit directions
+- 3 x 4 cable Jacobian
+- time-varying Jacobian
+- cable velocity
+- cable acceleration
+- numerical cable velocity verification
+- numerical cable acceleration verification
+- platform position plots
+- platform velocity plots
+- cable length plots
+- cable velocity plots
+- analytical vs numerical comparison
+
+current geometry
+fixed anchor A = [-2 2 2 -2; 3 3 -1 -1]
+local platform attachment point r = [-0.5 0.5 0.5 -0.5; 0.5 0.5 -0.5 -0.5]
+World-frame attachment points: B = p + R(theta)r
+P is platform center
+
+the current forward kinematic relationship is:
+q → P and theta → B → D → L → u → J → L_dot → L_ddot 
+
+the current dynamic relationship is 
+cable wrench + external wrench → net wrench → q_ddot → q_dot → changing cable geometry → L → J → L_dot → L_ddot
+
+Numerical differentiation is used as a verification method.
+Small differences between analytical and numerical results are expected because of finite time-step differentiation, especially at the first time step.
+
+L is stored as a 4 x 1 column vector.
+D is 2 x 4.
+u is 2 x 4.
+J is 3 x 4.
+J_dot is 3 x 4.
+J^T is 4 x 3.
+
+This dimension convention is now understood and should remain consistent in future MATLAB work.
+The 3-DOF MATLAB model is currently a forward dynamic/kinematic model.
+Cable tensions are presently represented through a specified cable wrench rather than a complete tension-control law.
 
 ---
 
 ## 4. Current CASPR Model
 
-Status: Basic planar model understood
+Status: Basic planar model understood; dynamics verification is next.
 
 Current model:
 
@@ -535,47 +607,97 @@ Platform attachment points defined in local coordinates
 Cable anchor points defined in world coordinates
 
 CASPR has been used mainly to understand:
-
-model structure
-coordinate systems
-cable geometry
-platform motion
-trajectory configuration
+- model structure
+- coordinate systems
+- cable geometry
+- platform motion
+- trajectory configuration
 
 CASPR is currently used mainly as a simulation and verification platform rather than the primary learning tool.
+The next CASPR task is to build or modify the dynamic planar model so that it can be compared with the independent MATLAB 3-DOF model.
+
+The main comparison should use consistent:
+- geometry
+- platform mass
+- rotational inertia
+- initial position
+- initial velocity
+- cable configuration
+- external wrench
+- cable wrench / tension conditions
+- simulation time step where applicable
+
+The purpose is not only to obtain similar plots, but to understand how the CASPR dynamic model represents:
+- platform dynamics
+- cable forces
+- cable motion
+- coordinate systems
+- trajectories
+- numerical integration
+
 ---
 
 ## 5. Current MATLAB Practice
 
-A MATLAB simulation has been independently implemented to:
+The MATLAB implementation currently covers:
+Kinematics：
+- cable geometry
+- cable length
+- cable direction
+- platform rotation
+- local-to-world attachment point transformation
+- cable velocity
+- cable Jacobian
+- analytical and numerical Jacobian verification
 
-- calculate cable geometry
-- calculate cable length
-- calculate cable velocity
-- calculate the cable Jacobian
-- verify the analytical Jacobian using numerical differentiation
-- calculate the structure matrix
-- solve static cable tension distributions
-- apply tension constraints
-- use MATLAB linprog for tension optimisation
+Statics：
+- structure matrix A
+- external wrench
+- cable tension
+- static equilibrium
+- tension constraints
+- tension distribution
+- linprog tension optimisation
 
-The next MATLAB step is to develop a basic rigid-body dynamic model.
+Dynamics：
+- planar rigid-body dynamics
+- 3-DOF state q = [x,y,theta]
+- mass matrix
+- cable wrench
+- external wrench
+- net wrench
+- platform acceleration
+- numerical integration
+- rotating attachment points
+- time-varying Jacobian
+- J_dot
+- cable velocity
+- cable acceleration
+- numerical verification
+- analytical vs numerical cable motion comparison
+
+The current MATLAB forward-model chain is:
+cable wrench + external wrench → platform dynamics → q_ddot → q_dot → q → rotating attachment points → cable geometry
+→ cable length → jacobian → cable velocity → cable acceleration 
+
 ---
 
 ## 6. Current Understanding
 
-I currently understand the basic kinematic, static, and introductory dynamic relationships of a planar rigid-body cable robot.
-Kinematics: 
-q → P → d → L → u → J → L_dot
+I now understand the basic kinematic, static, and dynamic relationships of a planar rigid-body cable robot.
+q → P → B → d → L → u → J → L_dot
+
 where:
 q = platform pose 
 p = cable attachment point position
+B = world-frame cable attachment point
 d = cable vetor
 L = cable length
 u = cable unit direction
 J = cable jacobian
 L_dot = cable velocity
-The Jacobian describes how platform motion changes cable length.
+With platform rotation:
+B_i = P + R(theta) r_i
 
 Statics:
 J→ A = −JT → AT + w_ext​ = 0 → T
@@ -596,6 +718,8 @@ T_min ≤ T_i ≤ T_max
 Dynamics:
 the current understanding is:
 T → cable force → cable moment → cable wrench → net wrench → platform acceleration
+→ platform velocity → platform position and orientaion → changing cable geometry → cable velocity → cable acceleration
+
 For a planar rigid body:
 q = [x, y, theta]^T
 q_ddot = [x_ddot, y_ddot, theta_ddot]^T
@@ -607,20 +731,34 @@ Using Newton–Euler dynamics:
 AT + w_ext = M q_ddot
 where:
 M = diag(m, m, I_z)
-This establishes the connection:
-Kinematics
-↓
-Jacobian
-↓
-Statics
-↓
-Dynamics
+The cable motion is then related to platform motion through the Jacobian:
+L_dot = J^T q_dot
+L_ddot = J^T q_ddot + J_dot^T q_dot
 
-The main remaining gap is to develop the complete planar rigid-body dynamic model and connect platform dynamics back to cable velocity and cable acceleration.
+Important Physical Understanding:
+A cable can pull but cannot push.
+A cable's tension produces both force and, depending on its attachment geometry, a moment.
+Changing platform position or orientation changes cable geometry.
+Changing cable geometry changes the Jacobian.
+Changing the Jacobian changes the relationship between platform motion and cable motion.
+Therefore, cable motion is not simply determined by platform velocity. The changing geometry also affects cable acceleration through J_dot.
+This is important for the future sensing problem because cable measurements contain information about platform motion and changing geometry.
+
+current model boundary:
+The current model is still a rigid-body model.
+The platform is assumed to have:
+fixed mass
+fixed rotational inertia
+rigid geometry
+three planar DOF
+
+The deformable balloon problem has not yet been introduced into the mathematical model.
+The current purpose is to establish a reliable rigid-body cable-robot foundation before moving toward flexible/deformable-body sensing.
 
 ---
 
 ## 7. Current Knowledge Gaps
+
 Completed Foundations
 The following topics have been studied and understood at the current beginner learning level:
 -cable geometry
@@ -645,35 +783,53 @@ The following topics have been studied and understood at the current beginner le
 -mass and rotational inertia
 -net wrench and platform acceleration
 -cable forces and moments in dynamics
--basic relationship between cable tension and platform acceleration
+-3-DOF planar rigid-body dynamic model
+-rotating attachment-point geometry
+-time-varying Jacobian
+-J_dot
+-cable velocity in the 3-DOF model
+-cable acceleration in the 3-DOF model
+-MATLAB dynamic simulation
+-numerical verification of cable velocity and acceleration
 
-Remaining Dynamics Topics
-complete planar rigid-body dynamic model
-detailed matrix formulation of the dynamic model
-cable velocity and cable acceleration
-time-varying Jacobian
-J_dot
-relationship between platform acceleration and cable acceleration
-dynamic simulation in MATLAB
+Immediate Remaining Dynamics Topic
 CASPR dynamics verification
-
-Future Motion Planning and Control Topics
-workspace
-trajectory planning
-control
-cable interference / coupling
-tension-aware control
-
-Future Cable-Based Measurement Topics
-cable displacement sensing
-cable tension sensing
-state estimation
-flexible-body modelling
-deformable-object kinematics
-deformable-object dynamics
-position estimation
-shape reconstruction
-experimental validation
+The goal is to compare the independent MATLAB 3-DOF model with CASPR.
+The comparison should investigate:
+- platform position
+- platform velocity
+- platform acceleration
+- platform orientation
+- cable lengths
+- cable velocities
+- cable-related dynamic behaviour
+- coordinate/sign conventions
+- model parameters
+- initial conditions
+- cable definitions
+- attachment/anchor geometry
+- trajectory definitions
+- numerical integration
+- tension/wrench implementation
+- 
+Future Motion Planning and Control Topics:
+- workspace
+- trajectory planning
+- control
+- cable interference / coupling
+- tension-aware control
+  
+Future Cable-Based Measurement Topics:
+- cable displacement sensing
+- cable tension sensing
+- state estimation
+- flexible-body modelling
+- deformable-object kinematics
+- deformable-object dynamics
+- position estimation
+- orientation estimation
+- shape reconstruction
+- experimental validation
 
 ---
 
@@ -751,7 +907,7 @@ Lesson 3 — Dynamics
     3.3 Cable forces and moments in dynamics  (completed)     
     Cable tension 如何进入 Newton–Euler 方程？
     
-    3.4 Planar Rigid-Body Dynamic Model  (next)  
+    3.4 Planar Rigid-Body Dynamic Model  (completed)  
     把前面的东西组合起来
     ─ Combine the previous concepts into one complete model 
     ─ Four-cable planar rigid-body system 
@@ -760,7 +916,7 @@ Lesson 3 — Dynamics
     ─ Numerical dynamic example 
     ─ Physical interpretation of each term
     
-    3.5 Cable velocity and acceleration
+    3.5 Cable velocity and acceleration (completed)  
     再连接回之前的Kinematics
     ─ Cable velocity 
     ─ Cable acceleration 
@@ -769,7 +925,7 @@ Lesson 3 — Dynamics
     ─ Time-varying Jacobian 
     ─ J_dot ─ Relationship between platform dynamics and cable motion
     
-    3.6 Matlab dynamics simulation
+    3.6 Matlab dynamics simulation (completed)  
     让公式真正跑起来
     ─ Build the planar dynamic model 
     ─ Calculate platform acceleration 
@@ -779,13 +935,23 @@ Lesson 3 — Dynamics
     ─ Calculate cable velocity and acceleration 
     ─ Plot platform and cable states
     
-    3.7 CASPR Dynamics verification
+    3.7 CASPR Dynamics verification [Next]
     用 CASPR 验证 MATLAB 模型
     ─ Build / modify the dynamic CASPR model 
-    ─ Compare CASPR with independent MATLAB results 
-    ─ Check platform motion 
-    ─ Check cable motion 
-    ─ Interpret differences between the two models
+    ─ Match MATLAB and CASPR geometry 
+    ─ Match mass and rotational inertia 
+    ─ Match initial conditions 
+    ─ Match cable configuration 
+    ─ Match external wrench / cable wrench conditions 
+    ─ Run CASPR simulation
+    ─ Compare platform position 
+    ─ Compare platform velocity 
+    ─ Compare platform acceleration 
+    ─ Compare platform orientation 
+    ─ Compare cable length 
+    ─ Compare cable velocity 
+    ─ Investigate differences 
+    ─ Understand CASPR dynamic model structure
     
 Lesson 4 — Workspace
 Topics to be defined after completing dynamics.
