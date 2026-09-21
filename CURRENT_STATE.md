@@ -4,24 +4,31 @@ Last updated: 2026-09-22
 
 ## 1. Research Direction
 
-My research focuses on developing a cable-robot-based measurement system and sensing system for a deformable balloon-like object.
+My research focuses on developing a cable-robot-based measurement system and sensing system for a passive deformable balloon-like object.
 
 The long-term goal is:
+Use a cable robot system to measure the position and shape of a deformable balloon by using the motion of the balloon to drive cable motion, and infer the balloon state from cable measurements.
 
-> Use a cable robot system to measure the position and shape of a deformable balloon by using the motion of the balloon to drive cable motion, and infer the balloon state from cable measurements.
+The key research question is:
+Can the motion, displacement, and/or tension of cables be measured and used to reconstruct the position and shape of a passively moving deformable balloon?
 
-The research involves a transition from:
+The conceptual research pipeline is:
 
-Rigid-body cable robot
-
+  Passive balloon motion / deformation
         ↓
-Cable-driven measurement system
-
+  Cable displacement / length / tension changes
         ↓
-Flexible / deformable object
-
+  Cable measurements
         ↓
-Shape and position estimation
+  Mathematical measurement model
+        ↓
+  State estimation
+       ↓
+  Position / orientation estimation
+       ↓
+  Shape reconstruction
+     ↓
+  Experimental validation
 
 ---
 
