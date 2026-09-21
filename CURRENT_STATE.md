@@ -1,6 +1,6 @@
 # Current State
 
-Last updated: 2026-09-10
+Last updated: 2026-09-21
 
 ## 1. Research Direction
 
@@ -420,7 +420,7 @@ This does not necessarily mean that the platform is stationary. The platform may
 
 ---
 
-## Lesson 3.1 Newton–Euler Dynamics 
+## Lesson 3.2 Newton–Euler Dynamics 
 Status: Completed
 
 ─ Newton's second law 
@@ -476,9 +476,49 @@ q_ddot = [x_ddot, y_ddot, theta_ddot]^T → platform acceleration
 
 ---
 
-## Lesson 3.4 Planar Rigid-Body Dynamic Model [Next]
-Status: 
+## Lesson 3.4 Planar Rigid-Body Dynamic Model 
+Status: Completed
+The previous translational 2-DOF dynamic model was extended to a complete 3-DOF planar rigid-body model.
+Current state:
+q = [x, y, theta]
+q_dot = [x_dot, y_dot, theta_dot]
+q_ddot = [....]
+M = [m 0 0; 0 m 0; 0 0 Iz]
 
+complete dynamic equation:
+AT + W_ext = M * q_ddot 
+
+the model now includes:
+─ x and y translation
+─ platfrom rotation
+─ Cable force 
+─ Cable moments 
+─ couple translational and rotational dynaimcs
+
+A numerical example was implemented in MATLAB to calculate acceleration from the new wrench
+
+---
+
+## Lesson 3.4 Planar Rigid-Body Dynamic Model 
+Status: Completed
+The previous translational 2-DOF dynamic model was extended to a complete 3-DOF planar rigid-body model.
+Current state:
+q = [x, y, theta]
+q_dot = [x_dot, y_dot, theta_dot]
+q_ddot = [....]
+M = [m 0 0; 0 m 0; 0 0 Iz]
+
+complete dynamic equation:
+AT + W_ext = M * q_ddot 
+
+the model now includes:
+─ x and y translation
+─ platfrom rotation
+─ Cable force 
+─ Cable moments 
+─ couple translational and rotational dynaimcs
+
+A numerical example was implemented in MATLAB to calculate acceleration from the new wrench
 
 ---
 
