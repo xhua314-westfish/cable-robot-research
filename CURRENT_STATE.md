@@ -1,6 +1,6 @@
 # Current State
 
-Last updated: 2026-09-21
+Last updated: 2026-09-22
 
 ## 1. Research Direction
 
@@ -594,17 +594,60 @@ Cable tensions are presently represented through a specified cable wrench rather
 
 ---
 
+## Lesson 3.7 CASPR Dynamics Verification
+Status: Partially Completed / Closed for Current Phase
+The original goal was to compare the independent MATLAB 3-DOF model with CASPR.
+The CASPR model was inspected using:
+bodies.xml
+cables.xml
+operational_spaces.xml
+trajectories.xml
+trajectories_example.traj
+
+verified CASPR geometry
+anchor position: [0 1 1 0; 0 0 1 1]
+platform attachment points: r = [-0.125 0.125 0.125 -0.125; 0 0 0 0]
+initial q = [0.5 0.5 0]
+verified B matrix, mass, inertial, and jacobian
+
+important CASPR limitation:
+The current CASPR files do not provide a direct cable-tension input corresponding to the MATLAB test
+The cables.xml file specifies cable geometry and force limits, but does not provide the same fixed tension input used by the MATLAB model.
+The trajectories.xml file specifies platform trajectories rather than the same tension-driven dynamics used in the MATLAB model.
+
+The CASPR model and MATLAB model currently have different input/output logic:
+matlab: T → w_c → w_net → q_ddot → q_dot → q 
+CASPR: q(t) → q_dot → q_ddot 
+
+trajectories_example.traj contains actual CASPR trajectory output with:
+time, platform position, platform orientation, platform velocity, platform acceleration, simulation time step
+The data can be used for future kinematic comparison
+
+Therefore, CASPR has successfully been used to verify:
+basic model structure, geometry, coordinate interpretation, initial conditions, mass
+rotational inertia, cable attachment geometry, Jacobian geometry
+However, exact tension-driven dynamic equivalence is not currently required.
+
+The purpose of CASPR is therefore:
+Use CASPR where it provides meaningful verification, but do not allow differences in CASPR model structure to delay the main learning and research progression.
+
+
+---
+
 ## 4. Current CASPR Model
 
 Status: Basic planar model understood; dynamics verification is next.
 
 Current model:
 
-Planar XY cable robot
-4 cables
-Platform DOF: q=[x,y,θ]
-Platform attachment points defined in local coordinates
-Cable anchor points defined in world coordinates
+- Planar XY cable robot
+- 4 cables
+- Platform DOF: q=[x,y,θ]
+- Platform attachment points defined in local coordinates
+- Cable anchor points defined in world coordinates
+- Platform mass and inertia defined in bodies.xml
+- Cable geometry defined in cables.xml
+- Trajectories defined in trajectories.xml
 
 CASPR has been used mainly to understand:
 - model structure
@@ -612,9 +655,11 @@ CASPR has been used mainly to understand:
 - cable geometry
 - platform motion
 - trajectory configuration
+- basic dynamic model structure
 
-CASPR is currently used mainly as a simulation and verification platform rather than the primary learning tool.
-The next CASPR task is to build or modify the dynamic planar model so that it can be compared with the independent MATLAB 3-DOF model.
+CASPR is currently a secondary simulation/verification platform rather than the primary learning tool.
+The current CASPR verification phase is considered sufficiently complete for the available model.
+Future CASPR work can be performed when a research question specifically requires it.
 
 The main comparison should use consistent:
 - geometry
@@ -677,7 +722,7 @@ Dynamics：
 - analytical vs numerical cable motion comparison
 
 The current MATLAB forward-model chain is:
-cable wrench + external wrench → platform dynamics → q_ddot → q_dot → q → rotating attachment points → cable geometry
+cable wrench + external wrench → platform dynamics → q_ddot → q_dot → q → rotating attachment points (B) → cable geometry (D)
 → cable length → jacobian → cable velocity → cable acceleration 
 
 ---
@@ -791,6 +836,10 @@ The following topics have been studied and understood at the current beginner le
 -cable acceleration in the 3-DOF model
 -MATLAB dynamic simulation
 -numerical verification of cable velocity and acceleration
+-CASPR planar model structure
+-CASPR geometry verification
+-CASPR mass/inertia verification
+-partial CASPR trajectory verification
 
 Immediate Remaining Dynamics Topic
 CASPR dynamics verification
@@ -935,7 +984,7 @@ Lesson 3 — Dynamics
     ─ Calculate cable velocity and acceleration 
     ─ Plot platform and cable states
     
-    3.7 CASPR Dynamics verification [Next]
+    3.7 CASPR Dynamics verification [partially completed and sufficiently closed for the current phase]
     用 CASPR 验证 MATLAB 模型
     ─ Build / modify the dynamic CASPR model 
     ─ Match MATLAB and CASPR geometry 
@@ -984,9 +1033,9 @@ The completed route
         ↓ 
     Dynamics √
         ↓ 
-    CASPR Dynamics Verification ← CURRENT NEXT STEP
-        ↓
-    Workspace 
+    CASPR Dynamics Verification √
+        ↓ 
+    Workspace ← CURRENT NEXT STEP
         ↓
     Trajectory planning
         ↓
