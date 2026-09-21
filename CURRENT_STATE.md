@@ -27,7 +27,7 @@ The conceptual research pipeline is:
     Position / orientation estimation
        ↓
     Shape reconstruction
-     ↓
+       ↓
     Experimental validation
 
 ---
