@@ -14,21 +14,21 @@ Can the motion, displacement, and/or tension of cables be measured and used to r
 
 The conceptual research pipeline is:
 
-  Passive balloon motion / deformation
+    Passive balloon motion / deformation
         ↓
-  Cable displacement / length / tension changes
+    Cable displacement / length / tension changes
         ↓
-  Cable measurements
+    Cable measurements
         ↓
-  Mathematical measurement model
+    Mathematical measurement model
         ↓
-  State estimation
+    State estimation
        ↓
-  Position / orientation estimation
+    Position / orientation estimation
        ↓
-  Shape reconstruction
+    Shape reconstruction
      ↓
-  Experimental validation
+    Experimental validation
 
 ---
 
