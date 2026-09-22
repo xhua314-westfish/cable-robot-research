@@ -1255,10 +1255,7 @@ State estimation
 Start with:
 
 $$
-\hat q
-=
-\arg\min_q
-\|L_{measured}-f(q)\|^2
+\hat q = \arg\min_q \|L_{measured}-f(q)\|^2
 $$
 
 Study:
