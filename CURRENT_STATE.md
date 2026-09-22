@@ -1045,6 +1045,16 @@ check constraints
  ↓
 plot feasible workspace
 ```
+current parameters:
+geometry
+A = [-2 2 2 -2; 3 3 -1 -1]
+r = [-0.5 0.5 0.5 -0.5; 0.5 0.5 -0.5 -0.5]
+theta = 0
+
+grid example
+x = -4 : 0.1 : 4
+y = -4 : 0.1 : 4
+
 Important understanding:
 - reducing $L_{max}$ removes regions that are too far from one or more anchors.
 - Increasing $L_{min}$ removes regions where one or more cables become too short.
