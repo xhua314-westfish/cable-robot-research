@@ -1024,6 +1024,8 @@ Status: **Completed**
 
 ### 4.1 Geometric Workspace
 
+Status: completed 
+
 Study:
 
 * where the platform can physically move
@@ -1043,8 +1045,14 @@ check constraints
  ↓
 plot feasible workspace
 ```
+Important understanding:
+- reducing $L_{max}$ removes regions that are too far from one or more anchors.
+- Increasing $L_{min}$ removes regions where one or more cables become too short.
+- Geometric feasibility does NOT guarantee static equilibrium or valid cable tension.       
 
 ### 4.2 Tension / Wrench Feasible Workspace
+
+Status: Next
 
 Connect workspace with previous statics knowledge:
 
