@@ -1703,7 +1703,7 @@ The new research-oriented chain is:
 ```text
 MATLAB / CASPR Verification
           ↓
-       Workspace
+       Workspace                        [current stage]
           ↓
    Forward Kinematics
           ↓
