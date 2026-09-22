@@ -597,9 +597,7 @@ $$
 The cable acceleration is:
 
 $$
-\ddot L
-=
-J^T\ddot q+\dot J^T\dot q
+\ddot L = J^T\ddot q+\dot J^T\dot q
 $$
 
 where:
