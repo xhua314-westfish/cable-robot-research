@@ -1065,13 +1065,13 @@ Important understanding:
 Status: completed
 
 Study:
-tension feasibility
-wrench feasibility
-cable tension constraints
-static equilibrium inside workspace
-geometric vs tension feasibility
-feasibility using linprog
-workspace comparison
+-tension feasibility
+-wrench feasibility
+-cable tension constraints
+-static equilibrium inside workspace
+-geometric vs tension feasibility
+-feasibility using linprog
+-workspace comparison
 
 Key relationship:
             WT ∈ WG
@@ -1096,6 +1096,15 @@ Sensitivity
 $$
 
 This prepares for later observability analysis.
+
+Workspace
+    ↓
+Where can the platform physically exist?
+
+Sensing Quality
+    ↓
+How useful are the cable measurements
+for determining the platform state?
 
 ---
 
@@ -1799,10 +1808,10 @@ Lesson 4.1
 Geometric Workspace                        [comepleted]
         ↓
 Lesson 4.2
-Tension / Wrench Feasible Workspace
+Tension / Wrench Feasible Workspace        [comepleted]
         ↓
 Lesson 4.3
-Workspace and Sensing Quality
+Workspace and Sensing Quality              [next]
         ↓
 Lesson 5
 Forward Kinematics
@@ -1849,18 +1858,21 @@ Statics
 Dynamics
 MATLAB simulation
 CASPR basic verification
+Geometric workspace
+Tension-feasible workspace
 ```
 
 ### Current
 
 ```text
-Workspace
+Workspace and sensing quality
 ```
 
 ### Next
 
 ```text
-Forward / Inverse Kinematics
+Forward Kinematics
+Inverse Kinematics
 Cable-based Sensing
 Observability
 State Estimation
