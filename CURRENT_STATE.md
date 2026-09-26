@@ -1,6 +1,6 @@
 # Current State
 
-Last updated: 2026-09-22
+Last updated: 2026-09-26
 
 ---
 
@@ -1062,9 +1062,9 @@ Important understanding:
 
 ### 4.2 Tension / Wrench Feasible Workspace
 
-Status: Next
+Status: completed
 
-Connect workspace with previous statics knowledge:
+The purpose of Lesson 4.2 was to extend the concept of geometric workspace by considering whether the cable tensions can physically generate the required external wrench.
 
 $$
 AT=-w_{ext}
