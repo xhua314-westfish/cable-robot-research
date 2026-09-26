@@ -1065,6 +1065,7 @@ Important understanding:
 Status: completed
 
 Study:
+
 -tension feasibility
 -wrench feasibility
 -cable tension constraints
