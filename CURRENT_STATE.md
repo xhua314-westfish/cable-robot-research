@@ -1064,26 +1064,24 @@ Important understanding:
 
 Status: completed
 
-The purpose of Lesson 4.2 was to extend the concept of geometric workspace by considering whether the cable tensions can physically generate the required external wrench.
-
-$$
-AT=-w_{ext}
-$$
-
-subject to:
-
-$$
-T_{min}\leq T\leq T_{max}
-$$
-
 Study:
+tension feasibility
+wrench feasibility
+cable tension constraints
+static equilibrium inside workspace
+geometric vs tension feasibility
+feasibility using linprog
+workspace comparison
 
-* tension feasibility
-* wrench feasibility
-* cable engagement
-* slack avoidance
+Key relationship:
+            WT ∈ WG
+
+
 
 ### 4.3 Workspace and Sensing Quality
+
+Status: next
+
 
 Introduce the idea that not every geometrically feasible position is equally useful for sensing.
 
