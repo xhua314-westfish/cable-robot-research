@@ -1290,38 +1290,40 @@ This does not mean that $\theta = 30^\circ$ is globally the "best" configuration
 Lesson 4.3 introduces the intuition that:
 
 Some motion directions can be strongly measured, while others can be weak or locally ambiguous.
-
 However, formal treatment of:
 
-rank
-null-space theory
-pseudoinverse
-observability
-identifiability
-uniqueness of state reconstruction
-nonlinear observability
+Formal mathematical treatment of:
+* Rank
+* Null-space theory
+* Pseudoinverse
+* Observability
+* Identifiability
+* Uniqueness of state reconstruction
+* Nonlinear observability
 
 is intentionally postponed.
 
-These topics belong to the later Observability / Identifiability lesson.
+These topics belong to the later **Observability / Identifiability lesson**.
 
 The main research learning chain remains:
 
-Workspace
-↓
-Forward Kinematics
-↓
-Inverse Kinematics
-↓
-Cable-based Sensing
-↓
-Measurement Noise / Uncertainty
-↓
-Observability / Identifiability
-↓
-State Estimation
+$$\begin{matrix}
+\mathbf{Workspace} \\
+\downarrow \\
+\mathbf{Forward\ Kinematics} \\
+\downarrow \\
+\mathbf{Inverse\ Kinematics} \\
+\downarrow \\
+\mathbf{Cable\text{-}based\ Sensing} \\
+\downarrow \\
+\mathbf{Measurement\ Noise\ /\ Uncertainty} \\
+\downarrow \\
+\mathbf{Observability\ /\ Identifiability} \\
+\downarrow \\
+\mathbf{State\ Estimation}
+\end{matrix}$$
 
-Lesson 4.3 is therefore a bridge from physical feasibility to sensing quality, rather than a replacement for the later sensing and observability lessons.
+Lesson 4.3 is therefore a bridge from **physical feasibility** to **sensing quality**, rather than a replacement for the later sensing and observability lessons.
 
 ---
 
