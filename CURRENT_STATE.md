@@ -1101,6 +1101,228 @@ $$\boxed{ \Delta L=J_m\Delta q }$$
 
 This is a local linearized measurement model, not yet the full nonlinear forward kinematics model.
 
+### 4.3A — From Workspace to Sensing
+
+The workspace analysis determines whether a configuration is feasible.
+The sensing analysis additionally asks how platform motion appears in cable measurements.
+
+Therefore:
+
+$$\text{Configuration} \rightarrow \text{Jacobian } J \rightarrow \text{Cable measurement response} \rightarrow \text{Sensing quality}$$
+
+
+### 4.3B — Measurement Pattern
+
+The columns of:
+
+$$J_m = J^T$$
+
+represent the cable measurement patterns associated with:
+* $x$ translation
+* $y$ translation
+* rotation $\theta$
+
+Define:
+
+$$s_x = J(1,:)^T$$
+
+$$s_y = J(2,:)^T$$
+
+$$s_\theta = J(3,:)^T$$
+
+Therefore:
+
+$$\Delta L = J_m \Delta q = s_x \Delta x + s_y \Delta y + s_\theta \Delta \theta$$
+
+This provides the physical interpretation of how each platform DOF changes the four cable measurements.
+
+
+### 4.3C — Measurement Similarity
+
+Cosine similarity was introduced to compare measurement-pattern directions:
+
+$$C_{ab} = \frac{s_a^T s_b}{\|s_a\| \|s_b\|}$$
+
+Important interpretation:
+* $C = 1 \rightarrow$ same measurement direction
+* $C = 0 \rightarrow$ orthogonal measurement directions
+* $C = -1 \rightarrow$ opposite measurement direction
+
+Similarity describes measurement-pattern direction, not measurement magnitude.
+
+At:
+
+$$q = [0, 0, 0]^T$$
+
+the verified result was:
+
+$$C_{x\theta} = 1$$
+
+and:
+
+$$\boxed{ s_\theta = \frac{1}{3} s_x }$$
+
+Therefore, $x$ translation and rotation produce parallel local cable measurement patterns at this configuration.
+
+
+### 4.3D — Sensitivity
+
+Sensitivity was defined as:
+
+$$S_x = \|s_x\|$$
+
+$$S_y = \|s_y\|$$
+
+$$S_\theta = \|s_\theta\|$$
+
+with:
+
+$$\|\Delta L_i\| = \|s_i\| |\Delta q_i|$$
+
+Physical meaning:
+* Sensitivity measures how strongly a particular motion changes the cable measurements.
+
+Important unit warning:
+* $S_x, S_y$: $\text{m/m}$
+* $S_\theta$: $\text{m/rad}$
+
+Therefore, the raw numerical values of translational and rotational sensitivity should not be directly compared without appropriate normalization.
+
+
+### 4.3E — Overall Measurement Conditioning
+
+Because real platform motion can contain simultaneous $x$, $y$, and $\theta$ motion, individual sensitivities are not sufficient.
+
+The full local measurement relation is:
+
+$$\Delta L = J_m \Delta q$$
+
+SVD was introduced:
+
+$$J_m = U \Sigma V^T$$
+
+with singular values:
+
+$$\sigma_1 \ge \sigma_2 \ge \sigma_3$$
+
+The smallest singular value:
+
+$$\boxed{ \sigma_{\min} = \sigma_3 }$$
+
+indicates the weakest local measurement direction.
+
+Condition number:
+
+$$\boxed{ \kappa = \frac{\sigma_{\max}}{\sigma_{\min}} }$$
+
+A very small $\sigma_{\min}$ indicates that some motion combination produces very little cable-length change.
+
+Formal mathematical treatment of SVD, rank, null space, observability, and identifiability is reserved for Lesson 9.
+
+
+### 4.3F — Weak / Null Measurement Direction
+
+The minimum right singular vector:
+
+$$v_{\min}$$
+
+represents the platform motion combination associated with the weakest measurement response.
+
+At:
+
+$$\theta = 0^\circ$$
+
+the verified MATLAB result was:
+
+$$v_{\min} = \begin{bmatrix} -0.3162 \\ 0 \\ 0.9487 \end{bmatrix}$$
+
+and:
+
+$$\|v_{\min}\| = 1$$
+
+The corresponding measurement was:
+
+$$J_m v_{\min} \approx 0$$
+
+with the numerical MATLAB residual:
+
+$$\|J_m v_{\min}\| \approx 1.47 \times 10^{-16}$$
+
+which is numerical floating-point error; theoretically, the local first-order response is zero.
+
+Physical interpretation:
+* At this configuration, there is a particular combination of $x$ translation and rotation that produces almost no first-order cable-length change.
+
+This connects directly to the earlier result:
+
+$$C_{x\theta} = 1$$
+
+and:
+
+$$s_\theta = \frac{1}{3} s_x$$
+
+The SVD does not create this weak direction. It identifies the motion combination systematically.
+
+
+### 4.3G — Configuration Dependence
+
+The sensing characteristics change with configuration.
+Verified results showed that as $\theta$ moves away from:
+
+$$\theta = 0^\circ$$
+
+the $x$-rotation measurement-pattern similarity decreases and the smallest singular value increases.
+
+For example:
+* **$\theta = 0^\circ$**:
+  * $C_{x\theta} = 1$
+  * $\sigma_{\min} \approx 0$
+* **$\theta = 30^\circ$**:
+  * $C_{x\theta} = 0.379$
+  * $\sigma_{\min} = 0.7158$
+
+Therefore, the sensing characteristics of the cable system are configuration-dependent.
+
+This does not mean that $\theta = 30^\circ$ is globally the "best" configuration. It only shows that, for the current model and tested configurations, the local measurement system is less degenerate at $30^\circ$ than at $0^\circ$.
+
+###  — Important Boundary of Lesson 4.3
+
+Lesson 4.3 introduces the intuition that:
+
+Some motion directions can be strongly measured, while others can be weak or locally ambiguous.
+
+However, formal treatment of:
+
+rank
+null-space theory
+pseudoinverse
+observability
+identifiability
+uniqueness of state reconstruction
+nonlinear observability
+
+is intentionally postponed.
+
+These topics belong to the later Observability / Identifiability lesson.
+
+The main research learning chain remains:
+
+Workspace
+↓
+Forward Kinematics
+↓
+Inverse Kinematics
+↓
+Cable-based Sensing
+↓
+Measurement Noise / Uncertainty
+↓
+Observability / Identifiability
+↓
+State Estimation
+
+Lesson 4.3 is therefore a bridge from physical feasibility to sensing quality, rather than a replacement for the later sensing and observability lessons.
+
 ---
 
 # Phase 3 — Forward and Inverse Kinematics
