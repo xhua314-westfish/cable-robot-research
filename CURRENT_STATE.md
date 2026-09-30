@@ -1329,9 +1329,7 @@ Lesson 4.3 is therefore a bridge from **physical feasibility** to **sensing qual
 
 # Phase 3 — Forward and Inverse Kinematics
 
-## Lesson 5 — Forward Kinematics
-
-(current)
+## Lesson 5 — Forward Kinematics (current)
 
 Formalise the model:
 
