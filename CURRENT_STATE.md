@@ -1,6 +1,6 @@
 # Current State
 
-Last updated: 2026-09-26
+Last updated: 2026-09-30
 
 ---
 
@@ -1081,31 +1081,37 @@ Key relationship:
 
 ### 4.3 Workspace and Sensing Quality
 
-Status: next
+Status: completed conceptually; Matlab experiments completed.
 
+The key local measurement model is:
 
-Introduce the idea that not every geometrically feasible position is equally useful for sensing.
+[
+\boxed{
+\Delta L = J^T\Delta q
+}
+]
 
-Connect:
+Define:
 
-$$
-Workspace
-\rightarrow
-Jacobian
-\rightarrow
-Sensitivity
-$$
+[
+J_m=J^T
+]
 
-This prepares for later observability analysis.
+so:
 
-Workspace
-    ↓
-Where can the platform physically exist?
+[
+J_m\in\mathbb{R}^{4\times3}
+]
 
-Sensing Quality
-    ↓
-How useful are the cable measurements
-for determining the platform state?
+and:
+
+[
+\boxed{
+\Delta L=J_m\Delta q
+}
+]
+
+This is a local linearized measurement model, not yet the full nonlinear forward kinematics model.
 
 ---
 
