@@ -1084,7 +1084,6 @@ Key relationship:
 Status: completed conceptually; Matlab experiments completed.
 
 The key local measurement model is:
-
 [
 \boxed{
 \Delta L = J^T\Delta q
@@ -1092,19 +1091,16 @@ The key local measurement model is:
 ]
 
 Define:
-
 [
 J_m=J^T
 ]
 
 so:
-
 [
 J_m\in\mathbb{R}^{4\times3}
 ]
 
 and:
-
 [
 \boxed{
 \Delta L=J_m\Delta q
