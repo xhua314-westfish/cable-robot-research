@@ -1084,28 +1084,19 @@ Key relationship:
 Status: completed conceptually; Matlab experiments completed.
 
 The key local measurement model is:
-[
-\boxed{
-\Delta L = J^T\Delta q
-}
-]
+$$\boxed{ \Delta L = J^T\Delta q }$$
 
 Define:
-[
-J_m=J^T
-]
+
+$$J_m=J^T$$
 
 so:
-[
-J_m\in\mathbb{R}^{4\times3}
-]
+
+$$J_m \in \mathbb{R}^{4 \times 3}$$
 
 and:
-[
-\boxed{
-\Delta L=J_m\Delta q
-}
-]
+
+$$\boxed{ \Delta L=J_m\Delta q }$$
 
 This is a local linearized measurement model, not yet the full nonlinear forward kinematics model.
 
