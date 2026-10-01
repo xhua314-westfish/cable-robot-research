@@ -868,6 +868,17 @@ The following topics have been studied at the current beginner learning level:
 * trajectory representation
 * partial dynamics verification
 
+### Forward Kinematics
+
+* nonlinear forward kinematic model
+* complete relationship \(L=f(q)\)
+* cable-length calculation from platform state
+* forward-model MATLAB implementation
+* Jacobian as the derivative of the forward model
+* local Taylor approximation
+* nonlinear vs linearized cable-length change
+* approximation-error analysis
+* second-order error behaviour
 ---
 
 # 21. Major Remaining Knowledge Gaps
@@ -878,10 +889,6 @@ The remaining learning gaps are now divided into two branches.
 
 ### Configuration and sensing
 
-* workspace
-* geometric workspace
-* tension-feasible workspace
-* forward kinematics
 * inverse kinematics
 * cable displacement sensing
 * measurement model
