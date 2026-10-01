@@ -1329,36 +1329,40 @@ Lesson 4.3 is therefore a bridge from **physical feasibility** to **sensing qual
 
 # Phase 3 — Forward and Inverse Kinematics
 
-## Lesson 5 — Forward Kinematics (current)
+## Lesson 5 — Forward Kinematics 
 
-Formalise the model:
+**Status:** Completed
 
-$$
-L=f(q)
-$$
+- [x] 5.1 Nonlinear Forward Model
+- [x] 5.2 MATLAB Forward Kinematics
+- [x] 5.3 Forward Model vs Jacobian
+- [x] 5.4 Linearisation Error
 
-where:
+---
 
-$$
-q=[x,y,\theta]^T
-$$
-
-and:
+### Core model:
 
 $$
-L=
-[L_1,L_2,L_3,L_4]^T
+\boxed{L = f(q)}
 $$
 
-The goal is to clearly distinguish:
+### Current local relationship:
 
-```text
-Forward problem:
+$$
+\boxed{\Delta L \approx -J^T \Delta q}
+$$
 
-q → L
-```
+### Verified nonlinear approximation behaviour:
 
-from the future sensing problem.
+$$
+\boxed{e \propto |\Delta q|^2}
+$$
+
+with measured log-log slope:
+
+$$
+\boxed{2}
+$$
 
 ---
 
