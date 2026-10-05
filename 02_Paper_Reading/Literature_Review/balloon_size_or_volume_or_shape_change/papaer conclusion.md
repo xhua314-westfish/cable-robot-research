@@ -13,4 +13,17 @@ Adjustable intragastric balloon for treatment of obesity: a multicentre, open-la
 APA:
 Dayyeh, B. K. A., Maselli, D. B., Rapaka, B., Lavin, T., Noar, M., Hussan, H., ... & Thompson, C. C. (2021). Adjustable intragastric balloon for treatment of obesity: a multicentre, open-label, randomised clinical trial. The Lancet, 398(10315), 1965-1973.
 
-paper2 
+---
+
+paper2
+
+The Efficacy and Safety of Adjustable Intragastric Balloon for Weight Loss: A Systematic Review and Meta-Analysis
+
+结论： 从 5,000 例大样本证明了这种“变大/变小”的需求是普遍存在的（34.2% 需要调大，9.2% 需要调小）
+
+与我research的连接：
+
+未解决的临床空白（Research Gap —— 你的切入点）：现有的所有临床文献，都只是在关注“事后、人工内镜干预性地调大/调小”。
+没有任何现有研究能实时回答：水球在胃里时，体积/形状（Volume / Shape / Deflation）到底发生了怎样的动态变化？ 
+医生只能等到患者剧烈呕吐（不耐受）或者体重完全不降了（平台期），才凭经验去调节。   
+这种“缺乏实时体积/状态监测（Volume monitoring / Deflation detection）”的现状，就是你的课题/设备（如监测传感器、自动化控制或机器人干预）需要填补的关键空白！
