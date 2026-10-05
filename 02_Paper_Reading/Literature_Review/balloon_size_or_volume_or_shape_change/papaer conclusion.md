@@ -27,3 +27,30 @@ The Efficacy and Safety of Adjustable Intragastric Balloon for Weight Loss: A Sy
 没有任何现有研究能实时回答：水球在胃里时，体积/形状（Volume / Shape / Deflation）到底发生了怎样的动态变化？ 
 医生只能等到患者剧烈呕吐（不耐受）或者体重完全不降了（平台期），才凭经验去调节。   
 这种“缺乏实时体积/状态监测（Volume monitoring / Deflation detection）”的现状，就是你的课题/设备（如监测传感器、自动化控制或机器人干预）需要填补的关键空白！
+
+---
+
+paper3 
+
+Randomized Prospective Clinical Study of Spatz3® Adjustabl Intragastric Balloon Treatment with a Control Group: a Large-Scale Brazilian Experiment
+
+结论：这篇文章虽然没有提出新的“监测机制”，但它用数据探明了人体胃腔对水球容积的物理极限（Upper Limit of Gastric Tolerance）。也就是说，600 mL 加上后续调整的 250 mL（达到 850 mL），基本就是人类胃部在不发生严重并发症的前提下能承受的物理体积上限。
+
+---
+
+目前这三篇对我研究课题的贡献：
+
+三个硬核的临床工程参数（Engineering & Clinical Specifications）：
+
+工作容积区间（Operating Volume Range）：300 mL – 850 mL
+
+任何胃水球或监控/调节系统，其设计的物理容积变化区间必须覆盖 300 mL 至 850 mL。小于 300 mL 失去占位减重效果，大于 850 mL 极易引发胃壁缺血坏死或穿孔。
+
+黄金调整增量（Optimal Step Size）：100 mL – 250 mL
+
+临床上打破平台期或缓解排异，并非随意微调几毫升，而是以 100–250 mL 为单位进行阶梯式调整。这为你的体积监测精度（Accuracy）或传感分辨率提供了明确指标（如：传感器至少要能精准识别 50–100 mL 量级的动态变化）。
+
+“600 + 250 mL” 的极限警示：
+
+巴西试验表明，850 mL 是目前临床安全的上限。如果水球在胃内因气体发酵或异常膨胀（Hyperinflation）超过这个体积，或者泄气导致体积骤降，就是必须触发警报的危险临界点。
+
