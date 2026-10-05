@@ -28,6 +28,9 @@ The Efficacy and Safety of Adjustable Intragastric Balloon for Weight Loss: A Sy
 医生只能等到患者剧烈呕吐（不耐受）或者体重完全不降了（平台期），才凭经验去调节。   
 这种“缺乏实时体积/状态监测（Volume monitoring / Deflation detection）”的现状，就是你的课题/设备（如监测传感器、自动化控制或机器人干预）需要填补的关键空白！
 
+APA:
+Xia, C., Wang, Y., Sun, G., Lei, W., & Liang, D. (2025). The efficacy and safety of adjustable intragastric balloon for weight loss: A systematic review and meta-analysis. Obesity Facts, 18(4), 415-428.
+
 ---
 
 paper3 
@@ -35,6 +38,9 @@ paper3
 Randomized Prospective Clinical Study of Spatz3® Adjustabl Intragastric Balloon Treatment with a Control Group: a Large-Scale Brazilian Experiment
 
 结论：这篇文章虽然没有提出新的“监测机制”，但它用数据探明了人体胃腔对水球容积的物理极限（Upper Limit of Gastric Tolerance）。也就是说，600 mL 加上后续调整的 250 mL（达到 850 mL），基本就是人类胃部在不发生严重并发症的前提下能承受的物理体积上限。
+
+APA:
+Fittipaldi-Fernandez, R. J., Zotarelli-Filho, I. J., Diestel, C. F., Klein, M. R. S. T., de Santana, M. F., de Lima, J. H. F., ... & Dos Santos, N. T. (2021). Randomized prospective clinical study of Spatz3® adjustable intragastric balloon treatment with a control group: a large-scale Brazilian experiment. Obesity Surgery, 31(2), 787-796.
 
 ---
 
