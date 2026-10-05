@@ -129,6 +129,10 @@ DOI:10.1055/a-1146-3545
 
 paper5
 
+Spontaneous Intragastric Balloon Hyperinflation: Two Cases and Outcomes
+DOI:https://doi.org/10.1007/s11695-024-07332-z
+
+
 
 
 00
