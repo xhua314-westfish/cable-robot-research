@@ -71,6 +71,8 @@ Fittipaldi-Fernandez, R. J., Zotarelli-Filho, I. J., Diestel, C. F., Klein, M. R
 
 <img width="1629" height="939" alt="image" src="https://github.com/user-attachments/assets/176b8350-e0dc-48e8-9ab2-4e45553645f1" />
 
+<img width="1554" height="1029" alt="image" src="https://github.com/user-attachments/assets/d1148ed3-03fa-4fa4-9389-066dd16ff1a5" />
+
 
 ---
 
