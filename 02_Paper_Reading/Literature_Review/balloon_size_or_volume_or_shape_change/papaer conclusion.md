@@ -60,14 +60,14 @@ Fittipaldi-Fernandez, R. J., Zotarelli-Filho, I. J., Diestel, C. F., Klein, M. R
 
 黄金调整增量（Optimal Step Size）：100 mL – 250 mL
 
----
-
-第二类证据
-balloon size/ deformation
-
 临床上打破平台期或缓解排异，并非随意微调几毫升，而是以 100–250 mL 为单位进行阶梯式调整。这为你的体积监测精度（Accuracy）或传感分辨率提供了明确指标（如：传感器至少要能精准识别 50–100 mL 量级的动态变化）。
 
 “600 + 250 mL” 的极限警示：
 
 巴西试验表明，850 mL 是目前临床安全的上限。如果水球在胃内因气体发酵或异常膨胀（Hyperinflation）超过这个体积，或者泄气导致体积骤降，就是必须触发警报的危险临界点。
+
+---
+
+第二类证据
+balloon size/ deformation
 
