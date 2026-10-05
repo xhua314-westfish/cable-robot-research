@@ -1,6 +1,7 @@
 2026/10/05
 
 paper1: 
+
 Adjustable intragastric balloon for treatment of obesity: a multicentre, open-label, randomised clinical trial
 
 1. 概念提出：容积可调（Volume Adjustability）的双向临床价值论文观点：水球容积“变大”用于增强减重疗效，“变小”用于改善早期耐受性。   你的判断：完全命中。这直接指出了固定容积（不可变大变小）水球在临床上的天然局限。
