@@ -74,9 +74,9 @@ paper4
 Spontaneous hyperinflation of intragastric balloon: What caused it?
 DOI: 10.1055/a-1146-3545
 
-## 第一部分：参数提取、推导与胃空间估算
+第一部分：参数提取、推导与胃空间估算
 
-### 1. 气球参数与形变变化范围
+1. 气球参数与形变变化范围
 
 根据图片截取的临床数据： `PNG + 2`
 
