@@ -74,21 +74,25 @@ paper4
 Spontaneous hyperinflation of intragastric balloon: What caused it?
 DOI: 10.1055/a-1146-3545
 
-第一部分：参数提取、推导与胃空间估算
+## 第一部分：参数提取、推导与胃空间估算
 
-1.气球参数与形变变化范围根据图片截取的临床数据：
-患者基本信息：
-42 岁女性，体重 $76\text{ kg}$，$\text{BMI} = 31\text{ kg/m}^2$。
+### 1. 气球参数与形变变化范围
 
-初始水球参数（Orbera 型水球）：
-初始充盈量 $V_0 = 650\text{ mL}$
-假设初始为标准球体：$V_0 = \frac{4}{3}\pi r_0^3 \implies r_0 \approx 5.37\text{ cm}$
+根据图片截取的临床数据： `PNG + 2`
 
-超膨胀后水球参数（根据 Supine 位 X 光图推算）：
-测得半径 $r_f = 7\text{ cm}$
-膨胀后体积 $V_f = \frac{4}{3}\pi (7)^3 \approx 1436.75\text{ mL} \approx 1437\text{ mL}$
-
-形变与尺寸变化量化：体积膨胀率：$\frac{1437}{650} \approx 2.21$ 倍（体积增加了 $787\text{ mL}$，即膨胀了 121%）。   半径扩展：从 $5.37\text{ cm}$ 增加到 $7.0\text{ cm}$（半径线性伸展率约为 30.4%）。
+*   **患者基本信息：** 42 岁女性，体重 76 kg，BMI = 31 kg/m²。 `PNG`
+*   **初始水球参数（Orbera 型水球）：** `PNG`
+    *   初始充盈量 $V_0 = 650 \text{ mL}$
+        `PNG`
+    *   假设初始为标准球体：$V_0 = \frac{4}{3}\pi r_0^3 \implies r_0 \approx 5.37 \text{ cm}$
+*   **超膨胀后水球参数（根据 Supine 位 X 光图推算）：** `PNG + 1`
+    *   测得半径 $r_f = 7 \text{ cm}$
+        `JPG`
+    *   膨胀后体积 $V_f = \frac{4}{3}\pi(7)^3 \approx 1436.75 \text{ mL} \approx 1437 \text{ mL}$
+        `PNG + 1`
+*   **形变与尺寸变化量化：**
+    *   **体积膨胀率：** $\frac{1437}{650} \approx 2.21$ 倍（体积增加了 $787 \text{ mL}$，即膨胀了 121%）。 `PNG`
+    *   **半径扩展：** 从 $5.37 \text{ cm}$ 增加到 $7.0 \text{ cm}$（半径线性伸展率约为 30.4%）。 `JPG`
 
 2.是否可以推算出该患者的胃空间容量？可以推算出其处于极端拉伸状态下的“最大容纳极限胃容量”：
 推导逻辑：
