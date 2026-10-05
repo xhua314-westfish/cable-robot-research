@@ -100,8 +100,7 @@ DOI:10.1055/a-1146-3545
     水球膨胀至 $\approx 1437 \text{ mL}$ 时，内镜显示水球已引发幽门堵塞（Pyloric obstruction）并导致急性胃扩张。此时胃壁平滑肌已被拉伸至极限张力，不再具备正常的容纳缓冲能力。
     
 *   **胃总体积估算：
-
-    胃最大拉伸容积 $V_{\text{stomach\_max}} = V_{\text{balloon}}(\approx 1437 \text{ mL}) + V_{\text{gastric\_fluid/gas}}(\text{残留胃液与...})$
+        $$V_{\text{stomach\_max}} = V_{\text{balloon}} (\approx 1437 \text{ mL}) + V_{\text{gastric\_fluid/gas}} (\text{残留胃液与气体})$$
 
     正常成人在饱腹或胃扩张状态下的气体与胃液存量约为 $100-300 \text{ mL}$
     
@@ -110,7 +109,7 @@ DOI:10.1055/a-1146-3545
 
 第二部分：对您课题（Cable-Robot Sensing System）的提炼价值
 
-结合您的研究架构（*External environment $\rightarrow$ Passive balloon motion/deformation $\rightarrow$ Cable changes $\rightarrow$ State estimation $\rightarrow$ Shape reconstruction*），这篇文章提供了以下关键的科研背景与设计依据：
+结合您的研究架构（External environment → Passive balloon motion/deformation → Cable changes → State estimation → Shape reconstruction），这篇文章提供了以下关键的科研背景与设计依据：
 
 这篇文章提供了以下关键的科研背景与设计依据：
 
