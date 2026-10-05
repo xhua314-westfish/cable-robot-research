@@ -123,7 +123,7 @@ DOI:10.1055/a-1146-3545
 形态/姿态耦合：从 Erect（立位）到 Supine（仰卧位），水球内部的液体受重力流动，导致水球的质心（Center of Mass）、外形扁平度（Deformation）和空间位姿（Orientation）发生剧烈改变。
 课题映射：这完美契合了您课题中将水球视为 “Passive, coupled with deformation under gravity & environment” 的设定。您的绳驱测量系统不仅要测纯几何膨胀，还要能够重构出这种由重力/体位改变引起的非对称形变。
 
-4. 提供了“位置（Position）与形状（Shape）双重重构”的校验指标文中水球的形态变化伴随着空间位置下移（引发幽门堵塞）。   您的状态估计（State estimation）算法不仅要输出 Shape reconstruction（水球变大了多少），还要输出 Position / orientation（水球向胃出口方向滑动了多少），而这篇文章证明了这两者在物理上是高度协同发生的。
+4.提供了“位置（Position）与形状（Shape）双重重构”的校验指标文中水球的形态变化伴随着空间位置下移（引发幽门堵塞）。   您的状态估计（State estimation）算法不仅要输出 Shape reconstruction（水球变大了多少），还要输出 Position / orientation（水球向胃出口方向滑动了多少），而这篇文章证明了这两者在物理上是高度协同发生的。
 
 ---
 
