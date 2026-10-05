@@ -83,7 +83,7 @@ DOI:10.1055/a-1146-3545
 *   **患者基本信息： 42 岁女性，体重 76 kg，BMI = 31 kg/m²。 
 *   **初始水球参数（Orbera 型水球）： 
     *   初始充盈量 $V_0 = 650 \text{ mL}$
-    *   假设初始为标准球体：$V_0 = \frac{4}{3}\pi r_0^3 \implies r_0 \approx 5.37 \text{ cm}$
+    *   假设初始为标准球体：$$V_0 = \frac{4}{3}\pi r_0^3 \Rightarrow r_0 \approx 5.37 \text{ cm}$$
 *   **超膨胀后水球参数（根据 Supine 位 X 光图推算）：
     *   测得半径 $r_f = 7 \text{ cm}$
     *   膨胀后体积 $V_f = \frac{4}{3}\pi(7)^3 \approx 1436.75 \text{ mL} \approx 1437 \text{ mL}$
