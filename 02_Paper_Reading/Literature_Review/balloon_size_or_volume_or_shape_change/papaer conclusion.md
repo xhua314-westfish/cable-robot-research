@@ -71,8 +71,8 @@ Fittipaldi-Fernandez, R. J., Zotarelli-Filho, I. J., Diestel, C. F., Klein, M. R
 
 paper4
 
-Spontaneous hyperinflation of intragastric balloon: What caused it?
-DOI: 10.1055/a-1146-3545
+Spontaneous hyperinflation of intragastric balloon: What caused it? 
+DOI:10.1055/a-1146-3545
 
 第一部分：参数提取、推导与胃空间估算
 
