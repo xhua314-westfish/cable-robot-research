@@ -1,8 +1,12 @@
 2026/10/05
 
+第一类证据
+balloon volume 
+
 paper1: 
 
 Adjustable intragastric balloon for treatment of obesity: a multicentre, open-label, randomised clinical trial
+DOI:https://doi.org/10.1016/S0140-6736(21)02394-1
 
 1. 概念提出：容积可调（Volume Adjustability）的双向临床价值论文观点：水球容积“变大”用于增强减重疗效，“变小”用于改善早期耐受性。   你的判断：完全命中。这直接指出了固定容积（不可变大变小）水球在临床上的天然局限。
 2. 数据证明一：为什么需要“变大”（Upward Volume Adjustment）？解决的临床痛点：传统水球在佩戴 3–4 个月后，胃部逐渐适应，患者会出现减重平台期（Weight loss plateau）。硬核试验数据：在出现平台期后，通过内镜将水球容积调大，帮助患者突破平台期，额外获得了平均 5.2% 的总体重减轻（Total Bodyweight Loss, TBWL）。
@@ -18,6 +22,7 @@ Dayyeh, B. K. A., Maselli, D. B., Rapaka, B., Lavin, T., Noar, M., Hussan, H., .
 paper2
 
 The Efficacy and Safety of Adjustable Intragastric Balloon for Weight Loss: A Systematic Review and Meta-Analysis
+DOI:https://doi.org/10.1159/000542921
 
 结论： 从 5,000 例大样本证明了这种“变大/变小”的需求是普遍存在的（34.2% 需要调大，9.2% 需要调小）
 
@@ -36,6 +41,7 @@ Xia, C., Wang, Y., Sun, G., Lei, W., & Liang, D. (2025). The efficacy and safety
 paper3 
 
 Randomized Prospective Clinical Study of Spatz3® Adjustabl Intragastric Balloon Treatment with a Control Group: a Large-Scale Brazilian Experiment
+DOI:https://doi.org/10.1007/s11695-020-05014-0
 
 结论：这篇文章虽然没有提出新的“监测机制”，但它用数据探明了人体胃腔对水球容积的物理极限（Upper Limit of Gastric Tolerance）。也就是说，600 mL 加上后续调整的 250 mL（达到 850 mL），基本就是人类胃部在不发生严重并发症的前提下能承受的物理体积上限。
 
@@ -53,6 +59,11 @@ Fittipaldi-Fernandez, R. J., Zotarelli-Filho, I. J., Diestel, C. F., Klein, M. R
 任何胃水球或监控/调节系统，其设计的物理容积变化区间必须覆盖 300 mL 至 850 mL。小于 300 mL 失去占位减重效果，大于 850 mL 极易引发胃壁缺血坏死或穿孔。
 
 黄金调整增量（Optimal Step Size）：100 mL – 250 mL
+
+---
+
+第二类证据
+balloon size/ deformation
 
 临床上打破平台期或缓解排异，并非随意微调几毫升，而是以 100–250 mL 为单位进行阶梯式调整。这为你的体积监测精度（Accuracy）或传感分辨率提供了明确指标（如：传感器至少要能精准识别 50–100 mL 量级的动态变化）。
 
