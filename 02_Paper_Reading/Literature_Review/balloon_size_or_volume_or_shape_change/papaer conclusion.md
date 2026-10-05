@@ -73,7 +73,10 @@ Fittipaldi-Fernandez, R. J., Zotarelli-Filho, I. J., Diestel, C. F., Klein, M. R
 
 <img width="1554" height="1029" alt="image" src="https://github.com/user-attachments/assets/d1148ed3-03fa-4fa4-9389-066dd16ff1a5" />
 
+<img width="1323" height="792" alt="image" src="https://github.com/user-attachments/assets/5a167d13-6ef3-4650-8629-3b2d7b7ed788" />
 
+
+00
 ---
 
 第三类证据: Clinical monitoring
