@@ -252,3 +252,34 @@ DOI: https://doi.org/10.1007/s11695-022-05984-3
 APA：Pontecorvi, V., Bove, V., Carlino, G., Matteo, M. V., De Siena, M., Papparella, L. G., ... & Boškoski, I. (2022). Spontaneous intragastric balloon hyperinflation is probably due to microbial overgrowth of the filling liquid. Obesity Surgery, 32(5), 1783-1785.
 
 ---
+
+paper8
+
+Small bowel obstruction secondary to gastric balloon migration: A case report
+DOI: 10.1016/j.ijscr.2022.107607
+
+文章内容：
+
+与我课题的联系:
+
+哪些信息我能用/用于支撑我的哪些观点：
+
+APA:
+
+---
+
+paper9
+
+Small bowel obstruction secondary to gastric balloon migration: A case report
+DOI: 10.1016/j.ijscr.2022.107607
+
+文章内容：
+
+与我课题的联系:
+
+哪些信息我能用/用于支撑我的哪些观点：
+
+APA:
+
+---
+
