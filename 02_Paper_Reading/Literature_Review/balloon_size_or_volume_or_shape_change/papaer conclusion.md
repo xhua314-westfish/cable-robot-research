@@ -163,3 +163,53 @@ DOI:https://doi.org/10.1007/s11695-024-07332-z
 ---
 
 第三类证据: Clinical monitoring
+
+paper6
+
+Adverse Events and Complications with Intragastric Balloons: a Narrative Review (with Video)
+DOI:https://doi.org/10.1007/s11695-021-05352-7
+
+文章内容：
+
+1.并发症分类与表现：系统综述了各类胃内水球（IGB）在临床使用中的主要不良事件（AEs）和并发症，重点包括水球泄气/漏液（Deflation）、位置迁移/移位（Migration）、过度膨胀（Hyperinflation）以及引发的胃溃疡和穿孔等。
+
+2.现行临床诊断与监测手段：归纳了目前临床用于识别水球异常的方法：
+化学指示剂法：在水球充盈液中加入美蓝（Methylene Blue），若水球破裂泄气，美蓝渗漏被人体吸收后使尿液变蓝/变绿。
+体外无创影像学：腹部 X 光平片、CT 扫描（用于确定水球的大致位置和是否有解剖结构梗阻）。
+侵入性内镜检查：通过胃镜直接观察胃内水球的表面状态和完整性。
+
+3.诊断的临床局限性：指出了当前临床监测手段缺乏实时性与连续性。许多微小的泄气或早期移位无法被实时察觉，往往要等水球移位至肠道引发梗阻、出现剧烈临床症状，或者在例行的侵入性胃镜检查时才被发现。
+
+与我研究方向的联系
+
+为你提供最核心的“临床痛点与动机（Clinical Motivation）”：
+你的研究旨在开发一套针对“类胃部复杂环境中被动变形水球”的测量与感知系统。这篇文章详细揭示了胃内水球在真实临床应用中的核心痛点——缺乏实时连续的位姿与形变感知能力。这为你系统的存在价值提供了强有力的真实应用背景支持。
+
+物理假设与建模逻辑的高度吻合：
+在你的研究框架中，水球的运动被定义为“被动的（passive）、预先未知的（unknown in advance）、不规则的（irregular）且与形变耦合的（coupled with deformation）”。文章中阐述的水球在胃内受胃蠕动、胃酸和食物挤压下的运动特性，完美印证了你对目标物理对象做出的这些假设。
+
+补足现行监测方案的空白：
+文献中指出的“依赖尿液变色（延迟大）或胃镜复查（侵入性强）”的局限，正好对应了你所提出的“基于绳拉力/位移变化的无创/微创实时连续测量与状态估计（Real-time measurement and state estimation）”的技术路线。
+
+文章有哪些信息我能用
+
+信息 1：现有临床检测手段（美蓝显色、X 光、胃镜）的滞后性与侵入性数据及论述。
+
+用来支持的观点：在论文的【Introduction / Research Background】中支持“研究必要性与动机（Research Motivation）”。
+写作用途：你可以引用此文指出：“尽管胃内水球被广泛应用，但临床上缺乏对水球物理状态的实时连续监测手段。现有的美蓝显色法存在明显的响应延迟，而 X 光和胃镜属于定期的离线检查，难以捕获水球的早期动态改变。因此，开发一种能够实时估计水球状态的传感与测量系统具有重要临床意义。”
+
+信息 2：胃内水球在胃部生理环境下受复杂外力作用导致形变、位移和泄气的过程机制。
+
+用来支持的观点：在论文的【Problem Formulation / System Design】中支持“为什么目标变量要设定为位姿与形变耦合（Position/Orientation/Deformation）”。   写作用途：你可以引用此文证明：胃内水球的失效并非单一的几何位置改变，而是位置迁移（Migration）与结构形变/体积缩小（Deflation）交织的过程。因此，感知系统的输出不能仅仅是质点位置追踪，必须实现位姿估计与形状重构（State estimation, position/orientation/deformation, and shape reconstruction）的联合估计
+
+信息 3：水球在胃内运动完全由外部环境驱动、不可主动控制的生理事实。
+
+用来支持的观点：在论文的【System Architecture】中支持“为什么设计为‘测量与感知系统’而非‘轨迹控制系统’”。   写作用途：你可以引用此文强调：“由于胃内复杂生理环境施加的力是不可预知的，水球的运动本质上是被动且不规则的。因此，系统的研发重点应当是高精度的被动状态测量与隐式形变重构（Measurement and sensing / State estimation），而非尝试对水球进行主动轨迹控制。”   
+
+APA: Ribeiro, I. B., Kotinda, A. P. S. T., Sánchez-Luna, S. A., de Moura, D. T. H., Mancini, F. C., de Souza, T. F., ... & de Moura, E. G. H. (2021). Adverse events and complications with intragastric balloons: a narrative review (with video). Obesity Surgery, 31(6), 2743-2752.
+
+---
+
+paper7 
+
+---
