@@ -220,9 +220,34 @@ DOI: https://doi.org/10.1007/s11695-022-05984-3
 
 文章内容：
 
+水球在胃内放置一段时间后，体积会无预警地大幅度增大。通过对急诊收治的 SIBH 患者水球充盈液进行无菌抽样和微生物培养，证实“过充气”是因为置入过程中水球内部液体被真菌（如 Candida）或细菌污染。这些微生物在水球内部代谢产生气体，导致水球内形成气液混合，压力升高，体积剧烈膨胀。
+
+
 与我课题的联系：
 
+补齐了感知系统针对“体积/形状变化（Shape Reconstruction / Size Change）”的物理边界
+
+在你的研究框架中，目标物体被定义为“被动变形的类水球物体（Passive deformable balloon-like object）”。水球在胃内的状态异常不仅有“萎缩/泄气（Deflation）”和“位置迁移（Migration）”，还包含这种“自发性体积膨胀/几何尺寸剧增（Hyperinflation）”。这篇文章证明了“体积膨胀”也是胃内水球一种真实的物理变化模态。
+
+力学响应与绳张力变化的理论关联：
+当水球在类胃部的有限空间（Stomach-like environment）内发生膨胀时，它与胃壁（或环境边界）的接触面积和挤压力会显著增加。这会导致作用在测量绳索上的拉力（Cable tension）和位移（Cable displacement）发生强烈漂移。这为你验证系统对“体积/形变变化（Deformation / Shape reconstruction）”的敏感度提供了现实物理场景。
+
+凸显“实时无创传感器”对“离线 X 光”的替代优势：
+文中患者都是在水球膨胀到引发胃梗阻、出现严重症状后，才去医院做 X 光查出过充气。这再次证明现有的 X 光影像检测存在严重的滞后性，而你研发的绳驱动感知系统若能实时估计体积/位姿变化，就能实现早期预警。
+
 哪些信息我能用/用于支撑我的哪些观点：
+
+信息 1：水球在胃内因内部气液变化会导致体积自发性膨胀（SIBH）以及显著的几何形变。
+用来支持的观点：在【Problem Formulation / Introduction】中支持“受测对象（Deformable Object）形变模态的多样性”。
+写作用途：你可以引用此文指出：“胃内水球在复杂胃部生理环境中的状态变化不仅表现为由于外力引起的被动位移或渗漏萎缩，还包括由于内部气液混合引发的自发性体积膨胀与形变（Hyperinflation/Deformation）。因此，感知系统不仅需要估计物体的刚体位姿（Position/Orientation），还必须具备对物体三维几何形状/体积变化（Shape reconstruction）的动态重构能力。
+
+信息 2：临床对水球异常膨胀的诊断高度依赖腹部立位 X 光片（Plain abdominal X-ray）对气液平与几何轮廓的影像辨识。
+用来支持的观点：在【Related Work】中作为“传统临床影像学监控局限性”的佐证。
+写作用途：你可以引用此文说明：“当前临床对于水球几何尺寸变化的检测，主要依赖腹部 X 光平片（Plain X-ray）。这种方法属于离线、非连续且带有电离辐射的静态检查，往往只能在患者产生严重临床梗阻症状后才被采用。这凸显了开发基于绳驱动感知技术（Cable-robot-based sensing）的实时、连续、无辐射状态估计系统的必要性与临床价值。” 
+
+信息 3：过充气水球在受限胃部空间内的物理体积增大，引发了与周边环境剧烈的接触与阻碍。
+用来支持的观点：在【System & Sensing Model】中解释“外部环境作用力与绳索张力/位移变化的耦合关系（Coupled with deformation）”
+写作用途：你可以引用此文论证：“在类胃部受限环境中，水球体积的剧烈膨胀会显著改变其与环境的力学相互作用（Contact/Boundary interactions）。这种体积和受力状态的变化会直接传递并表征为绳索位移（Displacement）与张力（Tension）的改变，从而验证了通过测量绳索物理参数漂移来反演水球复杂形变与状态的可行性。
 
 APA：Pontecorvi, V., Bove, V., Carlino, G., Matteo, M. V., De Siena, M., Papparella, L. G., ... & Boškoski, I. (2022). Spontaneous intragastric balloon hyperinflation is probably due to microbial overgrowth of the filling liquid. Obesity Surgery, 32(5), 1783-1785.
 
