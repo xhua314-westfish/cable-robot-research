@@ -215,4 +215,15 @@ APA: Ribeiro, I. B., Kotinda, A. P. S. T., Sánchez-Luna, S. A., de Moura, D. T.
 
 paper7 
 
+Spontaneous Intragastric Balloon Hyperinflation Is Probably Due to Microbial Overgrowth of the Filling Liquid
+DOI: https://doi.org/10.1007/s11695-022-05984-3
+
+文章内容：
+
+与我课题的联系：
+
+哪些信息我能用/用于支撑我的哪些观点：
+
+APA：Pontecorvi, V., Bove, V., Carlino, G., Matteo, M. V., De Siena, M., Papparella, L. G., ... & Boškoski, I. (2022). Spontaneous intragastric balloon hyperinflation is probably due to microbial overgrowth of the filling liquid. Obesity Surgery, 32(5), 1783-1785.
+
 ---
