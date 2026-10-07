@@ -2,6 +2,13 @@
 
 evidence research A
 current clinical follow-up monitoring protocol
+
+核心问题:
+How frequently is an intragastric balloon clinically monitored, and how are changes in balloon state such as deflation, migration and hyperinflation detected?
+
+进一步问题：
+Can clinically important balloon-state changes occur between routine follow-up visits?
+
 ---
 
 paper1
@@ -68,4 +75,24 @@ APA:Basile, P., Marre, C., & Le Mouel, J. P. (2020). Gastric obstruction seconda
 
 conclusion:
 <img width="1134" height="654" alt="image" src="https://github.com/user-attachments/assets/3a5ce0c9-560e-462e-b552-f74765ae46ac" />
+
+---
+
+paper4
+
+现在临床上到底应该怎么 follow-up？
+AGA Clinical Practice Guidelines on Intragastric Balloons in the Management of Obesity
+DOI:https://doi.org/10.1053/j.gastro.2021.03.003
+
+***2021***
+
+文章内容：
+
+与我课题的联系：
+
+哪些信息我能用/用于支撑我的哪些观点：
+
+APA:Muniraj, T., Day, L. W., Teigen, L. M., Ho, E. Y., Sultan, S., Davitkov, P., ... & Murad, M. H. (2021). AGA clinical practice guidelines on intragastric balloons in the management of obesity. Gastroenterology, 160(5), 1799-1808.
+
+---
 
