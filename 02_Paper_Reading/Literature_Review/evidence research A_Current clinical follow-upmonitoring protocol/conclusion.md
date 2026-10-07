@@ -38,6 +38,8 @@ DOI：https://doi.org/10.1016/j.clinre.2011.06.002
 1.观察和回访方式 每月的X光是必要的
 2. 气球的牌子 heliosphere
 3. 带有颜色的液体填充剂也是必要的 
+4. 监控migration的必要性
+5. deflation之后通过就是migration
 
 
 APA:Moszkowicz, D., & Lefevre, J. H. (2012). Deflated intragastric balloon-induced small bowel obstruction. Clinics and Research in Hepatology and Gastroenterology, 36(1), e17-e19.
