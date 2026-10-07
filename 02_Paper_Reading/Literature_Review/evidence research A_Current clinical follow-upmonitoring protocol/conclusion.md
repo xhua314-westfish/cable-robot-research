@@ -4,6 +4,7 @@ current clinical follow-up monitoring protocol
 ---
 
 paper1
+
 Intragastric Balloon for Overweight Patients
 DOI:https://doi.org/10.4293/JSLS.2015.00107
 
@@ -23,3 +24,16 @@ APA:Fernandes Jr, F. A. M., Carvalho, G. L., Lima, D. L., Rao, P., Shadduck, P. 
 
 paper2
 
+Deflated intragastric balloon-induced small bowel obstruction
+DOI：https://doi.org/10.1016/j.clinre.2011.06.002
+
+***2011年发表***
+
+主要内容：
+
+与我课题的联系：
+
+哪些信息我能用/用于支撑我的哪些观点：
+
+
+APA:Moszkowicz, D., & Lefevre, J. H. (2012). Deflated intragastric balloon-induced small bowel obstruction. Clinics and Research in Hepatology and Gastroenterology, 36(1), e17-e19.
