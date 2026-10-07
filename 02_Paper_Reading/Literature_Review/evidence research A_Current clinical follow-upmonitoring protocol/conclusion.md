@@ -63,3 +63,9 @@ Doi:https://doi.org/10.1016/j.cgh.2018.09.045
 3.植入气球两个月后 腹痛、胃食管反流和呕吐的逐渐出现 然后72小时后加剧 照X光才发现 → 佐证了检测体积变化的必要性
 
 APA:Basile, P., Marre, C., & Le Mouel, J. P. (2020). Gastric obstruction secondary to an unexplained hyperinflation of an intragastric balloon. Clinical Gastroenterology and Hepatology, 18(2), A16.
+
+---
+
+conclusion:
+<img width="1134" height="654" alt="image" src="https://github.com/user-attachments/assets/3a5ce0c9-560e-462e-b552-f74765ae46ac" />
+
