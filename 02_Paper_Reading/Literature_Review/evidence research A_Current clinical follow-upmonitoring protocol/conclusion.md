@@ -31,6 +31,7 @@ DOI：https://doi.org/10.1016/j.clinre.2011.06.002
 ***2011年发表***
 
 主要内容：
+主要是一个rare case 因为这个病人过了六个月还没有取出来 所以气球泄气了 然后移动到了大肠附近 
 
 与我课题的联系：
 
@@ -43,3 +44,22 @@ DOI：https://doi.org/10.1016/j.clinre.2011.06.002
 
 
 APA:Moszkowicz, D., & Lefevre, J. H. (2012). Deflated intragastric balloon-induced small bowel obstruction. Clinics and Research in Hepatology and Gastroenterology, 36(1), e17-e19.
+
+---
+
+paper3 
+Gastric Obstruction Secondary to an Unexplained Hyperinflation of an Intragastric Balloon
+Doi:https://doi.org/10.1016/j.cgh.2018.09.045
+
+***2020年发表***
+
+主要内容：
+
+与我课题的联系：
+
+哪些信息我能用/用于支撑我的哪些观点：
+1.产品牌子 Orbera 
+2.标准体积 700ml 变化到800ml 再到1513ml
+3.植入气球两个月后 腹痛、胃食管反流和呕吐的逐渐出现 然后72小时后加剧 照X光才发现 → 佐证了检测体积变化的必要性
+
+APA:Basile, P., Marre, C., & Le Mouel, J. P. (2020). Gastric obstruction secondary to an unexplained hyperinflation of an intragastric balloon. Clinical Gastroenterology and Hepatology, 18(2), A16.
