@@ -162,6 +162,11 @@ DOI:https://doi.org/10.1007/s11695-024-07332-z
 水球受胃壁物理约束，非自由空间均匀膨胀。
 体外试验需引入柔性约束腔（Constrained Environment），测试水球在受压形变下的绳拉力与位移响应。
 
+哪些信息我能用 / 用于支撑哪些观点：
+1.Balloon geometry/volume can change unexpectedly.
+2.Hyperinflation is a documented IGB complication.
+3.Balloon state change can lead to clinically important consequences.
+
 ---
 
 第三类证据: Clinical monitoring
