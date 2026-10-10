@@ -172,3 +172,9 @@ APA:Mohamed, I., Koyi, J., Abu Suilik, H., Abosheiashaa, H., Jaber, F., Hamaad R
 
 ---
 
+这几篇文章总结：
+<img width="1365" height="633" alt="image" src="https://github.com/user-attachments/assets/20082a4a-d6d1-4e16-ba80-287b21000217" />
+
+---
+
+
