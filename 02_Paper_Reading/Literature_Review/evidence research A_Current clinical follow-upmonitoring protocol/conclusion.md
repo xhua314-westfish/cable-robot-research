@@ -177,4 +177,19 @@ APA:Mohamed, I., Koyi, J., Abu Suilik, H., Abosheiashaa, H., Jaber, F., Hamaad R
 
 ---
 
+paper7
+
+A Multidisciplinary Intragastric Balloon Care Pathway for Weight Management in a Tertiary Malaysian Centre: Clinical Practice Framework
+DOI:https://doi.org/10.2147/JMDH.S590735
+
+主要内容是什么：
+
+与我课题的联系是什么：
+
+有哪些信息我能用/用于支撑我的哪些观点：
+
+APA:Gill, T., Loo, G. H., Muthkumaran, G., & Kosai, N. R. (2026). A Multidisciplinary Intragastric Balloon Care Pathway for Weight Management in a Tertiary Malaysian Centre: Clinical Practice Framework. Journal of Multidisciplinary Healthcare, 590735.
+
+---
+
 
