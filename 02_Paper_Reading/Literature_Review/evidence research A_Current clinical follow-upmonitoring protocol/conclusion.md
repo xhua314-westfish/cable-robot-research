@@ -86,13 +86,56 @@ DOI:https://doi.org/10.1053/j.gastro.2021.03.003
 
 ***2021***
 
-文章内容：
+文章内容：这篇文章是美国胃肠病学会（AGA）于 2021 年发布的官方临床实践指南（AGA Clinical Practice Guidelines on Intragastric Balloons in the Management of Obesity）。文章利用 GRADE 证据评估体系，全面总结和评估了胃内气球（Intragastric Balloon, IGB）在肥胖临床管理中的有效性、安全性及围术期管理规范：
+临床疗效（Efficacy）：证实了 IGB 联合生活方式干预在降低体重（如 %TBWL、%EWL）以及改善代谢指标（如 HbA1c、空腹血糖、肝功能及糖尿病/高血压缓解率）方面显著优于单纯生活方式干预。
+设备类型对比（Fluid vs. Gas）：对比了充液型（Fluid-filled）与充气型（Gas-filled）气球，指出充液型气球减重效果略好，但耐受性相对较低、不良反应率稍高。
+安全与耐受性（Safety & Tolerability）：评估了早期取出率（约 9.4%）及严重并发症（如消化道穿孔、溃疡、梗阻、过度充气 Hyperinflation 等）。
+临床管理规范（Clinical Management Recommendations）：提出了 7 项涵盖围术期质子泵抑制剂（PPI）预防性用药、止吐方案、复合维生素补充及取出后维持治疗的临床推荐意见。
 
 与我课题的联系：
+1.临床应用背景（Clinical Context & Application Scenario）的真实映射
+课题以“胃部或类胃部环境中的气球”为激励应用（Motivating Application），而这篇 PDF 正是该领域最权威的临床应用标准文献。它证实了胃内气球（IGB）在医学上的重要地位及广泛应用。
+2.物理运动特性的理论支撑（Mechanical & Environmental Effects）
+本指南指出，气球在胃内受胃壁蠕动、胃液/食物充盈以及充盈介质（液体或气体）的影响，会发生位移、姿态变化、过度膨胀（Hyperinflation）乃至嵌顿梗阻。这从临床角度证实了胃内气球运动的不可预测性和复杂形变特性，完全符合您课题对物理模型的假设
+3.工程技术与临床需求的互补（Addressing Clinical Pain Points）
+目前临床上缺乏对胃内气球在体内实时三维形态、位移和受力状态的连续无创/低侵入监测手段。指南中提到的很多并发症（如溃疡、梗阻、过度充气）均与气球在胃内的物理状态密切相关。您建立的“缆索拉力/长度变化 $\rightarrow$ 状态估计 $\rightarrow$ 形状重建（Shape Reconstruction）”传感体系，正好可以填补“胃内气球物理状态实时感知”这一临床工程空白。
+
+哪些信息我能用/用于支撑我的哪些观点：
+1.开发针对胃内气球的实时测量与感知系统（Measurement and Sensing System）具有强烈的医学需求，能为防止气球异常膨胀或嵌顿提供物理感知基础。（IGB 是治疗肥胖的重要内镜手段，但存在 9.4% 的早期取出率及胃黏膜损伤、梗阻、过度充气（Hyperinflation）等不良反应。）
+2.胃内气球受外部胃环境及自身介质影响，其形变和位移呈现高度非线性与复杂性，需要高精度的位姿与形状重建算法。（充液型（Fluid-filled）与充气型（Gas-filled）气球在胃内的生物力学行为和耐受性存在显著差异。）   
+
+***总结：这篇文章主要讲了现在临床是怎么做的***
+
+APA:Muniraj, T., Day, L. W., Teigen, L. M., Ho, E. Y., Sultan, S., Davitkov, P., ... & Murad, M. H. (2021). AGA clinical practice guidelines on intragastric balloons in the management of obesity. Gastroenterology, 160(5), 1799-1808.
+
+---
+
+paper5
+
+DOI:
+
+主要内容是什么：
+
+与我课题的联系是什么：
 
 哪些信息我能用/用于支撑我的哪些观点：
 
-APA:Muniraj, T., Day, L. W., Teigen, L. M., Ho, E. Y., Sultan, S., Davitkov, P., ... & Murad, M. H. (2021). AGA clinical practice guidelines on intragastric balloons in the management of obesity. Gastroenterology, 160(5), 1799-1808.
+APA:
+
+---
+
+
+paper6
+
+DOI:
+
+主要内容是什么：
+
+与我课题的联系是什么：
+
+哪些信息我能用/用于支撑我的哪些观点：
+
+APA:
 
 ---
 
