@@ -239,6 +239,7 @@ API:O’Neill, R. S., Goh, L. H., Lee, C., Jia, K., & Feller, R. (2025). Endosco
 
 paper9
 
+
 DOI:
 
 主要内容：
@@ -247,11 +248,25 @@ DOI:
 
 哪些信息我能用/用于支撑我的哪些观点：
 
-API:
+APA: Guirgis, M., Kumar, P., Laurens, J., & Madhok, B. (2025). Spontaneous Hyperinflation of Intragastric Balloons: A Systematic Review. Gastrointestinal Disorders, 7(3), 55.
 
 ---
 
 paper 10
+Spontaneous Hyperinflation of Intragastric Balloons: A Systematic Review
+DOI:https://doi.org/10.3390/gidisord7030055
+
+主要内容：
+
+与我课题的联系：
+
+哪些信息我能用/用于支撑我的哪些观点：
+
+APA:
+
+---
+
+paper 11
 
 DOI:
 
@@ -261,7 +276,19 @@ DOI:
 
 哪些信息我能用/用于支撑我的哪些观点：
 
-API:
+APA:
 
 ---
+paper 12
 
+DOI:
+
+主要内容：
+
+与我课题的联系：
+
+哪些信息我能用/用于支撑我的哪些观点：
+
+APA:
+
+---
