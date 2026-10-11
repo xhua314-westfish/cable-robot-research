@@ -210,8 +210,7 @@ APA:Gill, T., Loo, G. H., Muthkumaran, G., & Kosai, N. R. (2026). A Multidiscipl
 
 paper8
 
-Endoscopic management of intragastric balloon related gastric 
-outlet obstruction: A case report and review of literature
+Endoscopic management of intragastric balloon related gastric outlet obstruction: A case report and review of literature
 DOI:https://doi.org/10.12998/wjcc.v13.i30.108934
 
 主要内容：这篇文章是一篇最新的病例报告加系统性文献回顾（Systematic Review）：   核心病例：一名 39 岁女性在置入 Silimed 胃内气球 2 周后，出现严重的餐后腹痛、恶心与呕吐。CT 扫描显示气球滑落并卡在胃幽门前区（Prepyloric region/Antrum），导致胃出口梗阻（Gastric Outlet Obstruction, GOO）以及胃近端严重扩张和食物残留（Bezoar）。最终通过紧急内镜穿刺抽液 decompression（抽出 500 mL 亚甲蓝溶液）并取出气球。  
@@ -239,30 +238,74 @@ API:O’Neill, R. S., Goh, L. H., Lee, C., Jia, K., & Feller, R. (2025). Endosco
 
 paper9
 
+Spontaneous Hyperinflation of Intragastric Balloons: A Systematic Review
+DOI:https://doi.org/10.3390/gidisord7030055
 
-DOI:
-
-主要内容：
+主要内容：这篇文章是 2025 年发表在《Gastrointestinal Disorders》上的全球首篇针对“胃内气球自发性过度膨胀（Spontaneous Intragastric Balloon Hyperinflation, SIBH）”的系统性综述（Systematic Review）。   
+现象定义：SIBH 是指置入胃内的气球在患者体内部不知不觉中发生不可预测的自发性气体暴涨（Rapid and unpredictable gas expansion）。   
+临床统计：汇总了 18 篇文献中的 29 例 SIBH 真实病例。   
+临床表现：86% 的患者引发了胃出口梗阻（GOO）；82% 恶心呕吐，62% 腹痛，43% 腹胀。出现过充的时间为置入后 1.5 个月到 12 个月不等。   救援方式：96% 需要紧急内镜干预，82%~89% 进行了紧急气球拔除（ER）。   
+严重并发症：报道了急性胰腺炎（暴涨的气球在胃内直接压迫胰腺体部，导致主胰管受压扩张）以及胃黏膜糜烂。   核心病因（产气微生物定植）：62% 的研究指出 SIBH 的主因是产气微生物在气球表面的伺机性定植。   
+在送检培养的样本中，90% 培养出了产气菌。其中真菌 Candida（念珠菌，占 78%~80%） 和 厌氧细菌（如 Streptococcus, Klebsiella，占 40%~44%） 最为常见。这些微生物透过硅胶微孔发酵产气，导致气球体积失控膨胀。   
+预防建议：严格无菌充盈操作，并推荐在充盈盐水中加入亚甲蓝（Methylene Blue），利用其抑菌与破裂漏液变色预警的双重作用。
 
 与我课题的联系：
+1.直接证实胃内气球会发生剧烈的“自发性几何体积暴涨（Geometry / Volume Expansion）
+您的课题将气球设定为“被动、可形变”对象。以往人们常以为气球在胃里只会“泄气变瘪”，但这篇文献证明：由于胃内微生物产气，气球会自发性膨胀 2 到 3 倍（从 500~650 mL 暴涨至 1200~1800 mL）！这是对您课题中“几何形状重建（Shape Reconstruction）与体积感知”最具力的物理学支撑。
+2.证明了基于“受力/姿态/形状”的物理传感是早期拦截 SIBH 的唯一客观手段SIBH 发生时，患者早期几乎毫无察觉。等到患者出现剧烈呕吐、梗阻或急性胰腺炎送急诊时，气球已经在胃里胀成了一个“巨大巨物”（压迫周边器官）。   
+如果有您研发的“缆索张力/位移 $\rightarrow$ 状态估计与形状重建系统”，当气球内部开始产气、体积刚从 650 mL 涨到 800 mL 或 1000 mL 时，系统就能通过拉力异常与几何形状重建膨胀发出早期预警，避免气球胀到 1800 mL 导致器官压迫和紧急开刀/拔管。 
+
 
 哪些信息我能用/用于支撑我的哪些观点：
+观点 1：胃内气球在体内会发生剧烈的自发性体积与几何形状暴涨（从 500~650 mL 膨胀至 1200~1800 mL）(因为细菌感染)
+观点 2：气球几何过充会导致极严重的物理并发症（86% 引起胃出口梗阻，过充气球直接压迫胰腺致急性胰腺炎）
+观点 3：96% 的过充病例需要紧急内镜救治（Emergency Endoscopy），说明缺乏早期物理感知手段
+观点 4：胃内微生物发酵产气是导致气球内部压强与体积失控的主因，证明胃内物理力学环境极度复杂
 
 APA: Guirgis, M., Kumar, P., Laurens, J., & Madhok, B. (2025). Spontaneous Hyperinflation of Intragastric Balloons: A Systematic Review. Gastrointestinal Disorders, 7(3), 55.
 
 ---
 
 paper 10
-Spontaneous Hyperinflation of Intragastric Balloons: A Systematic Review
-DOI:https://doi.org/10.3390/gidisord7030055
+Spanish Intragastric Balloon Consensus Statement (SIBC): practical guidelines based on experience of over 20
+000 cases
+DOI:10.17235/reed.2022.9322/2022
 
-主要内容：
+主要内容：这篇文章是西班牙消化内镜学会（GETTEMO）联合巴西共识团队（BIBC），由 21 位资深内镜专家基于 20,680 例胃内气球置入病例及 12 种不同气球型号（涵盖 6 个月充液型、12 个月充液型、充气型、吞咽型等）制定的权威专家共识：   
+样本规模与临床疗效：汇总分析了 20,680 例置入病例。平均减重率为 %TBWL $17.66\% \pm 2.5\%$，平均减重 $17.13 \pm 1.5\text{ kg}$，BMI 平均下降 $5.73 \pm 1.7\text{ kg/m}^2$。   
+不良反应与机械故障率：不耐受早期拔除率：全型号平均早期拔除率为 3.62%（$n=748$）。   
+严重并发症（Major AEs，0.70%）：胃溃疡（0.41%）、消化道穿孔（0.10%）、误吸（0.08%）、消化道出血（0.04%）、有症状气球过充（0.03%）、气球移位致肠梗阻（0.02%）。轻微并发症（Minor AEs，6.37%）：食管炎（3.56%）、自发性气球泄气（1.19%）、移位并自发排出（0.56%）、真菌感染（0.50%）、无症状气球过充（0.04%）。   
+临床处理与并发症拔管共识：建立了针对气球破裂（泄绿水）、胃溃疡、胃窦反复嵌顿（Recurrent antral impaction）、有症状过充以及电解质紊乱等物理并发症的强制拔除规范。
 
 与我课题的联系：
+1.真实世界最大样本量证明：胃内气球物理失效（泄气、移位、过充、嵌顿）广泛存在于各类型号中本研究涵盖了 12 种主流气球（包括 Orbera、Medsil、Spatz3、Elipse 等）。数据证实，无论哪种设计，气球在胃内均存在自发泄气（1.19%）、位置变动/移位（0.58%）、几何膨胀/过充（0.07%） 等物理形态失效。这证明您的课题关注的“被动形变与位姿估计”不是针对单一产品的偶发问题，而是整个胃内气球领域的通用工程痛点。   
+2.揭示临床缺乏评估“早期/无症状物理异常”的客观标准（存在严重诊疗分歧）论文特别指出，当气球出现“无症状自发性过充（Asymptomatic hyperinflation）”或“初次胃窦嵌顿（Index antral impaction）”时，专家组无法达成统一处理共识（No-consensus）。有的医生选择观察，有的选择立刻拔除。  
+这种分歧直接证明了现行临床缺乏连续的物理传感与定量诊断手段。医生无法客观得知气球当时的膨胀几何形状或对胃壁的挤压拉力是否已超过安全临界点。您的系统（拉力/位移 $\rightarrow$ 形状重建与状态估计）正好可以填补这一定量评估空白。
 
 哪些信息我能用/用于支撑我的哪些观点：
+观点 1：超 2 万例真实临床数据证实，胃内气球普遍面临自发性泄气、移位、过充及胃窦嵌顿等物理失效
+观点 2：专家共识将“物理位置异常（反复胃窦嵌顿）”和“几何形态变异（有症状过充/破裂）”列为必须拔除气球的核心危险指征
+观点 3：对于“早期或无症状的物理状态改变”，临床存在严重诊疗分歧（无共识），亟需客观物理传感与诊断系统
 
-APA:
+关键证据：
+Table 5: 12种气球型号的并发症与不耐受对比（Adverse events by balloon model）
+证明了不论是哪个厂家、哪种设计（充液、充气、吞咽式、可调式），气球在胃内都会普遍发生“泄气、位移、过充”等物理形态失效。
+
+Table D: 并发症处理重大分歧（No-consensus for complications）
+心分歧点（极具证据价值！）：
+无症状自发性气球过充（Asymptomatic hyperinflation）：40.0% 专家主张保守观察，40.0% 主张即刻拔除并同步换球，20.0% 主张拔除后延迟换球。
+初次胃窦嵌顿（Index antral impaction）：52.4% 由医生凭经验裁量，28.6% 主张拔除，19% 主张保留在胃内。（注：只有到了“反复嵌顿”Table 6 才达到 90.5% 拔除共识）。
+真菌定植（Fungal colonization）：57.1% 主张不处理，38.1% 主张仅吃抗真菌药。
+消化道出血（GI bleeding）：57.9% 主张止血后也必须拔球，36.8% 主张仅在需要内镜止血时才拔球。
+证明对于“早期/无症状的物理异常（如刚开始过充、第一次胃窦嵌顿）”，临床专家完全凭主观经验猜想，缺乏统一标准。这直接证实了由于缺乏客观的物理传感与形态重建系统，医生无法定量评估气球当时的物理安全状态。
+
+通过对这 12 个 Table 的分析，您可以梳理出一条非常严密的客观证据链：
+庞大数据支撑（Table 4 & 5）：胃内气球疗效确切（%TBWL 17.66%），但全型号气球均面临不耐受（3.62%）、自发泄气（1.19%）、移位（0.58%）和过充（0.07%）等物理故障。
+危险临界共识（Table 6）：一旦物理故障恶化为“有症状过充”或“反复胃窦嵌顿”，100% 和 90.5% 的专家同意必须做创伤性拔除。
+临床盲区与诊疗分歧（Table D）：在气球刚发生“无症状过充”或“初次嵌顿”的早期，专家组因缺乏客观诊断依据而产生严重的意见分歧（40% 观察 vs 40% 拔除）。
+结论与立项必然性：这直接证明了现行临床缺乏对气球物理状态（受力、位姿、几何形变）进行连续定量测量的技术手段，为您研发“基于缆索机器人的胃内气球测量与传感系统（状态估计与形状重建）”提供了最权威、最大样本量的临床需求依据。
+
+APA:Coll, E. E., García, A. D. P., Arau, R. T., Durán, J. N., Rizo, X. C., Jiménez, A. S., ... & Neto, M. G. (2023). Spanish Intragastric Balloon Consensus Statement (SIBC): practical guidelines based on experience of over 20 000 cases. Rev Esp Enferm Dig, 115(1), 22-34.
 
 ---
 
