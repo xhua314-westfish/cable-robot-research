@@ -182,7 +182,7 @@ paper7
 A Multidisciplinary Intragastric Balloon Care Pathway for Weight Management in a Tertiary Malaysian Centre: Clinical Practice Framework
 DOI:https://doi.org/10.2147/JMDH.S590735
 
-主要内容是什么：
+主要内容是什么：这只是马来西亚医院的标准 去定期监控病人情况 根据病人的临床表现去实施不同的手段 但是没有涉及到监控气球形状或者位置变化
 
 与我课题的联系是什么：
 
