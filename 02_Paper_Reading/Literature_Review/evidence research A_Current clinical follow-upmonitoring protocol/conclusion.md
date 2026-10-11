@@ -210,16 +210,30 @@ APA:Gill, T., Loo, G. H., Muthkumaran, G., & Kosai, N. R. (2026). A Multidiscipl
 
 paper8
 
+Endoscopic management of intragastric balloon related gastric 
+outlet obstruction: A case report and review of literature
+DOI:https://doi.org/10.12998/wjcc.v13.i30.108934
 
-DOI:
-
-主要内容：
+主要内容：这篇文章是一篇最新的病例报告加系统性文献回顾（Systematic Review）：   核心病例：一名 39 岁女性在置入 Silimed 胃内气球 2 周后，出现严重的餐后腹痛、恶心与呕吐。CT 扫描显示气球滑落并卡在胃幽门前区（Prepyloric region/Antrum），导致胃出口梗阻（Gastric Outlet Obstruction, GOO）以及胃近端严重扩张和食物残留（Bezoar）。最终通过紧急内镜穿刺抽液 decompression（抽出 500 mL 亚甲蓝溶液）并取出气球。  
+文献回顾（29 例 GOO 病例分析）：发病极其不可预测：气球引发 GOO 的时间跨度极极大，短则术后 3 天，长则术后 18 个月。   高发人群与品牌：92.3% 为女性；引发 GOO 频次最高的气球品牌为 Orbera (38.1%) 和 Allurion-Elipse (28.6%)。   诊断与治疗手段：78.3% 的病例依赖 CT 扫描才确诊；93.1% 采用内镜取出。   
+揭示临床误诊与监控空白：大量临床病例将 GOO 或局部物理梗阻引发的早期恶心呕吐简单归咎为“患者不耐受（Patient Intolerance）”，导致 GOO 的真实发生率被严重低估。同时，目前临床缺乏有效的术后连续监测手段（Surveillance Protocol）。   
 
 与我课题的联系：
+1.揭示了“静态/定期复查”的完全失效（发病时间跨度：3天~18个月）
+文献证明，气球发生物理位移或过充引发 GOO 的时间没有任何规律（有的 3 天就卡住幽门，有的 18 个月才发病）。定期复查根本无法覆盖这种随机性，直接证明了您课题中“连续/实时物理状态估计（Continuous/Real-time state estimation）”的不可替代性。
+2.破解临床诊断痛点：区分“生理不耐受”与“物理性梗阻/位移”
+临床上超 90% 患者术后会有恶心呕吐，医生常将其误判为普通的“不耐受”而忽视。但本文指出很多所谓不耐受本质上是气球物理位置异常（如卡在胃窦/幽门）或几何体积意外膨胀（Hyperinflation）。   您的系统能提供客观的受力、姿态与形变数据，可以在早期就区分出是纯生理反应还是气球发生了物理位移/过度膨胀。   
+3.填补文献明确指出的“监测空白（Monitoring Gap）
+本文在 Discussion 中明确指出：目前临床缺乏确立的术后监测方案（Time points for surveillance have not been established），现有的拍片或超声手段缺乏临床实用性。这为您的课题提供了直接的立项依据——您正在研发的正是临床急需的物理监测技术。
+
 
 哪些信息我能用/用于支撑我的哪些观点：
+观点 1：气球物理失效/梗阻的发病时间极度随机，定期复查存在盲区，需实时传感
+观点 2：临床常将“气球物理异常/梗阻”误诊为“患者不耐受”，缺乏客观物理感知
+观点 3：气球几何形状/体积会发生意外改变（如过度膨胀 Hyperinflation），引发物理梗阻
+观点 4：目前临床存在明确的“监测空白（Monitoring Gap）”，急需创新物理监测手段
 
-API:
+API:O’Neill, R. S., Goh, L. H., Lee, C., Jia, K., & Feller, R. (2025). Endoscopic management of intragastric balloon related gastric outlet obstruction: A case report and review of literature. World Journal of Clinical Cases, 13(30), 108934.
 
 ---
 
