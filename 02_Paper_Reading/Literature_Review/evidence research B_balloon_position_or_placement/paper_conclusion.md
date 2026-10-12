@@ -23,7 +23,7 @@ DOI:https://doi.org/10.1016/S0140-6736(21)02394-1
 
 paper 19
 
-American Society for Gastrointestinal Endoscopy–European Society of Gastrointestinal Endoscopy guideline on primary endoscopic bariatric and metabolic therapies for adults with obesity
+**(2026-10-12-19)American Society for Gastrointestinal Endoscopy–European Society of Gastrointestinal Endoscopy guideline on primary endoscopic bariatric and metabolic therapies for adults with obesity**
 DOI: https://doi.org/10.1016/j.gie.2023.12.004
 APA: Jirapinyo, P., Hadefi, A., Thompson, C. C., Patai, Á. V., Pannala, R., Goelder, S. K., ... & Sullivan, S. (2024). American Society for Gastrointestinal Endoscopy–European Society of Gastrointestinal Endoscopy guideline on primary endoscopic bariatric and metabolic therapies for adults with obesity. Gastrointestinal endoscopy, 99(6), 867-885.
 
@@ -62,13 +62,51 @@ DOI:10.1055/a-1146-3545
 ---
 
 paper20
+**(2026-10-12-20)Safety and efficacy of 12-month intra-gastric balloon—series of over 1100 patients**
+DOI：https://doi.org/10.1007/s11695-023-06953-0
+APA:Wiggins, T., Sharma, O., Sarfaraz, Y., Fry, H., Baker, J., & Singhal, R. (2024). Safety and efficacy of 12-month intra-gastric balloon—series of over 1100 patients. Obesity Surgery, 34(1), 176-182.
 
 
 文章内容是什么：
+研究目的与样本：分析 1149 例置入 Orbera 365（12 个月长效胃水球）患者的安全性与减重疗效。   
+位置与并发症相关数据：放置位置：水球在胃底（Gastric fundus）置入并充盈。水球破裂（Balloon rupture）：8 例（发生率为 0.70%），破裂后水球均自行排出。   
+严重并发症（Severe complications）：仅 2 例（0.17%），其中包含 1 例胃出口梗阻（Gastric outlet obstruction, 0.09%） 和 1 例胃穿孔（0.09%）。   
+早期拔球：50 例（4.35%）因对症不耐受而提前拔球。
 
 与我课题的联系：
+1.现有的临床研究（包括这篇 Wiggins et al.）：医生只记录“结果”（比如发生了 1 例梗阻、8 例破裂），随访方式是被动等待患者出现严重症状后去内镜或手术处理。因为目前临床上根本没有实时传感工具去记录水球在胃里是“突然滑动”还是“经过3天慢慢滑向幽门”的。   
+2.您的研究假设（Hypothesis）：您提出的“Migration 前存在早期可检测的位移/位置变化”，是您要通过技术创新去验证的 Hypothesis，而不是已发表临床论文中已经被证明的既成事实。
 
 有哪些信息我能用/支撑我的哪些观点：
+1.支撑“ Migration / 位置相关并发症确实存在”的真实数据
+2.支撑“现行随访完全缺少位置感知”（Clinical Gap）的流程事实。无例行影像/位置检查：整个 12 个月内，除第 52 周例行内镜拔球外，中途没有任何例行的内镜、X 光或位置感知监控手段。接证明了当今最新的 12 个月长效水球随访规范，依然完全依赖“记录体重 + 被动等待患者主诉症状”，从流程上证实了“位置连续感知（Position Tracking）”在现行临床实践中是完全空白的。
+
+---
+
+paper21
+
+**(2026-10-12-21)Intragastric Balloon: a Retrospective Evaluation of 5874 Patients on Tolerance, Complications, and Efficacy in Different Degrees of Overweight**
+DOI:https://doi.org/10.1007/s11695-020-04985-4
+APA:
+Fittipaldi-Fernandez, R. J., Zotarelli-Filho, I. J., Diestel, C. F., Klein, M. R. S. T., de Santana, M. F., de Lima, J. H. F., ... & Dos Santos, N. T. (2020). Intragastric balloon: a retrospective evaluation of 5874 patients on tolerance, complications, and efficacy in different degrees of overweight. Obesity surgery, 30(12), 4892-4898.
+
+文章内容是什么：
+这篇文献（Diestel et al., 2020，发表于 Obesity Surgery）是一项大样本的回顾性临床研究：   
+研究对象：总结了 2009 年至 2017 年间在巴西 5 家诊所接受 6 个月液体填充型非调节式胃水球（充盈量 600–700 mL）治疗的 5,874 例患者 的临床数据。   
+研究目的：评估胃水球在不同肥胖程度（超重、I/II/III 级肥胖）及性别患者中的耐受性（Tolerance）、并发症（Complications）和减重疗效（Efficacy）。   
+核心结论：减重疗效显著：完成 6 个月治疗的 5,444 例患者平均减重 19.13 kg，总体重下降率（%TWL）达 18.42%。   
+并发症与中断率：总并发症发生率为 7.32%（430 例）。其中绝大多数并发症为不耐受导致的早期提前拔球（6.10%, 357 例）；此外还包含水球渗漏（0.54%, 32 例）、水球内发酵产气导致体积异常膨胀（0.20%, 12 例）以及胃穿孔（0.07%, 4 例）等严重不良事件。   
+
+与我课题的联系：
+1.样本量极高（N=5,874），赋予 Gap 极高的统计权威性：
+相比其他百例级别的小研究，该文献提供了近 6000 例的大样本真实世界数据，证明“早期被迫拔球”和“物理状态异常”不是偶发事件，而是临床水球治疗中最主要的失效路径。
+2.证实了“高密度问诊随访”依然无法弥补“位置/物理感知缺失”：
+文献展示了非常严密的“多学科随访方案”（术后第 15, 30, 60, 90, 120, 150 天均设问诊，并长期使用 PPI 和止吐药）。然而即便在这种高频度的临床关怀下，依然产生了 6.10% 的提前拔球率与 32 例渗漏，这有力地证明了仅靠“常规问诊 + 药物对症”无法取代对胃内设备物理/位置状态的直接感知。
+
+有哪些信息我能用/支撑我的哪些观点：
+1.事实支撑：引用其大样本数据（$N=5,874$），说明“不耐受”是水球治疗中最主要的失败路径，导致 6.10%（357 例） 的患者被迫提前拔球，终止治疗。
+2.将这篇文章本身作为“临床认知盲区（Gap）”的例证
+逻辑论证：即使是在近 6,000 例的大样本临床研究中（如 Diestel et al., 2020），对于高达 6.10% 的提前拔球患者，临床上也只能将其归为一个笼统的标签——“不耐受（Intolerance）”。因为缺乏例行的解剖位置与几何状态感知手段，现有临床研究无法对“不耐受”背后的物理/位移机制进行细分或预警。
 
 ---
 
