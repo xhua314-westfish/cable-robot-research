@@ -628,3 +628,15 @@ DOI:
 APA:
 
 ---
+
+
+------------------------------------------
+------------------------------------------
+
+阶段性总结：
+
+1.
+<img width="1350" height="921" alt="image" src="https://github.com/user-attachments/assets/01822cb5-aca3-49fc-82b2-280c37f20ec2" />
+
+2.
+<img width="1362" height="897" alt="image" src="https://github.com/user-attachments/assets/5d3c4ea1-19c2-4e25-a8dc-7fb03477ba9c" />
