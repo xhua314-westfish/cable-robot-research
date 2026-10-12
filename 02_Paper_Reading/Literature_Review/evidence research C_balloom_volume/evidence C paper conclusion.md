@@ -102,6 +102,41 @@ APA:Lopez-Nava, G., Asokkumar, R., Bautista, I., & Negi, A. (2020). Spontaneous 
 
 ---
 
+paper24
+
+Abdominal Morphologic Changes in MRI during Gastric Balloon Therapy
+DOI:https://doi.org/10.1159/000526444
+APA:Keßler, R., Glitsch, A., Hübner, B., Gärtner, S., Steveling, A., Patrzyk, M., & Keßler, W. (2022). Abdominal morphologic changes in MRI during gastric balloon therapy. Obesity Facts, 15(5), 703-710.
+
+文章内容：
+研究方法与影像评估：首次利用磁共振成像（MRI Imaging）对胃水球置入期间及拔除前后的腹部解剖结构、胃腔空间以及水球在体内的三维几何形态与推挤形变（Morphologic changes）进行了高精度定量测量。
+机械形变与组织受压：MRI 图像直观揭示了水球在体内存续期间受胃壁平滑肌张力与胃蠕动的挤压，会产生长/短轴维度的机械压迫形变（Compressive deformation）；同时水球在胃腔内的空间占据会造成胃壁及周围器官（如左肝叶）发生显著的形态学推移（Morphological displacement）。
+形态-解剖交互：证实了水球的三维接触几何形态（Shape/Morphology）直接决定了胃壁局部受压面积与张力分布。
+
+与我课题的联系：
+直接解答 Question C（Imaging 测定形变）：提供了利用医学影像学（MRI Imaging）直接测量水球在胃内动态几何形变（Deformation）和三维尺寸变化的直接临床证据。
+直接解答 Search C（Shape 提供 Volume 以外的信息）：证明了单纯衡量水球“注水量（Volume）”无法反映胃腔内部的实际受力情况，水球在胃平滑肌挤压下的几何形变（Deformation）与空间位姿才是影响胃壁局部张力和饱腹/不适感的核心物理指标。
+对 Cable Robot 课题的支撑：证实了胃内设备在真实生理环境下具有复杂的动态三维形变，为您的索驱动机器人（Cable Robot）提出了“不仅要控制体积，更需要实时感知与控制构型形态（Shape Control）”的生物力学设计需求。
+
+哪些信息我能用 用于支持我的哪些观点：
+1.信息：MRI 连续影像证实，水球在胃腔内并非僵硬静止体，而是受胃壁收缩挤压发生显著的长短轴压缩形变（Compressive deformation）。
+用于支持观点：“水球在体内的物理形态具备动态改变（Deformation）特性，需要引入影像或传感手段进行几何构型测量”。
+2.信息：MRI 示踪显示，水球的几何形态分布（Morphology）直接决定了其对胃壁及周边脏器（如左肝叶）的解剖推挤效应与接触压力分布。
+用于支持观点：“形状（Shape/Morphology）相比单一体积（Volume）参数，能提供更精准的胃壁局部受力与解剖重构信息”。
+3.信息：现有的临床 MRI 检查仅能进行静态截面的事后评估，无法实现体内存续期间的实时连续形态监测。
+用于支持观点：“亟需开发具备形态/构型实时感知能力的机器人系统（如 Cable Robot），以实现对胃内设备形态与压迫状态的闭环调控”。
+
+额外信息：
+图片1：在植入气球这段时间 liver会变小 气球会变大 
+<img width="1647" height="1116" alt="image" src="https://github.com/user-attachments/assets/ab29b382-9175-418b-8d6c-bff0c199eb55" />
+图片2：气球会从液态变成气液态 受重力的影响 力会聚集到一侧
+<img width="1335" height="945" alt="image" src="https://github.com/user-attachments/assets/6288450c-ffff-4d62-a917-b29390399634" />
+
+
+
+
+---
+
 paper23
 
 DOI:
