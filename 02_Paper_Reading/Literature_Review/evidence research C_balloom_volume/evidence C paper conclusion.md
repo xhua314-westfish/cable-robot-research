@@ -76,6 +76,32 @@ APA：Pontecorvi, V., Bove, V., Carlino, G., Matteo, M. V., De Siena, M., Pappar
 
 ---
 
+paper4
+
+**(2026-10-06-04)Spontaneous hyperinflation of intragastric balloon: What caused it?** 
+DOI:10.1055/a-1146-3545
+APA:Lopez-Nava, G., Asokkumar, R., Bautista, I., & Negi, A. (2020). Spontaneous hyperinflation of intragastric balloon: What caused it?. Endoscopy, 52(05), 411-412.
+
+文章内容：
+研究观察与现象描述：报告了液体充盈型胃水球（Orbera）在体内存续期间发生自发性异常膨胀（Spontaneous Hyperinflation）的典型病例。
+几何形态（Shape/Morphology）的改变：水球原本填充的是各向同性的纯液体（500–600 mL 盐水），但在体内因微生物发酵产气，球内形成了“气液双相（Air-fluid level）”。
+物理形变（Deformation）机制：气体在水球顶部积聚，导致水球由初始各向对称的圆球，畸变为“上部张力隆起、下部液体沉降”的非对称几何形态（Asymmetric deformed shape），球体三维长短轴比例发生剧烈改变，最终卡顿于胃窦引发物理性梗阻。
+
+与我课题的联系：
+直接解答 Question C & Search C：论文直接证明了“形状（Shape/Morphology）能够提供单纯‘体积（Volume）’无法提供的临床预警信息”。
+揭示形态改变的物理病理学：水球即使在总体积变化不大的早期，只要内部发生“气液分层导致几何非对称形变（Asymmetric Deformation）”，其在胃腔内的重力分布和机械接触面就会发生改变，进而诱发幽门嵌顿。
+立项依据（对 Cable Robot 的支撑）：这证明了仅监测水球“注了多少水（Volume）”是盲目且不充分的，必须具备体内存续期间的形态与几何姿态感知能力（Shape Sensing），这为您的索驱动机器人（Cable Robot）感知与姿态/形态控制提供了强有力的临床必要性支撑。
+
+哪些信息我能用 用于支持我的哪些观点：
+信息：影像与内镜证实，气体积聚使水球顶部异常隆起，造成球体非对称张力形变（Deformed shape）与气液平面。
+用于支持观点：“单纯监测注水体积（Volume）存在盲区，水球在胃内的几何非对称形变（Shape deformation）是导致空间嵌顿与力学失衡的直接诱因”。
+信息：非对称畸形后的水球改变了在胃窦处的动力学行为，导致机械性胃出口梗阻（GOO）。
+用于支持观点：“水球形态（Shape/Morphology）蕴含着关键的物理诊断信息——几何形态畸变会直接破坏水球在胃腔内的滑行与定位平衡”。
+信息：现行随访无形态感知手段，导致形态畸变只有在发展为急性梗阻后才被事后内镜/CT 发现。
+用于支持观点：“现行随访缺少连续形态与姿态感知（Continuous Shape Sensing），亟需引入智能化系统（如 Cable Robot）建立形态变化的早期预警机制”。
+
+---
+
 paper23
 
 DOI:
