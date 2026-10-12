@@ -4,6 +4,8 @@
 有没有证据支持 position monitoring，而不仅仅是“发生过 migration”？**
 
 ---
+paper1 
+
 **(2026-10-05-01)Adjustable intragastric balloon for treatment of obesity: a multicentre, open-label, randomised clinical trial**
 DOI:https://doi.org/10.1016/S0140-6736(21)02394-1
 
@@ -18,5 +20,34 @@ DOI:https://doi.org/10.1016/S0140-6736(21)02394-1
 2.临床证据：目前判断水球是否适应或失效完全依赖患者主诉（如恶心、呕吐或体重停滞），随访手段极度滞后。
 
 ---
+
+**这篇太老了**
+Safety and Effectiveness of the Intragastric Balloon for Obesity. A Meta-Analysis
+DOI: https://doi.org/10.1007/s11695-007-9331-8
+APA: Imaz, I., Martínez-Cervell, C., García-Álvarez, E. E., Sendra-Gutiérrez, J. M., & González-Enríquez, J. (2008). Safety and effectiveness of the intragastric balloon for obesity. A meta-analysis. Obesity surgery, 18(7), 841-846.
+
+文章内容：
+
+与我课题的联系：
+
+有哪些信息我能用/支撑我的哪些观点：
+
+---
+
+paper 19
+
+American Society for Gastrointestinal Endoscopy–European Society of Gastrointestinal Endoscopy guideline on primary endoscopic bariatric and metabolic therapies for adults with obesity
+DOI: https://doi.org/10.1016/j.gie.2023.12.004
+APA: Jirapinyo, P., Hadefi, A., Thompson, C. C., Patai, Á. V., Pannala, R., Goelder, S. K., ... & Sullivan, S. (2024). American Society for Gastrointestinal Endoscopy–European Society of Gastrointestinal Endoscopy guideline on primary endoscopic bariatric and metabolic therapies for adults with obesity. Gastrointestinal endoscopy, 99(6), 867-885.
+
+文章内容：
+
+与我课题的联系：
+
+有哪些信息我能用/支撑我的哪些观点：
+
+---
+
+
 
 
