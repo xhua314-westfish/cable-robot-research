@@ -110,3 +110,31 @@ Fittipaldi-Fernandez, R. J., Zotarelli-Filho, I. J., Diestel, C. F., Klein, M. R
 
 ---
 
+paper22
+
+The evolution and current state of bariatric endoscopy in Western countries
+DOI:https://doi.org/10.5946/ce.2023.253
+
+文章内容是什么：
+这是一篇 2024 年发表于 Clinical Endoscopy 的权威临床综述（Review Article），题目为《西方国家减重内镜技术的演进与现状》。
+文章系统总结了目前西方国家主流的减重内镜技术（Endoscopic Bariatric Treatments, EBTs），涵盖了三大类技术的发展、临床疗效（%TBWL、%EWL、代谢指标改善）以及并发症与局限性：
+限制性减重技术（Restrictive EBTs）：
+胃水球（IGBs）：详细梳理了 Orbera、Obalon、Heliosphere、Spatz、Elipse 等各种水球的疗效与安全性。
+胃塑形术（Gastric Remodeling）：包括内镜下袖带状胃成形术（ESG, OverStitch/Endomina）和 POSE 2.0 技术。
+抽吸疗法（Aspiration Therapy）：如 AspireAssist 系统。
+小肠靶向代谢内镜技术（Small Intestine-Targeted EBTs）：如十二指肠-空肠旁路套管（DJBL / EndoBarrier）、十二指肠粘膜重塑术（DMR）等。
+
+与我课题的联系：
+1.用权威综述证明 Migration / 泄气梗阻是普遍公认的 SAE：
+引用其第 713-714 页的数据，指出 2024 年最新权威综述明确总结：胃水球在体内存续期间，自发泄气（Self-disinflation）与空间位移（Migration）是引发胃肠道梗阻（Bowel obstruction）等严重并发症（SAEs）的核心病因。
+2.指出现行临床防范措施的“局限性”（逻辑桥梁）：
+引用第 714 页，指出当前临床综述提出的预防手段仅局限于“术前评估（Endoscopic evaluation before insertion）与控制留置时间”
+
+有哪些信息我能用/支撑我的哪些观点：
+推导出 Gap 3（Your Thesis Contribution）：
+强调这种“仅靠术前静态评估 + 术后被动等待症状”的模式，无法应对水球在体内 4–12 个月漫长周期中发生的动态几何位移与泄气过程。因此，缺乏体内存续期间的连续/定量位置感知手段，是导致目前无法提前干预水球迁移与梗阻的根本临床痛点（Gap 3）。
+
+---
+
+
+
