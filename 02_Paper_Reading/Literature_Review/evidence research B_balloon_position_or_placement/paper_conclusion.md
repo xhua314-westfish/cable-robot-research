@@ -21,19 +21,6 @@ DOI:https://doi.org/10.1016/S0140-6736(21)02394-1
 
 ---
 
-**这篇太老了**
-Safety and Effectiveness of the Intragastric Balloon for Obesity. A Meta-Analysis
-DOI: https://doi.org/10.1007/s11695-007-9331-8
-APA: Imaz, I., Martínez-Cervell, C., García-Álvarez, E. E., Sendra-Gutiérrez, J. M., & González-Enríquez, J. (2008). Safety and effectiveness of the intragastric balloon for obesity. A meta-analysis. Obesity surgery, 18(7), 841-846.
-
-文章内容：
-
-与我课题的联系：
-
-有哪些信息我能用/支撑我的哪些观点：
-
----
-
 paper 19
 
 American Society for Gastrointestinal Endoscopy–European Society of Gastrointestinal Endoscopy guideline on primary endoscopic bariatric and metabolic therapies for adults with obesity
@@ -41,10 +28,21 @@ DOI: https://doi.org/10.1016/j.gie.2023.12.004
 APA: Jirapinyo, P., Hadefi, A., Thompson, C. C., Patai, Á. V., Pannala, R., Goelder, S. K., ... & Sullivan, S. (2024). American Society for Gastrointestinal Endoscopy–European Society of Gastrointestinal Endoscopy guideline on primary endoscopic bariatric and metabolic therapies for adults with obesity. Gastrointestinal endoscopy, 99(6), 867-885.
 
 文章内容：
+1.指南对 7 项胃水球 RCT 进行 Meta 分析，列出了水球引起的严重不良事件（SAEs），明确记录了 gastric outlet/bowel obstruction（胃出口/肠梗阻）（发生率为 1/802）。
+
+2.ASGE-ESGE 针对胃水球置入后及随访期的标准化管理（Periprocedural Care），仅提出了三项推荐：
+建议围手术期使用止吐药（Antiemetics）；
+建议围手术期使用止痛药（Pain medications）；
+建议在水球置入期间持续使用质子泵抑制剂（PPIs）。
 
 与我课题的联系：
+1.直接证明了“水球/减重设备发生位置偏移与迁移（Migration/Displacement）不是罕见的偶然事件，而是会导致胃出口梗阻等需要紧急医疗干预的临床 SAEs”。
+2.这证明了全球最权威的指南在水球随访规范中，完全没有包含任何“例行/连续的位置追踪或成像检查（Position Monitoring）”。现在的临床实践完全是“等患者吐了、腹痛了（出现 SAE 症状）再被动去检查”，这直接证实了你在研究中指出的“临床监测空白（Clinical Gap）”。
 
 有哪些信息我能用/支撑我的哪些观点：
+1.支撑“Migration / 嵌顿确实会发生且会导致严重并发症”（Migration can happen）
+2.支撑“现行临床随访标准完全缺失‘位置监测’”（证明当前 Clinical Gap 的存在）
+
 
 ---
 
@@ -63,6 +61,14 @@ DOI:10.1055/a-1146-3545
 
 ---
 
+paper20
+
+
+文章内容是什么：
+
+与我课题的联系：
+
+有哪些信息我能用/支撑我的哪些观点：
 
 ---
 
