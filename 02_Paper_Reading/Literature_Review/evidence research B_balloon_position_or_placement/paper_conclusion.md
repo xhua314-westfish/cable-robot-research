@@ -48,6 +48,19 @@ APA: Jirapinyo, P., Hadefi, A., Thompson, C. C., Patai, Á. V., Pannala, R., Goe
 
 ---
 
+paper4
 
+**(2026-10-06-04)Spontaneous hyperinflation of intragastric balloon: What caused it?** 
+DOI:10.1055/a-1146-3545
+
+文章内容：（前面有）
+
+与我课题的联系：
+
+有哪些信息我能用/支撑我的哪些观点：
+揭示了充液胃水球在胃内因产气微生物繁殖等原因引发自发性体积异常变大（Hyperinflation），进而导致急性胃出口梗阻或穿孔的真实危险。
+证明水球的体积/几何状态变化具有隐蔽性和非线性，按月例行问诊随访无法捕获其渐进过程，急需通过绳驱动/传感系统进行高频状态估计。
+
+---
 
 
