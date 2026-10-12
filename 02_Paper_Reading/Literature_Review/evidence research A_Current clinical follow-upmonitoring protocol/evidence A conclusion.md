@@ -5,7 +5,7 @@
 
 paper1: 
 
-Adjustable intragastric balloon for treatment of obesity: a multicentre, open-label, randomised clinical trial
+**(2026-10-05-01)Adjustable intragastric balloon for treatment of obesity: a multicentre, open-label, randomised clinical trial**
 DOI:https://doi.org/10.1016/S0140-6736(21)02394-1
 
 1. 概念提出：容积可调（Volume Adjustability）的双向临床价值论文观点：水球容积“变大”用于增强减重疗效，“变小”用于改善早期耐受性。   你的判断：完全命中。这直接指出了固定容积（不可变大变小）水球在临床上的天然局限。
@@ -21,7 +21,7 @@ Dayyeh, B. K. A., Maselli, D. B., Rapaka, B., Lavin, T., Noar, M., Hussan, H., .
 
 paper2
 
-The Efficacy and Safety of Adjustable Intragastric Balloon for Weight Loss: A Systematic Review and Meta-Analysis
+**(2026-10-05-02)The Efficacy and Safety of Adjustable Intragastric Balloon for Weight Loss: A Systematic Review and Meta-Analysis**
 DOI:https://doi.org/10.1159/000542921
 
 结论： 从 5,000 例大样本证明了这种“变大/变小”的需求是普遍存在的（34.2% 需要调大，9.2% 需要调小）
@@ -40,7 +40,7 @@ Xia, C., Wang, Y., Sun, G., Lei, W., & Liang, D. (2025). The efficacy and safety
 
 paper3 
 
-Randomized Prospective Clinical Study of Spatz3® Adjustabl Intragastric Balloon Treatment with a Control Group: a Large-Scale Brazilian Experiment
+**(2026-10-05-03)Randomized Prospective Clinical Study of Spatz3® Adjustabl Intragastric Balloon Treatment with a Control Group: a Large-Scale Brazilian Experiment**
 DOI:https://doi.org/10.1007/s11695-020-05014-0
 
 结论：这篇文章虽然没有提出新的“监测机制”，但它用数据探明了人体胃腔对水球容积的物理极限（Upper Limit of Gastric Tolerance）。也就是说，600 mL 加上后续调整的 250 mL（达到 850 mL），基本就是人类胃部在不发生严重并发症的前提下能承受的物理体积上限。
@@ -73,7 +73,7 @@ Fittipaldi-Fernandez, R. J., Zotarelli-Filho, I. J., Diestel, C. F., Klein, M. R
 
 paper4
 
-Spontaneous hyperinflation of intragastric balloon: What caused it? 
+**(2026-10-06-04)Spontaneous hyperinflation of intragastric balloon: What caused it?** 
 DOI:10.1055/a-1146-3545
 
 第一部分：参数提取、推导与胃空间估算
@@ -131,7 +131,7 @@ DOI:10.1055/a-1146-3545
 
 paper5
 
-Spontaneous Intragastric Balloon Hyperinflation: Two Cases and Outcomes
+**(2026-10-06-05)Spontaneous Intragastric Balloon Hyperinflation: Two Cases and Outcomes**
 DOI:https://doi.org/10.1007/s11695-024-07332-z
 
 1.数据提取：
@@ -174,7 +174,7 @@ DOI:https://doi.org/10.1007/s11695-024-07332-z
 
 paper6
 
-Adverse Events and Complications with Intragastric Balloons: a Narrative Review (with Video)
+**(2026-10-06-06)Adverse Events and Complications with Intragastric Balloons: a Narrative Review (with Video)**
 DOI:https://doi.org/10.1007/s11695-021-05352-7
 
 文章内容：
@@ -220,7 +220,7 @@ APA: Ribeiro, I. B., Kotinda, A. P. S. T., Sánchez-Luna, S. A., de Moura, D. T.
 
 paper7 
 
-Spontaneous Intragastric Balloon Hyperinflation Is Probably Due to Microbial Overgrowth of the Filling Liquid
+**(2026-10-06-07)Spontaneous Intragastric Balloon Hyperinflation Is Probably Due to Microbial Overgrowth of the Filling Liquid**
 DOI: https://doi.org/10.1007/s11695-022-05984-3
 
 文章内容：
@@ -260,7 +260,7 @@ APA：Pontecorvi, V., Bove, V., Carlino, G., Matteo, M. V., De Siena, M., Pappar
 
 paper8
 
-Small bowel obstruction secondary to gastric balloon migration: A case report
+**(2026-10-06-08)Small bowel obstruction secondary to gastric balloon migration: A case report**
 DOI: 10.1016/j.ijscr.2022.107607
 
 文章内容：
@@ -304,23 +304,6 @@ paper6-7-8 conclusion
 
 ---
 
-paper9
-
-
-DOI: 
-
-文章内容：
-
-与我课题的联系:
-
-哪些信息我能用/用于支撑我的哪些观点：
-
-APA:
-
----
-
-
-
 2026/10/07
 
 evidence research A
@@ -334,9 +317,9 @@ Can clinically important balloon-state changes occur between routine follow-up v
 
 ---
 
-paper1
+paper9
 
-Intragastric Balloon for Overweight Patients
+**(2026-10-07-09)Intragastric Balloon for Overweight Patients**
 DOI:https://doi.org/10.4293/JSLS.2015.00107
 
 ***2015年发表的论文*** 可能有点久了
@@ -353,9 +336,9 @@ APA:Fernandes Jr, F. A. M., Carvalho, G. L., Lima, D. L., Rao, P., Shadduck, P. 
 
 ---
 
-paper2
+paper10
 
-Deflated intragastric balloon-induced small bowel obstruction
+**(2026-10-07-10)Deflated intragastric balloon-induced small bowel obstruction**
 DOI：https://doi.org/10.1016/j.clinre.2011.06.002
 
 ***2011年发表***
@@ -377,8 +360,8 @@ APA:Moszkowicz, D., & Lefevre, J. H. (2012). Deflated intragastric balloon-induc
 
 ---
 
-paper3 
-Gastric Obstruction Secondary to an Unexplained Hyperinflation of an Intragastric Balloon
+paper11 
+**(2026-10-07-11)Gastric Obstruction Secondary to an Unexplained Hyperinflation of an Intragastric Balloon**
 Doi:https://doi.org/10.1016/j.cgh.2018.09.045
 
 ***2020年发表***
@@ -401,10 +384,10 @@ conclusion:
 
 ---
 
-paper4
+paper12
 
 现在临床上到底应该怎么 follow-up？
-AGA Clinical Practice Guidelines on Intragastric Balloons in the Management of Obesity
+**(2026-10-09-12)AGA Clinical Practice Guidelines on Intragastric Balloons in the Management of Obesity**
 DOI:https://doi.org/10.1053/j.gastro.2021.03.003
 
 ***2021***
@@ -433,9 +416,9 @@ APA:Muniraj, T., Day, L. W., Teigen, L. M., Ho, E. Y., Sultan, S., Davitkov, P.,
 
 ---
 
-paper5
+paper13
 
-Ileal obstruction caused by migration of deflated intragastric balloon after bariatric surgery treated with laparotomy and semicircular ileotomy: Case report
+**(2026-10-11-13)Ileal obstruction caused by migration of deflated intragastric balloon after bariatric surgery treated with laparotomy and semicircular ileotomy: Case report**
 DOI:https://doi.org/10.1016/j.ijscr.2024.109997
 
 主要内容是什么： 2024 年发表在《International Journal of Surgery Case Reports》上的一篇临床病例报告与文献回顾（Ileal obstruction caused by migration of deflated intragastric balloon...）。   
@@ -465,9 +448,9 @@ APA:Handaya, A. Y., Subroto, P. D., & Aditya, A. F. K. (2024). Ileal obstruction
 
 ---
 
-paper6
+paper14
 
-Intragastric balloon adverse events: a comprehensive MAUDE database review
+**(2026-10-11-14)Intragastric balloon adverse events: a comprehensive MAUDE database review**
 DOI:https://doi.org/10.1080/08998280.2024.2406710
 
 主要内容是什么：
@@ -500,9 +483,9 @@ APA:Mohamed, I., Koyi, J., Abu Suilik, H., Abosheiashaa, H., Jaber, F., Hamaad R
 
 ---
 
-paper7
+paper15
 
-A Multidisciplinary Intragastric Balloon Care Pathway for Weight Management in a Tertiary Malaysian Centre: Clinical Practice Framework
+**(2026-10-11-15)A Multidisciplinary Intragastric Balloon Care Pathway for Weight Management in a Tertiary Malaysian Centre: Clinical Practice Framework**
 DOI:https://doi.org/10.2147/JMDH.S590735
 
 主要内容是什么：这只是马来西亚医院的标准 去定期监控病人情况 根据病人的临床表现去实施不同的手段 但是没有涉及到监控气球形状或者位置变化
@@ -531,9 +514,9 @@ APA:Gill, T., Loo, G. H., Muthkumaran, G., & Kosai, N. R. (2026). A Multidiscipl
 
 ---
 
-paper8
+paper16
 
-Endoscopic management of intragastric balloon related gastric outlet obstruction: A case report and review of literature
+**(2026-10-12-16)Endoscopic management of intragastric balloon related gastric outlet obstruction: A case report and review of literature**
 DOI:https://doi.org/10.12998/wjcc.v13.i30.108934
 
 主要内容：这篇文章是一篇最新的病例报告加系统性文献回顾（Systematic Review）：   核心病例：一名 39 岁女性在置入 Silimed 胃内气球 2 周后，出现严重的餐后腹痛、恶心与呕吐。CT 扫描显示气球滑落并卡在胃幽门前区（Prepyloric region/Antrum），导致胃出口梗阻（Gastric Outlet Obstruction, GOO）以及胃近端严重扩张和食物残留（Bezoar）。最终通过紧急内镜穿刺抽液 decompression（抽出 500 mL 亚甲蓝溶液）并取出气球。  
@@ -559,9 +542,9 @@ API:O’Neill, R. S., Goh, L. H., Lee, C., Jia, K., & Feller, R. (2025). Endosco
 
 ---
 
-paper9
+paper17
 
-Spontaneous Hyperinflation of Intragastric Balloons: A Systematic Review
+**(2026-10-12-17)Spontaneous Hyperinflation of Intragastric Balloons: A Systematic Review**
 DOI:https://doi.org/10.3390/gidisord7030055
 
 主要内容：这篇文章是 2025 年发表在《Gastrointestinal Disorders》上的全球首篇针对“胃内气球自发性过度膨胀（Spontaneous Intragastric Balloon Hyperinflation, SIBH）”的系统性综述（Systematic Review）。   
@@ -589,9 +572,9 @@ APA: Guirgis, M., Kumar, P., Laurens, J., & Madhok, B. (2025). Spontaneous Hyper
 
 ---
 
-paper 10
-Spanish Intragastric Balloon Consensus Statement (SIBC): practical guidelines based on experience of over 20
-000 cases
+paper 18
+
+**(2026-10-12-18)Spanish Intragastric Balloon Consensus Statement (SIBC): practical guidelines based on experience of over 20000 cases**
 DOI:10.17235/reed.2022.9322/2022
 
 主要内容：这篇文章是西班牙消化内镜学会（GETTEMO）联合巴西共识团队（BIBC），由 21 位资深内镜专家基于 20,680 例胃内气球置入病例及 12 种不同气球型号（涵盖 6 个月充液型、12 个月充液型、充气型、吞咽型等）制定的权威专家共识：   
@@ -632,20 +615,7 @@ APA:Coll, E. E., García, A. D. P., Arau, R. T., Durán, J. N., Rizo, X. C., Jim
 
 ---
 
-paper 11
-
-DOI:
-
-主要内容：
-
-与我课题的联系：
-
-哪些信息我能用/用于支撑我的哪些观点：
-
-APA:
-
----
-paper 12
+paper ...
 
 DOI:
 
