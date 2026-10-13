@@ -237,23 +237,33 @@ APA:Handaya, A. Y., Subroto, P. D., & Aditya, A. F. K. (2024). Ileal obstruction
 
 paper27
 
-
-DOI:
+Mechanical Small Bowel Obstruction Secondary to Deflated 
+and Migrated Intragastric Balloon
+DOI:10.5811/cpcem.64610
 APA:Moas, L., Feraud, A., Baksh, A., & Boccio, E. (2026). Mechanical Small Bowel Obstruction Secondary to Deflated and Migrated Intragastric Balloon. Clinical Practice and Cases in Emergency Medicine.
 
 文章内容：
+研究案例与现象观察：记录了一例置入胃水球 3 个月后发生自发性泄气（Deflation）与液体渗漏，导致水球外形尺寸剧烈收缩并发生远端位移（Migration），从胃部通过幽门一路滑移至小肠及降结肠，最终经肛门自行排出的典型病例。
+尺寸与几何收缩（Geometric Shrinkage）：平扫 CT（Noncontrast CT）图像连续记录了水球在充盈液体泄漏后，三维外形尺寸（Geometric dimensions）与体积急剧缩小的过程。
+消化道顺应性位移：泄气萎缩后的水球呈现高度可塑且细长的折叠形态，使其能够顺应幽门和肠道的几何通道发生连续物理滑移。
 
 与我课题的联系：
+解答 Question C 与 Search C（泄气萎缩与空间动力学）：提供了胃水球在发生液体渗漏后，外形尺寸（Dimensions）剧烈收缩及其在消化道内顺应性滑移轨迹的连续影像证据。
+揭示微小渗漏对设备留存的致命性：证明了即便不是剧烈破裂，仅发生微小渗漏导致体积与外径缩减，就会使胃内设备彻底失去几何阻挡（Geometric anchoring）作用。
+对 Cable Robot 课题的支撑：证明了胃内设备形态与尺寸的微小改变就会引发全消化道级别的危险位移，进一步强化了 Cable Robot 需要具备“形态/张力实时感知（Shape/Tension Sensing）与微创控姿（Postural Control）”的立项必然性。
 
 哪些信息我能用 用于支持我的哪些观点：
+1.信息：CT 图像连续记录了泄气水球在液体泄漏后外形尺寸（Geometric size/dimensions）剧烈缩小并连续滑移至结肠的全过程。
+用于支持观点：“解答 Question C，证明水球泄气导致的几何尺寸缩小（Geometric shrinkage）是造成胃内机械阻挡失效与远端位移的直接物理原因”。
+2.信息：水球泄气后的细长折叠形态使其能顺应幽门孔径滑出胃腔。
+用于支持观点：“水球的三维几何尺寸（Size/Dimensions）是维持胃腔内空间留存的关键参数，尺寸萎缩会直接导致胃内锚定失效”。
+3.信息：水球在胃内泄气发生位移时，初期缺乏剧烈症状，直到引发小肠梗阻才被影像学（CT）捕获。
+用于支持观点：“再次证实现行随访缺少连续形态与状态感知（Shape Sensing），必须依靠智能化机器人系统实现形态异常的早发现、早干预”。
 
 图片信息：
 <img width="795" height="1041" alt="image" src="https://github.com/user-attachments/assets/880c0bba-a3e9-4f74-9452-49611e40f088" />
 
-
-
 ---
-
 
 paper26
 
