@@ -139,7 +139,7 @@ APA:Keßler, R., Glitsch, A., Hübner, B., Gärtner, S., Steveling, A., Patrzyk,
 
 paper25
 
-Antibiotics to Prevent Relapse of Adjustable Gastric Balloon Hyperinflation: Feasible for Balloon Maintenance? 
+**2026-10-13-25-Antibiotics to Prevent Relapse of Adjustable Gastric Balloon Hyperinflation: Feasible for Balloon Maintenance?**
 DOI:https://doi.org/10.1159/000507226
 APA:Usuy, E., Silva, M., dos Passos Galvão Neto, M., Grecco, E., Ferreira de Souza, T., & de Quadros, L. G. (2020). Antibiotics to prevent relapse of adjustable gastric balloon hyperinflation: feasible for balloon maintenance?. GE-Portuguese Journal of Gastroenterology, 28(1), 52-55.
 
@@ -171,9 +171,9 @@ APA:Usuy, E., Silva, M., dos Passos Galvão Neto, M., Grecco, E., Ferreira de So
 ---
 
 paper26
-
-DOI:
-APA:
+**2026-10-13-26-Spontaneous Hyperinflation of an Intragastric Balloon Causing Gastric Outlet Obstruction
+DOI:10.7759/cureus.15962**
+APA:Bomman, S., Sanders, D., & Larsen, M. (2021). Spontaneous hyperinflation of an intragastric balloon causing gastric outlet obstruction. Cureus, 13(6).
 
 文章内容：
 研究案例与现象观察：报告了一例置入液体充盈型胃水球（Orbera）后发生自发性异常过度膨胀（Hyperinflation），进而引发急性胃出口梗阻（Gastric Outlet Obstruction, GOO）的临床病例。
@@ -237,8 +237,7 @@ APA:Handaya, A. Y., Subroto, P. D., & Aditya, A. F. K. (2024). Ileal obstruction
 
 paper27
 
-Mechanical Small Bowel Obstruction Secondary to Deflated 
-and Migrated Intragastric Balloon
+**2026-10-13-27-Mechanical Small Bowel Obstruction Secondary to Deflated and Migrated Intragastric Balloon**
 DOI:10.5811/cpcem.64610
 APA:Moas, L., Feraud, A., Baksh, A., & Boccio, E. (2026). Mechanical Small Bowel Obstruction Secondary to Deflated and Migrated Intragastric Balloon. Clinical Practice and Cases in Emergency Medicine.
 
@@ -265,7 +264,21 @@ APA:Moas, L., Feraud, A., Baksh, A., & Boccio, E. (2026). Mechanical Small Bowel
 
 ---
 
-paper26
+paper28
+
+DOI:
+APA:
+
+文章内容：
+
+与我课题的联系：
+
+哪些信息我能用 用于支持我的哪些观点：
+
+
+---
+
+paper28
 
 DOI:
 APA:
