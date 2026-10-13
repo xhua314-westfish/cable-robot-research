@@ -203,10 +203,43 @@ CT 影像下的形变与结构改变：腹部 CT 冠状位与横断面切片清�
 
 ---
 
-paper26
+paper13
+
+**(2026-10-11-13)Ileal obstruction caused by migration of deflated intragastric balloon after bariatric surgery treated with laparotomy and semicircular ileotomy: Case report**
+DOI:https://doi.org/10.1016/j.ijscr.2024.109997
+
+主要内容是什么： 2024 年发表在《International Journal of Surgery Case Reports》上的一篇临床病例报告与文献回顾（Ileal obstruction caused by migration of deflated intragastric balloon...）。   
+核心病例：一名 46 岁女性在置入胃内气球 10 个月后（指南推荐时限为 6–12 个月），气球在胃内发生隐蔽性泄气（Deflation）与移位（Migration）。泄气后的气球顺着消化道下行，卡在了距离回盲部 40 cm 的小肠（回肠）处，导致完全性小肠梗阻（Small Bowel Obstruction）。   
+诊疗经过与诊断盲区：症状隐蔽：患者初期仅表现为胃部不适、恶心、腹胀和唾液分泌过多，家庭医生将其误诊为“普通胃炎”。
+色素预警失灵：患者未出现尿液变蓝的现象。而且第六个月时，进行了CT检测，发现气球状态良好，所以就继续放。  
+依赖事后影像确诊：患者送急诊后，通过腹部 X 光平片发现小肠扩张，次日通过 CT 扫描 才最终确诊为“泄气气球移位引发的小肠梗阻”。   救治方案：由于小肠严重扩张、腔内空间有限，微创腹腔镜手术易造成肠穿孔，最终外科团队实施了开腹手术（Laparotomy）结合半圆形回肠切开术（Semi-circular ileotomy），成功取出卡住的气球并缝合肠道，患者 5 天后出院。  
+
+与我课题的联系是什么：
+1.证明了传统化学预警手段（蓝色色素/亚甲蓝）不可靠：临床上常在气球内注入亚甲蓝（Methylene blue），希望泄气时色素进入肠道被吸收，使尿液变蓝以预警。但本病例直接证实：当发生慢漏或微漏时，色素在胃肠道被大量消化液稀释，患者根本没有出现尿液变蓝，导致错失早期干预时机，被当作胃炎治疗。这直接体现了您基于力学/拉力/位移的物理传感系统具有不可替代的客观性。
+2.证明了现行临床诊断手段（CT / B超 / X光）的严重滞后性：目前临床诊断气球泄气与移位，完全依赖事后（Post-event）影像学。必须等到气球已经落入肠道、造成剧烈腹痛甚至梗阻送急诊后，才能靠 CT 或 B超 拍出来。   
+您的课题致力于实现实时/连续的状态估计与形状重建（Real-time state estimation & shape reconstruction），能从“事后诊断”跨越到“过程中感知”，填补了这一重大的临床工程空白。   
+
+哪些信息我能用/用于支撑我的哪些观点：
+1.依靠“蓝色色素（亚甲蓝）变色”来预警气球泄气/泄漏极不可靠（易因缓慢渗漏或胃液稀释而失灵）
+证明传统色素标记法存在盲区，慢漏时色素在胃内被稀释/吸收不足，极易误诊。   
+2.目前临床对气球泄气和发生移位（Migration）的诊断，完全依赖事后放射学影像（CT / X光 / B超）
+证实当前临床缺乏实时连续监测手段，只能在患者发生梗阻送急诊后，靠 CT/B超/X光 做事后诊断。
+3.气球在胃内滞留时间延长，发生泄气与移位的物理风险显著增加，需要物理状态感知
+说明气球在胃内的物理状态（是否泄气、是否变形）随时间推移具有高度不确定性，凸显了测量与传感系统的必要性。
+4.气球隐蔽泄气移位的后果极其严重，甚至需要开腹外科手术
+说明如果不能早期感知气球泄气与位移，最终将演变为需要开腹的大手术，造成严重创伤。
+5.间歇性、定期的静态检查（如半年一次的胃镜/拍片）存在致命的“时间盲区”
+
+
+APA:Handaya, A. Y., Subroto, P. D., & Aditya, A. F. K. (2024). Ileal obstruction caused by migration of deflated intragastric balloon after bariatric surgery treated with laparotomy and semicircular ileotomy: Case report. International Journal of Surgery Case Reports, 121, 109997.
+
+---
+
+paper27
+
 
 DOI:
-APA:
+APA:Moas, L., Feraud, A., Baksh, A., & Boccio, E. (2026). Mechanical Small Bowel Obstruction Secondary to Deflated and Migrated Intragastric Balloon. Clinical Practice and Cases in Emergency Medicine.
 
 文章内容：
 
