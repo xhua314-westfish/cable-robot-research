@@ -247,6 +247,10 @@ APA:Moas, L., Feraud, A., Baksh, A., & Boccio, E. (2026). Mechanical Small Bowel
 
 哪些信息我能用 用于支持我的哪些观点：
 
+图片信息：
+<img width="795" height="1041" alt="image" src="https://github.com/user-attachments/assets/880c0bba-a3e9-4f74-9452-49611e40f088" />
+
+
 
 ---
 
