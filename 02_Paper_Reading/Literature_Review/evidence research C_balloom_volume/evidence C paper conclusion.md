@@ -266,19 +266,35 @@ APA:Moas, L., Feraud, A., Baksh, A., & Boccio, E. (2026). Mechanical Small Bowel
 
 paper28
 
-DOI:
-APA:
+Migration of an intragastric balloon may necessitate enterotomy for extraction
+DOI:https://doi.org/10.1016/j.jviscsurg.2020.10.004
+APA:Djelil, D., Taihi, L., & Cattan, P. (2021). Migration of an intragastric balloon may necessitate enterotomy for extraction. Journal of Visceral Surgery, 158(2), 185-186.
 
 文章内容：
+研究案例与现象观察：分析了胃水球因微小渗漏/自发泄气（Deflation/Leakage）导致体积与形态发生改变，进而穿过幽门滑入小肠并卡顿于回肠，最终必须通过剖腹及小肠切开术（Enterotomy）取出球体的严重并发症病例。
+截面直径与形态塌陷（Collapsed/Flattened Morphology）：阐述了水球泄气后的几何演变过程——水球从初始直径约 10–12 cm 的对称充液球体，坍塌为扁平折叠形态（Collapsed, flattened morphology），其主截面外径（Cross-sectional diameter）急剧缩减。
+空间锚定失效机制：揭示了水球在胃内依靠几何尺寸维持的物理锚定（Mechanical anchoring）是如何因泄气造成的形变与截面直径缩小而彻底解体的。
 
 与我课题的联系：
+直接解答 Question C 与 Search C（泄气萎缩导致截面直径与几何形态改变）：提供了水球微小泄气后三维几何形态“扁平化塌陷（Flattened/Collapsed morphology）”及截面直径缩减的明确病理机制描述。
+揭示“形态塌陷”与“胃内解剖留存”的力学因果关系：证明了水球截面外径一旦小于幽门管开放孔径，其在胃底部的几何阻挡屏障即刻失效。
+对 Cable Robot 课题的支撑：为 Cable Robot 的构型设计与状态监测提供了关键参数依据——系统不仅要监测总体积，更需要实时感知设备的主截面几何外径（Cross-sectional diameter）与形态坍塌趋势，以防止滑脱与位移并发症。
 
 哪些信息我能用 用于支持我的哪些观点：
+1.信息：水球发生泄气后，几何形态剧烈塌陷折叠（Collapsed/flattened morphology），主截面外径（Cross-sectional diameter）缩减至小于幽门管开放孔径。
+用于支持观点：“解答 Question C，证明泄气会引发水球三维形态扁平化（Flattening）与主截面外径缩减（Cross-sectional diameter shrinkage）”。
+2.信息：截面外径的收缩与形态塌陷破坏了水球在胃底部的空间几何阻挡，是引发隐匿性迁移（Migration）的核心物理机制。
+用于支持观点：“胃内设备的解剖锚定高度依赖于其截面几何尺寸与张力形态；一旦发生截面尺寸萎缩，设备必将失稳位移”。
+3.信息：水球微小渗漏导致的形态改变极其隐匿，临床常规随访难以在滑入小肠前及时预警，最终导致二次侵入性开腹手术。
+用于支持观点：“现行被动随访机制缺乏对设备几何形态与尺寸的连续监测（Continuous Shape Sensing），证明了具备连续状态感知与姿态/尺寸可控的机器人系统（Cable Robot）的临床必要性”。
 
+图片信息：
+气球泄气后卡在了肠子里
+<img width="1623" height="608" alt="image" src="https://github.com/user-attachments/assets/36dd87c4-34a5-4894-a476-930b1dceefab" />
 
 ---
 
-paper28
+paper29
 
 DOI:
 APA:
