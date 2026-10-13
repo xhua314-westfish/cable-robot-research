@@ -45,6 +45,34 @@ APA:Ienca, R., Al Jarallah, M., Caballero, A., Giardiello, C., Rosa, M., Kolmer,
 
 ---
 
+paper24
+
+Abdominal Morphologic Changes in MRI during Gastric Balloon Therapy
+DOI:https://doi.org/10.1159/000526444
+APA:Keßler, R., Glitsch, A., Hübner, B., Gärtner, S., Steveling, A., Patrzyk, M., & Keßler, W. (2022). Abdominal morphologic changes in MRI during gastric balloon therapy. Obesity Facts, 15(5), 703-710.
+
+原文中的关键数据
+- 充盈时使用的体积范围：500–850 mL。
+- MRI 测得置入时的平均填充体积为 \(696.2 \pm 20.8\) mL。
+- 取出时为 \(732.9 \pm 49.85\) mL；研究未发现总体积有显著变化。
+- 一例气球内气泡增大，图中报告气球体积由约 730 mL 增至 1,113 mL。
+
+为什么与你的 workspace 研究相关？
+这是五篇中对你的研究特别有价值的一篇：它使用 MRI 观察实际胃内气球及其内部变化，而不是仅依据产品说明书。
+它支持你把气球体积作为一个需要明确的物理参数，并说明内部气体变化可能影响整体几何状态。
+
+与我课题的联系：
+1.为 Cable Robot Workspace 提供“边界参数与控制必要性”：尺寸与运动上限：确立了水球因发酵膨胀时的几何外径上限（$D_{\max} \approx 12.86\text{ cm}$）[cite: 18] 以及对相邻脏器（左肝）的机械推挤量（$\sim 40\text{ mL}$）[cite: 17]。
+控制必要性：泄气滑脱病例（Passage via naturalis）[cite: 15, 17, 18] 再次证实，一旦截面尺寸收缩，设备将失去胃内留存屏障，证明了 Cable Robot 进行主动姿态与防滑控制的必然性。
+
+哪些信息我能用/支撑我哪些观点：
+1.信息：PDF 第 706 页 Figure 3A/B 证实，水球在胃腔内的几何占据对相邻脏器产生物理挤压，使肝左叶体积显著缩小 $40.6\text{ mL}$ ($p=0.0493$)[cite: 17, 18]。
+用于支持观点：“胃水球的三维几何形态与空间占据（Spatial Occupation）会直接改变周围支撑器官与胃壁的力学接触界面，产生非线性的机械挤压”。
+2.PDF 第 704 页记录 1 例水球在体内存续期间自发泄气并自然穿过肠道排出（Passage via naturalis）[cite: 15, 17, 18]；第 707 页记录并发症率达 $21.4\%$[cite: 18]。
+用于支持观点：“现行被动水球无法感知泄气造成的截面尺寸萎缩，导致胃内解剖锚定失效与隐匿性位移；必须引入具备连续形态感知（Shape Sensing）与张力调控能力的机器人系统（Cable Robot）进行闭环安全保护”。
+
+---
+
 paper30
 
 APA:
