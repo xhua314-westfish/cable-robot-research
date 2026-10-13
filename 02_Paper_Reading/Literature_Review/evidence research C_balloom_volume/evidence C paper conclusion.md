@@ -137,7 +137,73 @@ APA:Keßler, R., Glitsch, A., Hübner, B., Gärtner, S., Steveling, A., Patrzyk,
 
 ---
 
-paper23
+paper25
+
+Antibiotics to Prevent Relapse of Adjustable Gastric Balloon Hyperinflation: Feasible for Balloon Maintenance? 
+DOI:https://doi.org/10.1159/000507226
+APA:Usuy, E., Silva, M., dos Passos Galvão Neto, M., Grecco, E., Ferreira de Souza, T., & de Quadros, L. G. (2020). Antibiotics to prevent relapse of adjustable gastric balloon hyperinflation: feasible for balloon maintenance?. GE-Portuguese Journal of Gastroenterology, 28(1), 52-55.
+
+文章内容：
+研究案例与现象观察：分析了可调节胃水球（Spatz3）在体内存续期间因液体内细菌过速繁殖发酵产气，引发自发性过度膨胀（Hyperinflation）的临床病例及其处置方案。
+几何外径与尺寸扩展（Diameter Expansion）：充盈液体内部真菌/细菌产气导致水球内部气液混存，水球几何外径（Outer diameter）迅速扩展超过原始设计直径 3–4 cm，球体张力剧增。
+物理嵌顿（Impaction）机制：外径扩张和几何形态变形（Shape deformation）直接改变了水球与胃壁的机械接触界面，导致膨胀的水球物理性紧贴并卡顿于胃窦部（Antrum），诱发急腹症式的腹胀与恶心呕吐。
+
+与我课题的联系：
+直接解答 Question C（Diameter change / Deformation）：提供了胃水球在发生自发膨胀时几何外径扩展（Outer diameter expansion，增加 3–4 cm）与张力形变的精确临床测量数据。
+直接解答 Search C（Shape 提供 Volume 以外的信息）：证明了水球外径（Diameter）和张力形态（Morphology）的变化直接决定了是否会发生“胃窦嵌顿（Antral impaction）”。
+对 Cable Robot 课题的支撑：证实了胃水球在体内的几何外形尺寸改变具有危险的临界阈值——当外径扩张超过一定范围时，就会从正常的“占据胃腔”变为“机械性卡顿”。这为您的索驱动机器人（Cable Robot）进行精准外形尺寸调控与安全边界设定提供了直接数据支持。
+
+哪些信息我能用 用于支持我的哪些观点：
+1.信息：水球发生异常膨胀时，内部气液累积导致球体几何外径（Outer diameter）超出初始设计直径 3–4 cm，引起严重物理形变。
+用于支持观点：“解答了 Question C，说明水球在极端膨胀/形变状态下的几何外径改变幅度可达数厘米级（3–4 cm），具备显著的解剖形变空间”。
+2.信息：外径扩展与形态变化导致水球直接嵌入胃窦（Antral impaction），引发急性消化道堵塞。
+用于支持观点：“水球的几何外径（Diameter）与接触形态是引发胃窦物理嵌顿的核心物理参数，形态监测对预防并发症至关重要”。
+3.信息：现行可调节水球虽然支持调节，但在发生急剧形态膨胀时，临床仍缺乏实时的几何尺寸/压力预警与自动降压机制。
+用于支持观点：“亟需引入可精准控制形态与力学反馈的机器人系统（如 Cable Robot），以实现几何尺寸的闭环控制与安全过载保护”。
+
+图片信息：
+（这个气液分层更加明显）
+<img width="2079" height="776" alt="image" src="https://github.com/user-attachments/assets/15f4a77f-ea98-48c7-8d15-3c43ad04bbe4" />
+
+<img width="1266" height="351" alt="image" src="https://github.com/user-attachments/assets/20071576-03f2-4665-9d0a-c491dc449e1d" />
+
+
+---
+
+paper26
+
+DOI:
+APA:
+
+文章内容：
+研究案例与现象观察：报告了一例置入液体充盈型胃水球（Orbera）后发生自发性异常过度膨胀（Hyperinflation），进而引发急性胃出口梗阻（Gastric Outlet Obstruction, GOO）的临床病例。
+CT 影像下的形变与结构改变：腹部 CT 冠状位与横断面切片清晰展现了水球内部呈现典型的“气液双相平面（Air-fluid level）”。内部气体积聚导致水球球壁受到非均匀拉伸，几何形态从初始的对称球体畸变为高度拉伸的非对称形变体（Stretched/deformed morphology）。
+物理嵌顿与胃壁受拉：拉伸形变后的水球物理性堵塞幽门，CT 图像同步观察到胃壁因水球挤压而发生的过度张力拉伸（Stretched gastric wall）。
+
+与我课题的联系：
+直接解答 Question C（Imaging 测定形变）：提供了利用CT 影像（Coronal and Transverse CT Imaging）直观捕捉水球在体内发生非均匀拉伸形变（Stretched deformation）与气液双相界面的典型影像证据。
+直接解答 Search C（Shape 提供 Volume 以外的信息）：证明了水球内部气液分层引起的“几何拉伸与非对称形变（Deformed shape）”是直接导致幽门物理性梗阻（GOO）的核心机制，仅凭初始注水体积（Volume）无法预测这种形态学畸变。
+对 Cable Robot 课题的支撑：证明了“胃水球在体内发生形态畸变后会直接拉伸胃壁并阻塞幽门”。这为您的索驱动机器人（Cable Robot）提出明确的技术要求——需要具备构型与张力实时监控能力，以防止水球发生非对称几何畸变并保护胃壁组织。
+
+哪些信息我能用 用于支持我的哪些观点：
+1.The balloon had increased in size and now measured approximately 12.7 cm x 11.6 cm x 13.2 cm (volume of
+1011 mL).
+2.信息：CT 冠状位与横断面影像（Coronal & Transverse CT）直接展示了过度膨胀水球的非对称拉伸形变（Stretched morphology）与气液平面（Air-fluid level）。
+用于支持观点：“解答了 Question C，证明了医学影像（Imaging）能精准捕捉水球在体内发生的几何拉伸与各向异性形变（Deformation）”。
+3.信息：CT 图像明确显示水球形态畸变导致了胃壁的过强拉伸（Stretched gastric wall）与幽门物理堵塞。
+用于支持观点：“水球的几何形态（Shape/Morphology）是决定胃壁机械应力分布与幽门通畅度的核心物理因子”。
+4.信息：急性膨胀与形态畸变最终导致患者必须接受急诊胃镜介入拔球，终止治疗。
+用于支持观点：“缺乏连续形态感知会导致对气球形变的响应高度滞后，亟需引入能进行形态感知与柔性调控的机器人系统（如 Cable Robot）进行早期干预”。
+
+图片信息：
+1.气球膨胀后已经开始压倒其他组织
+<img width="1167" height="1116" alt="image" src="https://github.com/user-attachments/assets/d33f3319-2892-4ab6-8c55-10026fcc1e13" />
+2.气液分层
+<img width="699" height="1131" alt="image" src="https://github.com/user-attachments/assets/5d894828-44e5-4a54-8a30-913f31761998" />
+
+---
+
+paper26
 
 DOI:
 APA:
@@ -146,6 +212,7 @@ APA:
 
 与我课题的联系：
 
-哪些信息我能用 用于支持我的哪些观点
+哪些信息我能用 用于支持我的哪些观点：
+
 
 ---
