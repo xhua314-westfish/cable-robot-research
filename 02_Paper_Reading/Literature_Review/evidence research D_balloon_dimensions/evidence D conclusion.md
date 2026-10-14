@@ -6,7 +6,8 @@ Actual balloon dimensions**
 ---
 
 paper29
-The procedureless elipse gastric balloon program: multicenter experience in 1770 consecutive patients
+
+**2026-10-14-29-The procedureless elipse gastric balloon program: multicenter experience in 1770 consecutive patients**
 DOI:https://doi.org/10.1007/s11695-020-04539-8
 APA:Ienca, R., Al Jarallah, M., Caballero, A., Giardiello, C., Rosa, M., Kolmer, S., ... & Al Kuwari, M. (2020). The procedureless elipse gastric balloon program: multicenter experience in 1770 consecutive patients. Obesity surgery, 30(9), 3354-3362.
 
