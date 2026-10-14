@@ -74,6 +74,40 @@ APA:Keßler, R., Glitsch, A., Hübner, B., Gärtner, S., Steveling, A., Patrzyk,
 
 ---
 
+paper11 
+**(2026-10-07-11)Gastric Obstruction Secondary to an Unexplained Hyperinflation of an Intragastric Balloon**
+Doi:https://doi.org/10.1016/j.cgh.2018.09.045
+
+***2020年发表***
+
+主要内容：
+商业化水球初始规格（Device Baseline Specifications）：使用设备：Apollo Endosurgery 公司的 Orbera 硅胶胃水球。   初始充盈容积（Initial Volume）：置入时注入 $700\text{ mL}$ 的水。   几何外径数学推算（Initial Outer Diameter）：按球体体积公式 $D_0 = \sqrt[3]{\frac{6V_0}{\pi}}$ 计算，初始 $700\text{ mL}$ 对应球体物理外径为 $D_0 \approx 11.02\text{ cm}$。
+病理性过度膨胀与极限体积形变（Extreme Hyperinflation & Volume Expansion）：暴涨实测数值：水球在体内存续 6 个月后，因内部微生物发酵产生约 $800\text{ mL}$ 气体，水球总体积暴涨至 $1513\text{ mL}$（膨胀率高达 $+116\%$，体量超过初始体积的 2.16 倍）。   极限几何外径推算（Extended Outer Diameter）：膨胀后的 $1513\text{ mL}$ 对应理论三维物理外径暴涨至 $D_{\text{max}} \approx 14.24\text{ cm}$，外径绝对增量达 $+3.22\text{ cm}$。
+腹部 CT 影像与解剖堵塞机制（CT Imaging & Gastric Obstruction）：CT 影像表现（Figure 1A & 1B）：腹部 CT 平扫及立位 X 光切片清晰展示了膨胀水球呈现高度拉伸的“气液双相分层（Air-fluid level / Mixed liquid-gaseous content）”。   临床并发症（Clinical Impaction & Ulceration）：极度膨胀的球体（$1513\text{ mL}$）引发了急性胃梗阻（Gastric obstruction）、严重低血钾症（$2.4\text{ \mu mol/L}$）以及上腹部剧烈疼痛与呕吐，胃镜下观察到胃黏膜发生了浅表溃疡（Figure 1C–E）。
+
+
+与我课题的联系：
+确立 Commercial Orbera IGB 的高限物理参数（Balloon Size Baseline）：提供了 Orbera 水球在临床上限填充状态下的标准容积 $V = 700\text{ mL}$ 及其初始几何外径 $D_0 \approx 11.02\text{ cm}$ 的真实数据。   
+直接解答 Question C 与 Search C（CT 测定极端膨胀形变与气液相态）：证明 Imaging 捕捉形变能力：直观展示了利用 CT 扫描精准识别水球内“气液相态改变（$800\text{ mL}$ 气体）”与几何外径拉伸的影像学证据。  
+证明 Shape/Deformation 提供 Volume 以外的信息：证明了即便初始只注入了 $700\text{ mL}$ 液体，内部微生物产气引发的“几何外径剧烈扩展（$+3.22\text{ cm}$）与非对称张力形变”是诱发胃梗阻与胃黏膜溃疡的根本物理机制。   
+为 Cable Robot Workspace 提供“形变包络上限（Deformation Upper Limit）”：最大形变边界：确立了胃水球因病理性发酵导致暴胀时的物理边界上限（$V_{\max} \approx 1513\text{ mL}$，$D_{\max} \approx 14.24\text{ cm}$）。   机器人控制必要性：该病例患者出现上腹部包块与呕吐等不适症状长达 2 个月，直到发生急性梗阻才被急诊 CT 确诊，证明了被动水球缺乏体内存续期形态预警的致命缺陷，进一步强化了 Cable Robot 需要具备“连续形态/压力感知（Continuous Shape & Pressure Sensing）与自动降压/姿态调节”的立项必然性。
+
+哪些信息我能用/用于支撑我的哪些观点：
+1.产品牌子 Orbera 
+2.标准体积 700ml 变化到800ml 再到1513ml
+3.植入气球两个月后 腹痛、胃食管反流和呕吐的逐渐出现 然后72小时后加剧 照X光才发现 → 佐证了检测体积变化的必要性
+
+1.信息：PDF 记录 Orbera 水球初始注入 $700\text{ mL}$ 水，6 个月后因微生物发酵产气导致总体积暴涨至 $1513\text{ mL}$（气液混存）。   
+用于支持观点：“解答了 Evidence Search D，确立了商业化 Orbera 水球的高限基础尺寸为 $V_0 = 700\text{ mL}$ ($D_0 \approx 11.02\text{ cm}$)，并给出了极度发酵膨胀下的极限物理包络边界（$V_{\max} = 1513\text{ mL}$, $D_{\max} \approx 14.24\text{ cm}$，外径拉伸扩展达 $+3.22\text{ cm}$），为 Cable Robot Workspace 设计提供了最大形变包络上限（Deformation Range Upper Bound）”。   
+2.信息：CT 图像（Figure 1A, 1B）清晰展示了水球内气液双相平面（Air-fluid level），且 $1513\text{ mL}$ 的膨胀体积直接引发了胃出口梗阻（Gastric Obstruction）与胃黏膜压迫性溃疡。   
+用于支持观点：“解答了 Question C，证明了医学影像（CT）能精准捕获水球内部相态改变引发的三维几何膨胀；同时证明水球几何外径的异常扩张直接改变了与胃壁的力学 contact 界面，是导致胃腔机械性梗阻与黏膜机械损伤的核心原因”。   
+3.信息：患者在发生胃梗阻前已持续 2 个月存在渐进性腹痛与胃食管反流，但因缺少连续监控，直到急诊 CT 扫描才发现 $1513\text{ mL}$ 的体积暴涨并被迫急诊胃镜拔球。   
+用于支持观点：“现行被动随访机制对胃内设备形态与体积的突变存在严重的感知滞后；必须开发具备实时形态/姿态感知（Shape Sensing）与可控降压能力的 Cable Robot 系统，以实现对自发膨胀的早期预警与原位干预”。   
+
+APA:Basile, P., Marre, C., & Le Mouel, J. P. (2020). Gastric obstruction secondary to an unexplained hyperinflation of an intragastric balloon. Clinical Gastroenterology and Hepatology, 18(2), A16.
+
+---
+
 paper30
 
 APA:
