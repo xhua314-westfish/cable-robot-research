@@ -134,5 +134,33 @@ DOI:https://doi.org/10.1016/j.gie.2019.12.012
 图片信息：
 <img width="1005" height="1107" alt="image" src="https://github.com/user-attachments/assets/d9d25a71-a014-4477-8a5c-a7f8568e0dde" />
 
+---
+
+paper3 
+
+**(2026-10-05-03)Randomized Prospective Clinical Study of Spatz3® Adjustabl Intragastric Balloon Treatment with a Control Group: a Large-Scale Brazilian Experiment**
+DOI:https://doi.org/10.1007/s11695-020-05014-0
+
+结论：这篇文章虽然没有提出新的“监测机制”，但它用数据探明了人体胃腔对水球容积的物理极限（Upper Limit of Gastric Tolerance）。也就是说，600 mL 加上后续调整的 250 mL（达到 850 mL），基本就是人类胃部在不发生严重并发症的前提下能承受的物理体积上限。
+
+文章内容：
+商业化可调节水球规格（Device Baseline Specifications & Geometry）：使用设备：第三代 Spatz3® 液态可调节胃水球（Spatz FGIA, Inc.）[cite: 31]。初始充盈容积（Initial Volume）：置入时标准注入 $600\text{ mL}$ 盐水（3% 生理盐水 + 10 mL 亚甲蓝）[cite: 30, 33]。初始几何外径数学推算（Initial Outer Diameter）：按球体体积公式 $D_0 = \sqrt[3]{\frac{6V_0}{\pi}}$ 计算，初始 $600\text{ mL}$ 对应球体物理外径为 $D_0 \approx 10.46\text{ cm}$。几何构型缺陷（Non-smooth Geometry）：不同于传统光滑水球，Spatz3® 尾端带有充盈阀与调节管（形成尾巴结构 "tail"），导致其表面非完全光滑（Non-smooth surface）[cite: 31, 37]。
+容量调节区间与外径动态变化（Adjustability Range & Kinematics）：上调区间（Upward Adjustment）：充盈量标准增加 $+250\text{ mL}$ 液体（总容量升至 $850\text{ mL}$）[cite: 30, 33, 35]，对应理论几何外径扩展至 $D_{\max} \approx 11.75\text{ cm}$（外径绝对扩展 $+1.29\text{ cm}$）。下调区间（Downward Adjustment）：因不耐受可抽取 $-100 \sim -300\text{ mL}$ 液体（平均抽出 $220\text{ mL}$，总容积降至 $380 \sim 500\text{ mL}$）[cite: 31, 34]，对应几何外径缩减至 $D_{\min} \approx 8.98 \sim 9.85\text{ cm}$。二次侵入性内镜代价（Secondary Endoscopy Requirement）：每次容量调节均需在深静脉麻醉下实施内镜操作——使用异物钳抓住胃内的阀门，将阀门拉出患者口腔，在体外用针管手动抽吸/注入液体后，再将阀门推回胃内[cite: 33]。
+临床随机对照（RCT, 180 例）与解剖压迫并发症（Clinical Trial & Complications）：减重疗效发现（核心 RCT 结论）：86 例上调组 vs 94 例对照组（恒定 600 mL）的对照显示，二次上调 +250 mL 并没有带来统计学显著的额外减重效果（%TWL $p=0.4413$, %EWL $p=0.9245$, BMI 降幅 $p=0.2729$）[cite: 30, 35]；且有 6.52% 的患者上调后发生不耐受而不得不再次下调[cite: 34]。局部压迫溃疡（Pressure Ulcers）：胃溃疡发生率达 3.33%（6 例），均发生在胃窦小弯侧，病理机制明确证实为 Spatz3 尾部非光滑锚定阀门（"tail"）对胃黏膜产生的集中机械压迫与摩擦（Compression point）引发压疮式溃疡[cite: 37]。其他并发症：早期不耐受下调率 4.44%（8 例，调小后 100% 坚持完成治疗）[cite: 34, 37]；自发泄气率 1.66%（3 例）[cite: 34, 37]；发酵产气 0.55%（1 例）[cite: 34, 37]。
+
+与我课题的联系：
+极度精准地补全 Commercial IGB Volume / Diameter 矩阵（Evidence Search D）：确立了目前临床唯一商业化“可调节水球”（Spatz3®）的容积调节全包络（$380 \sim 850\text{ mL}$）[cite: 30, 31, 34, 35] 及几何外径形变范围（$D \in [8.98\text{ cm}, 11.75\text{ cm}]$）。
+直接揭示当前可调节水球（Spatz3®）的“三大临床痛点”，为 Cable Robot 提供立项突破点：
+痛点 1：缺乏无创调控——Spatz3 调节体积必须进行极高侵入性的二次内镜拉阀操作[cite: 33]；而 Cable Robot 可实现体外索驱动/无创智能化形态控制。
+痛点 2：非光滑硬质尾端引发黏膜压迫溃疡——Spatz3 尾部 "tail" 对胃窦黏膜产生集中应力（溃疡率达 3.33%）[cite: 31, 37]；而 Cable Robot 柔性索构型能均匀分布接触应力，避免局部集中压迫。
+痛点 3：盲目定容上调无法保证疗效（缺乏形态/应力反馈）——RCT 证明单纯盲目增加 $+250\text{ mL}$ 容积并未增加减重疗效[cite: 30, 35]；证明了仅凭“改变静态体积”是不够的，必须引入 Cable Robot 具备的“连续形态/张力感知（Continuous Shape & Stress Sensing）”以根据胃壁接触力学实施精准构型调控。
+
+哪些信息我能用/支撑我哪些观点：
+1.信息：PDF 记录 Spatz3® 初始注水量为 $600\text{ mL}$ ($D_0 \approx 10.46\text{ cm}$)[cite: 30, 33]，体积下调可抽取 $-100 \sim -300\text{ mL}$[cite: 31, 34]（降至 $D_{\min} \approx 8.98\text{ cm}$），上调可增加 $+250\text{ mL}$[cite: 30, 33]（升至 $D_{\max} \approx 11.75\text{ cm}$）。用于支持观点：“解答了 Evidence Search D，确立了商业可调节水球（Spatz3®）的基准物理包络与形变调控区间为 $V \in [380\text{ mL}, 850\text{ mL}]$，$D \in [8.98\text{ cm}, 11.75\text{ cm}]$，为 Cable Robot Workspace 设计提供了真实可调尺寸的对照基准”[cite: 30, 31, 33, 34, 35]。
+2.信息：大样本 RCT 证明，二次内镜上调 $+250\text{ mL}$ 液体并没有在统计学上带来显著额外的减重提升（$p=0.4413$）[cite: 30, 35]，且二次调节需将阀门经食管拉出口腔进行手工抽注液[cite: 33]。用于支持观点：“证明了‘缺乏力学与形态反馈的盲目定容增加’无法突破减重瓶颈，且现有技术调节方式极其侵入性[cite: 33, 35]；这直接证明了开发具备‘无创可控、连续形态与接触力学自适应调节’的 Cable Robot 系统具备巨大的临床优越性”。
+3.信息：Spatz3® 因尾端充盈阀形成非光滑的 "tail" 结构，对胃窦黏膜产生集中压迫，引发了高达 3.33% 的胃溃疡发生率[cite: 31, 37]。用于支持观点：“解答了 Question C，证明胃内设备的表面几何连续性与接触应力分布直接决定了黏膜机械损伤的风险[cite: 31, 37]；索驱动机器人（Cable Robot）在构型设计上必须消除集中压迫点，实现对胃壁机械应力的均匀分布与安全保护”。
+
+APA:
+Fittipaldi-Fernandez, R. J., Zotarelli-Filho, I. J., Diestel, C. F., Klein, M. R. S. T., de Santana, M. F., de Lima, J. H. F., ... & Dos Santos, N. T. (2021). Randomized prospective clinical study of Spatz3® adjustable intragastric balloon treatment with a control group: a large-scale Brazilian experiment. Obesity Surgery, 31(2), 787-796.
 
 ---
