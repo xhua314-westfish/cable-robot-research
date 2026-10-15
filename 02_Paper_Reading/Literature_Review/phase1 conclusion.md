@@ -3,6 +3,10 @@
 ---
 PPT结构
 
+slide4
+<img width="1311" height="450" alt="image" src="https://github.com/user-attachments/assets/2dc593c2-9b50-4004-9596-197023b81e06" />
+
+
 slide5
 <img width="1305" height="486" alt="image" src="https://github.com/user-attachments/assets/d3eaf8f9-e1ed-48af-b9f4-f795887d024a" />
 
