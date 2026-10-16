@@ -171,28 +171,6 @@ The research continues to prioritise:
 
 The current shift is primarily a change in **development sequence**, not a replacement of the long-term research goal.
 
----
-
-
----
-
-# 1. Research Direction
-
-My research focuses on developing a:
-
-> **Cable-robot-based measurement and sensing system for a passive deformable
-> balloon-like object.**
-
-The motivating application is a **stomach-like / gastric environment** in
-which a balloon-like object may move and deform because of external
-environmental effects.
-
-The long-term goal is:
-
-> Use cable measurements to estimate the position, orientation, and
-> deformation/shape of a passively moving deformable balloon without assuming
-> that its trajectory is known in advance.
-
 The fundamental research concept is:
 
 ```text
