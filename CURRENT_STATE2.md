@@ -1,6 +1,178 @@
-# Current State 2
+# Current Research Update — 2026-10-16
 
-Last updated: 2026-10-16
+## 1. Recent Research Progress
+
+**Current phase:** Transition from clinical evidence review to sensing-system design.
+
+Recent work focused on reviewing clinical evidence concerning intragastric balloon monitoring, volume, position, morphology, and physical dimensions.
+
+The Week 13 presentation established four evidence areas:
+
+- **Evidence A — Clinical Monitoring:** Follow-up is intermittent; imaging provides snapshots rather than continuous state measurements.
+- **Evidence B — Volume and Morphology:** Nominal filling volumes and abnormal expansion cases provide preliminary test references.
+- **Evidence C — Position and Migration:** Clinical cases document migration and final positions, but normal trajectories and velocities remain unknown.
+- **Evidence D — Physical Dimensions:** Reported volumes and selected imaging measurements support preliminary geometric references.
+
+### Main Conclusion
+
+Clinical evidence supports the definition of initial balloon test scenarios, but does not establish a complete three-dimensional workspace.
+
+Remaining uncertainties include:
+
+- Normal balloon motion range and velocity
+- Collapsed balloon dimensions
+- Complete three-dimensional balloon geometry
+- Gastric anatomical boundaries
+- Cable sensing workspace and measurement accuracy
+
+---
+
+## 2. Workspace Definition — Draft 1.0
+
+The preliminary workspace specification includes:
+
+| Parameter | Preliminary reference | Status |
+|---|---|---|
+| Nominal filling volume | 550–700 mL | Reported |
+| Adjustable volume examples | Approximately 380–850 mL | Reported examples |
+| Hyperinflation cases | 1,011 / 1,513 mL | Reported cases |
+| Nominal equivalent diameter | Approximately 10.17–11.02 cm | Derived |
+| Abnormal equivalent diameter | Approximately 12.45–14.24 cm | Derived |
+| Abnormal CT dimensions | 12.7 × 11.6 × 13.2 cm | Case-specific measurement |
+| Normal motion range | Unknown | Requires investigation |
+| Collapse dimensions | Unknown | Requires investigation |
+| Cable geometry and sensing workspace | Not determined | Requires simulation and testing |
+
+**Important:** Equivalent spherical diameter is a geometric reference derived from volume, not a directly measured external diameter.
+
+Draft 1.0 defines preliminary test cases rather than final workspace boundaries.
+
+---
+
+## 3. Meeting Feedback and Research Implications
+
+The recent discussion with Siqi provided the following interpretation of the meeting with Peter.
+
+### 3.1 Simplify the Motion Problem
+
+The initial research does not need to reproduce the full natural motion, expansion, or contraction of a gastric balloon.
+
+Instead, begin with simplified and repeatable test cases:
+
+- Straight-line displacement
+- Different movement speeds
+- Small position changes
+- Rotation, if included in the selected state model
+
+Known experimental motion may be used as ground truth for validation, but should not be assumed known by the state estimator.
+
+### 3.2 Prioritise Cable Configuration
+
+The immediate research challenge is to investigate:
+
+- Minimum cable number for the selected measurement objective
+- External anchor-point placement
+- Object attachment-point placement
+- Measurement accuracy
+- Observability and sensing quality
+- Feasible sensing workspace
+
+Minimum cable number must be established for a specified state dimension, measurement model, and accuracy requirement.
+
+### 3.3 Start with a Rigid Object
+
+A rigid-body experimental platform is the preferred first development step.
+
+The suggested development sequence is:
+
+1. Reproduce or adapt a reference cable-robot configuration.
+2. Develop and verify a rigid-body measurement model.
+3. Introduce simple, repeatable motion cases.
+4. Measure cable responses.
+5. Estimate rigid-body state from cable measurements.
+6. Compare estimated states with independent ground-truth measurements.
+7. Extend the system to a deformable balloon.
+
+The initial rigid-body system is intended to validate sensing and estimation, rather than reproduce realistic gastric balloon deformation.
+
+### 3.4 Potential Collaboration with Siqi
+
+Siqi has existing balloon reconstruction and motion information.
+
+However:
+
+- The available trajectories may be complex and curved.
+- Their suitability for cable-based sensing validation is not yet established.
+- The available data should be reviewed before integration.
+- Shape reconstruction information may become useful during later deformable-body experiments.
+
+**Note:** These points reflect the follow-up discussion and interpretation, not a confirmed final research specification from Peter.
+
+---
+
+## 4. Updated Research Priority
+
+### Immediate Research Question
+
+**For a simplified rigid body, how many cables are required, and how should anchors and attachment points be arranged to achieve a specified measurement accuracy?**
+
+### Proposed Investigation
+
+**Step 1 — Define the sensing objective**
+
+- Select the initial state variables.
+- Start with a simple planar model.
+- Distinguish position-only estimation from full rigid-body pose estimation.
+
+**Step 2 — Define candidate geometries**
+
+- Compare different cable numbers.
+- Define anchor and attachment coordinates.
+- Identify physically feasible cable arrangements.
+
+**Step 3 — Evaluate sensing quality**
+
+- Measurement Jacobian rank
+- Singular values and condition number
+- Measurement sensitivity
+- Noise propagation
+- Estimation uncertainty
+
+**Step 4 — Validate with simplified motion**
+
+- Prescribed straight-line motion
+- Different velocities
+- Repeated measurement trials
+- Ground-truth comparison
+- Position and orientation estimation error, as applicable
+
+**Step 5 — Prepare the deformable-body extension**
+
+- Define deformation parameters.
+- Investigate attachment mechanics.
+- Evaluate whether rigid-body sensing methods remain valid.
+- Introduce simplified deformation scenarios.
+
+---
+
+## 5. Research Direction — What Remains Unchanged
+
+The long-term goal remains:
+
+> Develop a cable-based sensing system capable of estimating the position, orientation, and deformation or shape of a passively moving balloon-like object.
+
+The research continues to prioritise:
+
+- Measurement rather than trajectory control
+- Unknown passive motion during estimation
+- Cable length, displacement, and potentially tension measurements
+- Mathematical measurement models
+- State estimation and experimental validation
+
+The current shift is primarily a change in **development sequence**, not a replacement of the long-term research goal.
+
+---
+
 
 ---
 
