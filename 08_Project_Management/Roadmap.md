@@ -1,368 +1,242 @@
 # Research Roadmap
 
-Last updated: 2026-10-16
+**Last Updated:** 2026-10-16  
+**Current Phase:** Phase 2 — Simplified Model and Sensing Objective  
+**Research Focus:** Cable Configuration and Position Measurement
 
 ---
 
-# 1. Research Goal
+## 1. Research Goal
 
-Develop a cable-robot-based measurement and sensing system capable of estimating the position, orientation, and eventually deformation or shape of a passively moving balloon-like object.
+Develop a cable-based sensing system to estimate the position and eventually deformation or shape of a passively moving balloon-like object.
 
-The system should use cable measurements to estimate object states without requiring a known motion trajectory as input.
+### Current Research Question
 
-## Long-Term Research Question
+> How do cable number and placement affect the accuracy and reliability of position estimation for a 550 mL rigid spherical object moving within a simplified gastric workspace?
 
-> Can cable length, displacement, and/or tension measurements be used to reconstruct the position and shape of a passively moving deformable balloon?
-
-## Current Research Question
-
-> For a simplified rigid object, what cable number and geometric configuration are required to achieve reliable state estimation with a specified measurement accuracy?
-
-The current priority is to validate rigid-body sensing before introducing complex balloon deformation.
+The immediate focus is rigid-body position measurement, rather than complex balloon dynamics or shape reconstruction.
 
 ---
 
-# 2. Research Development Strategy
+## 2. Research Development Phases
 
-The research follows a question-driven workflow:
+### Phase 1 — Application Definition and Clinical Evidence
 
-```text
-Research Problem
-       ↓
-Research Question
-       ↓
-Sensing Objective
-       ↓
-System Geometry
-       ↓
-Measurement Model
-       ↓
-Simulation
-       ↓
-Experiment
-       ↓
-Validation
-       ↓
-Next Research Question
-```
+**Status:** Initial synthesis completed.
 
-## Research Principles
+**Research Question**
 
-1. Research questions drive learning and implementation.
-2. Begin with the simplest model that can answer the current question.
-3. Prioritise measurement and estimation over active trajectory control.
-4. Do not assume that passive object motion is known by the estimator.
-5. Determine cable number from independent measurement information and sensing requirements.
-6. Validate rigid-body measurements before investigating deformable-body reconstruction.
-7. Separate clinically reported parameters, derived references, and engineering assumptions.
-8. Use MATLAB as the primary simulation platform.
-9. Use CASPR as a secondary reference or verification platform when appropriate.
-10. Define measurable validation criteria for each development phase.
+What application evidence and physical references are needed to define the initial sensing problem?
+
+**Deliverables**
+
+- Clinical evidence summary (A–D)
+- Adult female target-population rationale
+- 550 mL balloon-volume reference
+- Preliminary workspace assumptions
+
+**Completion Criteria**
+
+- The application and initial object size are justified.
+- Reported measurements and engineering assumptions are distinguished.
+- Missing anatomical and motion data are identified.
+
+**Remaining Limitation:** Gastric outline dimensions still require evidence or explicit engineering assumptions.
 
 ---
 
-# 3. Research Phases
+### Phase 2 — Simplified Model and Sensing Objective
 
-## Phase 1 — Application Definition and Clinical Evidence
+**Status:** Current priority.
 
-**Status: Initial evidence synthesis completed; further evidence remains necessary.**
+**Research Question**
 
-### Research Question
+How should the rigid-body object, gastric boundary, and estimated state be defined?
 
-What clinically relevant balloon-state changes should the sensing system detect, and what physical references are available?
+**Model Baseline**
 
-### Main Tasks
+- Simplified gastric outline based on length, width, and height
+- 550 mL rigid spherical object
+- Equivalent spherical diameter: approximately 10.17 cm
+- Initial planar position model: proposed
+- Orientation constraints: to be specified
 
-- Investigate current clinical follow-up and monitoring.
-- Review balloon volume and morphology.
-- Investigate balloon displacement and migration.
-- Identify available physical dimensions.
-- Distinguish measured parameters from derived values.
-- Identify missing motion and deformation information.
+**Deliverables**
 
-### Current Results
+- Simplified gastric workspace model
+- Rigid-sphere geometry
+- Selected state variables
+- Cable-length measurement model
+- Verified measurement Jacobian
 
-Evidence A — Clinical Monitoring:
-- Intermittent follow-up
-- Symptom-driven investigation
-- Imaging provides individual observations
-- Continuous quantitative tracking is not routinely established
+**Completion Criteria**
 
-Evidence B — Volume and Morphology:
-- Nominal and adjustable filling volumes
-- Abnormal hyperinflation cases
-- Limited quantitative collapse information
-
-Evidence C — Position and Migration:
-- Documented migration and obstruction events
-- Clinical records emphasise diagnosed position and outcomes
-- Normal trajectories and velocities remain unknown
-
-Evidence D — Physical Dimensions:
-- Product filling volumes
-- Selected imaging measurements
-- Equivalent spherical diameter calculations
-- Incomplete three-dimensional geometry
-
-### Preliminary Engineering Output
-
-Workspace Definition — Draft 1.0
-
-- Nominal filling: approximately 550–700 mL
-- Adjustable examples: approximately 380–850 mL
-- Reported hyperinflation cases: 1,011 / 1,513 mL
-- Nominal equivalent spherical diameter: approximately 10.17–11.02 cm
-- Abnormal equivalent spherical diameter: approximately 12.45–14.24 cm
-- Selected abnormal CT dimensions: 12.7 × 11.6 × 13.2 cm
-
-These values provide preliminary test references rather than complete workspace boundaries.
-
-### Remaining Questions
-
-- Normal balloon motion range
-- Motion velocity and trajectory
-- Collapsed balloon dimensions
-- Complete deformable shape boundaries
-- Three-dimensional gastric anatomical limits
-
-### Deliverables
-
-- Clinical evidence summary
-- Evidence A–D comparison
-- Workspace Draft 1.0
-- List of evidence-supported and unknown parameters
+- Model assumptions and physical units are documented.
+- The rigid object fits within the defined geometric test region.
+- The initial state and orientation assumptions are justified.
+- The measurement model is numerically verified.
 
 ---
 
-## Phase 2 — Sensing Objective and Rigid-Body Model
+### Phase 3 — Cable Configuration and Sensing Quality
 
-**Status: Current priority.**
+**Status:** Next phase.
 
-### Research Question
+**Research Question**
 
-What object state should the first sensing system estimate?
+How many cables are required, and where should anchors and attachment points be placed?
 
-### Main Tasks
+**Design Variables**
 
-1. Select the initial sensing objective.
-2. Determine the required degrees of freedom.
-3. Define a rigid-body test object.
-4. Establish world and body coordinate systems.
-5. Define the object state vector.
-6. Derive the geometric relationship between cable length and object state.
-7. Define measurable outputs and sensor assumptions.
-8. Specify how ground truth will be obtained.
+- Cable number
+- Anchor-point positions
+- Attachment-point positions
 
-### Candidate State Models
-
-Position-only model:
-
-\[
-q=[x,y]^T
-\]
-
-Planar rigid-body pose model:
-
-\[
-q=[x,y,\theta]^T
-\]
-
-The first measurement objective must be selected explicitly before determining the final candidate cable configurations.
-
-### Measurement Principle
-
-```text
-Rigid-Body Motion
-        ↓
-Cable Length / Displacement Changes
-        ↓
-Sensor Measurements
-        ↓
-Measurement Model
-        ↓
-State Estimation
-        ↓
-Estimated Position / Orientation
-```
-
-### Deliverables
-
-- Defined sensing objective
-- State vector and coordinate definitions
-- Rigid-body measurement model
-- Initial MATLAB simulation
-- Ground-truth and measurement-error definitions
-
-### Completion Criteria
-
-- State variables are explicitly defined.
-- Cable lengths can be calculated from rigid-body state.
-- Measurement Jacobian is derived and numerically checked.
-- A test scenario and independent ground-truth method are specified.
-
----
-
-## Phase 3 — Cable Configuration and Sensing Quality
-
-**Status: Planned after the initial sensing objective is defined.**
-
-### Research Question
-
-How many cables are required, and where should anchors and attachment points be located?
-
-### Main Tasks
-
-1. Define candidate cable numbers.
-2. Define external anchor points.
-3. Define body attachment points.
-4. Compare alternative geometric configurations.
-5. Derive the corresponding measurement Jacobians.
-6. Evaluate local identifiability.
-7. Investigate measurement sensitivity and conditioning.
-8. Include sensor-noise assumptions.
-9. Evaluate sensing workspace coverage.
-10. Investigate physical cable and attachment constraints.
-
-### Core Evaluation Metrics
+**Evaluation Metrics**
 
 - Jacobian rank
-- Singular values
-- Minimum singular value
-- Condition number
-- Measurement noise sensitivity
-- Estimation error
-- Workspace coverage
-- Redundancy and robustness
+- Measurement sensitivity and conditioning
+- Position-estimation uncertainty
+- Measurement accuracy
+- Sensing workspace coverage
+- Mechanical feasibility
 
-Coordinate scaling and measurement noise must be considered when comparing sensing metrics.
-
-### Important Distinctions
-
-Cable number is not automatically equal to the number of state variables.
-
-A candidate configuration is valid only when the necessary independent measurement information is available over the target operating region.
-
-The geometric sensing workspace must also be distinguished from tension and mechanical feasibility.
-
-### Deliverables
+**Deliverables**
 
 - Candidate cable configurations
 - MATLAB configuration comparison
-- Jacobian and sensing-quality results
-- Preliminary sensing workspace maps
-- Selected configuration for experimental validation
+- Sensing-quality and workspace maps
+- Preferred candidate configuration
 
-### Completion Criteria
+**Completion Criteria**
 
-- Candidate configurations can be compared using common metrics.
-- Rank-deficient or poorly conditioned configurations are identified.
-- A preferred test configuration is justified.
-- Remaining physical constraints are documented.
+- Candidate configurations are compared under common conditions.
+- Measurement ambiguity and poorly conditioned regions are identified.
+- The selected configuration is justified by quantitative results.
+- Physical limitations are documented.
 
 ---
 
-## Phase 4 — Rigid-Body Measurement and Experimental Validation
+### Phase 4 — Rigid-Body Measurement Validation
 
-**Status: Planned.**
+**Status:** Planned.
 
-### Research Question
+**Research Question**
 
-Can the selected cable configuration accurately estimate rigid-body motion from measured cable responses?
+Can the selected cable configuration accurately estimate rigid-body position from cable measurements?
 
-### Main Tasks
+**Validation Scenarios**
 
-1. Reproduce or adapt a reference cable-robot platform.
-2. Select or construct a rigid-body test object.
-3. Implement the chosen cable arrangement.
-4. Select and calibrate suitable sensors.
-5. Develop data acquisition.
-6. Perform static calibration tests.
-7. Introduce simplified motion scenarios.
-8. Estimate the rigid-body state from measured cable data.
-9. Compare estimates against independent ground truth.
-10. Investigate repeatability and sensitivity to noise.
+- Known static positions
+- Straight-line motion
+- Different movement speeds
+- Additional motion cases where required
 
-### Initial Experimental Scenarios
+**Deliverables**
 
-Test A — Static positions:
-- Known object positions
-- Cable-length measurements
-- Calibration and estimation error
-
-Test B — Straight-line motion:
-- Translation along selected directions
-- Different displacement amplitudes
-- Position estimation
-
-Test C — Different motion speeds:
-- Slow motion
-- Medium motion
-- Fast motion
-- Measurement response and estimation error
-
-Test D — Rotation, if required:
-- Known angular displacement
-- Orientation estimation
-- Combined translation and rotation
-
-The trajectories may be prescribed for experimental repeatability, but must not be treated as known inputs to the estimator.
-
-### Evaluation Metrics
-
-- Position estimation RMSE
-- Orientation estimation error, if applicable
-- Maximum estimation error
-- Bias
-- Measurement repeatability
-- Noise sensitivity
-- Valid sensing region
-
-### Deliverables
-
-- Rigid-body experimental platform
-- Sensor calibration procedure
 - MATLAB state estimator
-- Experimental datasets
-- Error and repeatability analysis
-- Rigid-body measurement validation report
+- Measurement-noise analysis
+- Rigid-body experimental setup, if feasible
+- Ground-truth comparison
+- Measurement accuracy and repeatability results
 
-### Completion Criteria
+**Completion Criteria**
 
-- Cable measurements can be acquired reliably.
-- State estimates can be reconstructed from measured data.
-- Estimated states are compared with independent ground truth.
-- Results are evaluated against pre-defined accuracy requirements.
-- Main error sources and limitations are identified.
+- Object position is estimated without using the true trajectory as estimator input.
+- Estimation errors are quantified against ground truth.
+- Measurement uncertainty and repeatability are evaluated.
+- Performance is compared against defined accuracy requirements.
 
 ---
 
-## Phase 5 — Deformable-Balloon Extension
+### Phase 5 — Deformable-Balloon Extension
 
-**Status: Future research stage.**
+**Status:** Future.
 
-### Research Question
+**Research Question**
 
-Can a sensing method validated on a rigid body be extended to estimate balloon deformation and shape?
+Can the validated rigid-body sensing method be extended to measure balloon deformation?
 
-### Main Tasks
+**Deliverables**
 
-1. Define simplified balloon deformation scenarios.
-2. Select a suitable deformation representation.
-3. Investigate attachment behaviour on a deformable surface.
-4. Determine additional state variables.
-5. Evaluate whether additional cable measurements are required.
-6. Extend the measurement model.
-7. Design simplified inflation, deflation, and deformation tests.
-8. Investigate available reconstruction data from collaborators.
-9. Estimate deformation parameters.
-10. Evaluate shape reconstruction accuracy.
+- Simplified deformation representation
+- Deformable-balloon attachment concept
+- Extended measurement model
+- Preliminary deformation-estimation results
 
-### Example Deformation Scenarios
+**Completion Criteria**
 
-- Approximately spherical baseline
-- Uniform expansion
-- Uniform contraction
-- Asymmetric deformation
-- Partial collapse
+- Deformation variables are explicitly defined.
+- Their identifiability is investigated.
+- Deformation estimates are compared with independent reference measurements.
 
-These are proposed engineering test scenarios, not claims that they represent the full natural balloon
+---
+
+### Phase 6 — Integrated System Evaluation
+
+**Status:** Future.
+
+**Research Question**
+
+How reliably can the sensing system estimate object states under more complex passive motion and deformation?
+
+**Deliverables**
+
+- Integrated sensing-system evaluation
+- Accuracy and robustness analysis
+- Workspace and physical limitation assessment
+- Final research conclusions
+
+**Completion Criteria**
+
+- Major research objectives are evaluated quantitatively.
+- Experimental and modelling limitations are documented.
+- Research contributions and future work are identified.
+
+---
+
+## 3. Research Milestones
+
+| Milestone | Expected Outcome | Status |
+|---|---|---|
+| M1 | Clinical evidence synthesis | Initial synthesis completed |
+| M2 | 550 mL rigid-object reference | Defined |
+| M3 | Simplified gastric boundary | Pending |
+| M4 | Initial sensing objective and measurement model | In progress |
+| M5 | Cable configuration comparison | Planned |
+| M6 | Sensing workspace and accuracy evaluation | Planned |
+| M7 | Rigid-body experimental validation | Planned |
+| M8 | Deformable-balloon sensing | Future |
+| M9 | Integrated evaluation | Future |
+
+Milestones should be marked complete only when their stated criteria have been met.
+
+---
+
+## 4. Current Research Priority
+
+**Focus: Phase 2 → Phase 3**
+
+The next research decisions are:
+
+1. Define the initial position state and orientation constraints.
+2. Establish a simplified gastric boundary.
+3. Verify the rigid-body cable measurement model.
+4. Compare candidate cable numbers and placements.
+5. Evaluate estimation accuracy across the feasible region.
+
+The initial planar model will reuse previous MATLAB work. Three-dimensional position sensing may be introduced after the initial measurement principle is validated.
+
+---
+
+## 5. Related Documents
+
+- [Current Research State](../CURRENT_STATE2.md) — Progress and unresolved questions
+- [Research Guidelines](../AGENTS2.md) — Modelling and validation rules
+- [Research TODO](TODO.md) — Actionable research tasks
+- [Weekly Plan](WEEKLY_PLAN.md) — Daily research schedule
+- [Rigid-Body Sensing Design](../05_My_Research/Rigid_Body_Sensing_Design_v0.1.md) — Technical model and methods
+
+---
+
+**Guiding Principle:** Validate accurate rigid-body position sensing before extending the system to deformable-balloon reconstruction.
