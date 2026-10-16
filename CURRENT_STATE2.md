@@ -1,1283 +1,195 @@
-# Current Research Update — 2026-10-16
+# Current Research State
 
-## 1. Recent Research Progress
-
-**Current phase:** Transition from clinical evidence review to sensing-system design.
-
-Recent work focused on reviewing clinical evidence concerning intragastric balloon monitoring, volume, position, morphology, and physical dimensions.
-
-The Week 13 presentation established four evidence areas:
-
-- **Evidence A — Clinical Monitoring:** Follow-up is intermittent; imaging provides snapshots rather than continuous state measurements.
-- **Evidence B — Volume and Morphology:** Nominal filling volumes and abnormal expansion cases provide preliminary test references.
-- **Evidence C — Position and Migration:** Clinical cases document migration and final positions, but normal trajectories and velocities remain unknown.
-- **Evidence D — Physical Dimensions:** Reported volumes and selected imaging measurements support preliminary geometric references.
-
-### Main Conclusion
-
-Clinical evidence supports the definition of initial balloon test scenarios, but does not establish a complete three-dimensional workspace.
-
-Remaining uncertainties include:
-
-- Normal balloon motion range and velocity
-- Collapsed balloon dimensions
-- Complete three-dimensional balloon geometry
-- Gastric anatomical boundaries
-- Cable sensing workspace and measurement accuracy
+**Last Updated:** 2026-10-16  
+**Research Phase:** Rigid-Body Sensing and Cable Configuration Design  
+**Primary Tool:** MATLAB  
+**Status:** Research baseline defined; sensing validation pending
 
 ---
 
-## 2. Workspace Definition — Draft 1.0
+## 1. Current Research Direction
 
-The preliminary workspace specification includes:
+### Long-Term Goal
 
-| Parameter | Preliminary reference | Status |
+Develop a cable-based sensing system to estimate the position and eventually deformation or shape of a passively moving balloon-like object.
+
+The research focuses on measurement and state estimation rather than motion control.
+
+### Current Research Objective
+
+Investigate how cable number and placement affect position-estimation accuracy for a simplified rigid object.
+
+**Current Research Question:**
+
+> How do cable number and placement affect the accuracy and reliability of position estimation for a 550 mL rigid spherical object moving within a simplified gastric workspace?
+
+---
+
+## 2. Simplified Research Baseline
+
+| Parameter | Current Definition | Status |
 |---|---|---|
-| Nominal filling volume | 550–700 mL | Reported |
-| Adjustable volume examples | Approximately 380–850 mL | Reported examples |
-| Hyperinflation cases | 1,011 / 1,513 mL | Reported cases |
-| Nominal equivalent diameter | Approximately 10.17–11.02 cm | Derived |
-| Abnormal equivalent diameter | Approximately 12.45–14.24 cm | Derived |
-| Abnormal CT dimensions | 12.7 × 11.6 × 13.2 cm | Case-specific measurement |
-| Normal motion range | Unknown | Requires investigation |
-| Collapse dimensions | Unknown | Requires investigation |
-| Cable geometry and sensing workspace | Not determined | Requires simulation and testing |
+| Application | Intragastric balloon sensing | Research context |
+| Population | Adult female reference | Selected initial focus |
+| Environment | Simplified gastric outline | Proposed model |
+| Workspace dimensions | Length × Width × Height | Literature evidence pending |
+| Measurement object | Rigid spherical balloon proxy | Engineering assumption |
+| Balloon volume | 550 mL | Commercial product reference |
+| Equivalent diameter | Approximately 10.17 cm | Calculated |
+| Initial measurement | Object position | Primary objective |
+| Initial state model | Planar position [x, y] | Proposed starting point |
+| Cable number | To be determined | Research variable |
+| Anchor positions | To be determined | Research variable |
+| Attachment positions | To be determined | Research variable |
 
-**Important:** Equivalent spherical diameter is a geometric reference derived from volume, not a directly measured external diameter.
+### Key Assumptions
 
-Draft 1.0 defines preliminary test cases rather than final workspace boundaries.
+- The gastric environment is used only to constrain object movement.
+- Detailed stomach anatomy and deformation are not required initially.
+- The 550 mL sphere is a simplified rigid-body representation, not an exact balloon shape.
+- The equivalent diameter is derived from volume, not directly measured.
+- Initial planar position sensing assumes orientation is constrained or independently known.
+- Experimental motion can be prescribed for validation, but must remain unknown to the state estimator.
 
----
-
-## 3. Meeting Feedback and Research Implications
-
-The recent discussion with Siqi provided the following interpretation of the meeting with Peter.
-
-### 3.1 Simplify the Motion Problem
-
-The initial research does not need to reproduce the full natural motion, expansion, or contraction of a gastric balloon.
-
-Instead, begin with simplified and repeatable test cases:
-
-- Straight-line displacement
-- Different movement speeds
-- Small position changes
-- Rotation, if included in the selected state model
-
-Known experimental motion may be used as ground truth for validation, but should not be assumed known by the state estimator.
-
-### 3.2 Prioritise Cable Configuration
-
-The immediate research challenge is to investigate:
-
-- Minimum cable number for the selected measurement objective
-- External anchor-point placement
-- Object attachment-point placement
-- Measurement accuracy
-- Observability and sensing quality
-- Feasible sensing workspace
-
-Minimum cable number must be established for a specified state dimension, measurement model, and accuracy requirement.
-
-### 3.3 Start with a Rigid Object
-
-A rigid-body experimental platform is the preferred first development step.
-
-The suggested development sequence is:
-
-1. Reproduce or adapt a reference cable-robot configuration.
-2. Develop and verify a rigid-body measurement model.
-3. Introduce simple, repeatable motion cases.
-4. Measure cable responses.
-5. Estimate rigid-body state from cable measurements.
-6. Compare estimated states with independent ground-truth measurements.
-7. Extend the system to a deformable balloon.
-
-The initial rigid-body system is intended to validate sensing and estimation, rather than reproduce realistic gastric balloon deformation.
-
-### 3.4 Potential Collaboration with Siqi
-
-Siqi has existing balloon reconstruction and motion information.
-
-However:
-
-- The available trajectories may be complex and curved.
-- Their suitability for cable-based sensing validation is not yet established.
-- The available data should be reviewed before integration.
-- Shape reconstruction information may become useful during later deformable-body experiments.
-
-**Note:** These points reflect the follow-up discussion and interpretation, not a confirmed final research specification from Peter.
+The anatomical dimensions and final measurement configuration have not yet been validated.
 
 ---
 
-## 4. Updated Research Priority
+## 3. Completed Work
 
-### Immediate Research Question
+### 3.1 Clinical Evidence Review
 
-**For a simplified rigid body, how many cables are required, and how should anchors and attachment points be arranged to achieve a specified measurement accuracy?**
+Four evidence areas have been investigated:
 
-### Proposed Investigation
-
-**Step 1 — Define the sensing objective**
-
-- Select the initial state variables.
-- Start with a simple planar model.
-- Distinguish position-only estimation from full rigid-body pose estimation.
-
-**Step 2 — Define candidate geometries**
-
-- Compare different cable numbers.
-- Define anchor and attachment coordinates.
-- Identify physically feasible cable arrangements.
-
-**Step 3 — Evaluate sensing quality**
-
-- Measurement Jacobian rank
-- Singular values and condition number
-- Measurement sensitivity
-- Noise propagation
-- Estimation uncertainty
-
-**Step 4 — Validate with simplified motion**
-
-- Prescribed straight-line motion
-- Different velocities
-- Repeated measurement trials
-- Ground-truth comparison
-- Position and orientation estimation error, as applicable
-
-**Step 5 — Prepare the deformable-body extension**
-
-- Define deformation parameters.
-- Investigate attachment mechanics.
-- Evaluate whether rigid-body sensing methods remain valid.
-- Introduce simplified deformation scenarios.
-
----
-
-## 5. Research Direction — What Remains Unchanged
-
-The long-term goal remains:
-
-> Develop a cable-based sensing system capable of estimating the position, orientation, and deformation or shape of a passively moving balloon-like object.
-
-The research continues to prioritise:
-
-- Measurement rather than trajectory control
-- Unknown passive motion during estimation
-- Cable length, displacement, and potentially tension measurements
-- Mathematical measurement models
-- State estimation and experimental validation
-
-The current shift is primarily a change in **development sequence**, not a replacement of the long-term research goal.
-
-The fundamental research concept is:
-
-```text
-External environment
-        ↓
-Passive balloon motion / deformation
-        ↓
-Cable displacement / length / tension changes
-        ↓
-Sensor measurements
-        ↓
-Measurement model
-        ↓
-State estimation
-        ↓
-Position / orientation / deformation
-        ↓
-Shape reconstruction
-        ↓
-Experimental validation
-```
-
----
-
-# 2. Major Change in Research Strategy
-
-The previous development strategy was mainly:
-
-```text
-Learn cable robot theory
-        ↓
-Complete lessons
-        ↓
-Build technical foundation
-        ↓
-Eventually connect the knowledge to research
-```
-
-The new strategy is:
-
-```text
-Research problem
-        ↓
-Research question
-        ↓
-System-design question
-        ↓
-Identify missing knowledge
-        ↓
-Learn only what is required
-        ↓
-Build mathematical model
-        ↓
-Simulate
-        ↓
-Experiment
-        ↓
-Validate
-        ↓
-Generate next research question
-```
-
-The research problem is now the **main learning driver**.
-
-The purpose of learning cable-robot theory is not to complete a curriculum.
-
-The purpose is to obtain the tools required to solve the current research
-question.
-
----
-
-# 3. Researcher Mindset
-
-The main question should change from:
-
-> What lesson should I study next?
-
-to:
-
-> **What research question am I currently unable to answer?**
-
-Then ask:
-
-> What information, theory, model, simulation, paper, or experiment do I
-> need to answer it?
-
-Therefore:
-
-```text
-Research question
-      ↓
-Required knowledge
-      ↓
-Learning
-      ↓
-Application
-      ↓
-Evidence
-```
-
-This should become the default workflow for future research development.
-
----
-
-# 4. Current Application Scenario
-
-The working application concept is:
-
-> A deformable balloon-like object exists inside a stomach-like environment
-> and can move and deform passively due to external environmental effects.
-
-The object does not follow a predefined trajectory.
-
-The sensing system observes the consequences of this motion through cables.
-
-Conceptually:
-
-```text
-Stomach-like environment
-            ↓
-Passive / irregular balloon motion
-            +
-Balloon deformation
-            ↓
-Cable attachment-point motion
-            ↓
-Cable length / displacement / tension change
-            ↓
-Sensors
-            ↓
-Balloon-state estimation
-```
-
-This application is currently a **research concept**, not yet a fully validated
-physical system.
-
-The exact geometry, environment, cable arrangement, attachment mechanism,
-sensor architecture, and deformation model remain open research questions.
-
----
-
-# 5. Core Research Question
-
-The central working research question is:
-
-> **Can a cable-based sensing system measure the response of cables caused by
-> passive and irregular motion/deformation of a balloon-like object and use
-> those measurements to estimate the object's state and reconstruct its shape?**
-
-This question may later be divided into several smaller research questions.
-
----
-
-# 6. Research Question Tree
-
-## 6.1 Application
-
-Need to determine:
-
-- What is the relevant stomach-like environment?
-- What physical constraints does it impose?
-- What range of balloon motion is realistic?
-- What types of deformation are relevant?
-- What information about the balloon is actually useful?
-
----
-
-## 6.2 Sensing Objective
-
-Need to determine what should be estimated:
-
-```text
-Position?
-Orientation?
-Deformation?
-Full shape?
-```
-
-A possible state representation is:
-
-$$
-x =
-[x_{rigid},x_{deformation}]^T
-$$
-
-but the exact state representation is not yet fixed.
-
----
-
-## 6.3 Measurement Principle
-
-Need to determine what cable information should be measured:
-
-```text
-Cable length
-Cable displacement
-Cable tension
-Combination of measurements
-```
-
-The general measurement relationship is:
-
-$$
-y=h(x)+\epsilon
-$$
-
-where:
-
-- \(x\) = balloon state
-- \(y\) = measured cable data
-- \(h(\cdot)\) = measurement model
-- \(\epsilon\) = measurement noise
-
-The exact form of \(h\) remains a research task.
-
----
-
-## 6.4 Cable Number
-
-Need to determine:
-
-> How many cables are required to estimate the state of interest?
-
-The answer should be based on:
-
-- number of unknowns
-- independent measurement information
-- observability / identifiability
-- workspace
-- sensitivity
-- redundancy
-- physical constraints
-
-The existing four-cable planar robot is a **learning and modeling platform**,
-not yet the final research-system specification.
-
----
-
-## 6.5 Anchor Points
-
-Need to determine:
-
-> Where should the external cable anchor points be placed?
-
-Candidate design variables include:
-
-$$
-A_i
-$$
-
-for external anchors.
-
-The design should consider:
-
-- physical accessibility
-- workspace coverage
-- cable directions
-- sensitivity
-- conditioning
-- cable length
-- mechanical feasibility
-
----
-
-## 6.6 Balloon Attachment Points
-
-Need to determine:
-
-> Where and how should cables attach to the deformable balloon?
-
-This is an important physical design question because the attachment
-configuration directly affects:
-
-- cable measurements
-- deformation sensitivity
-- observability
-- mechanical interaction
-- shape reconstruction
-
----
-
-# 7. Current Technical Foundation
-
-The following technical foundation has already been developed.
-
-## Coordinate systems
-
-- world/global coordinates
-- local/body coordinates
-- planar rotation
-- coordinate transformation
-
-For example:
-
-$$
-p_{world}=p_{platform}+R(\theta)p_{local}
-$$
-
----
-
-## Cable geometry
-
-For a cable:
-
-$$
-L_i=\|A_i-B_i\|
-$$
-
-where:
-
-- \(A_i\) = anchor point
-- \(B_i\) = attachment point
-
----
-
-## Cable direction
-
-The unit cable direction has been implemented and interpreted physically.
-
----
-
-## Jacobian
-
-The cable Jacobian relationship has been studied:
-
-$$
-\dot L=J^T\dot q
-$$
-
-and:
-
-$$
-\ddot L
-=
-J^T\ddot q+\dot J^T\dot q
-$$
-
-The Jacobian is now understood not only as a kinematic quantity but also as
-a potential **measurement sensitivity model**.
-
----
-
-## Statics
-
-The cable wrench / structure relationship has been studied.
-
-The current foundation includes:
-
-$$
-A=-J^T
-$$
-
-and cable-force / wrench relationships.
-
-Tension feasibility has also been explored using MATLAB.
-
----
-
-## Dynamics
-
-The rigid-body planar dynamic model has been developed:
-
-$$
-A T+w_{ext}=M\ddot q
-$$
-
-The current model is mainly a foundation for understanding cable-driven
-motion and physical feasibility.
-
-Dynamics is not currently the main research direction unless the final sensing
-system requires dynamic modeling.
-
----
-
-## Workspace
-
-The following have been studied:
-
-- geometric workspace
-- tension-feasible workspace
-- sensing-quality-related workspace analysis
-
-The important research interpretation is:
-
-> A configuration can be physically feasible but still provide poor sensing
-> information.
-
----
-
-## Sensing quality
-
-The relationship:
-
-$$
-\Delta L\approx J^T\Delta q
-$$
-
-has been used to understand how object motion creates cable measurement
-patterns.
-
-The following concepts have been introduced:
-
-- sensitivity
-- singular values
-- minimum singular value
-- condition number
-
-These should now be treated as tools for answering system-design questions,
-rather than as isolated mathematical topics.
-
----
-
-## Forward kinematics
-
-Forward kinematics has been studied as:
-
-```text
-Object state
-      ↓
-Cable geometry
-      ↓
-Cable lengths
-```
-
-This provides the forward measurement model required before attempting the
-inverse sensing problem.
-
----
-
-# 8. Current Research Interpretation of Existing Knowledge
-
-The existing technical foundation can now be reframed as:
-
-```text
-Cable geometry
-      ↓
-Measurement relationship
-      ↓
-Jacobian
-      ↓
-Sensitivity
-      ↓
-Workspace / configuration quality
-      ↓
-State estimation
-```
-
-This is the bridge from cable-robot theory to the research problem.
-
-The important transition is:
-
-> **From "How does a cable robot move?" to "How does object motion appear in
-> cable measurements?"**
-
----
-
-# 9. Current Research Phase
-
-## Phase 1 — Application and Sensing-System Definition
-
-This is the new current phase.
-
-The immediate objective is **not** to continue a long sequence of generic
-cable-robot lessons.
-
-The immediate objective is to define the sensing system well enough that the
-remaining technical learning becomes research-driven.
-
----
-
-# 10. Current Main Task
-
-The current task is:
-
-> **Define the application and sensing architecture of the proposed
-> cable-based balloon measurement system.**
-
-This should answer, at least at a preliminary level:
-
-```text
-Application
-    ↓
-Balloon behavior
-    ↓
-State to estimate
-    ↓
-Measurement to obtain
-    ↓
-Cable arrangement
-    ↓
-Anchor points
-    ↓
-Attachment points
-    ↓
-Required workspace
-    ↓
-Sensing quality
-    ↓
-Sensor architecture
-```
-
-The design is expected to evolve as literature and simulation provide evidence.
-
----
-
-# 11. Immediate Research Questions
-
-The next work should focus on these questions.
-
-### RQ1 — Application
-
-What is the actual physical scenario that the system is intended to represent?
-
-Need to investigate:
-
-- stomach-like environment
-- balloon size and geometry
-- possible motion
-- possible deformation
-- environmental constraints
-
----
-
-### RQ2 — State
-
-What exactly should the system estimate?
-
-Possible candidates:
-
-$$
-[x,y,\theta]^T
-$$
-
-for a simplified rigid-body state, followed later by deformation variables:
-
-$$
-[x,y,\theta,s_1,s_2,\ldots]^T
-$$
-
-The final state vector is not yet fixed.
-
----
-
-### RQ3 — Measurement
-
-Which cable quantities contain useful information?
-
-Possible candidates:
-
-```text
-Cable length / displacement
-Cable tension
-Both
-```
-
-Need to compare their usefulness for the estimation problem.
-
----
-
-### RQ4 — Cable Number
-
-How many cables are required for the chosen state?
-
-Need to consider:
-
-- observability
-- independent measurements
-- redundancy
-- physical constraints
-
----
-
-### RQ5 — Geometry
-
-How should anchor and attachment points be placed?
-
-Need to evaluate:
-
-- workspace
-- cable length
-- sensitivity
-- singularity / conditioning
-- physical feasibility
-
----
-
-### RQ6 — Hardware
-
-What physical sensing architecture can realize the measurement model?
-
-Possible components:
-
-```text
-Encoder
-Cable spool
-Load cell
-Displacement sensor
-DAQ
-Motor, if required
-```
-
-Motor selection should only occur after clarifying whether and why motorized
-cable handling is necessary.
-
----
-
-# 12. Research-Driven Learning Roadmap
-
-The roadmap is no longer a fixed lesson sequence.
-
-Instead, the following phases provide the research structure.
-
----
-
-## Phase A — Application Definition
-
-```text
-Stomach-like environment
-        ↓
-Balloon geometry
-        ↓
-Expected motion
-        ↓
-Expected deformation
-        ↓
-Physical constraints
-```
-
-Output:
-
-> A preliminary application specification.
-
----
-
-## Phase B — Sensing Objective
-
-```text
-What must be estimated?
-        ↓
-Position
-Orientation
-Deformation
-Shape
-```
-
-Output:
-
-> A preliminary state definition.
-
----
-
-## Phase C — Measurement Principle
-
-```text
-Balloon state
-      ↓
-Attachment motion
-      ↓
-Cable geometry
-      ↓
-Cable length / displacement / tension
-```
-
-Output:
-
-> A preliminary measurement model.
-
----
-
-## Phase D — Cable Configuration
-
-Determine:
-
-- cable number
-- anchor locations
-- attachment locations
-- cable routing
-- workspace
-
-Output:
-
-> A candidate sensing-system geometry.
-
----
-
-## Phase E — Sensing Quality
-
-Study:
-
-$$
-\Delta L\approx J^T\Delta q
-$$
-
-and, where appropriate:
-
-- sensitivity
-- singular values
-- condition number
-- rank
-- observability
-- identifiability
-
-Output:
-
-> Evidence for whether the proposed geometry can provide useful information.
-
----
-
-## Phase F — Hardware
-
-Determine:
-
-- sensor type
-- sensor resolution
-- measurement range
-- sampling rate
-- calibration
-- motor requirement
-- mechanical interface
-
-Output:
-
-> A physically implementable sensing architecture.
-
----
-
-## Phase G — State Estimation
-
-Starting from:
-
-$$
-y=h(x)+\epsilon
-$$
-
-develop:
-
-```text
-Measurement
-      ↓
-State estimation
-      ↓
-Position / orientation
-```
-
-Only introduce advanced estimation methods when the measurement problem
-requires them.
-
----
-
-## Phase H — Deformable-Body Modeling
-
-Extend:
-
-$$
-L=f(x,y,\theta)
-$$
-
-to:
-
-$$
-L=f(x,y,\theta,s)
-$$
-
-where \(s\) represents deformation.
-
-Output:
-
-> A tractable deformable-balloon measurement model.
-
----
-
-## Phase I — Shape Reconstruction
-
-Develop:
-
-```text
-Cable measurements
-      ↓
-Rigid state
-      +
-Deformation parameters
-      ↓
-Balloon shape
-```
-
-Output:
-
-> A reconstructed balloon shape.
-
----
-
-## Phase J — Experimental Validation
-
-Validate:
-
-- position
-- orientation
-- deformation
-- shape
-- robustness
-- repeatability
-- noise sensitivity
-
-Output:
-
-> Evidence supporting or rejecting the proposed sensing approach.
-
----
-
-# 13. Role of Previous Lessons
-
-The previous lessons are **not discarded**.
-
-They are now treated as a toolbox.
-
-| Existing knowledge | Research use |
+| Evidence | Main Finding |
 |---|---|
-| Cable geometry | Build measurement model |
-| Coordinate transformation | Define physical configuration |
-| Cable length | Convert geometry to measurements |
-| Jacobian | Measurement sensitivity |
-| Statics | Mechanical feasibility |
-| Dynamics | Dynamic response when required |
-| Workspace | Coverage of target motion |
-| Tension feasibility | Physical cable configuration |
-| Forward kinematics | Predict cable measurements |
-| Inverse kinematics | Estimate object state |
-| Condition number | Sensing quality |
-| MATLAB | Independent research modeling |
-| CASPR | Secondary cable-robot verification |
+| A — Monitoring | Clinical assessment is intermittent; continuous state measurements are not routinely established |
+| B — Volume and Morphology | Nominal filling volumes and abnormal expansion cases provide preliminary size references |
+| C — Position and Migration | Migration is documented, but normal movement trajectories remain uncertain |
+| D — Dimensions | Volume and selected imaging data provide partial geometric information |
 
-The goal is not to repeat these topics unless a research question requires
-deeper understanding.
+**Main conclusion:**
 
----
+Clinical evidence supports an initial balloon-size reference and motivates position sensing, but does not define a complete gastric motion workspace.
 
-# 14. Supporting Topics
+For the current rigid-body study, simplified anatomical boundaries are sufficient as an initial engineering model, provided their assumptions are documented.
 
-The following remain useful but are not currently the main route:
+### 3.2 MATLAB and Cable-Robot Foundation
 
-```text
-Trajectory planning
-Active control
-Tension control
-Cable interference control
-Advanced CASPR control
-```
+Previously explored or implemented:
 
-They should be studied when they become necessary for:
+- Coordinate transformations
+- Anchor and attachment geometry
+- Cable vectors and lengths
+- Measurement Jacobian
+- Cable-length velocity and acceleration
+- Rigid-body kinematics and dynamics
+- Cable tension and wrench feasibility
+- Geometric and tension-feasible workspace
+- Measurement sensitivity and pattern similarity
+- Forward kinematics
+- Planar CASPR reference models
 
-- hardware operation
-- cable safety
-- maintaining attachment
-- controlled experiments
-- a later research question
+The existing four-cable planar MATLAB model will be reused as a mathematical reference.
 
-They should not automatically determine the research roadmap.
+It is not assumed to be the optimal final cable configuration.
 
 ---
 
-# 15. Literature Strategy
+## 4. Current Technical Findings
 
-Paper reading should now be organized around research questions rather than
-around general cable-robot topics.
+### 4.1 Cable Measurements
 
-Priority literature categories:
+The forward cable-length measurement model is:
 
-### Application
+\[
+L=h(q)
+\]
 
-- gastric / stomach-like robotic environments
-- deformable balloon systems
-- minimally invasive sensing
+The sensor model is:
 
-### Cable sensing
+\[
+y=h(q)+\varepsilon
+\]
 
-- cable-driven sensing
-- cable displacement measurement
-- cable tension sensing
-- cable-based pose estimation
+where \(q\) is the object state and \(\varepsilon\) represents measurement error.
 
-### Geometry and observability
+The measurement Jacobian is:
 
-- cable configuration optimization
-- measurement sensitivity
-- observability
-- identifiability
+\[
+H(q)=\frac{\partial h(q)}{\partial q}
+\]
 
-### Deformable objects
+These relationships provide the foundation for state estimation and cable-configuration analysis.
 
-- deformable-body sensing
-- reduced-order deformation models
-- shape reconstruction
-- cable-based deformation measurement
+### 4.2 Previous Sensitivity Observation
 
-For each important paper, record:
+Previous planar simulations indicated that x-translation and rotation could generate nearly dependent cable-length measurement patterns at the reference configuration.
 
-```text
-Problem
-Application
-System
-Measurement
-Model
-Estimation
-Experiment
-Result
-Limitation
-Relevance to my research
-```
+**Implication:**
 
-The final item is essential.
+Four cables do not automatically guarantee independent measurement information for all three planar degrees of freedom.
+
+Jacobian rank and measurement conditioning must be evaluated before selecting a configuration.
+
+### 4.3 Workspace Interpretation
+
+Three different regions must be distinguished:
+
+1. **Gastric boundary:** Simplified anatomical environment.
+2. **Geometrically feasible region:** Positions where the entire rigid sphere fits within the boundary.
+3. **Sensing workspace:** Configurations where cable measurements satisfy the required identifiability and accuracy conditions.
+
+The gastric boundary is not automatically the cable sensing workspace.
 
 ---
 
-# 16. Assumptions vs Verified Knowledge
+## 5. Open Research Questions
 
-Current assumptions include:
-
-- the balloon motion is passive
-- the motion may be irregular
-- the balloon is deformable
-- cable measurements can contain information about balloon state
-- a cable-based sensing architecture may be feasible
-
-These are **research assumptions / hypotheses**, not final validated results.
-
-Verified technical foundation includes:
-
-- rigid planar cable geometry
-- cable length calculation
-- Jacobian formulation
-- cable wrench / statics relationships
-- rigid-body dynamics foundation
-- workspace analysis
-- sensing-quality analysis
-- forward kinematics in the current simplified model
-- MATLAB implementation and verification of the developed models
+| Priority | Question | Current Status |
+|---|---|---|
+| High | What is the initial state model and orientation constraint? | Not finalised |
+| High | What simplified gastric dimensions should be used? | Evidence pending |
+| High | What is the minimum feasible cable number? | Not evaluated |
+| High | Where should anchors and attachments be located? | Not evaluated |
+| High | What measurement accuracy can be achieved? | Not validated |
+| Medium | How should measurement noise be modelled? | Not finalised |
+| Medium | How should rigid-body ground truth be measured? | Not designed |
+| Future | How can sensing extend to balloon deformation? | Not started |
 
 ---
 
-# 17. Current Research Boundaries
+## 6. Immediate Next Step
 
-The following are **not yet fixed**:
+**Task 2.1 — Define the Initial Sensing Objective**
 
-```text
-Final application geometry
-Final balloon geometry
-Final number of cables
-Final anchor points
-Final attachment points
-Final sensor type
-Final motor architecture
-Final measurement vector
-Final deformation model
-Final estimator
-Final experimental setup
-```
+The proposed starting point is planar position estimation:
 
-These should be decided from:
+\[
+q=[x,y]^T
+\]
 
-```text
-Literature
-+
-Physical constraints
-+
-Mathematical analysis
-+
-Simulation
-+
-Experiments
-```
+Before confirming this choice:
 
-rather than assumed in advance.
+1. Specify how object rotation is constrained or measured.
+2. Define the simplified gastric boundary assumptions.
+3. Establish the initial position-accuracy requirement.
+4. Verify the existing cable measurement model.
+5. Prepare candidate cable configurations for comparison.
+
+**Expected Outcome:**
+
+A clearly defined rigid-body position sensing problem suitable for MATLAB simulation and subsequent accuracy evaluation.
 
 ---
 
-# 18. Immediate Next Steps
+## Related Documents
 
-The immediate sequence should be:
+- [Research Guidelines](AGENTS2.md)
+- [Research Roadmap](08_Project_Management/Roadmap.md)
+- [Research TODO](08_Project_Management/TODO.md)
+- [Weekly Plan](08_Project_Management/WEEKLY_PLAN.md)
+- [Rigid-Body Sensing Design](05_My_Research/Rigid_Body_Sensing_Design_v0.1.md)
+- [Research Log](06_Research_Log/)
 
-### Step 1
-
-Define the application scenario.
-
-### Step 2
-
-Define what information about the balloon must be estimated.
-
-### Step 3
-
-Define candidate cable measurements.
-
-### Step 4
-
-Draw candidate sensing architectures.
-
-### Step 5
-
-Determine candidate cable numbers.
-
-### Step 6
-
-Define candidate anchor and attachment configurations.
-
-### Step 7
-
-Use the existing cable-robot toolbox to analyze:
-
-- workspace
-- sensitivity
-- conditioning
-- observability
-
-### Step 8
-
-Select candidate sensor architectures.
-
-### Step 9
-
-Build the measurement model.
-
-### Step 10
-
-Only then introduce the next required mathematical learning topics.
-
----
-
-# 19. Current Guiding Principle
-
-The most important rule for the next stage is:
-
-> **Do not ask "What should I learn next?" Ask "What is preventing me from
-> answering my current research question?"**
-
-Then:
-
-```text
-Research question
-      ↓
-Knowledge gap
-      ↓
-Learning
-      ↓
-Model
-      ↓
-Simulation / experiment
-      ↓
-Evidence
-      ↓
-Research decision
-```
-
----
-
-# 20. Long-Term Research Loop
-
-The intended Master research loop is:
-
-```text
-Application
-      ↓
-Research problem
-      ↓
-Research question
-      ↓
-System concept
-      ↓
-Measurement principle
-      ↓
-Cable configuration
-      ↓
-Mathematical model
-      ↓
-Required theory
-      ↓
-Simulation
-      ↓
-Hardware
-      ↓
-Experiment
-      ↓
-Validation
-      ↓
-Research contribution
-      ↓
-New research question
-```
-
-The goal is not to complete a fixed list of lessons.
-
-The goal is to develop and validate a defensible cable-based sensing system.
-
----
-
-# 21. Current One-Sentence Research Direction
-
-> **Design and validate a cable-based sensing system that can infer the state
-> and deformation/shape of a passively moving balloon-like object from cable
-> measurements in a stomach-like environment.**
-
----
-
-# 22. Current Next Research Question
-
-The next concrete question is:
-
-> **What exactly is the application scenario, what must be estimated from the
-> balloon, and what cable measurements could provide that information?**
-
-This question should be answered before continuing with a generic sequence of
-cable-robot lessons.
+**Next milestone:** Verify that the selected cable measurements can recover the object's position reliably within the simplified test region.
