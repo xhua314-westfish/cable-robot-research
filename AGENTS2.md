@@ -74,6 +74,260 @@ not automatically become the next lesson.
 
 ---
 
+## 2A. Current Research Strategy — October 2026
+
+### 2A.1 Current Development Priority
+
+The current research phase is transitioning from clinical evidence review to cable-based sensing-system design and validation.
+
+The immediate objective is:
+
+> Determine the cable number, anchor configuration, and attachment-point arrangement required to estimate the state of a simplified rigid object with a specified measurement accuracy.
+
+This is an intermediate research objective, not a replacement for the long-term deformable-balloon sensing goal.
+
+The priority is to develop and validate a reliable sensing principle before introducing complex balloon deformation.
+
+### 2A.2 Simplified Motion Before Complex Balloon Motion
+
+The research should not initially attempt to reproduce the full natural motion, expansion, contraction, or deformation of a gastric balloon.
+
+Instead, begin with simple and repeatable motion scenarios:
+
+- Small linear displacement
+- Straight-line motion at different speeds
+- Motion along different directions
+- Rotation, if included in the state model
+- Combined translation and rotation, when appropriate
+
+These scenarios are experimental validation cases.
+
+**Important distinction:**
+
+- The actual motion can be prescribed and independently measured during an experiment.
+- The estimation algorithm must not use the prescribed trajectory as its known input.
+- The estimated state must be reconstructed from the selected cable measurements.
+
+Complex trajectories and irregular passive motion should be introduced progressively after the basic measurement principle has been validated.
+
+### 2A.3 Rigid-Body-First Development
+
+The initial experimental platform should use a rigid object.
+
+A simplified planar rigid-body model is the starting point for mathematical analysis and simulation.
+
+The initial model may use:
+
+\[
+q=[x,y,\theta]^T
+\]
+
+However, the first experimental measurement objective must be explicitly selected.
+
+For example:
+
+- Position-only estimation: \(q=[x,y]^T\)
+- Planar pose estimation: \(q=[x,y,\theta]^T\)
+
+These objectives require different measurement information and must not be treated as equivalent.
+
+The preferred progression is:
+
+1. Define the state to be measured.
+2. Select a simplified rigid-body geometry.
+3. Define candidate cable configurations.
+4. Derive the cable measurement model.
+5. Analyse sensing quality.
+6. Simulate simplified motion scenarios.
+7. Estimate rigid-body state from cable measurements.
+8. Validate estimates against independent ground truth.
+9. Extend the validated approach to a deformable balloon.
+
+**Rule:** Rigid-body validation is the foundation for later deformable-body sensing, not the final research objective.
+
+### 2A.4 Cable Number and Attachment Configuration
+
+Cable number must not be selected arbitrarily.
+
+For each candidate configuration, investigate:
+
+- Number of unknown state variables
+- Number of independent cable measurements
+- Measurement Jacobian rank
+- Local identifiability
+- Singular values and condition number
+- Measurement sensitivity
+- Noise propagation
+- Practical cable-routing constraints
+- Required sensing workspace
+- Physical feasibility of attachment
+
+The number of cables alone does not guarantee accurate state estimation.
+
+More cables may provide redundancy, but their placement and independent measurement information must also be evaluated.
+
+**Research question:**
+
+> What is the minimum feasible cable configuration that satisfies the selected state-estimation and measurement-accuracy requirements?
+
+The answer must be supported by mathematical analysis, simulation, and experimental evidence where feasible.
+
+### 2A.5 Distinguish Attachment Location and Attachment Mechanism
+
+Two different attachment questions must be considered.
+
+**Attachment-point location**
+
+- Where should the cables connect to the measured object?
+- How does attachment geometry affect sensitivity?
+- Can the selected configuration distinguish different state variables?
+- Which attachment arrangements reduce ambiguity?
+
+**Attachment mechanism**
+
+- How are the cables physically connected to the object?
+- Does the connection permit the intended motion?
+- Does it alter the behaviour of the measured object?
+- Can the connection be maintained without damaging a deformable balloon?
+
+The initial rigid-body model may assume fixed attachment points.
+
+The deformable-balloon model must later consider how attachment locations move with local deformation.
+
+### 2A.6 Measurement Quality Before Complex Reconstruction
+
+The initial sensing-system evaluation should prioritise:
+
+- Measurement-model validity
+- Jacobian rank
+- Minimum singular value
+- Condition number
+- Sensor resolution
+- Measurement noise
+- Position and orientation estimation error
+- Repeatability
+- Sensing workspace coverage
+
+The chosen measurement quality metrics must be consistent with the state variables, physical units, and measurement-noise model.
+
+For example, Jacobian conditioning should not be compared across configurations without considering scaling between translational and rotational variables.
+
+Full balloon shape reconstruction should not be the first experimental milestone.
+
+### 2A.7 Workspace Must Be Defined at Multiple Levels
+
+Clinical evidence provides preliminary references for balloon size and abnormal physical states.
+
+It does not directly determine the complete cable-robot sensing workspace.
+
+Always distinguish:
+
+**Balloon geometric envelope**
+
+- Nominal volume and dimensions
+- Abnormal expansion
+- Collapse and deformation
+- Shape uncertainty
+
+**Application motion envelope**
+
+- Expected position range
+- Orientation range
+- Possible movement directions
+- Anatomical constraints
+
+**Cable-robot sensing workspace**
+
+- Cable number and geometry
+- Anchor-point locations
+- Attachment-point locations
+- Cable-length limits
+- Mechanical feasibility
+- Observability and measurement accuracy
+
+The current Workspace Draft 1.0 is a preliminary scenario specification.
+
+Unknown clinical motion and deformation boundaries must remain identified as unknown, rather than being replaced by unsupported numerical assumptions.
+
+### 2A.8 Progressive Experimental Validation
+
+Experiments should progress from simple to complex.
+
+**Level 1 — Static rigid-body configurations**
+
+- Known fixed positions
+- Cable-length measurements
+- Calibration and measurement-model verification
+
+**Level 2 — Simplified rigid-body motion**
+
+- Straight-line displacement
+- Different motion speeds
+- Repeated trials
+- Estimated position versus ground truth
+
+**Level 3 — Extended rigid-body motion**
+
+- Rotational motion
+- Combined translation and rotation
+- More complex trajectories
+- Measurement-noise sensitivity
+
+**Level 4 — Simplified deformable-balloon experiments**
+
+- Controlled inflation or deflation scenarios
+- Simple geometric deformation
+- Attachment behaviour
+- Deformation-parameter estimation
+
+**Level 5 — More complex deformation and motion**
+
+- Irregular passive motion
+- Combined motion and deformation
+- Shape reconstruction
+- Validation using independent measurement methods
+
+Each level should have explicit success criteria before progressing to the next.
+
+### 2A.9 External Reconstruction Data
+
+Existing balloon reconstruction and motion data from collaborators may provide useful references for later research stages.
+
+However, such data should not automatically be treated as an available or validated input.
+
+Before using external reconstruction data, determine:
+
+- Which variables are available
+- Whether motion and deformation are represented separately
+- Whether the data contain ground-truth measurements
+- Whether trajectories can be simplified
+- Whether the data are compatible with cable-based measurements
+
+Initial rigid-body sensing experiments should remain independently testable.
+
+### 2A.10 Research Decision Rules
+
+For every new research task:
+
+1. Identify the research question.
+2. Define the state variables and measurement objective.
+3. Identify known evidence and remaining assumptions.
+4. Select the simplest physically meaningful model.
+5. Determine the required cable geometry and measurement information.
+6. Evaluate identifiability and sensing quality.
+7. Implement a MATLAB simulation.
+8. Design a repeatable validation scenario.
+9. Compare estimation results with ground truth.
+10. Record results, limitations, and the next research question.
+
+**Primary rule:**
+
+> Prove that the sensing system can reliably measure a simplified rigid-body state before attempting complex deformable-balloon reconstruction.
+
+---
+
+---
+
 ## 3. Current Research Direction
 
 The research focuses on developing a:
