@@ -313,4 +313,44 @@ When editing the repository:
 
 - Modify only files relevant to the current task.
 - Avoid duplicating content across documents.
-- Do not overwrite original research results without review
+- Do not overwrite original research results without review.
+- Describe significant changes clearly.
+- Keep GitHub updates reviewable and traceable.
+
+---
+
+## 11. Repository Documentation Rules
+
+Each main file has one responsibility.
+
+| File | Responsibility |
+|---|---|
+| `README.md` | Project overview and navigation |
+| `CURRENT_STATE2.md` | Current progress, findings, and open questions |
+| `AGENTS2.md` | Research and coding rules |
+| `Roadmap.md` | Research phases and milestones |
+| `TODO.md` | Current actionable tasks |
+| `WEEKLY_PLAN.md` | Weekly and daily research schedule |
+| `05_My_Research/` | Research models, methods, and results |
+| `06_Research_Log/` | Dated experiments, decisions, and reflections |
+
+### Update Rules
+
+- Update `CURRENT_STATE2.md` after significant research progress.
+- Update `TODO.md` when tasks are completed or changed.
+- Update `WEEKLY_PLAN.md` during weekly planning and review.
+- Update `Roadmap.md` only when major milestones change.
+- Update `AGENTS2.md` only when research working rules change.
+- Record important findings and decisions in `06_Research_Log/`.
+
+Do not repeatedly copy the same background, roadmap, or task lists into multiple files.
+
+---
+
+## 12. Current Guiding Principle
+
+> Develop the simplest cable-based measurement model that can answer the current research question, validate its accuracy, and use the results to guide the next design decision.
+
+The current priority is rigid-body position sensing.
+
+Deformation and shape reconstruction remain future research extensions.
