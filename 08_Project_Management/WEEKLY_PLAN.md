@@ -1,8 +1,8 @@
 # Weekly Research Plan
 
-**Last Updated:** 2026-10-16  
-**Current Phase:** Phase 2 — Simplified Model and Sensing Objective  
-**Research Focus:** Rigid-Body Position Sensing
+**Last Updated:** 2026-10-19  
+**Current Phase:** Phase 2 — 3D Rigid-Body Sensing Foundation  
+**Research Focus:** 6-DOF Pose Estimation and Cable Configuration Design
 
 ---
 
@@ -10,54 +10,63 @@
 
 ### Weekly Objective
 
-**Define and verify the simplified gastric sensing model.**
+<!-- UPDATED: Changed from planar sensing to 3D 6-DOF measurement. -->
+
+**Establish and verify the initial 3D rigid-body sensing model.**
 
 Research focus:
 
-- 550 mL rigid spherical object
-- Simplified gastric movement boundary
-- Initial position sensing objective
-- Cable measurement model and state estimation
+- 550 mL rigid spherical object.
+- Simplified 3D gastric boundary.
+- 6-DOF rigid-body pose.
+- Three-dimensional cable geometry.
+- Cable-length measurement Jacobian.
+- Initial 6-DOF pose estimation.
 
 **Related TODO:** Tasks 2.1–2.4
 
 ### Daily Plan
 
-- [ ] **Monday, 19 Oct — Sensing Objective (Task 2.1)**  
-  Define the initial position state, orientation constraints, and preliminary accuracy requirements.  
-  **Output:** `Sensing_Objective_v0.1.md`
+- [x] **Monday, 19 Oct — Sensing Objective (Task 2.1)**  
+  Define the 3D 6-DOF sensing state, passive-motion assumptions, measurement principle, and cable-number study range.  
+  **Output:** `Sensing_Objective_v0.2.md`  
+  **Status:** Research scope defined; validation pending.
 
-- [ ] **Tuesday, 20 Oct — Simplified Geometry (Task 2.2)**  
-  Model the 550 mL rigid sphere and a simplified gastric boundary using sourced dimensions or clearly labelled assumptions. Identify a feasible planar test region.  
-  **Output:** MATLAB geometry model and figure.
+- [ ] **Tuesday, 20 Oct — 3D Gastric Geometry (Task 2.2)**  
+  Review gastric length, width, and height evidence. Select preliminary dimensions or explicitly documented assumptions. Construct the simplified 3D boundary and rigid sphere.  
+  **Output:** Gastric dimension evidence table and initial 3D geometry figure.
 
-- [ ] **Wednesday, 21 Oct — Cable Geometry (Task 2.2)**  
-  Adapt the existing four-cable reference model to the selected object and test region. Calculate cable lengths and visualise the arrangement.  
-  **Output:** `rigid_geometry_v01.m`
+- [ ] **Wednesday, 21 Oct — 3D Cable Geometry (Tasks 2.2–2.3)**  
+  Define a preliminary six-cable reference layout with 3D anchor and attachment points. Calculate cable lengths and visualise the configuration.  
+  **Output:** `rigid_geometry_3D_v01.m`
 
-- [ ] **Thursday, 22 Oct — Measurement Jacobian (Task 2.3)**  
-  Calculate and numerically verify the Jacobian. Check rank, sensitivity, and measurement coupling.  
-  **Output:** `jacobian_verification_v01.m`
+- [ ] **Thursday, 22 Oct — 6-DOF Jacobian (Task 2.3)**  
+  Implement the analytical cable-length Jacobian for three translations and three rotations. Verify simple single-axis motions.  
+  **Output:** `jacobian_6DOF_v01.m`
 
-- [ ] **Friday, 23 Oct — State Estimation (Task 2.4)**  
-  Estimate object position from simulated cable measurements and compare estimates with reference positions.  
-  **Output:** `rigid_state_estimation_v01.m`
+- [ ] **Friday, 23 Oct — Initial Pose Estimation (Task 2.4)**  
+  Implement an initial nonlinear estimator to recover 3D position and orientation from simulated cable-length measurements. Begin with noise-free reference poses.  
+  **Output:** `pose_estimation_6DOF_v01.m`
 
-- [ ] **Saturday, 24 Oct — Simulation Validation (Task 2.4)**  
-  Test different positions and initial guesses. Record estimation errors, ambiguities, and limitations.  
-  **Output:** Week 1 simulation results.
+- [ ] **Saturday, 24 Oct — Model Verification (Tasks 2.3–2.4)**  
+  Compare analytical and numerical Jacobians. Test multiple reference poses and initial estimates. Record estimation errors and failures.  
+  **Output:** Week 1 MATLAB verification results.
 
 - [ ] **Sunday, 25 Oct — Weekly Review**  
-  Review results, update TODO and Current State, and record the next research decision.  
+  Review completed work, record unresolved problems, and update research documents.  
   **Output:** Week 1 research summary.
 
 ### Weekly Completion Criteria
 
-- Initial measurement state and constraints are defined.
-- Simplified gastric and rigid-sphere geometry are established.
-- Cable-length and Jacobian calculations are verified.
-- Initial position-estimation results are available.
-- Unresolved modelling and estimation problems are recorded.
+- The 3D 6-DOF sensing objective is documented.
+- A simplified gastric boundary and rigid-sphere model are available.
+- Initial 3D anchor and attachment coordinates are defined.
+- Cable-length calculations are implemented.
+- The 6-DOF Jacobian has been numerically checked.
+- An initial pose-estimation attempt is documented.
+- Remaining geometry, identifiability, and estimation problems are recorded.
+
+A working pose estimator is a target, not a prerequisite for reporting partial progress. Failed or ambiguous estimation cases should be retained for analysis.
 
 ### Weekly Review
 
@@ -75,54 +84,63 @@ Research focus:
 
 ### Weekly Objective
 
-**Investigate cable configuration and measurement performance.**
+<!-- UPDATED: Focused on preliminary 7/8-cable comparison with a 6-cable baseline. -->
+
+**Investigate preliminary 3D cable configurations and sensing performance.**
 
 Research focus:
 
-- Cable number
-- Anchor placement
-- Attachment placement
-- Sensing accuracy and workspace coverage
+- Six-cable reference baseline.
+- Seven- and eight-cable primary candidates.
+- 3D anchor placement.
+- 3D attachment placement.
+- Pose-estimation accuracy.
+- Sensing workspace coverage.
+- Initial physical-feasibility constraints.
 
-**Related TODO:** Tasks 3.1–3.4
+**Related TODO:** Tasks 3.1–3.5
 
 ### Daily Plan
 
-- [ ] **Monday, 26 Oct — Cable Number (Task 3.1)**  
-  Compare candidate cable numbers using Jacobian rank and state-estimation performance.  
-  **Output:** Cable-number comparison results.
+- [ ] **Monday, 26 Oct — Cable Number Comparison (Task 3.1)**  
+  Construct preliminary six-, seven-, and eight-cable layouts using consistent geometric rules. Compare Jacobian rank and scaled conditioning at selected reference poses.  
+  **Output:** Initial cable-number comparison table and plots.
 
-- [ ] **Tuesday, 27 Oct — Anchor Placement (Task 3.2)**  
-  Compare symmetric and asymmetric anchor arrangements under common evaluation conditions.  
+- [ ] **Tuesday, 27 Oct — 3D Anchor Placement (Task 3.2)**  
+  Compare selected symmetric and asymmetric 3D anchor arrangements for seven- and eight-cable configurations. Evaluate measurement sensitivity and rank.  
   **Output:** Anchor-placement comparison plots.
 
-- [ ] **Wednesday, 28 Oct — Attachment Placement (Task 3.3)**  
-  Investigate how attachment locations affect measurement sensitivity and coupling.  
+- [ ] **Wednesday, 28 Oct — 3D Attachment Placement (Task 3.3)**  
+  Compare different attachment distributions on the sphere. Investigate rotational sensitivity, translation–rotation coupling, and pose ambiguity.  
   **Output:** Attachment-placement comparison results.
 
 - [ ] **Thursday, 29 Oct — Sensing Workspace (Task 3.4)**  
-  Evaluate sensing quality over the geometrically feasible test region.  
-  **Output:** MATLAB sensing workspace maps.
+  Sample feasible 3D object positions and orientations. Evaluate Jacobian rank and conditioning over the selected pose domain.  
+  **Output:** Preliminary sensing-quality and workspace visualisations.
 
 - [ ] **Friday, 30 Oct — Measurement Accuracy (Task 3.4)**  
-  Introduce a common cable-measurement noise model. Compare position RMSE and robustness across configurations.  
-  **Output:** Estimation-error comparison plots.
+  Introduce a common simulated cable-length noise model. Evaluate position RMSE, orientation RMSE, and estimation reliability for selected configurations.  
+  **Output:** Pose-estimation error comparison plots.
 
-- [ ] **Saturday, 31 Oct — Configuration Evaluation**  
-  Compare cable number, placement, accuracy, workspace coverage, and practical limitations. Identify promising candidate configurations.  
+- [ ] **Saturday, 31 Oct — Configuration Evaluation (Tasks 3.4–3.5)**  
+  Compare promising seven- and eight-cable layouts. Perform preliminary checks of cable routing, tension feasibility, and potential passive-motion disturbance.  
   **Output:** `Cable_Configuration_Study_v0.1.md`
 
 - [ ] **Sunday, 1 Nov — Weekly Review**  
-  Summarise findings, update GitHub documents, and identify requirements for the next experimental stage.  
+  Summarise results, update GitHub research documents, and identify priorities for deeper configuration optimisation and physical validation.  
   **Output:** Week 2 research summary.
 
 ### Weekly Completion Criteria
 
-- Candidate cable numbers have been compared.
-- Anchor and attachment layouts have been evaluated.
-- Poorly observable configurations have been identified.
-- Estimation accuracy and sensing workspace coverage have been assessed.
-- Preliminary configuration recommendations and limitations are documented.
+- Six-, seven-, and eight-cable reference layouts are available.
+- Initial cable-number effects have been compared.
+- Selected 3D anchor and attachment configurations have been evaluated.
+- Jacobian-based sensing quality has been mapped over a defined pose domain.
+- Preliminary pose-estimation errors have been quantified where feasible.
+- Mechanical constraints and unresolved physical-feasibility issues have been documented.
+- Promising seven- and eight-cable configurations have been identified for further investigation.
+
+**Scope Note:** The objective is a preliminary configuration study, not final global optimisation or experimental proof of an optimal design.
 
 ### Weekly Review
 
@@ -144,6 +162,8 @@ Research focus:
 4. Record unfinished tasks and adjust the following week.
 5. Preserve previous weekly plans.
 6. Update research progress and decisions after each week.
+7. Distinguish analytical, simulated, and experimentally validated results.
+8. Adjust the schedule when 3D modelling or verification requires additional time.
 
 Detailed task definitions are maintained in [TODO.md](TODO.md).
 
