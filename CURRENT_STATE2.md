@@ -1,6 +1,6 @@
 # Current Research State
 
-**Last Updated:** 2026-10-16  
+**Last Updated:** 2026-10-19
 **Research Phase:** Rigid-Body Sensing and Cable Configuration Design  
 **Primary Tool:** MATLAB  
 **Status:** Research baseline defined; sensing validation pending
@@ -17,7 +17,8 @@ The research focuses on measurement and state estimation rather than motion cont
 
 ### Current Research Objective
 
-Investigate how cable number and placement affect position-estimation accuracy for a simplified rigid object.
+Investigate how cable number and three-dimensional anchor and attachment placements affect rigid-body pose-estimation performance.
+(Changed from planar position sensing to full 3D pose sensing)
 
 **Current Research Question:**
 
