@@ -1,31 +1,31 @@
 # Rigid-Body Cable Sensing Design
 
-**Version:** 0.2  
-**Last Updated:** 2026-10-16  
-**Research Phase:** Simplified Model and Cable Configuration Design  
+**Version:** 0.3  
+**Last Updated:** 2026-10-19  
+**Research Phase:** 3D Rigid-Body Sensing and Cable Configuration Design  
 **Primary Tool:** MATLAB  
-**Status:** Proposed model; sensing validation pending
+**Status:** Proposed 3D model; sensing validation pending
 
 ---
 
 ## 1. Research Objective
 
-This study investigates cable-based position measurement of a rigid spherical object moving within a simplified gastric workspace.
+<!-- UPDATED: Changed from planar position measurement to 3D 6-DOF pose sensing. -->
 
-The main research question is:
+This study investigates cable-based pose measurement of a rigid spherical object moving passively within a simplified three-dimensional gastric workspace.
 
-> How do cable number and placement affect the accuracy and reliability of position estimation for a 550 mL rigid spherical object?
+The main technical objective is to develop and evaluate a measurement model that estimates the object's **three-dimensional position and orientation** from cable-length measurements.
 
-The study focuses on:
+The configuration study focuses on:
 
-- Cable number
-- Anchor-point placement
-- Attachment-point placement
-- Measurement identifiability
-- Position-estimation accuracy
-- Sensing workspace coverage
+- Six-cable reference configuration.
+- Seven- and eight-cable primary configurations.
+- Three-dimensional anchor placement.
+- Three-dimensional attachment placement.
+- Pose identifiability and estimation accuracy.
+- Sensing workspace and mechanical feasibility.
 
-The long-term goal is to extend the measurement system to a deformable balloon.
+The full research scope is defined in [Sensing Objective v0.2](Sensing_Objective_v0.2.md).
 
 ---
 
@@ -33,36 +33,34 @@ The long-term goal is to extend the measurement system to a deformable balloon.
 
 ### 2.1 Gastric Environment
 
-The initial environment is represented by a simplified gastric boundary.
+The initial environment is represented by a simplified three-dimensional gastric boundary.
 
-**Reference population:** Adult female  
-**Geometric representation:** Ellipsoidal approximation  
-**Required dimensions:** Length, width, and height
-
-The adult female reference is motivated by female-majority cohorts reported in selected intragastric balloon studies.
-
-Female patient prevalence does not establish sex-specific gastric dimensions.
+**Reference population:** Adult female, prioritising obesity-related anatomical evidence.  
+**Geometric representation:** Ellipsoidal approximation.  
+**Required dimensions:** Length, width, and height.
 
 The gastric boundary is defined as:
 
-$$
+\[
 \Omega_g=
 \left\{(x,y,z):
 \frac{x^2}{a^2}+
 \frac{y^2}{b^2}+
 \frac{z^2}{c^2}\leq1
 \right\}
-$$
+\]
 
 where:
 
-- \(a=L_g/2\): Half-length
-- \(b=W_g/2\): Half-width
-- \(c=H_g/2\): Half-height
+- \(a=L_g/2\): Half-length.
+- \(b=W_g/2\): Half-width.
+- \(c=H_g/2\): Half-height.
 
-\(L_g\), \(W_g\), and \(H_g\) represent the assumed or literature-supported internal gastric dimensions under a specified filling condition.
+\(L_g\), \(W_g\), and \(H_g\) represent literature-supported or assumed internal gastric dimensions under specified conditions.
 
-**Purpose:** Constrain the rigid object's movement, not reproduce detailed gastric anatomy or physiology.
+The ellipsoid is centred at the world-frame origin in the initial model.
+
+**Purpose:** Constrain rigid-body movement rather than reproduce detailed gastric anatomy or physiology.
 
 Numerical dimensions remain to be selected and justified.
 
@@ -72,147 +70,210 @@ The initial measurement object is a rigid spherical approximation of a commercia
 
 | Parameter | Value | Status |
 |---|---|---|
-| Volume | 550 mL | Commercial product reference |
+| Volume | 550 mL | Commercial reference |
 | Shape | Sphere | Engineering assumption |
-| Equivalent diameter | Approximately 10.17 cm | Derived |
-| Equivalent radius | Approximately 5.09 cm | Derived |
-| Deformation | Excluded | Initial model assumption |
+| Equivalent diameter | Approximately 101.7 mm | Derived |
+| Equivalent radius | Approximately 50.9 mm | Derived |
+| Deformation | Excluded | Initial model |
 
 The equivalent spherical diameter is:
 
-$$
+\[
 D=\left(\frac{6V}{\pi}\right)^{1/3}
-$$
+\]
 
-where \(V\) is expressed in cm³ and \(D\) in cm.
+where \(V\) is expressed in cubic millimetres and \(D\) in millimetres.
 
-The equivalent diameter is not a clinically measured external diameter.
+The equivalent diameter is not a directly measured external balloon diameter.
 
 ### 2.3 Geometric Feasibility
 
-The rigid sphere must remain completely inside the simplified gastric boundary.
+<!-- UPDATED: Clarified the 3D feasible centre region and pose space. -->
 
-Define:
+The rigid sphere must remain entirely inside the simplified gastric boundary.
 
-$$
-W_{\mathrm{geo}}=
-\{p:B(p,r)\subseteq\Omega_g\}
-$$
+Define the feasible sphere-centre region:
+
+\[
+W_{\mathrm{centre}}=
+\{P\in\mathbb R^3:
+B(P,r_s)\subseteq\Omega_g\}
+\]
 
 where:
 
-- \(p\): Sphere-centre position
-- \(B(p,r)\): Sphere of radius \(r\), centred at \(p\)
-- \(W_{\mathrm{geo}}\): Geometrically feasible centre positions
+- \(P\): Sphere-centre position.
+- \(r_s\): Sphere radius.
+- \(B(P,r_s)\): Solid sphere centred at \(P\).
+- \(W_{\mathrm{centre}}\): Geometrically feasible centre region.
 
-MATLAB will evaluate candidate centre positions and check whether the complete sphere remains inside the boundary.
+For the ideal rigid sphere, geometric containment does not depend on orientation.
 
-The workspace must not be determined from the sphere centre alone.
+The complete geometric pose space is:
 
-If the chosen gastric boundary cannot accommodate the rigid sphere, the configuration is infeasible under the stated assumptions.
+\[
+W_{\mathrm{geo}}
+=
+W_{\mathrm{centre}}\times SO(3)
+\]
+
+This relationship applies to the ideal sphere without considering cables, attachment protrusions, or other mechanical components.
+
+MATLAB will evaluate candidate centre positions and verify that the complete sphere remains inside the boundary.
+
+The geometric workspace must not be determined from the sphere centre alone.
 
 ---
 
-## 3. Cable Measurement Model
+## 3. Three-Dimensional Cable Measurement Model
 
-### 3.1 Initial State
+<!-- UPDATED: Replaced the original planar position-only model. -->
 
-The proposed first sensing model estimates planar position:
+### 3.1 Rigid-Body State
 
-$$
-q=[x,y]^T
-$$
+The initial sensing model estimates the full six-degree-of-freedom rigid-body pose:
 
-For this initial model:
+\[
+q=[x,y,z,\phi,\theta,\psi]^T
+\]
 
-- The sphere centre moves in a specified plane.
-- Its out-of-plane position is fixed.
-- Object orientation is mechanically constrained or independently known.
+The physical pose is represented by:
 
-These conditions must be specified before validating position estimation.
+\[
+P\in\mathbb R^3,\qquad R\in SO(3)
+\]
 
-The planar model is an initial sensing test, not the complete three-dimensional gastric motion model.
+where:
+
+- \(P\): Object-centre position in the world frame.
+- \(R\): Rotation from the object frame to the world frame.
+
+The object can translate and rotate without following a prescribed trajectory.
+
+Rotation matrices will be used in the core measurement model.
+
+Euler angles may be used for interpretation and visualisation.
 
 ### 3.2 Cable Geometry
 
 For cable \(i\), define:
 
-- \(A_i\): Fixed anchor point
-- \(r_i\): Body-frame attachment point
-- \(B_i\): World-frame attachment point
-- \(p\): Sphere-centre position
-- \(R_0\): Fixed or known orientation
+- \(A_i\in\mathbb R^3\): Fixed anchor point.
+- \(r_i\in\mathbb R^3\): Local attachment point.
+- \(B_i\in\mathbb R^3\): World-frame attachment point.
+- \(P\in\mathbb R^3\): Object-centre position.
+- \(R\in SO(3)\): Object orientation.
 
-The attachment-point position is:
+The world-frame attachment position is:
 
-$$
-B_i=p+R_0r_i
-$$
+\[
+B_i=P+Rr_i
+\]
+
+The vector from the attachment point to the anchor is:
+
+\[
+d_i=A_i-B_i
+\]
 
 The ideal cable length is:
 
-$$
-L_i=\|A_i-B_i\|
-$$
+\[
+L_i=\|d_i\|_2
+\]
+
+The unit direction from attachment to anchor is:
+
+\[
+u_i=\frac{d_i}{L_i}
+\]
 
 All coordinates and lengths must use consistent physical units.
 
-The previous four-cable MATLAB geometry is retained as a mathematical reference, but its original coordinates must not be interpreted as validated physical dimensions of the 550 mL sphere.
+For an ideal surface attachment:
 
-Initial attachment positions should be defined consistently with the sphere's surface and the assumed mechanical connection.
+\[
+\|r_i\|_2=r_s
+\]
+
+Any attachment mechanism that offsets the connection point from the spherical surface must be modelled separately.
 
 ### 3.3 Measurement Relationship
 
-The forward measurement model is:
+The ideal forward measurement model is:
 
-$$
-L=h(q)
-$$
+\[
+L=h(P,R)
+\]
 
 The sensor measurement model is:
 
-$$
-y=h(q)+\varepsilon
-$$
+\[
+y=h(P,R)+\varepsilon
+\]
 
 where:
 
-- \(y\): Measured cable lengths
-- \(q\): Unknown object position
-- \(h(q)\): Predicted cable lengths
-- \(\varepsilon\): Measurement noise
+- \(y\in\mathbb R^n\): Cable-length measurements.
+- \(h(P,R)\in\mathbb R^n\): Predicted cable lengths.
+- \(\varepsilon\in\mathbb R^n\): Measurement errors.
 
-Initially, cables are assumed taut and straight, with fixed anchor and attachment geometry.
+Initially, cables are assumed taut, straight, and inextensible.
 
-Cable slack, routing, friction, and deformation-related effects require separate consideration during physical validation.
+Fixed anchor and attachment geometries are assumed.
 
-### 3.4 Measurement Jacobian
+The initial model excludes friction, sagging, spool geometry errors, and elastic deformation.
 
-The measurement Jacobian is:
+These effects will be investigated during physical feasibility and calibration analysis.
 
-$$
-H(q)=\frac{\partial h(q)}{\partial q}
-$$
+### 3.4 Six-DOF Measurement Jacobian
 
-For \(n\) cable measurements and planar position estimation:
+<!-- NEW: Explicit analytical Jacobian for the selected 3D model. -->
 
-$$
-H\in\mathbb{R}^{n\times2}
-$$
+For a small world-frame translation \(\delta P\) and small world-frame rotation vector \(\delta\alpha\):
 
-The local measurement relationship is:
+\[
+\delta L\approx H
+\begin{bmatrix}
+\delta P\\
+\delta\alpha
+\end{bmatrix}
+\]
 
-$$
-\Delta L\approx H(q)\Delta q
-$$
+Define:
 
-The existing MATLAB convention uses:
+\[
+s_i=Rr_i
+\]
 
-$$
-H=J^T
-$$
+For the chosen convention \(d_i=A_i-B_i\), the \(i\)-th Jacobian row is:
 
-The analytical Jacobian must be checked against numerical finite differences.
+\[
+\boxed{
+H_i=
+\begin{bmatrix}
+-u_i^T & (u_i\times s_i)^T
+\end{bmatrix}
+}
+\]
+
+Therefore:
+
+\[
+H\in\mathbb R^{n\times6}
+\]
+
+and:
+
+\[
+\delta L\approx H\delta q
+\]
+
+where \(\delta q=[\delta P^T,\delta\alpha^T]^T\) is a local six-dimensional pose increment, rather than a direct subtraction of global Euler-angle coordinates.
+
+The analytical Jacobian must be verified using numerical finite differences for both translation and rotation.
+
+The rotational increment convention and numerical units must be kept consistent.
 
 ---
 
@@ -220,77 +281,145 @@ The analytical Jacobian must be checked against numerical finite differences.
 
 ### 4.1 Design Variables
 
-The study compares:
+<!-- UPDATED: Selected the six-cable baseline and seven/eight primary candidates. -->
 
 | Variable | Investigation |
 |---|---|
-| Cable number | Number of independent length measurements |
-| Anchor placement | Fixed cable locations |
-| Attachment placement | Connection locations on the rigid sphere |
+| Cable number | 6 baseline; 7 and 8 primary candidates |
+| Anchor placement | Three-dimensional fixed mounting positions |
+| Attachment placement | Three-dimensional positions on the rigid sphere |
+| Cable routing | Interference and path feasibility |
+| Low-tension mechanism | Cable tracking and motion disturbance |
 
-The previous four-cable planar model is the starting reference, not the final configuration.
+The previous four-cable planar MATLAB model is retained only as a mathematical verification reference.
 
-### 4.2 Identifiability
+It is not a candidate for unconstrained six-degree-of-freedom length-only sensing.
 
-The Jacobian must contain sufficient independent measurement information for the selected state.
+### 4.2 Pose Identifiability
 
-For local planar position estimation, the target condition is:
+For local 6-DOF pose estimation:
 
-$$
-\operatorname{rank}(H)=2
-$$
+\[
+\operatorname{rank}(H)=6
+\]
 
-Rank deficiency indicates that some small position changes cannot be independently distinguished from cable-length changes.
+is a necessary condition.
 
-Full rank alone does not guarantee global uniqueness or acceptable accuracy.
+The investigation must also consider:
 
-Previous MATLAB results showed strong coupling between x-translation and rotation in a particular planar four-cable configuration.
+- Jacobian singularity.
+- Poor measurement conditioning.
+- Translational and rotational measurement coupling.
+- Multiple pose solutions producing similar cable lengths.
+- Sensitivity to noise and calibration errors.
 
-This observation should be rechecked when extending the measurement model or relaxing the fixed-orientation assumption.
+Full rank does not guarantee globally unique pose estimation or acceptable accuracy.
 
 ### 4.3 State Estimation
 
-Estimate position from cable measurements using a constrained optimisation method:
+<!-- UPDATED: Generalised the estimator from 2D position to full 3D pose. -->
 
-$$
-\hat q=
-\arg\min_{q\in W}
-\|y-h(q)\|^2
-$$
+Estimate position and orientation using constrained nonlinear least squares:
 
-where \(W\) is the selected feasible test region.
+\[
+(\hat P,\hat R)=
+\arg\min_{(P,R)\in W_{\mathrm{test}}}
+\left\|
+y-h(P,R)
+\right\|_{\Sigma^{-1}}^2
+\]
 
-The estimator must not use the true object position as an input.
+where:
 
-Different initial guesses should be evaluated to identify ambiguous solutions and convergence limitations.
+- \(W_{\mathrm{test}}\): Selected feasible pose domain.
+- \(\Sigma\): Cable-length measurement covariance matrix.
+- \(\|v\|_{\Sigma^{-1}}^2=v^T\Sigma^{-1}v\).
+
+When equal independent cable-length noise is assumed, unweighted least squares may be used.
+
+Different initial poses must be tested to investigate solution ambiguity and convergence.
+
+The estimator must not receive the true object pose as an input.
 
 ### 4.4 Evaluation Metrics
 
 | Metric | Purpose |
 |---|---|
-| Jacobian rank | Local measurement independence |
-| Singular values | Measurement sensitivity |
-| Condition number | Sensitivity to poorly conditioned geometry |
-| Position RMSE | State-estimation accuracy |
-| Workspace coverage | Region meeting sensing criteria |
-| Noise sensitivity | Measurement robustness |
+| Jacobian rank | Local pose identifiability |
+| Scaled singular values | Measurement sensitivity |
+| Scaled condition number | Geometric conditioning |
+| Position RMSE | Translational accuracy |
+| Orientation RMSE | Rotational accuracy |
+| Maximum pose error | Worst-case performance |
+| Estimation success rate | Reliability |
+| Noise sensitivity | Robustness |
+| Workspace coverage | Valid sensing region |
+| Motion disturbance | Influence of cables on passive motion |
 
-Configuration comparisons must use consistent physical scales, test regions, and sensor-noise assumptions.
+For position error:
 
-Measurement accuracy requirements must be defined before claiming that a configuration is acceptable.
+\[
+e_p=\|\hat P-P\|_2
+\]
+
+For orientation error:
+
+\[
+e_R=
+\cos^{-1}
+\left(
+\frac{\operatorname{tr}(\hat R^TR)-1}{2}
+\right)
+\]
+
+The inverse-cosine argument must be clamped to \([-1,1]\) during numerical evaluation.
+
+Translation and rotation require appropriate scaling before comparing Jacobian conditioning.
+
+No fixed clinical or engineering accuracy threshold has yet been established.
 
 ### 4.5 Sensing Workspace
 
-The sensing workspace is a subset of the geometrically feasible region:
+The sensing workspace is a subset of the geometrically feasible pose space:
 
-$$
+\[
 W_{\mathrm{sensing}}
 \subseteq W_{\mathrm{geo}}
-$$
+\]
 
-A position is included only when the selected cable configuration satisfies the required measurement and physical-feasibility criteria.
+A pose is included only when the selected configuration satisfies specified sensing and physical feasibility requirements.
 
-The gastric boundary, geometric feasibility region, and sensing workspace must remain distinct.
+The full sensing workspace is six-dimensional.
+
+For visualisation, MATLAB may present:
+
+- Three-dimensional position coverage.
+- Orientation-dependent sensing quality.
+- Two-dimensional slices of the position workspace.
+- Pose-estimation error distributions.
+
+Coverage must be computed over a specified sampling domain using declared acceptance criteria.
+
+### 4.6 Mechanical Feasibility
+
+<!-- NEW: Supports the selected motor-assisted tracking architecture. -->
+
+Mechanical feasibility will be investigated separately from ideal geometric identifiability.
+
+The evaluation will include:
+
+- Positive low cable tension.
+- Cable slack prevention.
+- Cable-to-object and cable-to-cable interference.
+- Anchor mounting feasibility.
+- Attachment geometry and strength.
+- Cable elasticity and friction.
+- Motor payout and retrieval capability.
+- Forces and torques introduced by the cables.
+
+The purpose is to maintain usable measurements while minimising interference with passive object motion.
+
+Wrench closure is not automatically imposed as a requirement for a passive sensing system.
 
 ---
 
@@ -298,89 +427,113 @@ The gastric boundary, geometric feasibility region, and sensing workspace must r
 
 ### 5.1 MATLAB Study
 
-The initial study consists of four analyses.
+<!-- UPDATED: Reorganised simulations around 3D 6-DOF measurement. -->
 
-**A — Geometry Verification**
+**A — 3D Geometry Verification**
 
 - Construct the simplified gastric boundary.
 - Construct the 550 mL rigid sphere.
 - Identify feasible centre positions.
+- Define candidate anchor and attachment positions.
 - Calculate and visualise cable lengths.
 
 **B — Measurement Model Verification**
 
-- Derive the analytical Jacobian.
-- Check against finite differences.
-- Investigate local identifiability and measurement coupling.
+- Implement 3D rigid-body transformations.
+- Calculate the analytical 6-DOF Jacobian.
+- Verify translation and rotation derivatives numerically.
+- Investigate rank and conditioning.
 
-**C — Cable Configuration Comparison**
+**C — 6-DOF Pose Estimation**
 
-- Compare candidate cable numbers.
-- Compare anchor placements.
-- Compare attachment placements.
-- Identify poorly conditioned configurations.
+- Generate simulated cable-length measurements.
+- Estimate unknown position and orientation.
+- Investigate multiple initial guesses.
+- Identify ambiguous solutions and convergence failures.
 
-**D — State Estimation and Accuracy**
+**D — Cable Configuration Comparison**
 
-- Generate simulated cable measurements.
-- Estimate object position.
-- Introduce measurement noise.
-- Compare estimated positions with ground truth.
-- Evaluate RMSE and workspace coverage.
+- Compare 6, 7 and 8 cables.
+- Investigate anchor placements.
+- Investigate attachment placements.
+- Compare measurement performance under consistent conditions.
+
+**E — Measurement Uncertainty and Workspace**
+
+- Introduce cable-length noise.
+- Calculate position and orientation RMSE.
+- Investigate measurement robustness.
+- Evaluate sensing workspace coverage.
+
+**F — Physical Feasibility**
+
+- Investigate cable routing and interference.
+- Introduce low-tension tracking assumptions.
+- Evaluate cable-induced forces and torques.
+- Identify practical sensor and motor requirements.
 
 ### 5.2 Initial Test Scenarios
 
 | Test | Objective |
 |---|---|
-| Static positions | Verify geometric state estimation |
-| Straight-line motion | Verify position tracking |
-| Different velocities | Investigate sampling and measurement response |
-| Multiple configurations | Compare sensing performance |
+| Static reference poses | Verify 6-DOF estimation |
+| Single-axis translations | Verify translational response |
+| Single-axis rotations | Verify rotational response |
+| Combined translations and rotations | Test full pose reconstruction |
+| Irregular passive-motion sequences | Evaluate measurement tracking |
+| Alternative cable configurations | Compare sensing performance |
 
-Prescribed motion provides reference ground truth but must not be supplied as a known trajectory to the estimator.
+Known test trajectories may provide ground truth but must not be supplied to the estimator as known motion.
 
 ### 5.3 Validation Criteria
 
 A candidate configuration is considered numerically supported only when:
 
-1. The geometric and measurement models are verified.
-2. Local identifiability is evaluated.
-3. Position-estimation error is quantified.
-4. Measurement noise and uncertainty are considered.
-5. Sensing performance is evaluated over the test region.
-6. Physical assumptions and limitations are documented.
+1. Geometry and cable-length calculations are verified.
+2. Analytical and numerical Jacobians agree within a documented tolerance.
+3. Local identifiability is evaluated.
+4. Global pose ambiguity and estimator convergence are investigated.
+5. Position and orientation errors are quantified.
+6. Measurement noise and uncertainty are considered.
+7. Workspace coverage is evaluated over a defined pose domain.
+8. Physical assumptions and limitations are recorded.
 
-Numerical simulation does not replace experimental validation with calibrated sensors and independent ground truth.
+Numerical simulation does not replace experimental validation using calibrated measurements and independent ground truth.
 
 ---
 
 ## 6. Current Assumptions and Open Questions
 
+<!-- UPDATED: Removed the outdated planar measurement scope. -->
+
 | Parameter | Current Status |
 |---|---|
 | 550 mL rigid sphere | Defined approximation |
-| Simplified ellipsoidal stomach | Proposed |
-| Gastric length, width, height | Evidence or assumption pending |
-| Initial state | Planar position proposed |
-| Orientation constraint | Not finalised |
-| Cable number | To be investigated |
+| Simplified 3D gastric boundary | Proposed |
+| Gastric length, width, height | Evidence pending |
+| Initial state | Full 3D 6-DOF pose |
+| Cable number | 6 baseline; 7 and 8 primary |
 | Anchor and attachment locations | To be investigated |
-| Sensor noise and accuracy | To be defined |
-| Physical cable routing and tension | Not validated |
-| Three-dimensional position measurement | Future extension |
+| Cable-length noise and calibration | To be defined |
+| Low-tension tracking | Proposed, not validated |
+| Cable interference and physical feasibility | Not validated |
+| 6-DOF pose-estimation accuracy | Not evaluated |
 | Balloon deformation sensing | Future extension |
 
-### Immediate Technical Decision
+### Immediate Technical Priority
 
-Confirm the initial planar state, object-orientation constraint, geometric boundary parameters, and preliminary measurement-accuracy target.
-
-Then verify the cable-length model and Jacobian before comparing candidate configurations.
+1. Establish a simplified 3D gastric geometric boundary.
+2. Define the feasible rigid-sphere centre region.
+3. Implement the 3D cable-length model.
+4. Verify the 6-DOF measurement Jacobian.
+5. Begin the six-, seven- and eight-cable comparison.
 
 ---
 
 ## Related Documents
 
 - [Current Research State](../CURRENT_STATE2.md)
+- [Sensing Objective v0.2](Sensing_Objective_v0.2.md)
 - [Research Guidelines](../AGENTS2.md)
 - [Research Roadmap](../08_Project_Management/Roadmap.md)
 - [Research TODO](../08_Project_Management/TODO.md)
@@ -388,4 +541,4 @@ Then verify the cable-length model and Jacobian before comparing candidate confi
 
 ---
 
-**Current Research Priority:** Determine which cable configurations can estimate the position of a 550 mL rigid spherical object accurately and reliably within a simplified constrained workspace.
+**Current Research Priority:** Develop and verify a 3D 6-DOF cable-length measurement model, then determine whether seven or eight cables provide better sensing performance under consistent geometric and mechanical constraints.
