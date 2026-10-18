@@ -22,22 +22,25 @@ Detailed research progress, schedules, and technical designs are maintained in t
 
 ## 2. Current Research Scope
 
-The current study investigates cable-based position sensing using:
+The current study investigates 3D 6-DOF rigid-body pose sensing using:
 
-- A simplified gastric workspace based on an adult female anatomical reference.
-- A 550 mL rigid spherical object (equivalent diameter approximately 10.17 cm).
-- Cable length or displacement measurements.
-- Candidate cable numbers, anchor locations, and attachment locations.
-- Measurement accuracy, identifiability, and workspace coverage.
+- A simplified 3D gastric boundary.
+- A 550 mL rigid spherical object.
+- Cable-length measurements.
+- Six cables as a reference baseline.
+- Seven and eight cables as primary configurations.
+- Three-dimensional anchor and attachment placements.
+- Motor-assisted low-tension cable tracking.
+- Pose accuracy, identifiability, and sensing workspace coverage.
 
 ### Scope Rules
 
 1. Use the gastric outline as a spatial constraint, not as a detailed physiological model.
 2. Treat the rigid sphere as an engineering approximation of a gastric balloon.
 3. Label any unsupported gastric dimensions as assumptions.
-4. Start with a simple planar sensing model before introducing additional degrees of freedom.
+4. Begin with a 3D 6-DOF sensing model. Use planar examples only for mathematical or numerical verification.
 5. Do not assume the object trajectory is known by the estimator.
-6. Prioritise position estimation before deformation or shape reconstruction.
+6. Prioritise rigid-body position and orientation estimation before deformable-body reconstruction.
 
 **Important:** The rigid-body model is the initial validation platform, not the final deformable-balloon model.
 
@@ -113,16 +116,16 @@ Never mix local and world coordinates without an explicit transformation.
 
 ### State Definition
 
-Define the estimated state before selecting cable number.
+current state:
 
-For example:
+ q=[x,y,z,pih,theta,psi]^T
+ 
+The rigid-body pose consists of:
 
-- Planar position: \(q=[x,y]^T\)
-- Planar pose: \(q=[x,y,\theta]^T\)
+- Position P in R^3.
+- Orientation R in SO(3).
 
-A position-only model must explicitly constrain or account for object orientation.
-
-The number of unknown state variables determines the required independent measurement information.
+The measurement model must account for all six degrees of freedom.
 
 ---
 
@@ -351,6 +354,6 @@ Do not repeatedly copy the same background, roadmap, or task lists into multiple
 
 > Develop the simplest cable-based measurement model that can answer the current research question, validate its accuracy, and use the results to guide the next design decision.
 
-The current priority is rigid-body position sensing.
+The current priority is 3D 6-DOF rigid-body pose sensing using seven- and eight-cable configurations, with six cables as a reference baseline.
 
 Deformation and shape reconstruction remain future research extensions.
