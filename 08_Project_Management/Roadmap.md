@@ -1,20 +1,33 @@
 # Research Roadmap
 
-**Last Updated:** 2026-10-16  
-**Current Phase:** Phase 2 — Simplified Model and Sensing Objective  
-**Research Focus:** Cable Configuration and Position Measurement
+**Last Updated:** 2026-10-19  
+**Current Phase:** Phase 2 — 3D Rigid-Body Sensing Model  
+**Research Focus:** 6-DOF Pose Estimation and Cable Configuration Design
 
 ---
 
 ## 1. Research Goal
 
-Develop a cable-based sensing system to estimate the position and eventually deformation or shape of a passively moving balloon-like object.
+<!-- UPDATED: Changed position-only sensing to full 3D pose sensing. -->
+
+Develop a cable-based sensing system to estimate the three-dimensional position and orientation of a passively moving rigid spherical object.
+
+The long-term research direction is to extend the validated measurement method to a deformable balloon-like object.
 
 ### Current Research Question
 
-> How do cable number and placement affect the accuracy and reliability of position estimation for a 550 mL rigid spherical object moving within a simplified gastric workspace?
+> How do seven- and eight-cable configurations affect the accuracy, identifiability, and feasible sensing workspace of a passively moving 6-DOF rigid spherical object?
 
-The immediate focus is rigid-body position measurement, rather than complex balloon dynamics or shape reconstruction.
+**Research Baseline**
+
+- 550 mL rigid spherical object.
+- Simplified 3D gastric environment.
+- Passive and unknown object motion.
+- Six-cable reference configuration.
+- Seven- and eight-cable primary configurations.
+- Motor-assisted low-tension cable tracking.
+
+The immediate focus is **3D rigid-body pose sensing**, not balloon deformation reconstruction.
 
 ---
 
@@ -26,217 +39,265 @@ The immediate focus is rigid-body position measurement, rather than complex ball
 
 **Research Question**
 
-What application evidence and physical references are needed to define the initial sensing problem?
+What clinical and physical evidence is required to define the initial sensing application?
 
 **Deliverables**
 
-- Clinical evidence summary (A–D)
-- Adult female target-population rationale
-- 550 mL balloon-volume reference
-- Preliminary workspace assumptions
+- Clinical evidence summary (A–D).
+- Adult female target-population rationale.
+- 550 mL balloon-volume reference.
+- Preliminary gastric geometry assumptions.
 
 **Completion Criteria**
 
-- The application and initial object size are justified.
+- The application and object-size reference are justified.
 - Reported measurements and engineering assumptions are distinguished.
 - Missing anatomical and motion data are identified.
 
-**Remaining Limitation:** Gastric outline dimensions still require evidence or explicit engineering assumptions.
+**Remaining Limitation:** Gastric length, width, and height require additional evidence or explicitly documented engineering assumptions.
 
 ---
 
-### Phase 2 — Simplified Model and Sensing Objective
+### Phase 2 — 3D Rigid-Body Model and Sensing Foundation
+
+<!-- UPDATED: Replaced the proposed planar position model. -->
 
 **Status:** Current priority.
 
 **Research Question**
 
-How should the rigid-body object, gastric boundary, and estimated state be defined?
+How should the simplified 3D gastric boundary, rigid spherical object, and 6-DOF measurement model be defined?
 
 **Model Baseline**
 
-- Simplified gastric outline based on length, width, and height
-- 550 mL rigid spherical object
-- Equivalent spherical diameter: approximately 10.17 cm
-- Initial planar position model: proposed
-- Orientation constraints: to be specified
+- Simplified 3D gastric boundary.
+- 550 mL rigid sphere.
+- Equivalent diameter: approximately 101.7 mm.
+- Full 6-DOF rigid-body pose.
+- Cable-length measurement model.
+- Unknown passive motion.
 
 **Deliverables**
 
-- Simplified gastric workspace model
-- Rigid-sphere geometry
-- Selected state variables
-- Cable-length measurement model
-- Verified measurement Jacobian
+- Confirmed sensing objective.
+- Simplified 3D gastric geometry.
+- Geometrically feasible sphere-centre region.
+- Three-dimensional cable geometry model.
+- Verified 6-DOF measurement Jacobian.
+- Initial 6-DOF pose estimator.
 
 **Completion Criteria**
 
-- Model assumptions and physical units are documented.
-- The rigid object fits within the defined geometric test region.
-- The initial state and orientation assumptions are justified.
-- The measurement model is numerically verified.
+- Physical dimensions, coordinate systems, and assumptions are documented.
+- The rigid sphere fits within the selected geometric boundary.
+- The measurement model is implemented and numerically verified.
+- Local pose identifiability is evaluated.
+- Initial position and orientation estimation results are available.
+
+**Current Progress:** Sensing scope defined; gastric dimensions and 3D model verification pending.
 
 ---
 
 ### Phase 3 — Cable Configuration and Sensing Quality
 
-**Status:** Next phase.
+<!-- UPDATED: Defined the 6/7/8 cable comparison strategy. -->
+
+**Status:** Planned next phase.
 
 **Research Question**
 
-How many cables are required, and where should anchors and attachment points be placed?
+How do cable number and three-dimensional anchor and attachment placements influence 6-DOF sensing performance?
 
 **Design Variables**
 
-- Cable number
-- Anchor-point positions
-- Attachment-point positions
+- Cable number: 6, 7, and 8.
+- Three-dimensional anchor positions.
+- Three-dimensional attachment positions.
+
+**Configuration Strategy**
+
+- Six cables: reference baseline.
+- Seven cables: primary candidate A.
+- Eight cables: primary candidate B.
 
 **Evaluation Metrics**
 
-- Jacobian rank
-- Measurement sensitivity and conditioning
-- Position-estimation uncertainty
-- Measurement accuracy
-- Sensing workspace coverage
-- Mechanical feasibility
+- Jacobian rank and conditioning.
+- Position-estimation error.
+- Orientation-estimation error.
+- Measurement-noise sensitivity.
+- Pose-estimation reliability.
+- Sensing workspace coverage.
+- Cable-routing and attachment feasibility.
+- Mechanical complexity.
 
 **Deliverables**
 
-- Candidate cable configurations
-- MATLAB configuration comparison
-- Sensing-quality and workspace maps
-- Preferred candidate configuration
+- Candidate 3D cable configurations.
+- MATLAB configuration-comparison results.
+- Pose-estimation error analysis.
+- Sensing workspace maps.
+- Seven- versus eight-cable comparison.
+- Preliminary preferred configuration.
 
 **Completion Criteria**
 
-- Candidate configurations are compared under common conditions.
-- Measurement ambiguity and poorly conditioned regions are identified.
-- The selected configuration is justified by quantitative results.
-- Physical limitations are documented.
+- Candidate configurations are compared under consistent conditions.
+- Anchor and attachment effects are evaluated.
+- Poorly conditioned or ambiguous pose regions are identified.
+- Measurement accuracy and workspace coverage are quantified.
+- The preferred configuration is justified by quantitative results.
+- Major physical limitations are documented.
 
 ---
 
-### Phase 4 — Rigid-Body Measurement Validation
+### Phase 4 — Rigid-Body Sensing Validation
+
+<!-- UPDATED: Added 6-DOF validation and low-tension feasibility. -->
 
 **Status:** Planned.
 
 **Research Question**
 
-Can the selected cable configuration accurately estimate rigid-body position from cable measurements?
+Can the selected cable configuration reliably estimate the position and orientation of a passively moving rigid sphere?
 
 **Validation Scenarios**
 
-- Known static positions
-- Straight-line motion
-- Different movement speeds
-- Additional motion cases where required
+- Known static poses.
+- Single-axis translations.
+- Single-axis rotations.
+- Combined 3D translation and rotation.
+- Irregular passive-motion sequences.
+- Different measurement-noise conditions.
 
 **Deliverables**
 
-- MATLAB state estimator
-- Measurement-noise analysis
-- Rigid-body experimental setup, if feasible
-- Ground-truth comparison
-- Measurement accuracy and repeatability results
+- Verified 6-DOF pose estimator.
+- Position and orientation error results.
+- Measurement-noise and calibration analysis.
+- Low-tension tracking feasibility assessment.
+- Cable-induced motion disturbance assessment.
+- Experimental sensing setup, if feasible.
+- Independent ground-truth comparison.
 
 **Completion Criteria**
 
-- Object position is estimated without using the true trajectory as estimator input.
-- Estimation errors are quantified against ground truth.
-- Measurement uncertainty and repeatability are evaluated.
-- Performance is compared against defined accuracy requirements.
+- The object pose is estimated without supplying the true trajectory to the estimator.
+- Position and orientation errors are quantified.
+- Estimation reliability and ambiguity are evaluated.
+- Low-tension tracking limitations are investigated.
+- Experimental accuracy and repeatability are reported if a prototype is available.
+- Numerical results are clearly distinguished from physical experimental validation.
 
 ---
 
 ### Phase 5 — Deformable-Balloon Extension
 
-**Status:** Future.
+**Status:** Future research extension.
 
 **Research Question**
 
-Can the validated rigid-body sensing method be extended to measure balloon deformation?
+Can the validated rigid-body sensing method be extended to estimate deformation of a balloon-like object?
 
-**Deliverables**
+**Potential Deliverables**
 
-- Simplified deformation representation
-- Deformable-balloon attachment concept
-- Extended measurement model
-- Preliminary deformation-estimation results
+- Simplified deformation representation.
+- Flexible attachment concept.
+- Extended measurement model.
+- Preliminary deformation-identifiability analysis.
+- Initial deformation-estimation results.
 
 **Completion Criteria**
 
-- Deformation variables are explicitly defined.
-- Their identifiability is investigated.
+- Deformation variables are defined.
+- Measurement identifiability is investigated.
 - Deformation estimates are compared with independent reference measurements.
+
+**Scope Note:** This phase is not required to complete the initial 3D rigid-body sensing study.
 
 ---
 
 ### Phase 6 — Integrated System Evaluation
 
-**Status:** Future.
+**Status:** Future research extension.
 
 **Research Question**
 
-How reliably can the sensing system estimate object states under more complex passive motion and deformation?
+How reliably can an integrated cable-based sensing system estimate position, orientation, and deformation under complex passive motion?
 
-**Deliverables**
+**Potential Deliverables**
 
-- Integrated sensing-system evaluation
-- Accuracy and robustness analysis
-- Workspace and physical limitation assessment
-- Final research conclusions
+- Integrated sensing-system evaluation.
+- Accuracy and robustness analysis.
+- Physical limitations and workspace assessment.
+- Extended experimental validation.
+- Final integration conclusions.
 
 **Completion Criteria**
 
-- Major research objectives are evaluated quantitatively.
-- Experimental and modelling limitations are documented.
-- Research contributions and future work are identified.
+- Integrated sensing objectives are quantitatively evaluated.
+- Modelling and experimental limitations are documented.
+- Research contributions and future developments are identified.
+
+**Scope Note:** Integration with deformable-body sensing remains a long-term research objective.
 
 ---
 
 ## 3. Research Milestones
 
+<!-- UPDATED: Refined milestones to reflect 3D 6-DOF sensing. -->
+
 | Milestone | Expected Outcome | Status |
 |---|---|---|
 | M1 | Clinical evidence synthesis | Initial synthesis completed |
-| M2 | 550 mL rigid-object reference | Defined |
-| M3 | Simplified gastric boundary | Pending |
-| M4 | Initial sensing objective and measurement model | In progress |
-| M5 | Cable configuration comparison | Planned |
-| M6 | Sensing workspace and accuracy evaluation | Planned |
-| M7 | Rigid-body experimental validation | Planned |
-| M8 | Deformable-balloon sensing | Future |
-| M9 | Integrated evaluation | Future |
+| M2 | 550 mL rigid-sphere reference | Defined |
+| M3 | 3D 6-DOF sensing objective | Defined — 19 Oct 2026 |
+| M4 | Simplified 3D gastric geometry | Pending |
+| M5 | Verified 3D cable model and Jacobian | Pending |
+| M6 | Initial 6-DOF pose estimator | Planned |
+| M7 | 6/7/8-cable configuration comparison | Planned |
+| M8 | Sensing workspace and pose-accuracy evaluation | Planned |
+| M9 | Low-tension and physical feasibility assessment | Planned |
+| M10 | Rigid-body experimental validation | Planned |
+| M11 | Deformable-balloon sensing | Future |
+| M12 | Integrated sensing evaluation | Future |
 
-Milestones should be marked complete only when their stated criteria have been met.
+Milestones are marked complete only after their stated criteria have been satisfied.
 
 ---
 
 ## 4. Current Research Priority
 
-**Focus: Phase 2 → Phase 3**
+<!-- UPDATED: Replaced the planar-to-3D progression with direct 3D development. -->
 
-The next research decisions are:
+**Current Focus: Phase 2 → Phase 3**
 
-1. Define the initial position state and orientation constraints.
-2. Establish a simplified gastric boundary.
-3. Verify the rigid-body cable measurement model.
-4. Compare candidate cable numbers and placements.
-5. Evaluate estimation accuracy across the feasible region.
+The immediate research sequence is:
 
-The initial planar model will reuse previous MATLAB work. Three-dimensional position sensing may be introduced after the initial measurement principle is validated.
+1. Establish literature-supported or explicitly assumed gastric dimensions.
+2. Construct the simplified 3D gastric boundary.
+3. Determine the feasible rigid-sphere centre region.
+4. Implement the 3D cable-length measurement model.
+5. Verify the 6-DOF measurement Jacobian.
+6. Establish an initial pose estimator.
+7. Compare six-, seven-, and eight-cable configurations.
+8. Evaluate measurement performance and physical feasibility.
+
+Two-dimensional models may be reused for mathematical verification but are not a separate optimisation stage.
+
+The primary research priority is validating **3D rigid-body pose sensing** before investigating flexible-body deformation.
 
 ---
 
 ## 5. Related Documents
 
-- [Current Research State](../CURRENT_STATE2.md) — Progress and unresolved questions
-- [Research Guidelines](../AGENTS2.md) — Modelling and validation rules
-- [Research TODO](TODO.md) — Actionable research tasks
-- [Weekly Plan](WEEKLY_PLAN.md) — Daily research schedule
-- [Rigid-Body Sensing Design](../05_My_Research/Rigid_Body_Sensing_Design_v0.1.md) — Technical model and methods
+- [Current Research State](../CURRENT_STATE2.md) — Current progress and unresolved questions.
+- [Sensing Objective](../05_My_Research/Sensing_Objective_v0.2.md) — Research scope and cable-number rationale.
+- [Rigid-Body Sensing Design](../05_My_Research/Rigid_Body_Sensing_Design.md) — Technical model and evaluation methods.
+- [Research Guidelines](../AGENTS2.md) — Modelling and validation rules.
+- [Research TODO](TODO.md) — Actionable research tasks.
+- [Weekly Plan](WEEKLY_PLAN.md) — Daily research schedule.
 
 ---
 
-**Guiding Principle:** Validate accurate rigid-body position sensing before extending the system to deformable-balloon reconstruction.
+**Guiding Principle:** Validate full 3D rigid-body pose sensing, compare seven- and eight-cable designs against a six-cable baseline, and assess measurement performance and physical feasibility before extending to deformable-balloon sensing.
