@@ -1,3 +1,5 @@
+> **Archived:** Historical research record. For the current research direction, see [CURRENT_STATE2.md](../CURRENT_STATE2.md).
+
 # Current State
 
 ## Learning
