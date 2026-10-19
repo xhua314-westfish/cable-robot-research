@@ -30,21 +30,38 @@ BMI < 25 kg/m² 组	438.5 ± 163.4 mL	对照组
 
 paper2
 
-Name:
-DOI:
-APA:
+Name:Patient‑specific stomach biomechanics before and after laparoscopic 
+sleeve gastrectomy
+DOI:https://doi.org/10.1007/s00464-022-09233-7
+APA:Toniolo, I., Berardo, A., Foletto, M. et al. Patient-specific stomach biomechanics before and after laparoscopic sleeve gastrectomy. Surg Endosc 36, 7998–8011 (2022). https://doi.org/10.1007/s00464-022-09233-7
 
 文章内容：
+研究团队对 23 名接受腹腔镜袖状胃切除术（LSG）的重度肥胖患者，利用术前和术后 MRI 分别重建胃部三维模型，总共获得 46 个模型。
+研究目的是比较手术前后胃部的：
+- Volumetric capacity（胃容积）
+- Pressure–volume response（压力—容积关系）
+- Gastric wall strain（胃壁应变）
+- Biomechanical behaviour（生物力学行为）
+该研究主要服务于肥胖手术的生物力学分析，而不是专门报告胃的最大长度、宽度和高度。
 
 支撑要点：
+able 3 — Mean gastric volumes (n = 23)
+状态	术前胃	术后胃
+Baseline（0 mmHg）	179.10 ± 93.6 mL	43.43 ± 20.19 mL
+**Simulated 30 mmHg	1100 ± 658 mL	243.4 ± 135.1 mL**
+（这个参数是胃被刺激变大后）
+
 
 ---
 
-paper1
+paper3
 
-Name:
-DOI:
-APA:
+Name:Modelling and manufacturing of 3D‑printed, patient‑specific, and anthropomorphic gastric phantoms: a pilot study
+DOI:https://doi.org/10.1038/s41598-020-74110-z
+APA:Kwon, J., Choi, J., Lee, S. et al. Modelling and manufacturing of 3D-printed, patient-specific, and anthropomorphic gastric phantoms: a pilot study. Sci Rep 10, 18976 (2020). https://doi.org/10.1038/s41598-020-74110-z
+
+文章内容：
+
 
 支撑要点：
 
