@@ -33,8 +33,7 @@ paper2
 Name:Patient‑specific stomach biomechanics before and after laparoscopic 
 sleeve gastrectomy
 DOI:https://doi.org/10.1007/s00464-022-09233-7
-APA:Toniolo, I., Berardo, A., Foletto, M. et al. Patient-specific stomach biomechanics before and after laparoscopic sleeve gastrectomy. Surg Endosc 36, 7998–8011 (2022). https://doi.org/10.1007/s00464-022-09233-7
-
+APA:Toniolo, I., Berardo, A., Foletto, M. et al. Patient-specific stomach biomechanics before and after laparoscopic sleeve gastrectomy. Surg Endosc 36, 7998–8011 (2022).
 文章内容：
 研究团队对 23 名接受腹腔镜袖状胃切除术（LSG）的重度肥胖患者，利用术前和术后 MRI 分别重建胃部三维模型，总共获得 46 个模型。
 研究目的是比较手术前后胃部的：
@@ -58,16 +57,27 @@ paper3
 
 Name:Modelling and manufacturing of 3D‑printed, patient‑specific, and anthropomorphic gastric phantoms: a pilot study
 DOI:https://doi.org/10.1038/s41598-020-74110-z
-APA:Kwon, J., Choi, J., Lee, S. et al. Modelling and manufacturing of 3D-printed, patient-specific, and anthropomorphic gastric phantoms: a pilot study. Sci Rep 10, 18976 (2020). https://doi.org/10.1038/s41598-020-74110-z
+APA:Kwon, J., Choi, J., Lee, S. et al. Modelling and manufacturing of 3D-printed, patient-specific, and anthropomorphic gastric phantoms: a pilot study. Sci Rep 10, 18976 (2020).
 
 文章内容：
+研究人员使用 3 名患者的 CT Gastrography 数据，重建患者特异性三维胃部模型，并通过 3D 打印制造具有类似胃部外形的柔性模型（Gastric Phantom）。
+主要研究内容包括：
+- CT 图像分割与三维胃部重建。
+- 不同 CT 扫描阶段的胃部形态比较。
+- 原始 3D 模型与打印胃模型的几何精度比较。
+- 打印材料的力学性能测试。
 
 
 支撑要点：
+**胃的体积数据**
+患者	CT 三维模型	3D 打印模型
+Patient 1	868 mL	880 mL
+Patient 2	1,504 mL	1,579 mL
+Patient 3	1,683 mL	1,697 mL
 
 ---
 
-paper1
+paper4
 
 Name:
 DOI:
