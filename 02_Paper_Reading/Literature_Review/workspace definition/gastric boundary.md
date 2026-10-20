@@ -1,4 +1,4 @@
-2026-10-19
+<img width="1088" height="741" alt="image" src="https://github.com/user-attachments/assets/8c1c4041-ad35-4bb8-a8ae-596c4e4a9115" />2026-10-19
 
 gastric boundary 
 
@@ -96,8 +96,34 @@ DOI:DOI: 10.1111/nmo.14497
 APA:
 
 文章内容：
+这篇研究的目标是：
+看胃的解剖形态类型是否与 obesity 和 gender 有关。
+作者对 777 名成人 做了站立位 UGI radiography，并根据胃的外形把胃分成 6 种解剖类型（Type 1–6）。
+他们重点观察的不是整个胃的三维尺寸，而是：
+- fundus 的最大半径 / 最大鼓出程度
+- medial fundus platform 的长度
+- fundus axis 与 gastric body axis 的夹角
+- antrum 是否下垂进入骨盆（gastroptosis）
+核心结论是：
+- Type 2 和 Type 3 更常见于 男性、超重和肥胖人群
+- Type 5 更常见于 女性
+- Type 3 和 Type 2 的 proximal fundus 半径更大
+- 这些胃型在 12 个月左右随访中相对稳定
 
 支撑要点：
+Supporting evidence for gastric morphological variability and its association with BMI and gender.
+
+Useful measurements:
+- **platform length threshold: 3.8 cm**
+- gastroptosis threshold below iliac crest: 2 cm
+- fundus-body angle thresholds: 80°, 100°
+- **median maximal fundus radius by type: 8.0–10.0 cm approximately**
+Limitation:
+- 2D standing UGI radiography only
+- not suitable for direct extraction of 3D gastric length, width, and height
+
+图片示意：
+<img width="1088" height="741" alt="image" src="https://github.com/user-attachments/assets/2fe90df6-42d6-4e1c-8288-5d94d2eb1b80" />
 
 ---
 
