@@ -196,7 +196,7 @@ paper7(2026-10-20-07...pdf)
 
 Name:A Study of Variations of the Stomach in Adults and Growth of the Fetal Stomach
 DOI:10.7759/cureus.28517
-APA:Karnul, A. M., Murthy, C. K., & Murthy, C. K. (2022). A study of variations of the stomach in adults and growth of the fetal stomach. Cureus, 14(8).
+APA:Karnul, A. M. & Murthy, C. K. (2022). A study of variations of the stomach in adults and growth of the fetal stomach. Cureus, 14(8).
 
 文章内容：研究核心：通过对 50 例成人尸体标本（Cadaveric Study）和 20 例胎儿标本的大体解剖与实物测绘，系统评估了人类胃部的形态学变异、解剖测量参数（如大弯/小弯长度、幽门管尺寸、胃基础容积等）以及胎儿期胃的生长曲线。
 测量方法：在大体解剖后，采用游标卡尺（Vernier calipers）和量规对离体/原位胃进行物理测量，并通过注水排水法测量胃的基础容积。
@@ -211,6 +211,14 @@ J 形胃的几何外形映射：解剖学中人类胃呈现典型的“J”字�
 纵向高度 $L_g$（$z$ 轴垂直投影）：在 J 形结构中，胃大弯的纵向垂直段约占其总弧长的 65%–70%（约 22–23.5 cm）。考虑到弧线向外凸出的弧度与垂直直线（弦长）之间的折减换算，从胃底最高点到胃大弯最低点的垂直直线跨度折算为 **22 ~ 25 cm**。
 横向宽度 $W_g$（$x$ 轴水平投影）：胃大弯底部的水平弯曲段结合胃小弯的内侧切迹，构成了横向最大跨度。水平段约占总弧长的 35%–45%，经平铺/投影换算后，水平直线跨度折算为 **12 ~ 15 cm**。
 
+数据：
+测量内容	男性	女性
+Stomach length	19.0 ± 2.48 cm	17.1 ± 2.01 cm
+Greater curvature	34.4 ± 3.48 cm	29.2 ± 2.01 cm
+Lesser curvature	28.02 ± 2.50 cm	26.05 ± 2.30 cm
+
+
+图片信息：
 <img width="1131" height="849" alt="image" src="https://github.com/user-attachments/assets/8793eb52-b16a-4a84-ae0c-2cce03442cdd" />
 
 
@@ -249,13 +257,26 @@ APA:Lamart, S., Imran, R., Simon, S. L., Doi, K., Morton, L. M., Curtis, R. E., 
 
 paper9
 
-Name:
-DOI:
-APA:
+Name:Wall Thickening of the Gastric Antrum as a Normal Finding: Multidetector CT with Cadaveric Comparison
+DOI:https://doi.org/10.2214/ajr.181.4.1810973
+APA:Pickhardt, P. J., & Asher, D. B. (2003). Wall thickening of the gastric antrum as a normal finding: multidetector CT with cadaveric comparison. American Journal of Roentgenology, 181(4), 973-979.
 
-文章内容：
+文章内容：该文献主要研究并建立了在多层螺旋CT（MDCT）下正常胃窦（gastric antrum）管壁厚度的正常范围与形态学表现。研究团队对153名无胃部疾病史的患者进行了MDCT扫描数据的回顾性分析，并辅以3具尸体的局部解剖比较。研究发现，在MDCT下，远端胃窦管壁相较于近端胃体呈现出平滑的增厚是一个正常的生理现象。这种正常增厚主要由静态解剖因素（由于该区域平滑肌增厚）和动态生理因素（由于胃部收缩与充盈扩张程度不足）共同造成。研究指出，在缺乏管壁明显不规则、不对称或厚度超过12毫米等特征时，单凭管壁超过5毫米不应直接判定为异常
 
 支撑要点：
+根据文献内容，您可以提取以下明确的解剖与影像学统计数据：
+胃窦壁平均厚度（总体）：5.1 ± 1.6 mm。   
+胃窦壁厚度分布范围：1.8 mm 至 12.0 mm。   
+胃窦前壁与后壁的平均厚度：前壁为 5.0 ± 1.9 mm，后壁为 5.2 ± 1.7 mm。   
+胃体前壁平均厚度（作为对照）：2.0 ± 0.4 mm。   
+胃窦壁增厚段的平均纵向长度：4.6 ± 1.1 cm。   
+胃窦壁厚度超过特定阈值的人群比例：测量值超过 5 mm 的患者占 56%（85人），超过 10 mm 的患者占 5%（7人）。   
+不同胃腔充盈度（1至4级）下的平均胃窦壁厚度：
+1级（充盈度最低 0-25%）：6.9 mm。  
+2级（充盈度 26-50%）：5.1 mm。   
+3级（充盈度 51-75%）：4.9 mm。   
+4级（充盈度最高 76-100%）：4.0 mm。  
+黏膜下低密度影（壁条纹）发生率：在24%（36名）正常患者的增厚胃窦区域中观察到了由于脂肪沉积等原因导致的黏膜下低密度线状影。   
 
 ---
 
