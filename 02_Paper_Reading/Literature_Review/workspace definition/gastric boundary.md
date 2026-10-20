@@ -4,7 +4,7 @@ gastric boundary
 
 ---
 
-paper1
+paper1(2026-10-19-01...pdf)
 
 Name:Stomach volume assessment using three-dimensional computed tomography gastrography for bariatric treatment
 DOI:https://doi.org/10.1007/s11695-019-04189-5
@@ -28,7 +28,7 @@ BMI < 25 kg/m² 组	438.5 ± 163.4 mL	对照组
 
 ---
 
-paper2
+paper2(2026-10-19-02...pdf)
 
 Name:Patient‑specific stomach biomechanics before and after laparoscopic 
 sleeve gastrectomy
@@ -53,7 +53,7 @@ Baseline（0 mmHg）	179.10 ± 93.6 mL	43.43 ± 20.19 mL
 
 ---
 
-paper3
+paper3(2026-10-19-03...pdf)
 
 Name:Modelling and manufacturing of 3D‑printed, patient‑specific, and anthropomorphic gastric phantoms: a pilot study
 DOI:https://doi.org/10.1038/s41598-020-74110-z
@@ -77,23 +77,11 @@ Patient 3	1,683 mL	1,697 mL
 
 ---
 
-paper4
+paper4(2026-10-19-04...pdf)
 
 Name:Gastric Anatomic Type Is Associated with Obesity and Gender
 DOI:10.1159/000445062
 APA:Wang, Y. J., Hung, K. L., Yang, J. N., Wang, T. C., & Chin, C. H. (2016). Gastric anatomic type is associated with obesity and gender. Obesity Facts, 9(3), 221-229.
-
-文章内容：
-
-支撑要点：
-
----
-
-paper5
-
-Name:A novel MRI-based three-dimensional model of stomach volume, surface area, and geometry in response to gastric filling and emptying
-DOI:DOI: 10.1111/nmo.14497
-APA:
 
 文章内容：
 这篇研究的目标是：
@@ -112,7 +100,6 @@ APA:
 
 支撑要点：
 Supporting evidence for gastric morphological variability and its association with BMI and gender.
-
 Useful measurements:
 - **platform length threshold: 3.8 cm**
 - gastroptosis threshold below iliac crest: 2 cm
@@ -124,6 +111,20 @@ Limitation:
 
 图片示意：
 <img width="1079" height="756" alt="image" src="https://github.com/user-attachments/assets/cfcd14a2-5fb7-4559-8748-6612c561c742" />
+
+---
+
+paper5
+
+Name:A novel MRI-based three-dimensional model of stomach volume, surface area, and geometry in response to gastric filling and emptying
+DOI:DOI: 10.1111/nmo.14497
+APA:
+
+文章内容：
+
+
+支撑要点：
+
 
 ---
 
@@ -139,3 +140,15 @@ APA:
 
 ---
 
+
+paper7
+
+Name:
+DOI:
+APA:
+
+文章内容：
+
+支撑要点：
+
+---
