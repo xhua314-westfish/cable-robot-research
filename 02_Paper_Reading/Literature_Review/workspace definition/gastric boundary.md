@@ -114,11 +114,11 @@ Limitation:
 
 ---
 
-paper5
+paper5(2026-10-20-05...pdf)
 
 Name:A novel MRI-based three-dimensional model of stomach volume, surface area, and geometry in response to gastric filling and emptying
 DOI:DOI: 10.1111/nmo.14497
-APA:
+APA:Bertoli, D., Mark, E. B., Liao, D., Brock, C., Frøkjær, J. B., & Drewes, A. M. (2023). A novel MRI‐based three‐dimensional model of stomach volume, surface area, and geometry in response to gastric filling and emptying. Neurogastroenterology & Motility, 35(2), e14497.
 
 文章内容：
 
@@ -128,11 +128,11 @@ APA:
 
 ---
 
-paper6
+paper6(2026-10-20-06...pdf)
 
-Name:
-DOI:
-APA:
+Name:Volume and position change of the stomach during gastric accommodation and emptying: A detailed three-dimensional morphological analysis based on MRI
+DOI:https://doi.org/10.1111/nmo.13865
+APA:Banerjee, S., Pal, A., & Fox, M. (2020). Volume and position change of the stomach during gastric accommodation and emptying: a detailed three‐dimensional morphological analysis based on MRI. Neurogastroenterology & Motility, 32(8), e13865.
 
 文章内容：
 
