@@ -155,9 +155,15 @@ $H_g$前后厚度（矢状面最前至最后深度）置入气球后：$10.5 \si
 
 各项参数的具体推导过程$L_g$（纵向高度）：基于投影高度、倾斜角度与重力拉伸基础投影：核磁共振连续扫描 $30 \sim 35$ 层（每层 $5\text{ mm}$），得出胃部在人体绝对垂直方向（$z$ 轴）的投影长度为 $15 \sim 17.5\text{ cm}$。倾斜修正：胃在腹腔内呈倾斜 J 型分布，而非垂直圆柱。结合横向跨距，利用空间向量合成计算对角线解剖长度，空腹外接跨距被修正至 $22.5 \sim 24.7\text{ cm}$。充盈拉伸：当装入 $669\text{ mL}$ 内容物（或同等体积气球）时，受重力及胃下垂效应影响，胃体和胃窦向骨盆方向物理延伸 $3 \sim 5\text{ cm}$，最终包络高度达到 $26.0 \sim 28.5\text{ cm}$。
 
+Hg 建议修改：Paper 5 推导得出的 \(L_g=22.5\sim28.5\) cm 范围只是扫描覆盖范围。保留 MRI 扫描参数，标注该研究未提供可直接采用的三维外接框高度。
+
 $W_g$（横向宽度）：基于局部管径与 J 型弯曲的空间分布局部管径：将 $669\text{ cm}^3$ 的体积分配到约 $25\text{ cm}$ 长的管腔中，通过圆柱体公式反推，局部平均直径仅约 $5.8\text{ cm}$。横向跨度：这根直径约 $6\text{ cm}$ 的管道从人体左侧（胃底）以 J 型弯曲跨越中线到达右侧（幽门）。其外接矩形的宽度包含了“左侧边缘 + 弯曲空间 + 右侧边缘”，因此远大于局部管径。在表面积 $536\text{ cm}^2$ 的几何约束下，推算其冠状面总宽度为 $13.0 \sim 16.0\text{ cm}$。
 
+Wg 建议修改： 将 5.84 cm 标注为 equivalent cylindrical diameter under an assumed length。原来 13–16 cm 的宽度可以暂时保留为候选范围，但应改用刚发现的 Lamart et al. (2013) 的 CT 外接框数据作为参考依据，并明确其样本仅为成年男性。
+
 $H_g$（前后厚度）：基于刚性物体干涉与生理壁厚叠加内核干涉：您的课题中置入了一个直径 $10.17\text{ cm}$ 的球体。在前后方向（$y$ 轴）上，该球体撑开了原本扁平的胃腔，占据了不可压缩的基础空间。壁厚叠加：前后两层胃壁（包含粘膜层、肌肉层等）在正常充盈下的单侧厚度约为 $2 \sim 4\text{ mm}$，双侧叠加总厚度为 $0.4 \sim 0.8\text{ cm}$。最终公差：气球基础直径（$10.17\text{ cm}$）加上双侧胃壁厚度，使得外部包络的最小物理极限达到约 $10.77\text{ cm}$。综合粘膜褶皱、组织间隙以及非完美包裹的几何公差，最终得出 $10.5 \sim 12.5\text{ cm}$ 的合理范围。
+
+Hg建议修改： 保留 \(H_g=10.5\sim12.5\) cm 作为待验证的几何假设，而不是 Paper 5 的实测或可直接推导结果。先说明使用的是胃腔内壁还是胃外轮廓。
 
 
 ---
@@ -186,7 +192,7 @@ Gastric segmentation: Seven regions along the gastric axis.
 
 ---
 
-paper7
+paper7(2026-10-20-07...pdf)
 
 Name:A Study of Variations of the Stomach in Adults and Growth of the Fetal Stomach
 DOI:10.7759/cureus.28517
@@ -210,15 +216,34 @@ J 形胃的几何外形映射：解剖学中人类胃呈现典型的“J”字�
 
 ---
 
-paper8
+paper8(2026-10-20-08...pdf)
 
-Name:
-DOI:
-APA:
+Name:Prediction of the location and size of the stomach using patient characteristics for retrospective radiation dose estimation following radiotherapy
+DOI:10.1088/0031-9155/58/24/8739
+APA:Lamart, S., Imran, R., Simon, S. L., Doi, K., Morton, L. M., Curtis, R. E., ... & Lee, C. (2013). Prediction of the location and size of the stomach using patient characteristics for retrospective radiation dose estimation following radiotherapy. Physics in medicine and biology, 58(24), 8739-8753.
 
-文章内容：
+文章内容：研究目的：为了在没有患者历史 CT 影像的情况下，能够根据患者的体型特征（如 BMI、年龄、身高、体重）来预测胃在人体内的精确位置和三维尺寸，从而进行放疗剂量的回顾性重建。   
+研究方法：作者收集了 30 名成年男性在仰卧位（Supine position）下的腹部 3D-CT 影像。患者在扫描前服用了钡剂对比剂以增强胃部边界。研究团队不仅分割了胃的三维模型，还建立了一个三维包络框（Bounding Box），并以第 12 胸椎（T12）前缘作为空间参考基准点。   
+主要发现：胃的位置和三维尺寸因人而异，且与身体质量指数（BMI）、身高体重指数（PI）和年龄呈显著的线性回归关系。   
 
-支撑要点：
+支撑要点：直接对应您的长宽高参数 ($L_g, W_g, H_g$)：这篇文章没有使用解剖学上的曲线长度（如胃大弯），而是直接给出了直角坐标系下沿 $X$ 轴（Transverse/宽度）、$Y$ 轴（AP/前后厚度）和 $Z$ 轴（CC/头脚高度）的包络框尺寸。这完全贴合您设计测试容器的工程需求。   
+仰卧位下的真实形态边界：文章测量的是仰卧位的活体患者。在这种体位下，胃液/对比剂会向后下方沉积，胃的形态会变宽变扁。如果您未来的胃气球测试平台也是水平放置的，这些数据将比站立位的数据更有参考价值。  
+提供了尺寸的动态预测模型：文章明确给出了不同尺寸维度随 BMI 等参数变化的线性方程。如果您的产品有针对特定肥胖人群（高 BMI）的设计需求，您可以使用这些公式直接推算出平台需要放大的尺寸余量。   
+
+数据:
+横向宽度 / Transverse dimension ($X$ 轴跨度，对应您的 $W_g$)：平均值：$13\text{ cm}$   分布范围：$9 \sim 16\text{ cm}$   
+
+前后厚度 / AP dimension ($Y$ 轴跨度，对应您的 $H_g$)：平均值：$15\text{ cm}$   分布范围：$10 \sim 20\text{ cm}$ 
+
+纵向高度 / CC dimension ($Z$ 轴跨度，对应您的 $L_g$)：平均值：$10\text{ cm}$   分布范围：$6 \sim 15\text{ cm}$   
+
+胃总容积 (Volume)：平均包含内容的容积：$372\text{ cm}^3$   预测回归方程 (节选自 Table 1)：   前后厚度 (AP dimension) $= 4.49 + 0.0767 \times \text{年龄} + 0.251 \times \text{BMI}$
+
+图片信息：
+<img width="1599" height="1074" alt="image" src="https://github.com/user-attachments/assets/ebc19357-1d07-46fa-a3f9-935239d64434" />
+
+<img width="1161" height="951" alt="image" src="https://github.com/user-attachments/assets/c4dc04cb-60a0-434c-9cc3-60233e3cdb6b" />
+
 
 ---
 
