@@ -168,18 +168,8 @@ Maximum reported **mean directional landmark displacement**: **32.3 ± 8.4 mm** 
 3D MRI resolution: 1.56 × 1.90 mm² in-plane, with 5 mm slice thickness.
 Gastric segmentation: Seven regions along the gastric axis.
 
+<img width="1536" height="1024" alt="Gastric Landmark Displacement Infographic" src="https://github.com/user-attachments/assets/9c5ee409-b953-4594-9f81-2662ef8aa48b" />
+
 
 ---
 
-
-paper7
-
-Name:
-DOI:
-APA:
-
-文章内容：
-
-支撑要点：
-
----
