@@ -170,6 +170,53 @@ Gastric segmentation: Seven regions along the gastric axis.
 
 <img width="1536" height="1024" alt="Gastric Landmark Displacement Infographic" src="https://github.com/user-attachments/assets/9c5ee409-b953-4594-9f81-2662ef8aa48b" />
 
+---
+
+paper7
+
+Name:A Study of Variations of the Stomach in Adults and Growth of the Fetal Stomach
+DOI:10.7759/cureus.28517
+APA:Karnul, A. M., Murthy, C. K., & Murthy, C. K. (2022). A study of variations of the stomach in adults and growth of the fetal stomach. Cureus, 14(8).
+
+文章内容：研究核心：通过对 50 例成人尸体标本（Cadaveric Study）和 20 例胎儿标本的大体解剖与实物测绘，系统评估了人类胃部的形态学变异、解剖测量参数（如大弯/小弯长度、幽门管尺寸、胃基础容积等）以及胎儿期胃的生长曲线。
+测量方法：在大体解剖后，采用游标卡尺（Vernier calipers）和量规对离体/原位胃进行物理测量，并通过注水排水法测量胃的基础容积。
+
+支撑要点：
+真实物理解剖基准（Ground-Truth Physical Baseline）：该文献提供了大体解剖下最真实的胃侧壁弧长（大弯与小弯），为定义三维边界框（Bounding Box）的外侧弧形边界提供了物理上限。
+形态学分布（Shape Variations）：统计了人类胃部的常见形态（如 J 形占绝大多数，以及月牙形、反 L 形、圆柱形等）。这说明您的测试平台在定义 $W_g$（宽度）和 $L_g$（高度）时，需要覆盖 J 形胃的主流包络范围，同时需考虑气球在不同胃型腔体内的物理挤压状态。
+出口约束条件：提供了幽门管的精确物理直径与长度，为您测试平台底部（幽门端）的固定与密封设计提供了结构参数。
+
+第一篇文章测量的是沿胃壁弯曲延伸的曲线长度（胃大弯弧长约 33.6 cm，胃小弯弧长约 27.0 cm），而不是直角坐标系下的矩形边框。从曲线长推算出外接框 $L_g$ 和 $W_g$ 的过程如下：
+J 形胃的几何外形映射：解剖学中人类胃呈现典型的“J”字形。胃大弯（33.6 cm）从顶部的胃底向上弧形包绕，向下延伸至胃体最低点，再向右上弯曲连接幽门，形成了整个外接框的左侧、底侧和右侧边界。
+纵向高度 $L_g$（$z$ 轴垂直投影）：在 J 形结构中，胃大弯的纵向垂直段约占其总弧长的 65%–70%（约 22–23.5 cm）。考虑到弧线向外凸出的弧度与垂直直线（弦长）之间的折减换算，从胃底最高点到胃大弯最低点的垂直直线跨度折算为 **22 ~ 25 cm**。
+横向宽度 $W_g$（$x$ 轴水平投影）：胃大弯底部的水平弯曲段结合胃小弯的内侧切迹，构成了横向最大跨度。水平段约占总弧长的 35%–45%，经平铺/投影换算后，水平直线跨度折算为 **12 ~ 15 cm**。
+
+<img width="1131" height="849" alt="image" src="https://github.com/user-attachments/assets/8793eb52-b16a-4a84-ae0c-2cce03442cdd" />
+
+
+---
+
+paper8
+
+Name:
+DOI:
+APA:
+
+文章内容：
+
+支撑要点：
+
+---
+
+paper9
+
+Name:
+DOI:
+APA:
+
+文章内容：
+
+支撑要点：
 
 ---
 
