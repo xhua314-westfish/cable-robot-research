@@ -155,9 +155,18 @@ DOI:https://doi.org/10.1111/nmo.13865
 APA:Banerjee, S., Pal, A., & Fox, M. (2020). Volume and position change of the stomach during gastric accommodation and emptying: a detailed three‐dimensional morphological analysis based on MRI. Neurogastroenterology & Motility, 32(8), e13865.
 
 文章内容：
+这篇研究主要探讨：人类胃部在液体食物进入和排空过程中，各区域的体积、空间位置及三维形态如何变化？
+研究人员通过 MRI 扫描 16 名健康志愿者，使用图像处理技术重建胃的三维形态，并将胃划分成七个区域进行分析。
+研究有两个重点：
+- Volume changes： 比较近端胃和远端胃在充盈及排空时的容量变化。
+- Position and morphology changes： 跟踪胃部四个解剖标志点，研究胃的伸长、位置偏移及扭转。
+论文发现，胃部并不是简单地均匀膨胀：最初摄入液体时远端胃对容积增加的贡献较明显；随着进一步充盈，近端胃成为主要的容积适应区域。与此同时，胃的不同部位还会发生方向不同的空间位移。
 
 支撑要点：
-
+**Total gastric volume**: 164.0 ± 19.6 mL at baseline and **806.9 ± 42.0 mL** after 800 mL meal infusion (Mean ± SE).
+Maximum reported **mean directional landmark displacement**: **32.3 ± 8.4 mm** inferior movement of the incisural midpoint during gastric filling.
+3D MRI resolution: 1.56 × 1.90 mm² in-plane, with 5 mm slice thickness.
+Gastric segmentation: Seven regions along the gastric axis.
 
 
 ---
