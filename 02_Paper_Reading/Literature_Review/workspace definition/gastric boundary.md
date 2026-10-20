@@ -121,13 +121,29 @@ DOI:DOI: 10.1111/nmo.14497
 APA:Bertoli, D., Mark, E. B., Liao, D., Brock, C., Frøkjær, J. B., & Drewes, A. M. (2023). A novel MRI‐based three‐dimensional model of stomach volume, surface area, and geometry in response to gastric filling and emptying. Neurogastroenterology & Motility, 35(2), e14497.
 
 文章内容：
+如何利用 MRI 建立胃的三维模型，定量分析胃在进食、充盈和排空过程中，体积、表面积以及局部几何形态的变化。
+研究包含 12 名健康成年人（7 男、5 女），平均年龄 27.8 岁，接受了六次 T2 加权 MRI 扫描。
 
 
 支撑要点：
+测量时间	平均胃容量	标准差
+Baseline（空腹）	140 mL	32 mL
+0 min（进食后）	669 mL	41 mL
+**15 min	615 mL	69 mL**
+30 min	554 mL	71 mL
+45 min	483 mL	80 mL
+60 min	429 mL	97 mL
+
+区域	Baseline	0 min	60 min
+Fundus	13 mL	**130 mL**	64 mL
+Corpus	80 mL	**327 mL**	219 mL
+Antrum	47 mL	**110 mL**	67 mL
 
 其他信息：
 <img width="1199" height="869" alt="image" src="https://github.com/user-attachments/assets/c9abb7b2-6bb5-4281-92f8-477a26e879fb" />
 
+
+<img width="1536" height="1024" alt="3D Stomach Measurement Diagram" src="https://github.com/user-attachments/assets/b6016c8b-62ce-4310-b38d-bfae27d8f188" />
 
 ---
 
@@ -140,6 +156,8 @@ APA:Banerjee, S., Pal, A., & Fox, M. (2020). Volume and position change of the s
 文章内容：
 
 支撑要点：
+
+
 
 ---
 
