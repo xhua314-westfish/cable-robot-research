@@ -1,4 +1,4 @@
-<img width="1088" height="741" alt="image" src="https://github.com/user-attachments/assets/8c1c4041-ad35-4bb8-a8ae-596c4e4a9115" />2026-10-19
+2026-10-19
 
 gastric boundary 
 
@@ -123,7 +123,8 @@ Limitation:
 - not suitable for direct extraction of 3D gastric length, width, and height
 
 图片示意：
-<img width="1088" height="741" alt="image" src="https://github.com/user-attachments/assets/2fe90df6-42d6-4e1c-8288-5d94d2eb1b80" />
+<img width="1079" height="756" alt="image" src="https://github.com/user-attachments/assets/cfcd14a2-5fb7-4559-8748-6612c561c742" />
+
 
 ---
 
