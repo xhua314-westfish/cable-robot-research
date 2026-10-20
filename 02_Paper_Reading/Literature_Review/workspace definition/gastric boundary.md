@@ -126,6 +126,7 @@ APA:Bertoli, D., Mark, E. B., Liao, D., Brock, C., Frøkjær, J. B., & Drewes, A
 
 
 支撑要点：
+
 测量时间	平均胃容量	标准差
 Baseline（空腹）	140 mL	32 mL
 0 min（进食后）	669 mL	41 mL
