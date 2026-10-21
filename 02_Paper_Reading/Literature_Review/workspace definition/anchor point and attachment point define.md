@@ -41,7 +41,7 @@ DOI:https://doi.org/10.1109/TRO.2023.3288838
 APA:Cheng, H. H., & Lau, D. (2023). Cable attachment optimization for reconfigurable cable-driven parallel robots based on various workspace conditions. IEEE Transactions on Robotics, 39(5), 3759-3775.
 
 
-## 1. Main Finding
+1. Main Finding
 
 - Cable attachment configurations significantly affect CDPR workspace, wrench capability, and interference conditions.
 - The paper proposes a polynomial optimization framework to determine optimal cable attachment configurations for reconfigurable CDPRs.
@@ -51,7 +51,7 @@ APA:Cheng, H. H., & Lau, D. (2023). Cable attachment optimization for reconfigur
 - Wrench-Closure Condition (WCC), Wrench-Feasible Condition (WFC), and Interference-Free Condition (IFC) are incorporated as constraints.
 - Simulation results demonstrate performance improvements through attachment reconfiguration.
 
-## 2. Selected Method
+2. Selected Method
 
 **Configuration-based optimization framework**
 
@@ -89,7 +89,7 @@ Subject to geometric, workspace, and interference constraints.
 
 The paper demonstrates polynomial optimization using semidefinite programming relaxation and also evaluates other solvers, including MATLAB `fmincon`.
 
-## 3. Research Adaptation
+3. Research Adaptation
 
 **Application: Passive Cable-Based Balloon Sensing System**
 
@@ -113,7 +113,7 @@ Potential evaluation metrics:
 
 The paper's WFC and IFC concepts can be retained as additional physical feasibility constraints.
 
-## 4. Limitations
+4. Limitations
 
 - The original study focuses on **reconfigurable CDPRs**, whereas the proposed sensing system uses fixed attachment configurations during operation.
 - Its optimization objectives emphasize cable forces and wrench capability rather than measurement accuracy.
@@ -124,7 +124,7 @@ The paper's WFC and IFC concepts can be retained as additional physical feasibil
 
 Therefore, the optimization framework is transferable, but its objective functions and some constraints require adaptation.
 
-## 5. Next Step
+5. Next Step
 
 **Develop an Initial 3D Cable Configuration and Evaluate Its Performance Before Optimization**
 
