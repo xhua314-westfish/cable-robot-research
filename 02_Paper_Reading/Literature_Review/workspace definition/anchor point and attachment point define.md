@@ -324,9 +324,156 @@ Unlike the original paper, the main objective is **measurement performance**, no
 
 paper4(2026-10-21-04...pdf)
 
-Name:Determining feasible cable attachment locations for cable-driven-parallel robot
-DOI:https://doi.org/10.1007/978-3-031-94608-0_21
-APA:Cheng, H. H., Lau, D., & Hughes, J. (2025, June). Determining feasible cable attachment locations for cable-driven-parallel robot. In International Conference on Cable-Driven Parallel Robots (pp. 261-273). Cham: Springer Nature Switzerland.
+Name:Forward kinematics of a cable-driven parallel robot with pose estimation error covariance bounds
+DOI:https://doi.org/10.1016/j.mechmachtheory.2023.105231
+APA:Patel, S., Nguyen, V. L., & Caverly, R. J. (2023). Forward kinematics of a cable-driven parallel robot with pose estimation error covariance bounds. Mechanism and Machine Theory, 183, 105231.
+
+# Paper 4 — Literature Review
+
+**Title:** Forward kinematics of a cable-driven parallel robot with pose estimation error covariance bounds
+
+**Authors:** Patel, Nguyen & Caverly (2023)
+
+**Journal:** Mechanism and Machine Theory, 183, 105231
+
+1. Main Finding
+
+- The paper develops four iterative forward kinematics algorithms for estimating the 6-DOF pose of cable-driven parallel robots.
+- The proposed methods estimate both the end-effector pose and its **pose estimation error covariance**.
+- Two measurement formulations are compared: cable-length and cable-length-squared loop-closure equations.
+- Euler angles, quaternions, and direction cosine matrices (DCMs) are investigated as attitude representations.
+- Monte Carlo simulations demonstrate accurate covariance predictions and generally faster convergence with the cable-length-squared formulation under the tested conditions.
+
+**Key finding:** Cable-length measurements can be used not only to estimate robot pose but also to quantify the uncertainty of the estimated pose.
+
+2. Selected Method
+
+**Cable Geometry → Measurement Model → Jacobian → Pose Estimation → Covariance Evaluation**
+
+**1. Cable-length measurement model**
+
+\[
+\ell_i=\|A_i-(P+Rr_i)\|+v_i
+\]
+
+where \(A_i\) and \(r_i\) are known attachment locations, \(P\) and \(R\) define the unknown pose, and \(v_i\) represents measurement noise.
+
+**2. Measurement Jacobian**
+
+\[
+H(\rho)=\frac{\partial g(\rho)}{\partial\rho}
+\]
+
+The Jacobian relates small changes in robot pose to changes in cable-length measurements.
+
+**3. Forward kinematics**
+
+The pose is estimated using weighted nonlinear least squares and the Levenberg–Marquardt algorithm.
+
+**4. Pose estimation error covariance**
+
+\[
+P_{\mathrm{cov}}\approx(H^TV^{-1}H)^{-1}
+\]
+
+The covariance depends on the measurement Jacobian and the assumed cable-length noise covariance.
+
+**5. Numerical validation**
+
+- 8-cable, 6-DOF CDPR simulation.
+- Gaussian cable-length measurement noise.
+- Monte Carlo simulations.
+- Position and attitude estimation errors.
+- RMSE, predicted 3σ uncertainty bounds, and NEES consistency testing.
+
+ 3. Research Adaptation
+
+**Application: Passive Cable-Based Balloon Pose Sensing**
+
+The measurement and estimation methods can be adapted to a rigid spherical balloon undergoing unknown passive motion.
+
+**Proposed research model:**
+
+- Rigid spherical proxy with a volume of approximately 550 mL.
+- Fixed external Anchor Points.
+- Attachment Points fixed on the balloon surface.
+- Passive 6-DOF translation and rotation.
+- Cable-length measurements with simulated sensor noise.
+
+**Proposed adaptation:**
+
+1. Define an initial cable configuration.
+2. Establish the cable-length measurement model.
+3. Derive the 6-DOF measurement Jacobian.
+4. Evaluate local pose observability through Jacobian rank.
+5. Introduce cable-length measurement noise.
+6. Calculate pose estimation covariance.
+7. Compare different cable configurations using predicted uncertainty and Monte Carlo RMSE.
+8. Investigate 6-, 7-, and 8-cable sensing configurations.
+
+**Potential sensing-performance criteria:**
+
+- Full-rank measurement Jacobian.
+- Scaled singular values and condition number.
+- Position and orientation estimation uncertainty.
+- Position and orientation RMSE.
+- Sensing performance across the sampled workspace.
+
+**Research opportunity:** Extend covariance-based pose estimation analysis into Anchor Point and Attachment Point configuration optimization.
+
+ 4. Limitations
+
+- The paper studies pose estimation for known robot geometry rather than directly optimizing cable attachment locations.
+- Numerical validation primarily uses an 8-cable, 6-DOF configuration.
+- The proposed forward kinematics algorithms are local iterative methods and may converge to an incorrect solution depending on initialization.
+- The cable model assumes no sag or elastic deformation.
+- Covariance predictions depend on the measurement noise model and local linearization assumptions.
+- Calibration errors and non-Gaussian measurement noise require further investigation.
+- The paper provides numerical simulation validation rather than experimental validation of the proposed methods.
+
+**Important distinction:** Pose estimation covariance describes predicted uncertainty under the assumed model; it does not guarantee physical sensing accuracy when unmodeled errors are present.
+
+ 5. Next Step
+
+**Develop a Measurement-Based Sensing Quality Evaluation Framework**
+
+**Step 1 — Initial Geometry**
+
+Define initial Anchor and balloon-surface Attachment Point locations.
+
+**Step 2 — Measurement Model**
+
+Implement cable-length calculations and derive the measurement Jacobian.
+
+**Step 3 — Sensing Quality**
+
+Evaluate rank, appropriately scaled singular values, and predicted pose estimation covariance.
+
+**Step 4 — Pose Estimation**
+
+Implement a baseline weighted least-squares forward kinematics estimator.
+
+**Step 5 — Numerical Validation**
+
+Add simulated cable-length noise and evaluate position/orientation estimation errors using Monte Carlo simulations.
+
+**Step 6 — Configuration Comparison**
+
+Compare sensing performance for different cable configurations and eventually investigate 6-, 7-, and 8-cable systems.
+
+**Expected outcome:** A quantitative framework for evaluating how cable configuration affects 6-DOF pose estimation accuracy in a passively moving balloon sensing system.
+
+---
+
+四篇文章总结：
+
+<img width="1518" height="363" alt="image" src="https://github.com/user-attachments/assets/15b26b9e-c10f-476f-899c-3ad5353c5b6a" />
+
+研究逻辑：
+<img width="759" height="684" alt="image" src="https://github.com/user-attachments/assets/e7574367-cfda-492a-a3c0-2b01657743ef" />
+
+目前研究重点：
+Measurement-Oriented Cable Configuration Design for Passive 6-DOF Balloon Pose Sensing.
 
 ---
 
