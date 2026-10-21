@@ -160,6 +160,9 @@ Therefore, the optimization framework is transferable, but its objective functio
 
 **Expected outcome:** A literature-informed, simulation-validated methodology for selecting Cable Anchor and Attachment Point configurations for passive 6-DOF balloon sensing.
 
+<img width="1482" height="393" alt="image" src="https://github.com/user-attachments/assets/1c407844-273b-4c33-a607-ffb9bb7f2892" />
+
+
 ---
 
 paper1 
