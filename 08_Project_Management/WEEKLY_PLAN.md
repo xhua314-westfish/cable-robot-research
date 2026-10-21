@@ -1,8 +1,10 @@
 # Weekly Research Plan
 
-**Last Updated:** 2026-10-19  
+**Last Updated:** 2026-10-21
 **Current Phase:** Phase 2 — 3D Rigid-Body Sensing Foundation  
 **Research Focus:** 6-DOF Pose Estimation and Cable Configuration Design
+
+follow the **weekly_plan_02.md**
 
 ---
 
