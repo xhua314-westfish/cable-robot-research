@@ -6,7 +6,7 @@ how to define anchor points and attachment points
 
 ---
 
-paper1 
+paper1(2026-10-20-01...pdf)
 
 Name:An Overview of Cable-Driven Parallel Robots: Workspace, Tension Distribution, and Cable Sagging
 DOI:https://doi.org/10.1155/2022/2199748
@@ -34,7 +34,7 @@ Study a dedicated Cable Attachment or Configuration Optimisation paper to determ
 
 ---
 
-paper2
+paper2(2026-10-21-02...pdf)
 
 Name:Cable Attachment Optimization for Reconfigurable Cable-Driven Parallel Robots Based on Various Workspace Conditions
 DOI:https://doi.org/10.1109/TRO.2023.3288838
@@ -165,17 +165,168 @@ Therefore, the optimization framework is transferable, but its objective functio
 
 ---
 
-paper1 
+paper3(2026-10-21-03...pdf)
 
-Name:
-DOI:
-APA:
+Name:Determining feasible cable attachment locations for cable-driven-parallel robot
+DOI:https://doi.org/10.1007/978-3-031-94608-0_21
+APA:Cheng, H. H., Lau, D., & Hughes, J. (2025, June). Determining feasible cable attachment locations for cable-driven-parallel robot. In International Conference on Cable-Driven Parallel Robots (pp. 261-273). Cham: Springer Nature Switzerland.
 
-文章内容：
+1. Main Finding
 
-与我课题的联系：
+- The paper proposes an efficient method to identify and visualize **feasible cable attachment regions** for cable-driven parallel robots (CDPRs).
+- Rather than directly calculating one optimal attachment location, the method identifies a region of candidate locations satisfying the **Wrench-Closure Condition (WCC)**.
+- Feasible regions progressively shrink as more robot poses are considered.
+- A **Prioritized Reconfiguration Index (PRI)** is introduced to evaluate the relative size of each cable's feasible attachment region.
+- The method is demonstrated primarily on a **6-DOF, 7-cable CDPR**, where the cable exit points on the base are the design variables.
 
-哪些点可以支撑我的课题：
+**Key finding:** Feasible attachment-region identification can support cable placement design before selecting specific optimal locations.
+
+ 2. Selected Method
+
+**Initial Cable Configuration → Feasible Boundary Generation → Workspace Intersection**
+
+### Algorithm 1 — Feasible Boundary Generation
+
+1. Define an initial cable configuration, including fixed base attachment points and end-effector attachment points.
+2. Select one target cable and parameterize its base attachment location:
+
+   \[
+   A_i(u)=[u_x,u_y,u_z]^T
+   \]
+
+3. Keep the remaining cable attachment locations fixed and calculate the configuration-dependent wrench matrix.
+4. Use RREF to derive WCC boundary functions:
+
+   \[
+   h_i(u)<0
+   \]
+
+5. Approximate the boundary functions using linear polynomial fitting:
+
+   \[
+   h_i(u)=C_{i1}u_x+C_{i2}u_y+C_{i3}u_z+C_{i4}
+   \]
+
+6. Intersect the resulting half-spaces to obtain the feasible region for the selected cable at a given robot pose.
+
+### Algorithm 2 — Feasible Region Generation
+
+1. Define the desired workspace and sample robot poses.
+2. Define a candidate attachment-location search region.
+3. Apply Algorithm 1 to each sampled pose.
+4. Remove locations violating the WCC constraints.
+5. Intersect feasible regions across all sampled poses:
+
+   \[
+   W_i^{\mathrm{final}}
+   =\bigcap_{q_k\in\mathcal Q}W_i(q_k)
+   \]
+
+6. Visualize the remaining feasible region and repeat for other cables.
+7. Optionally select a location within the feasible region and update the robot configuration for subsequent analysis.
+
+**Additional metric — PRI**
+
+\[
+PRI_i=
+\frac{\text{Volume of feasible region}_i}
+{\text{Volume of sampled region}_i}
+\]
+
+A smaller PRI indicates a more restricted feasible placement region and can help prioritize cable relocation or redesign.
+
+3. Research Adaptation
+
+**Application: Passive Cable-Based 6-DOF Balloon Sensing**
+
+The feasible-region concept can be adapted to identify candidate Anchor and Attachment Point locations before sensing-performance optimization.
+
+**Proposed system:**
+
+- Rigid spherical balloon: approximately 550 mL.
+- Balloon radius: approximately 50.83 mm.
+- Initial geometric boundary: 140 × 150 × 160 mm.
+- Fixed external Anchor Points \(A_i\).
+- Balloon-surface Attachment Points \(r_i\), fixed in the balloon coordinate frame after installation.
+- Unknown passive balloon motion in 6 DOFs.
+
+**Proposed adaptation:**
+
+1. Define an initial configuration of Anchor and Attachment Points.
+2. Define allowable placement regions for these points.
+3. Sample balloon positions and orientations within the geometric workspace.
+4. Evaluate candidate configurations using geometric and sensing-feasibility conditions.
+5. Identify feasible placement regions before numerical optimization.
+6. Optimize selected locations using measurement-based performance criteria.
+
+**Potential sensing criteria:**
+
+- Full-rank measurement Jacobian.
+- Scaled minimum singular value.
+- Scaled condition number.
+- Workspace sensing coverage.
+- Estimated pose error under cable-length measurement noise.
+
+Unlike the original paper, the main objective is **measurement performance**, not Wrench Closure.
+
+4. Limitations
+
+- The method focuses on WCC and does not directly evaluate cable-length sensing accuracy.
+- The main formulation is demonstrated for systems with \(m=n+1\), particularly a 6-DOF, 7-cable CDPR.
+- The analyzed design variables are primarily the **base cable exit points**, rather than balloon-surface attachment points.
+- Feasible regions are computed while other cable locations remain fixed; the method does not guarantee a globally optimal joint configuration of all cable attachment points.
+- Results depend on the initial configuration, selected sampling region, and sampled robot poses.
+- The method outputs feasible regions, not unique optimal attachment coordinates.
+- Cable interference, measurement noise, cable elasticity, and full physical sensing behavior are not included in the demonstrated optimization.
+
+**Important distinction:** WCC feasibility cannot be directly substituted for sensing feasibility, especially for a 6-DOF, 6-cable sensing system.
+
+5. Next Step
+
+**Reproduce the Feasible-Region Method, Then Adapt It to Balloon Sensing**
+
+### Step 1 — Reproduce the Paper
+
+- Use the initial 6-DOF, 7-cable configuration from Table 1.
+- Reproduce the WCC half-space inequalities in Section 3.1.
+- Reproduce Figure 2: feasible attachment-region visualization.
+- Reproduce Figure 3: feasible-region reduction across sampled poses.
+- Understand the numerical implementation of Algorithm 1 and Algorithm 2.
+
+### Step 2 — Establish Our Initial Configuration
+
+- Select an initial set of external Anchor Points.
+- Select an initial set of balloon-surface Attachment Points.
+- Calculate cable geometry, cable lengths, and the measurement Jacobian.
+- Evaluate baseline sensing performance over sampled balloon poses.
+
+### Step 3 — Adapt Feasible-Region Analysis
+
+- Keep Anchor Points fixed initially.
+- Search feasible Attachment Point locations on the spherical balloon surface.
+- Apply geometric, spacing, interference, and sensing-rank constraints.
+- Identify candidate regions for subsequent optimization.
+
+### Step 4 — Optimize and Compare
+
+- Define a sensing-performance objective based on the scaled Jacobian and/or pose estimation error.
+- Optimize Attachment Point locations within the feasible regions.
+- Extend to Anchor Point optimization if necessary.
+- Compare baseline and optimized configurations.
+- Later compare 6-, 7-, and 8-cable sensing systems.
+
+**Expected outcome:** A systematic cable configuration design process combining feasible-region identification and sensing-performance optimization.
+
+目前研究路线总结：
+<img width="768" height="543" alt="image" src="https://github.com/user-attachments/assets/7884e971-8139-45c3-9f1e-18f124b52134" />
+
+---
+
+paper4(2026-10-21-04...pdf)
+
+Name:Determining feasible cable attachment locations for cable-driven-parallel robot
+DOI:https://doi.org/10.1007/978-3-031-94608-0_21
+APA:Cheng, H. H., Lau, D., & Hughes, J. (2025, June). Determining feasible cable attachment locations for cable-driven-parallel robot. In International Conference on Cable-Driven Parallel Robots (pp. 261-273). Cham: Springer Nature Switzerland.
 
 ---
 
