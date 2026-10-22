@@ -1,3 +1,7 @@
+# how to use:
+<img width="1380" height="468" alt="image" src="https://github.com/user-attachments/assets/26149831-7e81-40bb-9a84-f602dad419fa" />
+
+
 # Weekly Research Presentation — Reusable Template
 
 **Version:** v1.0  
