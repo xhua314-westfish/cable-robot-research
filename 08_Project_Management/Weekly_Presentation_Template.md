@@ -1,6 +1,8 @@
 # how to use:
+
 <img width="1380" height="468" alt="image" src="https://github.com/user-attachments/assets/26149831-7e81-40bb-9a84-f602dad419fa" />
 
+根据 GitHub 中的 Weekly_Presentation_Template.md 和本周的 weekly plan，帮我生成这周的英文 PPT 框架。保留结果空位，周五用于 research presentation。
 
 # Weekly Research Presentation — Reusable Template
 
