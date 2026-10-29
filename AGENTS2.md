@@ -1,359 +1,510 @@
-# AGENTS2 — Research Working Rules
+# AGENTS2 — Research and AI Working Rules
 
-**Last Updated:** 2026-10-16
-
-**Project:** Cable-Robot-Based Sensing for a Passive Deformable Balloon
+**Last Updated:** 2026-10-30  
+**Project:** Cable-Robot-Based Sensing for a Passive Deformable Balloon  
+**Current Phase:** Phase B — Balloon-Specific Cable Sensing Design
 
 ---
 
 ## 1. Purpose
 
-This file defines the working rules for research, mathematical modelling, MATLAB simulation, validation, and repository maintenance.
+This document defines the working rules for research planning, mathematical modelling, MATLAB implementation, numerical validation, AI collaboration, and repository maintenance.
 
 The project follows a **research-question-driven approach**.
 
-Core principle:
+**Core Principle:**
 
-> Learn, model, simulate, and experiment only when they help answer a defined research question.
+> Every learning activity, mathematical model, simulation, and experiment should help answer a defined research question.
 
-Detailed research progress, schedules, and technical designs are maintained in their respective documents.
-
----
-
-## 2. Current Research Scope
-
-The current study investigates 3D 6-DOF rigid-body pose sensing using:
-
-- A simplified 3D gastric boundary.
-- A 550 mL rigid spherical object.
-- Cable-length measurements.
-- Six cables as a reference baseline.
-- Seven and eight cables as primary configurations.
-- Three-dimensional anchor and attachment placements.
-- Motor-assisted low-tension cable tracking.
-- Pose accuracy, identifiability, and sensing workspace coverage.
-
-### Scope Rules
-
-1. Use the gastric outline as a spatial constraint, not as a detailed physiological model.
-2. Treat the rigid sphere as an engineering approximation of a gastric balloon.
-3. Label any unsupported gastric dimensions as assumptions.
-4. Begin with a 3D 6-DOF sensing model. Use planar examples only for mathematical or numerical verification.
-5. Do not assume the object trajectory is known by the estimator.
-6. Prioritise rigid-body position and orientation estimation before deformable-body reconstruction.
-
-**Important:** The rigid-body model is the initial validation platform, not the final deformable-balloon model.
+This document defines stable working rules. It should not duplicate detailed research progress, daily schedules, or numerical results.
 
 ---
 
-## 3. Research Workflow
+## 2. Research Scope and Scientific Principles
 
-Follow this sequence:
+### Long-Term Goal
+
+Develop a cable-based measurement system to estimate the position, orientation, and eventually deformation or shape of a passively moving balloon-like object.
+
+The research is motivated by intragastric balloon sensing within a simplified gastric environment.
+
+### Current Research Scope
+
+- Three-dimensional rigid-body pose estimation.
+- Six-degree-of-freedom position and orientation.
+- Simplified 3D gastric boundary.
+- 550 mL rigid spherical balloon proxy.
+- Six-, seven-, and eight-cable configurations.
+- Cable-length-based measurements.
+- Three-dimensional anchor and attachment placement.
+- Passive and unknown balloon motion.
+- Proposed motor-assisted low-tension cable tracking.
+
+### Fundamental Rules
+
+1. The balloon moves passively due to external environmental influences.
+2. The estimator must not require the true motion trajectory as an input.
+3. The system is intended for measurement and sensing, not active trajectory control.
+4. Motors may track cable displacement and maintain low tension, but should not prescribe balloon motion.
+5. The rigid sphere is an engineering approximation, not the final deformable-balloon model.
+6. Use the simplified gastric boundary as a geometric constraint, not as a validated physiological motion model.
+7. Prioritise rigid-body sensing before investigating shape reconstruction.
+8. Clearly distinguish simulated feasibility from experimentally demonstrated capability.
+
+---
+
+## 3. Research Phase Rules
+
+The project follows the phases defined in `08_Project_Management/Roadmap.md`.
+
+| Phase | Focus | Current Status |
+|---|---|---|
+| Phase 0 | Application and clinical evidence | Initial synthesis completed |
+| Phase A | Literature-based method reproduction | Core scope completed |
+| Phase B | Balloon-specific configuration design | Current |
+| Phase C | Rigid-body sensing validation | Planned |
+| Phase D | Deformable-balloon extension | Future |
+
+### Phase A Protection
+
+The A1–A5 core research methods have already been implemented and documented.
+
+Do not automatically schedule the completed Phase A exercises again.
+
+Reuse existing MATLAB scripts and research notes.
+
+Reopen a completed task only when:
+
+- A verified error or unresolved limitation affects current research.
+- A new research question explicitly requires further verification.
+- The user requests further reproduction or analysis.
+
+Distinguish a completed core method from optional extensions that remain unimplemented.
+
+### Phase B Working Order
+
+Follow the current research sequence:
+
+B1 — Geometry and Candidate Region Definition  
+B2 — Cable Configuration Generation  
+B3 — Feasibility Screening  
+B4 — Sensing Quality Evaluation  
+B5 — Configuration Selection
+
+Do not perform full configuration optimisation before defining the necessary geometry, constraints, and evaluation criteria.
+
+---
+
+## 4. Research Context Loading Rules
+
+Before starting a new research task or creating a detailed research plan, read the relevant repository files in this order:
+
+1. `AGENTS2.md` — Research and AI working rules.
+2. `CURRENT_STATE2.md` — Current research state and verified progress.
+3. `08_Project_Management/current_october_november_todo.md` — Active tasks and completion status.
+4. `08_Project_Management/Roadmap.md` — Research phases and milestones.
+5. The relevant technical files in `05_My_Research/`.
+6. The relevant MATLAB scripts and research notes in `04_Code_Exercises/` and `06_Research_Log/`.
+
+Read `weekly_plan_02.md` only when historical Phase A scheduling information is needed.
+
+For future phases, use the latest active weekly-plan file.
+
+### Context Loading Principles
+
+- Read the smallest relevant set of files needed to answer the current question.
+- Do not repeatedly load unrelated historical files.
+- Prioritise current state and active tasks over outdated schedules.
+- Preserve important constraints and decisions across sessions.
+- Do not infer task completion from a plan alone.
+- Do not claim to have read files that were not actually accessed.
+
+When files disagree, identify the inconsistency rather than silently selecting one version.
+
+Use the current task record and verified research evidence to resolve discrepancies.
+
+---
+
+## 5. Standard Research Workflow
+
+Use the following sequence:
 
 ```text
 Research Question
        ↓
-Assumptions and Evidence
+Existing Evidence and Assumptions
+       ↓
+Required Theory and Method
        ↓
 Mathematical Model
        ↓
-MATLAB Simulation
+MATLAB Implementation
        ↓
-Measurement / Estimation
+Numerical Verification
        ↓
-Validation
+Research Interpretation
        ↓
-Research Conclusion
+Documentation and Next Decision
 ```
 
 For each research task:
 
-- Define one clear research question.
-- Identify the minimum theory required.
-- Reuse previous MATLAB work where appropriate.
-- Define a measurable output.
-- Validate the result before drawing conclusions.
-- Record limitations and the next research decision.
+1. Define one clear research question.
+2. Identify the expected deliverable.
+3. Review existing work before adding new code.
+4. Learn only the theory necessary for the task.
+5. Implement the simplest suitable model.
+6. Verify dimensions, units, equations, and numerical results.
+7. Explain what the results do and do not demonstrate.
+8. Record limitations and the next research decision.
 
-Avoid isolated textbook exercises unless they directly support the current research.
+Avoid unrelated textbook exercises or unnecessary algorithm extensions.
 
 ---
 
-## 4. Mathematical Modeling Rules
+## 6. Mathematical Modelling Rules
 
-Every model must specify:
+Every technical model must specify:
 
-- Coordinate systems
-- State variables and degrees of freedom
-- Inputs, outputs, and unknowns
-- Physical units and matrix dimensions
-- Assumptions and constraints
-- Measurement relationships
-- Model limitations
+- Coordinate systems.
+- State variables and degrees of freedom.
+- Inputs, outputs, and unknowns.
+- Physical units and matrix dimensions.
+- Geometry and physical constraints.
+- Measurement assumptions.
+- Model limitations.
 
-### Coordinate and Geometry Rules
+### Cable Geometry Convention
 
-Clearly distinguish world and body coordinate frames.
-
-For cable \(i\):
+For cable i:
 
 \[
-B_i=P+R(\theta)r_i
+B_i=P+Rr_i
 \]
 
 \[
-L_i=\|A_i-B_i\|
+L_i=\|B_i-A_i\|
 \]
 
 where:
 
-- \(A_i\): fixed anchor point
-- \(r_i\): body-frame attachment point
-- \(B_i\): world-frame attachment point
-- \(P\): object position
+- \(A_i\): Fixed anchor point in the world frame.
+- \(r_i\): Attachment point in the balloon body frame.
+- \(B_i\): Attachment point in the world frame.
+- \(P\): Balloon-centre position.
+- \(R\): Rotation matrix from body to world frame.
 
-Never mix local and world coordinates without an explicit transformation.
+Use a consistent sign convention for cable vectors and length derivatives.
 
-### State Definition
+### Rigid-Body State
 
-current state:
-
- q=[x,y,z,pih,theta,psi]^T
- 
 The rigid-body pose consists of:
 
-- Position P in R^3.
-- Orientation R in SO(3).
+\[
+P\in\mathbb{R}^3
+\]
 
-The measurement model must account for all six degrees of freedom.
+\[
+R\in SO(3)
+\]
+
+A local six-dimensional pose perturbation may be represented as:
+
+\[
+\delta q=
+\begin{bmatrix}
+\delta P\\
+\delta\omega
+\end{bmatrix}
+\]
+
+with position increments in metres and rotation increments in radians.
+
+Do not confuse this local perturbation representation with a particular global Euler-angle parameterisation.
+
+### Measurement Jacobian
+
+For small perturbations:
+
+\[
+\delta L\approx H\delta q
+\]
+
+where:
+
+\[
+H\in\mathbb{R}^{n\times6}
+\]
+
+Do not assume the symbol \(J\) has identical dimensions or sign conventions across different papers.
+
+Explicitly define every Jacobian used in code and verify its relationship to the selected measurement or wrench model.
 
 ---
 
-## 5. Cable Measurement and Configuration Rules
+## 7. Cable Configuration Rules
 
-### Measurement Model
+The number and placement of cables must be justified through analysis.
 
-The general measurement relationship is:
+Evaluate:
 
-\[
-y=h(q)+\varepsilon
-\]
+- Local measurement identifiability.
+- Jacobian rank.
+- Noise sensitivity.
+- Pose-estimation uncertainty.
+- Geometric workspace coverage.
+- Cable routing and interference.
+- Tension feasibility.
+- Mechanical complexity.
 
-where \(y\) is the measurement vector, \(q\) is the unknown state, and \(\varepsilon\) represents measurement error.
+### Physical Connection Definitions
 
-For cable-length measurements:
+**Anchor:** A fixed cable connection or routing point in the world frame.
 
-\[
-\Delta L\approx H(q)\Delta q
-\]
+**Attachment:** A cable connection point fixed in the balloon body frame for the initial rigid-body model.
 
-\[
-H(q)=\frac{\partial h(q)}{\partial q}
-\]
+**Attachment mechanism:** The physical structure used to attach the cable to the balloon.
 
-In the existing MATLAB convention, \(H=J^T\).
+Do not treat these three concepts as interchangeable.
 
-### Cable Configuration
+Six independent scalar cable-length measurements are necessary for unconstrained local six-degree-of-freedom identification.
 
-Never select cable number solely from a previous example.
+However:
 
-Evaluate candidate configurations using:
-
-- Number of independent measurements
-- Jacobian rank
-- Measurement sensitivity
-- Estimation accuracy
-- Sensing workspace coverage
-- Cable attachment and routing feasibility
-- Redundancy, where needed
-
-Distinguish:
-
-**Anchor placement:** Cable connection locations on the fixed structure.
-
-**Attachment placement:** Cable connection locations on the measured object.
-
-**Attachment mechanism:** The physical method used to connect the cable.
-
-More cables do not automatically guarantee better measurement accuracy.
-
-Full Jacobian rank is a local condition; it does not guarantee global uniqueness.
+- Six cables do not guarantee rank 6.
+- Rank 6 does not guarantee global pose uniqueness.
+- Measurement identifiability does not guarantee positive-tension wrench closure.
+- Seven or eight cables do not automatically guarantee superior accuracy.
+- Candidate configurations must be compared under consistent assumptions.
 
 ---
 
-## 6. Workspace and Sensing Quality Rules
+## 8. Workspace and Feasibility Rules
 
-Always distinguish three regions:
+Distinguish the following:
 
-| Region | Definition |
+| Concept | Meaning |
 |---|---|
-| Gastric boundary | Simplified spatial envelope |
-| Geometric feasibility | Positions where the rigid object fits inside the boundary |
-| Sensing workspace | Feasible states meeting measurement requirements |
+| Gastric boundary | Simplified anatomical envelope |
+| Geometric workspace | Balloon poses satisfying containment constraints |
+| Cable-feasible workspace | Poses satisfying cable geometry and routing constraints |
+| Tension-feasible workspace | Poses meeting specified force/tension conditions |
+| Sensing-feasible workspace | Poses meeting defined identifiability and measurement-quality requirements |
 
-The gastric boundary must not automatically be treated as the sensing workspace.
+The final feasible sensing region may require the intersection of multiple constraint sets.
 
-### Evaluation Metrics
+### Evaluation Rules
 
-Use appropriate metrics such as:
-
-- Jacobian rank
-- Singular values
-- Condition number
-- Estimation uncertainty
-- Position RMSE
-- Workspace coverage
-- Noise sensitivity
-
-Interpret metrics physically.
-
-Account for state-variable units, scaling, and measurement noise when comparing conditioning and singular values.
-
-A configuration is acceptable only if it satisfies explicitly defined sensing requirements.
+- State the constraints before computing feasibility.
+- Use explicit units and numerical tolerances.
+- Verify sampled feasible points against the defining equations.
+- Report the sampling grid and orientation assumptions.
+- Distinguish sampled coverage from continuous workspace coverage.
+- Check physical routing and cable–balloon interference when relevant.
+- Do not use Tension Factor as the primary metric for sensing accuracy.
 
 ---
 
-## 7. Simulation and Validation Rules
+## 9. Sensing Accuracy and Statistical Validation Rules
+
+Use appropriate metrics, including:
+
+- Jacobian rank.
+- Scale-aware singular values and conditioning.
+- Position and orientation RMSE.
+- Bias and standard deviation.
+- Local pose covariance.
+- Measurement-noise sensitivity.
+- Monte Carlo validation.
+- 3σ coverage.
+- NEES or ANEES consistency tests where appropriate.
+
+### Validation Principles
+
+1. Distinguish true state, measured cable lengths, and estimated state.
+2. Verify analytical Jacobians against finite differences.
+3. Test noiseless cases before adding measurement noise.
+4. Record random seeds and noise assumptions.
+5. Use consistent pose samples and noise models for configuration comparisons.
+6. Report convergence failures and ambiguous solutions.
+7. Interpret covariance as a local, model-dependent uncertainty prediction.
+8. Avoid claiming experimental accuracy from numerical simulations alone.
+
+Prescribed motion may be used to generate simulation ground truth, but it must not be supplied as the true motion trajectory to the estimator.
+
+---
+
+## 10. MATLAB and Code Development Rules
 
 MATLAB is the primary simulation platform.
 
-CASPR is a secondary reference or verification tool.
+CASPR may be used for secondary verification.
 
-### Simulation
+### Code Quality
 
-- Start with simple, reproducible models.
-- Verify geometry and equations numerically.
-- Check analytical Jacobians using finite differences.
-- Test multiple positions and configurations.
-- Investigate singular or ambiguous cases.
-- Include measurement noise when evaluating accuracy.
+- Prefer readable scripts and reusable functions.
+- Use descriptive variable names.
+- State coordinate conventions and units.
+- Check matrix dimensions before implementing equations.
+- Avoid unnecessary duplicate geometry or Jacobian implementations.
+- Separate model parameters, simulation, estimation, and evaluation.
+- Save reproducible outputs and numerical verification results.
 
-### Validation
+### Verification
 
-Distinguish:
+Before treating a new implementation as validated:
 
-- True or reference state
-- Simulated or sensor measurement
-- Estimated state
+1. Confirm the expected physical and matrix dimensions.
+2. Check simple analytical or known test cases.
+3. Compare analytical results with numerical approximations when appropriate.
+4. Evaluate relevant residuals and constraints.
+5. Record actual output values.
+6. Document limitations and failure cases.
 
-Use independent ground truth for experimental validation.
-
-Prescribed motion may generate a test case but must not be supplied directly as the true trajectory to the estimator.
-
-Report errors, failed cases, and model limitations.
-
-**A successful simulation is not automatically proof of measurement accuracy.**
+Do not label unexecuted code as verified.
 
 ---
 
-## 8. Hardware and Experimental Rules
+## 11. AI-Assisted Daily Research Workflow
 
-Hardware selection must follow measurement requirements.
+The research should progress through small, verifiable tasks rather than large uninterrupted explanations.
 
-Before choosing sensors, motors, or attachment mechanisms, define:
+### At the Start of a Research Session
 
-- Measured physical quantity
-- Expected measurement range
-- Required resolution and accuracy
-- Sampling rate
-- Calibration method
-- Mechanical constraints
-- Ground-truth method
+1. Read the current research state and active TODO.
+2. Identify the highest-priority unfinished task.
+3. Review only the relevant previous methods and files.
+4. Confirm the research question and expected deliverable.
+5. Propose a manageable sequence of MATLAB or analytical steps.
 
-Distinguish physical cable response, raw sensor output, calibrated measurements, and estimated object state.
+### During a Research Session
 
-Investigate cable slack, tension, routing, and friction where relevant.
+- Explain equations and their physical meanings.
+- Introduce code in manageable sections when teaching.
+- Allow numerical results to be checked before major extensions.
+- Adapt explanations to the user's demonstrated understanding.
+- Separate theory, simulation, results, and interpretation.
+- Avoid skipping verification steps.
+- Do not repeat already completed lessons without a clear reason.
 
-Do not assume that a conventional cable-driven actuation design is automatically suitable for passive sensing.
+### At the End of a Research Session
 
----
+Summarise:
 
-## 9. Literature and Evidence Rules
+- Task ID.
+- Research question.
+- Work completed.
+- Relevant script or figure.
+- Verified numerical findings.
+- Outstanding problems.
+- Next concrete action.
 
-Use literature to justify research assumptions and engineering decisions.
+Update the active TODO only when task completion is supported by evidence.
 
-For relevant papers, record:
+### Session Handoff
 
-- Title, authors, year, and DOI
-- Research objective and method
-- Relevant measured data
-- Study population and conditions
-- Engineering relevance
-- Limitations
+Before switching to a new chat or AI coding environment, preserve the essential working context in repository files.
 
-Always distinguish:
+A handoff should identify:
 
-1. **Reported:** Directly supported by a source.
-2. **Derived:** Calculated from reported information.
-3. **Assumed:** Introduced for engineering simplification.
-4. **Validated:** Supported by simulation checks or experimental results within a stated scope.
-5. **Unknown:** Not established by current evidence.
+```text
+Current phase:
+Current task:
+Research question:
+Relevant files:
+Verified results:
+Unresolved issues:
+Next action:
+```
 
-Do not represent equivalent spherical diameter as a directly measured balloon diameter.
-
-Do not claim that a simplified stomach model reproduces real gastric motion.
-
-Do not invent literature values or simulation results.
-
----
-
-## 10. Coding and AI Working Rules
-
-When developing MATLAB code or working with AI:
-
-1. Read `CURRENT_STATE2.md` before starting a new research task.
-2. Identify the research question and expected deliverable.
-3. Reuse existing verified models and code.
-4. Explain the physical meaning of equations and variables.
-5. Check matrix dimensions and coordinate conventions.
-6. Prefer small, readable, reusable MATLAB functions.
-7. Include verification steps and error calculations.
-8. Separate assumptions from confirmed results.
-9. Preserve original code and important research records.
-10. Do not claim unperformed simulations or experiments are complete.
-
-When editing the repository:
-
-- Modify only files relevant to the current task.
-- Avoid duplicating content across documents.
-- Do not overwrite original research results without review.
-- Describe significant changes clearly.
-- Keep GitHub updates reviewable and traceable.
+Do not rely on chat history alone as the research record.
 
 ---
 
-## 11. Repository Documentation Rules
+## 12. Repository Maintenance Rules
 
-Each main file has one responsibility.
+Each document has one primary responsibility.
 
 | File | Responsibility |
 |---|---|
 | `README.md` | Project overview and navigation |
-| `CURRENT_STATE2.md` | Current progress, findings, and open questions |
-| `AGENTS2.md` | Research and coding rules |
-| `Roadmap.md` | Research phases and milestones |
-| `TODO.md` | Current actionable tasks |
-| `WEEKLY_PLAN.md` | Weekly and daily research schedule |
-| `05_My_Research/` | Research models, methods, and results |
-| `06_Research_Log/` | Dated experiments, decisions, and reflections |
+| `AGENTS2.md` | Stable research and AI working rules |
+| `CURRENT_STATE2.md` | Current state and verified progress |
+| `08_Project_Management/Roadmap.md` | Research phases and milestones |
+| `08_Project_Management/current_october_november_todo.md` | Active actionable tasks |
+| `08_Project_Management/weekly_plan_02.md` | Historical Phase A plan and closeout |
+| Future active weekly plans | Daily research schedule |
+| `05_My_Research/` | Research models, methods and designs |
+| `04_Code_Exercises/MATLAB/` | MATLAB scripts and implementations |
+| `06_Research_Log/` | Experiment records and dated research notes |
 
 ### Update Rules
 
-- Update `CURRENT_STATE2.md` after significant research progress.
-- Update `TODO.md` when tasks are completed or changed.
-- Update `WEEKLY_PLAN.md` during weekly planning and review.
-- Update `Roadmap.md` only when major milestones change.
-- Update `AGENTS2.md` only when research working rules change.
-- Record important findings and decisions in `06_Research_Log/`.
+- Update `CURRENT_STATE2.md` after major verified progress or a change of active task.
+- Update the active TODO when specific tasks are completed or revised.
+- Create or update the current weekly plan during weekly planning and review.
+- Update `Roadmap.md` when research milestones or phases change.
+- Update `AGENTS2.md` only when working rules change.
+- Preserve previous simulation outputs and research records.
+- Avoid unnecessary duplication of the same information across files.
 
-Do not repeatedly copy the same background, roadmap, or task lists into multiple files.
+### Manual GitHub Update Rules
+
+When the user requests manual repository updates:
+
+1. Inspect the current repository file before proposing changes.
+2. Explain why the file needs updating.
+3. Provide the complete revised Markdown or precise replacement sections.
+4. Do not modify GitHub directly unless explicitly requested.
+5. Update only one file at a time when using the file-by-file workflow.
+6. After the user updates a file, verify its current repository content before continuing.
+
+### Codex Collaboration Rules
+
+When using Codex or other coding agents:
+
+- Read repository instructions and current task context before editing.
+- Work within the active research task unless explicitly authorised to expand scope.
+- Prefer small, reviewable changes.
+- Do not overwrite verified results without preserving the previous version.
+- Do not infer that passing code execution proves scientific validity.
+- Report changed files, tests performed, numerical outputs, and unresolved issues.
+- Do not automatically commit, push, or alter project-wide plans without user approval.
 
 ---
 
-## 12. Current Guiding Principle
+## 13. Literature and Evidence Rules
 
-> Develop the simplest cable-based measurement model that can answer the current research question, validate its accuracy, and use the results to guide the next design decision.
+For relevant academic sources, record:
 
-The current priority is 3D 6-DOF rigid-body pose sensing using seven- and eight-cable configurations, with six cables as a reference baseline.
+- Title, authors, year, and DOI where available.
+- Research objective.
+- Relevant mathematical or experimental methods.
+- Reported measurements.
+- Assumptions and limitations.
+- Relevance to the current research task.
 
-Deformation and shape reconstruction remain future research extensions.
+Distinguish:
+
+- **Reported:** Directly supported by a source.
+- **Derived:** Calculated from reported information.
+- **Assumed:** Introduced for engineering modelling.
+- **Verified:** Checked through a specified numerical procedure.
+- **Experimentally validated:** Supported by physical measurements.
+- **Unknown:** Not established by available evidence.
+
+Do not invent citations, physical dimensions, or simulation results.
+
+Do not interpret equivalent spherical diameter as a directly measured balloon diameter.
+
+---
+
+## 14. Guiding Principle
+
+> Use the simplest defensible measurement and feasibility model to answer the current research question; verify the result before using it to make the next design decision.
+
+**Current research focus:** B1 — Define the balloon-specific geometry and candidate anchor/attachment regions.
+
+**Next stage:** Compare six-, seven-, and eight-cable sensing configurations using consistent feasibility and accuracy criteria.
+
+**Long-term direction:** Extend the validated rigid-body measurement approach toward passive deformable-balloon shape sensing.
