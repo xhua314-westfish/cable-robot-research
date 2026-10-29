@@ -1,8 +1,9 @@
-# Sensing Objective v0.2
+**Original Definition:** 2026-10-19  
+**Last Reviewed:** 2026-10-30  
+**Current Research Phase:** Phase B — Balloon-Specific Cable Sensing Design  
+**Status:** Research objectives defined; reference-method validation completed in Phase A; balloon-specific configuration validation pending.
 
-**Date:** 2026-10-19  
-**Research Phase:** Phase 2 — 3D Rigid-Body Sensing Definition  
-**Status:** Research scope defined; modelling and validation pending
+> This document defines the sensing objective and technical assumptions. Current task progress is maintained in [CURRENT_STATE2.md](../CURRENT_STATE2.md) and [Roadmap.md](../08_Project_Management/Roadmap.md).
 
 ---
 
@@ -43,19 +44,23 @@ The equivalent diameter is derived from volume and is not a directly measured ex
 
 The object moves within a simplified three-dimensional gastric boundary.
 
-**Reference population:** Adult women, prioritising obesity-related anatomical studies where available.
+**Reference population:** Adult women, prioritising obesity-related anatomical studies where suitable evidence is available.
 
-**Required dimensions:**
+**Current engineering approach:**
 
-- Gastric length.
-- Gastric width.
-- Gastric height.
+- Use a simplified axis-aligned bounding box as the initial geometric envelope.
+- Define the selected coordinate convention as X = Length, Y = Width, Z = Height.
+- Use previously reviewed gastric geometry evidence to establish candidate dimension ranges.
+- Keep literature-reported measurements, derived dimensions, and engineering assumptions separate.
+- Evaluate whole-sphere containment rather than centre-point containment alone.
 
-The initial environment will be represented by a simplified geometric boundary, such as an ellipsoid.
+The boundary is a provisional engineering model, not a clinically validated stomach lumen or balloon-motion workspace.
 
-The gastric model is used to constrain object movement rather than reproduce detailed stomach anatomy or physiological motion.
+An ellipsoid may be investigated as an alternative boundary shape, but the feasible centre region must be recalculated for that shape.
 
-Numerical dimensions remain to be established through literature evidence or clearly documented engineering assumptions.
+**B1 requirement:** Reconcile the coordinate axes and dimensions in `Workspace_Boundary_v0.2_2026-10-20.md` before adopting its numerical parameters in new MATLAB simulations.
+
+The initial geometry is intended to constrain balloon movement, not reproduce detailed gastric anatomy or physiological motion.
 
 ---
 
@@ -385,50 +390,65 @@ Workspace coverage must be evaluated using clearly defined sampling and acceptan
 
 ## 10. Research Validation Strategy
 
-### Stage 1 — 3D Geometry
+The project separates completed reference-method verification from balloon-specific design and validation.
 
-- Define the simplified gastric boundary.
-- Define the rigid sphere.
-- Determine geometrically feasible positions.
-- Establish candidate 3D cable geometry.
+### Phase A — Reference Method Verification
 
-### Stage 2 — Measurement Model
+**Status:** Core scope completed.
 
-- Calculate cable lengths.
-- Derive the 6-DOF measurement Jacobian.
-- Verify the Jacobian using numerical finite differences.
-- Evaluate rank and measurement sensitivity.
+The following computational methods have been implemented and numerically investigated:
 
-### Stage 3 — Pose Estimation
+- RREF and Tension Factor.
+- Wrench-closure feasibility analysis.
+- Candidate anchor-region calculation.
+- Multi-pose feasible-region intersection.
+- Three-dimensional workspace sampling.
+- Six-degree-of-freedom forward kinematics.
+- Analytical and numerical measurement Jacobian verification.
+- Pose covariance and Monte Carlo analysis.
+- NEES statistical consistency evaluation.
 
-- Generate simulated cable measurements.
-- Estimate unknown position and orientation.
-- Investigate different initial guesses.
-- Identify ambiguous solutions.
+These results establish reusable computational methods, but they do not validate the final balloon sensing system.
 
-### Stage 4 — Configuration Comparison
+### Phase B — Balloon-Specific Configuration Design
 
-- Compare six-, seven-, and eight-cable configurations.
-- Optimise anchor placement.
-- Optimise attachment placement.
-- Evaluate estimation accuracy and workspace coverage.
+**B1 — Geometry and Candidate Regions**
 
-### Stage 5 — Physical Feasibility
+Define the gastric boundary, 550 mL balloon geometry, feasible centre region, and candidate anchor/attachment regions.
 
-- Investigate low-tension cable tracking.
-- Evaluate cable routing and interference.
-- Analyse cable-induced forces and torques.
-- Assess disturbance of passive motion.
+**B2 — Cable Configuration Generation**
 
-### Stage 6 — Experimental Validation
+Generate comparable six-, seven-, and eight-cable configurations using explicit geometric and physical constraints.
 
-Where feasible:
+**B3 — Feasibility Screening**
 
-- Construct a rigid-body sensing prototype.
-- Calibrate cable-length measurements.
-- Obtain independent 6-DOF ground truth.
-- Compare reference and estimated pose.
-- Quantify measurement accuracy and repeatability.
+Evaluate balloon containment, cable routing, cable-length constraints, tension feasibility, and sampled workspace coverage.
+
+**B4 — Sensing Quality Evaluation**
+
+Evaluate Jacobian rank, scale-aware conditioning, local covariance, pose-estimation accuracy, and estimator reliability.
+
+**B5 — Configuration Selection**
+
+Select a justified candidate configuration based on sensing performance, workspace coverage, and mechanical complexity.
+
+### Phase C — Rigid-Body Sensing Validation
+
+Evaluate the selected configuration using:
+
+- Multiple static poses.
+- Combined translation and rotation.
+- Irregular passive-motion scenarios.
+- Sensor-noise and calibration variations.
+- Estimation convergence and ambiguity.
+- Cable-induced disturbance.
+- Independent ground-truth measurements when hardware is available.
+
+### Phase D — Deformable-Balloon Extension
+
+Investigate deformation parameters, attachment motion under deformation, measurement identifiability, and eventual shape reconstruction.
+
+The transition from one phase to the next must be supported by the relevant modelling assumptions and validation evidence.
 
 ---
 
@@ -471,29 +491,40 @@ These topics may guide future design constraints but are not initial modelling o
 
 ---
 
-## 13. Next Research Task
+## 13. Current Research Task
 
-**Task 2.2 — Simplified 3D Gastric Geometry**
+**Current Phase:** Phase B — Balloon-Specific Cable Sensing Design
 
-**Planned Date:** Tuesday, 20 October 2026
+**Current Work Package:** B1 — Geometry and Candidate Region Definition
 
-**Objectives:**
+**Immediate Subtask:** B1.1 — Review Existing Geometry Evidence
 
-1. Review gastric anatomical dimension studies.
-2. Prioritise adult female and obesity-related evidence.
-3. Define preliminary gastric length, width, and height.
-4. Separate reported measurements from engineering assumptions.
-5. Construct a simplified 3D gastric boundary.
-6. Calculate geometrically feasible sphere-centre positions.
-7. Produce an initial MATLAB 3D geometry visualisation.
+### Objectives
 
-**Expected Deliverables:**
+1. Review the existing gastric boundary literature synthesis.
+2. Reconcile X/Y/Z coordinate definitions across the existing geometry documents.
+3. Confirm the initial engineering boundary dimensions.
+4. Verify the 550 mL spherical balloon model.
+5. Establish the geometrically feasible balloon-centre region.
+6. Define candidate anchor and attachment regions.
+7. Prepare a reproducible MATLAB geometry model.
 
-- Gastric dimension evidence summary.
-- Simplified 3D geometric boundary.
-- Feasible rigid-sphere movement region.
-- MATLAB geometry model and figure.
-- Documented assumptions and limitations.
+### Expected Deliverables
+
+- Consolidated geometry parameter table.
+- Explicit coordinate and unit conventions.
+- Balloon geometry definition.
+- Sphere-containment constraints.
+- Candidate anchor and attachment regions.
+- MATLAB geometry visualisation.
+- Documented assumptions and unresolved physical constraints.
+
+### Next Research Milestone
+
+Complete B1 before generating and comparing six-, seven-, and eight-cable configurations.
+
+For detailed tasks and completion conditions, see [Active Research TODO](../08_Project_Management/current_october_november_todo.md).
+
 
 ---
 
