@@ -1,203 +1,168 @@
-# Weekly Research Plan
+# WEEKLY_PLAN.md — Archived Research Schedule
 
-**Last Updated:** 2026-10-21
-**Current Phase:** Phase 2 — 3D Rigid-Body Sensing Foundation  
-**Research Focus:** 6-DOF Pose Estimation and Cable Configuration Design
-
-follow the **weekly_plan_02.md**
-
----
-
-## Week 1 — 19–25 October 2026
-
-### Weekly Objective
-
-<!-- UPDATED: Changed from planar sensing to 3D 6-DOF measurement. -->
-
-**Establish and verify the initial 3D rigid-body sensing model.**
-
-Research focus:
-
-- 550 mL rigid spherical object.
-- Simplified 3D gastric boundary.
-- 6-DOF rigid-body pose.
-- Three-dimensional cable geometry.
-- Cable-length measurement Jacobian.
-- Initial 6-DOF pose estimation.
-
-**Related TODO:** Tasks 2.1–2.4
-
-### Daily Plan
-
-- [x] **Monday, 19 Oct — Sensing Objective (Task 2.1)**  
-  Define the 3D 6-DOF sensing state, passive-motion assumptions, measurement principle, and cable-number study range.  
-  **Output:** `Sensing_Objective_v0.2.md`  
-  **Status:** Research scope defined; validation pending.
-
-- [ ] **Tuesday, 20 Oct — 3D Gastric Geometry (Task 2.2)**  
-  Review gastric length, width, and height evidence. Select preliminary dimensions or explicitly documented assumptions. Construct the simplified 3D boundary and rigid sphere.  
-  **Output:** Gastric dimension evidence table and initial 3D geometry figure.
-
-- [ ] **Wednesday, 21 Oct — 3D Cable Geometry (Tasks 2.2–2.3)**  
-  Define a preliminary six-cable reference layout with 3D anchor and attachment points. Calculate cable lengths and visualise the configuration.  
-  **Output:** `rigid_geometry_3D_v01.m`
-
-- [ ] **Thursday, 22 Oct — 6-DOF Jacobian (Task 2.3)**  
-  Implement the analytical cable-length Jacobian for three translations and three rotations. Verify simple single-axis motions.  
-  **Output:** `jacobian_6DOF_v01.m`
-
-- [ ] **Friday, 23 Oct — Initial Pose Estimation (Task 2.4)**  
-  Implement an initial nonlinear estimator to recover 3D position and orientation from simulated cable-length measurements. Begin with noise-free reference poses.  
-  **Output:** `pose_estimation_6DOF_v01.m`
-
-- [ ] **Saturday, 24 Oct — Model Verification (Tasks 2.3–2.4)**  
-  Compare analytical and numerical Jacobians. Test multiple reference poses and initial estimates. Record estimation errors and failures.  
-  **Output:** Week 1 MATLAB verification results.
-
-- [ ] **Sunday, 25 Oct — Weekly Review**  
-  Review completed work, record unresolved problems, and update research documents.  
-  **Output:** Week 1 research summary.
-
-### Weekly Completion Criteria
-
-- The 3D 6-DOF sensing objective is documented.
-- A simplified gastric boundary and rigid-sphere model are available.
-- Initial 3D anchor and attachment coordinates are defined.
-- Cable-length calculations are implemented.
-- The 6-DOF Jacobian has been numerically checked.
-- An initial pose-estimation attempt is documented.
-- Remaining geometry, identifiability, and estimation problems are recorded.
-
-A working pose estimator is a target, not a prerequisite for reporting partial progress. Failed or ambiguous estimation cases should be retained for analysis.
-
-### Weekly Review
-
-**Completed:** Pending
-
-**Main Findings:** Pending
-
-**Problems / Limitations:** Pending
-
-**Next Research Decision:** Pending
+> **ARCHIVED — Superseded Weekly Plan**
+>
+> **Original Planning Period:** 2026-10-19 to 2026-11-01  
+> **Archived On:** 2026-10-30  
+> **Status:** Historical planning reference only
+>
+> This file records an earlier weekly research schedule created before the Phase A method-reproduction sprint.
+>
+> **Do not use this document to determine current daily research tasks.**
 
 ---
 
-## Week 2 — 26 October–1 November 2026
+## 1. Purpose
 
-### Weekly Objective
+This document preserves the original planning direction and explains how it relates to the research work subsequently completed.
 
-<!-- UPDATED: Focused on preliminary 7/8-cable comparison with a 6-cable baseline. -->
+The original schedule focused on moving directly from planar cable-robot learning to 3D rigid-body sensing and cable configuration design.
 
-**Investigate preliminary 3D cable configurations and sensing performance.**
+The research strategy was subsequently refined to reproduce and verify essential literature-based methods before beginning balloon-specific configuration design.
 
-Research focus:
+The active research phase is now:
 
-- Six-cable reference baseline.
-- Seven- and eight-cable primary candidates.
-- 3D anchor placement.
-- 3D attachment placement.
-- Pose-estimation accuracy.
-- Sensing workspace coverage.
-- Initial physical-feasibility constraints.
+**Phase B — Balloon-Specific Cable Sensing Design.**
 
-**Related TODO:** Tasks 3.1–3.5
+For current information, use:
 
-### Daily Plan
-
-- [ ] **Monday, 26 Oct — Cable Number Comparison (Task 3.1)**  
-  Construct preliminary six-, seven-, and eight-cable layouts using consistent geometric rules. Compare Jacobian rank and scaled conditioning at selected reference poses.  
-  **Output:** Initial cable-number comparison table and plots.
-
-- [ ] **Tuesday, 27 Oct — 3D Anchor Placement (Task 3.2)**  
-  Compare selected symmetric and asymmetric 3D anchor arrangements for seven- and eight-cable configurations. Evaluate measurement sensitivity and rank.  
-  **Output:** Anchor-placement comparison plots.
-
-- [ ] **Wednesday, 28 Oct — 3D Attachment Placement (Task 3.3)**  
-  Compare different attachment distributions on the sphere. Investigate rotational sensitivity, translation–rotation coupling, and pose ambiguity.  
-  **Output:** Attachment-placement comparison results.
-
-- [ ] **Thursday, 29 Oct — Sensing Workspace (Task 3.4)**  
-  Sample feasible 3D object positions and orientations. Evaluate Jacobian rank and conditioning over the selected pose domain.  
-  **Output:** Preliminary sensing-quality and workspace visualisations.
-
-- [ ] **Friday, 30 Oct — Measurement Accuracy (Task 3.4)**  
-  Introduce a common simulated cable-length noise model. Evaluate position RMSE, orientation RMSE, and estimation reliability for selected configurations.  
-  **Output:** Pose-estimation error comparison plots.
-
-- [ ] **Saturday, 31 Oct — Configuration Evaluation (Tasks 3.4–3.5)**  
-  Compare promising seven- and eight-cable layouts. Perform preliminary checks of cable routing, tension feasibility, and potential passive-motion disturbance.  
-  **Output:** `Cable_Configuration_Study_v0.1.md`
-
-- [ ] **Sunday, 1 Nov — Weekly Review**  
-  Summarise results, update GitHub research documents, and identify priorities for deeper configuration optimisation and physical validation.  
-  **Output:** Week 2 research summary.
-
-### Weekly Completion Criteria
-
-- Six-, seven-, and eight-cable reference layouts are available.
-- Initial cable-number effects have been compared.
-- Selected 3D anchor and attachment configurations have been evaluated.
-- Jacobian-based sensing quality has been mapped over a defined pose domain.
-- Preliminary pose-estimation errors have been quantified where feasible.
-- Mechanical constraints and unresolved physical-feasibility issues have been documented.
-- Promising seven- and eight-cable configurations have been identified for further investigation.
-
-**Scope Note:** The objective is a preliminary configuration study, not final global optimisation or experimental proof of an optimal design.
-
-### Weekly Review
-
-**Completed:** Pending
-
-**Main Findings:** Pending
-
-**Problems / Limitations:** Pending
-
-**Next Research Decision:** Pending
+- [Current Research State](../CURRENT_STATE2.md)
+- [Active Research TODO](current_october_november_todo.md)
+- [Research Roadmap](Roadmap.md)
+- [Research Guidelines](../AGENTS2.md)
 
 ---
 
-## Weekly Planning Rules
+## 2. Original Weekly Plan
 
-1. Each day should focus on one main research task.
-2. Each task should produce a measurable or reviewable output.
-3. Mark tasks complete only after checking results.
-4. Record unfinished tasks and adjust the following week.
-5. Preserve previous weekly plans.
-6. Update research progress and decisions after each week.
-7. Distinguish analytical, simulated, and experimentally validated results.
-8. Adjust the schedule when 3D modelling or verification requires additional time.
+### Original Week 1 — October 19–25, 2026
 
-Detailed task definitions are maintained in [TODO.md](TODO.md).
+**Objective:** Establish the initial 3D rigid-body sensing foundation.
 
-Research milestones are maintained in [Roadmap.md](Roadmap.md).
+Planned activities included:
+
+- Define the 3D six-degree-of-freedom sensing objective.
+- Review the simplified gastric boundary.
+- Define a 550 mL rigid spherical reference object.
+- Establish preliminary anchor and attachment geometry.
+- Implement the cable-length measurement model.
+- Develop a 6-DOF Jacobian.
+- Begin pose-estimation verification.
+
+**Historical outcome:**
+
+The research objective and passive-motion assumptions were defined.
+
+Initial gastric boundary evidence was investigated.
+
+Rather than completing all application-specific modelling steps in the original schedule, the research progressed toward a literature-based method-reproduction sprint.
+
+### Original Week 2 — October 26–November 1, 2026
+
+**Objective:** Investigate preliminary 6-, 7-, and 8-cable configurations and sensing performance.
+
+Planned activities included:
+
+- Cable-number comparison.
+- Anchor-placement comparison.
+- Attachment-placement comparison.
+- Sensing workspace analysis.
+- Pose-estimation accuracy evaluation.
+- Preliminary physical-feasibility assessment.
+
+**Historical outcome as of October 30, 2026:**
+
+The core Phase A methods had been implemented and documented.
+
+However, the original balloon-specific 6/7/8-cable comparison was not completed as described in this schedule.
+
+Those application-specific tasks were transferred to Phase B.
 
 ---
 
-## Future Weekly Plan Template
+## 3. Revised Research Execution
 
-### Week X — Date Range
+The subsequent research plan was:
 
-**Weekly Objective:** To be defined.  
-**Related TODO:** To be defined.
+[Weekly Plan 02 — Phase A Method Reproduction](weekly_plan_02.md)
 
-### Daily Plan
+This sprint focused on:
 
-- [ ] **Monday — Task:** Description. **Output:** Deliverable.
-- [ ] **Tuesday — Task:** Description. **Output:** Deliverable.
-- [ ] **Wednesday — Task:** Description. **Output:** Deliverable.
-- [ ] **Thursday — Task:** Description. **Output:** Deliverable.
-- [ ] **Friday — Task:** Description. **Output:** Deliverable.
-- [ ] **Saturday — Task:** Description. **Output:** Deliverable.
-- [ ] **Sunday — Weekly Review:** Summary and GitHub update.
+| Task | Research Focus | Status |
+|---|---|---|
+| A1 | RREF, Tension Factor and WCC | Core scope completed |
+| A2 | Algorithm 1 — Feasible Regions | Core scope completed |
+| A3 | Algorithm 2 — Multi-Pose Intersection | Core scope completed |
+| A4 | Forward Kinematics and Covariance | Core scope completed |
+| A5 | 3D Workspace Sampling | Core scope completed |
 
-### Weekly Review
+The results established reusable MATLAB methods for geometry, feasibility, workspace analysis, pose estimation and sensing uncertainty.
 
-**Completed:**
-
-**Main Findings:**
-
-**Problems / Limitations:**
-
-**Next Research Decision:**
+Completion refers to the selected numerical scope, not full physical experimental validation.
 
 ---
+
+## 4. Transition to Phase B
+
+The research now applies the completed methods to a 550 mL rigid spherical balloon within a simplified gastric environment.
+
+### Current Work Packages
+
+| Task | Focus |
+|---|---|
+| B1 | Geometry and Candidate Region Definition |
+| B2 | Cable Configuration Generation |
+| B3 | Feasibility Screening |
+| B4 | Sensing Quality Evaluation |
+| B5 | Configuration Selection |
+
+**Current task:** B1 — Geometry and Candidate Region Definition.
+
+**Immediate subtask:** B1.1 — Review Existing Geometry Evidence.
+
+The current actionable task list is maintained in:
+
+[current_october_november_todo.md](current_october_november_todo.md)
+
+Future detailed schedules should be stored in new dated weekly-plan files rather than appended to this historical document.
+
+---
+
+## 5. Weekly Planning Principles Retained
+
+The following working principles remain applicable:
+
+1. Prioritise research questions over isolated learning exercises.
+2. Focus each research day on one manageable primary objective.
+3. Identify a measurable deliverable for each task.
+4. Verify results before marking tasks complete.
+5. Record assumptions, limitations and unresolved issues.
+6. Preserve completed research records.
+7. Carry unfinished work forward explicitly.
+8. Avoid repeated tasks already completed in earlier stages.
+
+Detailed working rules are maintained in [AGENTS2.md](../AGENTS2.md).
+
+---
+
+## 6. Historical Planning Decision
+
+The original October 19–November 1 schedule has been superseded by the completed Phase A method-reproduction sprint and the current Phase B research roadmap.
+
+This file is retained to document the evolution of the research planning process.
+
+It is no longer an active weekly schedule.
+
+---
+
+## 7. Related Documents
+
+- [CURRENT_STATE2.md](../CURRENT_STATE2.md) — Current research progress.
+- [Roadmap.md](Roadmap.md) — Long-term research milestones.
+- [Active TODO](current_october_november_todo.md) — Current B1–B5 tasks.
+- [Weekly Plan 02](weekly_plan_02.md) — Phase A sprint record.
+- [AGENTS2.md](../AGENTS2.md) — Research and AI working rules.
+
+---
+
+**Next Research Action:** Continue with B1.1 — Review and consolidate existing gastric boundary evidence before defining candidate balloon-specific cable geometry.
