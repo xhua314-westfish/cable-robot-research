@@ -1,195 +1,326 @@
-# Weekly Plan 02 — Four-Week Paper Reproduction Sprint
+# Weekly Plan 02 — Phase A Method Reproduction
 
-> **Dates:** 2026-10-22 (Thu) → 2026-11-18 (Wed)  
-> **Daily time:** 4–5 hours; 28 days, approximately 112–140 planned hours.  
-> **Scope:** A1–A5 only. The balloon-design phase (B1–B5) starts afterward.  
-> **Milestone overview:** [current_october_november_todo.md](current_october_november_todo.md)
-
-## Working routine
-
-Each day follows the same **4–5 h** structure: **1 h** read paper/equations → **2–2.5 h** MATLAB implementation → **1–1.5 h** testing, plotting, and concise notes. If debugging exceeds the day, write the blocker and move the unfinished item into the nearest buffer/review day. Avoid starting a new algorithm before the current basic version runs.
-
-**Daily record (copy when needed):** `Date | Goal | Code/figure | Verified result | Blocker | Tomorrow`.
+**Original Planning Period:** 2026-10-22 to 2026-11-18  
+**Last Reviewed:** 2026-10-30  
+**Status:** Closed — Core A1–A5 Scope Completed Early  
+**Primary Tool:** MATLAB  
+**Original Workload:** 4–5 hours per research day
 
 ---
 
-## Week 1 — Paper 2 wrap-up + Paper 3 fundamentals (Oct 22–28)
+## 1. Purpose
 
-**Weekly result:** A1 archived; A2 boundary equations/figure working; A3 first multi-pose prototype.
+This file records the original Phase A research sprint and its actual completion status.
 
-### Day 01 · Thu, Oct 22 — A1: Finish TF reproduction
-- [ ] Re-open Paper 2 Figure 3 and the existing 2×4 Jacobian/RREF script; annotate matrix dimensions, `J_cs`, force ratios and TF.
-- [ ] Verify `norm(J*f)` near zero and TF ≈ **0.6671** (rounded source data); save the command-window result.
-- [ ] Save `paper2_fig3_TF.m` and `paper2_TF_notes.md`; explicitly distinguish TF/WCC from sensing quality.
+The purpose of Phase A was to understand, implement, and verify selected cable-robot methods before applying them to the balloon-specific research problem.
 
-### Day 02 · Fri, Oct 23 — A2: Read and set up Paper 3
-- [ ] Re-read Paper 3 Sections 2.1–2.2 and Algorithm 1; identify known `A`, `B`, pose `q`, and variable anchor `u`.
-- [ ] Enter Table 1's seven `A_i/B_i` coordinates and the example pose into MATLAB; verify units/frames.
-- [ ] Create `paper3_algorithm1.m`: calculate `B_world`, cable vectors and unnormalized wrench matrix `Jbar`.
+The original four-week schedule was completed ahead of its planned end date at the core-method level.
 
-### Day 03 · Sat, Oct 24 — A2: Reproduce RREF boundary functions
-- [ ] Separate the six fixed columns `Jbar_fixed` from the variable seventh column `j(u)`; check `rank(Jbar_fixed)==6`.
-- [ ] Compute `h(u)=Jbar_fixed\j(u)` and cross-check with `rref([Jbar_fixed,j(u)])` at test points.
-- [ ] Record why six negative `h_i` coefficients implement this paper's seven-cable WCC test.
+This is now a historical research record rather than an active daily task list.
 
-### Day 04 · Sun, Oct 25 — A2: Fit inequalities
-- [ ] Sample a small 3D set of candidate anchor coordinates `u` around the initial point.
-- [ ] Fit each boundary `h_i(u)=c_ix*u_x+c_iy*u_y+c_iz*u_z+c_i0` with `U\D`.
-- [ ] Compare fit predictions against direct Jacobian/RREF results and the rounded Section 3.1 equations; record discrepancies.
+**Current research phase:** Phase B — Balloon-Specific Cable Sensing Design.
 
-### Day 05 · Mon, Oct 26 — A2: Figure 2-style visualization
-- [ ] Build a candidate 3D point cloud in the same selected coordinate range.
-- [ ] Apply all six inequalities to generate feasible/infeasible masks and plot the feasible region.
-- [ ] Save `paper3_fig2_boundary.png` and short A2 notes; mark A2 complete only if residual checks pass.
-
-### Day 06 · Tue, Oct 27 — A3: Implement multi-pose intersection
-- [ ] Read Algorithm 2 line by line; distinguish **pose sampling** from **anchor candidate sampling**.
-- [ ] Generate the eight translational poses described for Figure 3 (using the paper's stated range/corners).
-- [ ] Compute the feasible anchor mask for each pose and implement `mask_all = mask_all & mask_pose`.
-
-### Day 07 · Wed, Oct 28 — A3: Plot successive iterations
-- [ ] Plot Iteration 0 to Iteration 7 feasible point clouds and save `paper3_fig3_iterations.png`.
-- [ ] Check feasible point counts are non-increasing; debug any unexpected increase.
-- [ ] Write one-paragraph explanation: these iterations **do not mean anchors move over time**.
+For active tasks, see [current_october_november_todo.md](current_october_november_todo.md).
 
 ---
 
-## Week 2 — Paper 3 finish + workspace sampling + Paper 4 setup (Oct 29–Nov 4)
+## 2. Original Research Objectives
 
-**Weekly result:** A3 and A5 working; Paper 4 cable-length and analytic measurement Jacobian implemented.
+The planned work covered five tasks:
 
-### Day 08 · Thu, Oct 29 — A3: All-cable extension
-- [ ] Adapt Algorithm 2 to analyze a different target anchor with all other coordinates held fixed.
-- [ ] If stable, loop over all seven target anchors and visualize distinct feasible regions.
-- [ ] Calculate simple candidate-point fractions; label them as **discrete approximations** to region-volume ratios (PRI).
-
-### Day 09 · Fri, Oct 30 — A3: Verification and buffer
-- [ ] Compare Figure 3 region shapes/trends with the original paper; explain differences from sampling density or plotting.
-- [ ] Verify each kept point satisfies the corresponding inequalities for all sampled poses.
-- [ ] Refactor common geometry/function code and write `paper3_algorithm2_notes.md`.
-
-### Day 10 · Sat, Oct 31 — A5: Workspace sampling first version
-- [ ] Revisit Paper 1's distinctions between geometric, wrench and interference constraints.
-- [ ] Write `paper1_workspace_sampling.m` to generate a small position grid (initially fixed orientation).
-- [ ] Assign each pose a feasible/infeasible flag using an **explicitly named** simple test; visualize both sets.
-
-### Day 11 · Sun, Nov 1 — A5: Test, document, close
-- [ ] Add orientation samples or a second clear constraint to the workspace grid, while keeping runtime manageable.
-- [ ] Count feasible poses and calculate the sampled coverage fraction.
-- [ ] Save `paper1_workspace_plot.png` and a note that Paper 1 is a **review**, not a claim of exact figure reproduction.
-
-### Day 12 · Mon, Nov 2 — A4: Understand Paper 4 geometry
-- [ ] Read Paper 4 Sections 2.1–2.2 and Figure 1; map paper symbols to `A_i`, `r_i`, `P`, `R`.
-- [ ] Enter Paper 4 Table 1's eight-cable geometry, keeping units consistent.
-- [ ] Implement `cable_lengths(A,r,P,R)` and test known poses without noise.
-
-### Day 13 · Tue, Nov 3 — A4: Noisy measurement model
-- [ ] Read Paper 4 Eq. (3)–(6); distinguish length and squared-length residuals.
-- [ ] Generate `l_meas = l_true + sigma*randn(m,1)` with fixed random seed for reproducibility.
-- [ ] Plot and check the measurement residuals; document units and assumed noise standard deviation.
-
-### Day 14 · Wed, Nov 4 — A4: Measurement Jacobian
-- [ ] Read Paper 4 Section 3.2, especially Eq. (12)–(15).
-- [ ] Derive the 8×6 cable-length Jacobian for **small world-frame rotations** and verify its sign convention.
-- [ ] Compare analytic Jacobian against small finite differences for x/y/z and 3 rotation components; save max errors.
-
----
-
-## Week 3 — Paper 4 pose estimation and uncertainty (Nov 5–11)
-
-**Weekly result:** A4 baseline pose estimator, covariance, Monte Carlo RMSE and 3σ plots.
-
-### Day 15 · Thu, Nov 5 — A4: Nonlinear least squares
-- [ ] Read Paper 4 Algorithm 1 and the Levenberg–Marquardt update (Method 2).
-- [ ] Implement a first pose estimator with `lsqnonlin` (or a manually coded damped least-squares step).
-- [ ] Make residual vectors consistent with the selected pose/rotation parameterization.
-
-### Day 16 · Fri, Nov 6 — A4: Noiseless correctness tests
-- [ ] Test recovery of a known 6-DOF pose from exact cable lengths.
-- [ ] Check translation error in mm and rotation error in degrees, not only optimizer residual.
-- [ ] Test more than one initial guess; record local convergence/failure instead of assuming unique forward kinematics.
-
-### Day 17 · Sat, Nov 7 — A4: Weighted estimation with noise
-- [ ] Add diagonal cable-length noise covariance `V` and the weighted least-squares residual.
-- [ ] Run several noise realizations at one pose; inspect errors and solver diagnostics.
-- [ ] Keep noise modeling separate from the true geometry and solver state.
-
-### Day 18 · Sun, Nov 8 — A4: Covariance estimation
-- [ ] Compute local covariance `P_cov = inv(H'*inv(V)*H)` conceptually; in MATLAB use linear solves rather than `inv`.
-- [ ] Inspect rank and conditioning before inversion; mark singular/poorly conditioned cases as invalid.
-- [ ] Extract positional standard deviations and appropriately represented orientation uncertainty; document linearization limits.
-
-### Day 19 · Mon, Nov 9 — A4: Monte Carlo loop
-- [ ] Implement `paper4_monte_carlo.m` over many independent noise realizations, using fixed true poses.
-- [ ] Start at 20 runs for debugging, then increase toward 100 as runtime allows.
-- [ ] Store estimated pose, true pose, solver success, and covariance for each run.
-
-### Day 20 · Tue, Nov 10 — A4: RMSE metrics
-- [ ] Compute position RMSE (mm) and orientation RMSE (degrees) from reconstructed poses.
-- [ ] Compare results with covariance-based predicted uncertainty; investigate discrepancies.
-- [ ] Save `paper4_rmse.png` and the sampling/noise configuration.
-
-### Day 21 · Wed, Nov 11 — A4: ±3σ visualization
-- [ ] Plot individual pose-coordinate errors against predicted ±3σ bounds on a selected trajectory or sequence of poses.
-- [ ] Check whether axes, angle units and covariance parameterization are consistent.
-- [ ] Record cases where bounds are misleading due to initialization, nonlinearity or rank issues.
-
----
-
-## Week 4 — Paper 4 results, integration and clean handoff (Nov 12–18)
-
-**Weekly result:** A4 completed to minimum scope, A1–A5 verified, organized, and ready for Phase B.
-
-### Day 22 · Thu, Nov 12 — A4: NEES consistency check
-- [ ] Read Paper 4 Section 5's NEES definition and confidence-interval interpretation.
-- [ ] Compute NEES on the six-dimensional local pose-error representation (not a raw 7D quaternion difference).
-- [ ] If enough independent runs are available, compare mean NEES against the appropriate chi-square bounds; label results preliminary if sample count is low.
-
-### Day 23 · Fri, Nov 13 — A4: Method comparison / buffer
-- [ ] Re-check Paper 4 reported **Method 1 = squared length**, **Method 2 = direct length**.
-- [ ] Compare convergence at different initial guesses/iteration limits for Method 2.
-- [ ] **Optional only:** implement a minimal squared-length residual to compare convergence; otherwise use time for debugging.
-
-### Day 24 · Sat, Nov 14 — A4: Finish documentation
-- [ ] Save `paper4_forward_kinematics.m`, `paper4_monte_carlo.m`, all key plots, and `paper4_notes.md`.
-- [ ] Compare your results with paper trends; avoid claiming exact reproduction if geometry, attitude updates, or solver differ.
-- [ ] Summarize what covariance means and what it does **not** prove about real hardware accuracy.
-
-### Day 25 · Sun, Nov 15 — Shared-code cleanup
-- [ ] Remove duplicate cable geometry / Jacobian functions between reproduced papers where practical.
-- [ ] Give all scripts clear inputs, coordinate-frame comments, units, and reproducible random seeds.
-- [ ] Run A1–A5 once from clean MATLAB sessions or documented working directories.
-
-### Day 26 · Mon, Nov 16 — Transfer check (no full B-stage yet)
-- [ ] Write a one-page mapping: Paper 3 WCC region vs. **future sensing-feasible** region.
-- [ ] Note future sphere constraints: `||r_i|| = 50.83 mm`, fixed anchors, cable–sphere intersection, rank and covariance.
-- [ ] Do **not** start multi-variable balloon optimization. List unresolved modeling decisions for B1.
-
-### Day 27 · Tue, Nov 17 — Verification and catch-up
-- [ ] Finish the most important incomplete A2/A3/A4 milestone or repair broken scripts.
-- [ ] Check outputs against each task's Definition of Done in the TODO document.
-- [ ] Create a short issue log: what reproduces well, what differs from the paper, and why.
-
-### Day 28 · Wed, Nov 18 — Sprint closeout
-- [ ] Update A1–A5 checkboxes in `current_october_november_todo.md` based on **actual** evidence.
-- [ ] Commit/push code, notes, and figures into appropriate existing repository folders.
-- [ ] Write a concise handoff for next sprint: **B1 first**, then B2/B3 feasible regions; list 2–3 concrete starting tasks.
-
----
-
-## End-of-week review (10–15 minutes within Day 7/14/21/28)
-
-| Week | Main check | Planned status |
+| Task | Original Objective | Actual Status |
 |---|---|---|
-| W1 | A1 archived; A2 Figure 2; A3 iteration prototype | [ ] |
-| W2 | A3 region intersection done; A5 sampling done; A4 length/Jacobian ready | [ ] |
-| W3 | A4 pose estimate, covariance, Monte Carlo and RMSE | [ ] |
-| W4 | A4 consistency checks; all scripts documented; next sprint defined | [ ] |
+| A1 | Reproduce RREF, Tension Factor and WCC concepts | Core scope completed |
+| A2 | Reproduce Paper 3 Algorithm 1 | Core scope completed |
+| A3 | Reproduce Paper 3 Algorithm 2 | Core scope completed |
+| A4 | Implement forward kinematics and uncertainty evaluation | Core scope completed |
+| A5 | Implement workspace sampling and feasibility checks | Core scope completed |
 
-## Priority if time slips
+The main objective was to develop reusable computational methods, not to optimise a gastric-balloon cable configuration during this sprint.
 
-**Must finish:** A1, A2, A3, A4 Method 2/noiseless + basic noise/covariance, A5 minimal sampler.  
-**Can simplify:** all-anchor PRI, NEES statistical analysis, Method 1 squared-length comparison, advanced quaternion/DCM, high-density plots.  
-**Do not compromise:** coordinate-frame correctness, matrix dimensions, reproducible results, and clear distinction between WCC and sensing accuracy.
+---
 
-**Success criterion for this month:** Verified MATLAB modules and concise notes, **not** an optimized balloon configuration. That becomes the goal of the next phase.
+## 3. Completed Work and Verified Outcomes
+
+### A1 — Cable Tension Feasibility
+
+**Reference:** Paper 2 — RREF / Tension Factor.
+
+Completed:
+
+- Implemented and verified the planar cable force example.
+- Applied RREF to determine cable force relationships.
+- Verified equilibrium residuals.
+- Calculated Tension Factor.
+
+**Selected result:** TF ≈ 0.6671.
+
+**Transferred method:** Cable force feasibility analysis.
+
+**Limitation:** Tension Factor is not a direct sensing-accuracy metric.
+
+### A2 — Algorithm 1: Feasible Anchor Regions
+
+**Reference:** Paper 3.
+
+Completed:
+
+- Constructed the seven-cable reference geometry.
+- Evaluated wrench matrix rank.
+- Implemented RREF-based feasibility conditions.
+- Sampled candidate anchor locations.
+- Evaluated the feasible point cloud.
+- Verified the selected numerical inequalities.
+
+**Selected result:** 29,291 feasible candidate points from 68,921 sampled locations for the selected single-pose case.
+
+**Transferred method:** Feasible anchor-region screening.
+
+**Limitation:** Results depend on the reference geometry, target anchor and selected pose.
+
+### A3 — Algorithm 2: Multi-Pose Region Intersection
+
+**Reference:** Paper 3.
+
+Completed:
+
+- Implemented feasibility tests across eight sampled poses.
+- Intersected candidate feasible regions.
+- Verified the non-increasing feasible-point counts.
+- Extended the analysis to all seven cables.
+- Saved implementation and explanatory notes.
+
+**Selected result:** 1,005 feasible candidate locations in the selected A7 eight-pose intersection.
+
+**Transferred method:** Multi-pose feasibility evaluation.
+
+**Limitation:** The result represents sampled poses and candidate points, not a continuous or clinically validated workspace.
+
+### A4 — Forward Kinematics and Pose Uncertainty
+
+**Reference:** Paper 4.
+
+Completed:
+
+- Implemented the eight-cable measurement model.
+- Derived and numerically checked the 8×6 measurement Jacobian.
+- Verified noiseless pose reconstruction.
+- Implemented Gauss–Newton forward kinematics with noisy cable lengths.
+- Computed local pose covariance.
+- Performed 100 independent Monte Carlo trials.
+- Evaluated Bias, RMSE, standard deviation and 3σ coverage.
+- Computed NEES and the ANEES consistency interval.
+
+**Selected results:**
+
+| Metric | Result |
+|---|---|
+| Jacobian rank | 6 |
+| Maximum numerical Jacobian error | 4.102 × 10⁻¹¹ |
+| Noise standard deviation | 1 mm |
+| Predicted position std (X/Y/Z) | 0.5018 / 0.9462 / 0.6340 mm |
+| Monte Carlo position std (X/Y/Z) | 0.5170 / 0.9731 / 0.6753 mm |
+| Average NEES | 6.6459 |
+| 95% ANEES interval | [5.3402, 6.6977] |
+| ANEES consistency test | Passed |
+
+**Transferred methods:** Six-degree-of-freedom pose estimation and uncertainty evaluation.
+
+**Limitations:**
+
+- Known rigid reference geometry.
+- Fixed true pose in the main Monte Carlo test.
+- Simplified independent Gaussian measurement noise.
+- Gauss–Newton rather than complete reproduction of all published optimisation methods.
+- No physical hardware validation.
+
+### A5 — 3D Workspace Sampling
+
+**Reference:** Paper 1 workspace review.
+
+Completed:
+
+- Implemented a 3D position-sampling grid.
+- Evaluated WCC feasibility.
+- Added cable-length limits.
+- Compared three roll-angle cases.
+- Calculated combined feasible regions.
+- Visualised feasible workspace points.
+
+**Selected results:**
+
+| Metric | Result |
+|---|---:|
+| Total sampled positions | 2,197 |
+| WCC-feasible positions at 0° | 861 |
+| WCC and length feasible at 0° | 765 |
+| Combined feasible at −10° roll | 623 |
+| Combined feasible at +10° roll | 175 |
+| Feasible at all three roll angles | 95 |
+
+**Transferred method:** Sampled workspace feasibility analysis.
+
+**Limitation:** This was an illustrative geometry and a method-inspired implementation, not a reconstruction of a real gastric workspace.
+
+---
+
+## 4. Original Schedule Versus Actual Progress
+
+| Original Week | Original Focus | Actual Outcome |
+|---|---|---|
+| Week 1: Oct 22–28 | A1, A2 and initial A3 | Core methods developed |
+| Week 2: Oct 29–Nov 4 | A3, A5 and initial A4 | Core scope completed ahead of schedule |
+| Week 3: Nov 5–11 | A4 estimation and covariance | Core tasks completed before planned dates |
+| Week 4: Nov 12–18 | A4 validation and documentation | Core validation and handoff completed before planned dates |
+
+The table describes progress against the original schedule. It does not imply that all optional or exploratory subtasks were performed.
+
+---
+
+## 5. Incomplete or Optional Extensions
+
+The following are not required to close the core Phase A scope:
+
+- Full reproduction of every optimisation method in Paper 4.
+- Comprehensive FK convergence tests over many initial guesses.
+- High-density continuous workspace approximation.
+- Complete six-degree-of-freedom orientation coverage.
+- Full physical cable-interference modelling.
+- Hardware validation and independent experimental ground truth.
+
+These should be revisited only when they directly support a Phase B or Phase C research question.
+
+---
+
+## 6. Lessons Learned
+
+### 6.1 Wrench Feasibility and Sensing Quality Are Different
+
+A cable configuration may be wrench-feasible without providing well-conditioned pose measurements.
+
+Likewise, a locally full-rank measurement Jacobian does not guarantee positive-tension feasibility.
+
+Both must be considered in balloon-specific configuration design.
+
+### 6.2 More Cables Do Not Automatically Guarantee Better Results
+
+The effect of cable count depends on:
+
+- Anchor and attachment geometry.
+- Measurement independence.
+- Measurement noise.
+- Feasible workspace.
+- Mechanical constraints.
+
+The six-, seven-, and eight-cable systems must be compared under explicit and consistent conditions.
+
+### 6.3 Pose Covariance Is Local and Model-Dependent
+
+The expression
+
+\[
+P_{\mathrm{cov}}\approx(H^TV^{-1}H)^{-1}
+\]
+
+provides a local uncertainty approximation.
+
+It does not establish global pose uniqueness or actual hardware accuracy.
+
+### 6.4 Workspace Coverage Must Be Defined Explicitly
+
+Geometric containment, cable-length feasibility, tension feasibility and sensing feasibility should not be combined without clearly stated conditions.
+
+Sampling-based coverage depends on the selected grid and orientation samples.
+
+### 6.5 Research-Driven Learning Is Effective
+
+The completed sprint used a research-question-driven sequence:
+
+Research question → Theory → Mathematical model → MATLAB implementation → Numerical verification → Research note → Next decision.
+
+Future learning should continue to support the application-specific research tasks.
+
+---
+
+## 7. Phase A Research Outputs
+
+### MATLAB Implementations
+
+Stored primarily in:
+
+[04_Code_Exercises/MATLAB](../04_Code_Exercises/MATLAB/)
+
+Main scripts include:
+
+- `paper2__TF_reproduction_2026_10_22.m`
+- `paper3_algorithm2_clean.m`
+- `paper1_workspace_sampling_final.m`
+- `paper4_cable_forward_kinematics_2026_10_27.m`
+
+### Research Notes
+
+Stored primarily in:
+
+[06_Research_Log/2026-10](../06_Research_Log/2026-10/)
+
+Records include:
+
+- `paper2_TF_notes.md`
+- `paper3_algorithm1_notes.md`
+- `paper3_algorithm2_notes.md`
+- `paper3_algorithms_1_and_2_research_summary.md`
+- `paper1_workspace_sampling_notes.md`
+- `paper4_forward_kinematics_notes.md`
+- `A4_to_cable_comparison_plan.md`
+
+The current repository files are the retained evidence of Phase A progress.
+
+---
+
+## 8. Phase A Closeout
+
+### Core Completion Checklist
+
+- [x] A1 core method implemented and documented.
+- [x] A2 feasible-region calculation completed.
+- [x] A3 multi-pose intersection completed.
+- [x] A4 pose estimation and uncertainty evaluation completed.
+- [x] A5 workspace-sampling model completed.
+- [x] Main research findings recorded.
+- [x] Reusable methods identified for Phase B.
+
+### Remaining Research Limitations
+
+- No balloon-specific anchor/attachment optimisation has been completed.
+- No clinically validated 3D gastric workspace has been established.
+- No physical low-tension tracking system has been validated.
+- Deformation and shape estimation remain future research topics.
+
+**Phase A Closeout Decision:**
+
+The core method reproduction sprint is complete.
+
+The next research effort should apply the methods to the selected balloon geometry rather than continue unrelated paper reproduction.
+
+---
+
+## 9. Handoff to Phase B
+
+**Next Task: B1 — Geometry and Candidate Region Definition.**
+
+Immediate priorities:
+
+1. Review and consolidate the existing gastric boundary evidence.
+2. Define the 550 mL spherical balloon and feasible centre region.
+3. Establish initial anchor and attachment candidate regions.
+
+### References
+
+- [Current Research State](../CURRENT_STATE2.md)
+- [Research Roadmap](Roadmap.md)
+- [Actionable TODO](current_october_november_todo.md)
+- [Research Guidelines](../AGENTS2.md)
+
+---
+
+**Final Status:** Phase A core scope closed; Phase B geometry definition is the next active research task.
