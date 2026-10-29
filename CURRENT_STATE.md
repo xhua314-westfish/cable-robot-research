@@ -1,8 +1,33 @@
-# Current State
+# CURRENT_STATE.md — Archived Research State
 
-Last updated: 2026-10-01
+> **ARCHIVED — Historical Research Record**
+>
+> **Original Last Updated:** 2026-10-01  
+> **Archived On:** 2026-10-30  
+> **Status:** Historical reference only — not the active research state.
+>
+> This document preserves the earlier planar cable-robot learning process, mathematical derivations, MATLAB simulation results, and research decisions.
+>
+> The project has since progressed from planar 3-DOF modelling to 3D 6-DOF cable-based sensing and balloon-specific configuration design.
+>
+> **The current research phase is Phase B — Balloon-Specific Cable Sensing Design, beginning with B1: Geometry and Candidate Region Definition.**
+>
+> For authoritative current information, use:
+>
+> - [CURRENT_STATE2.md](CURRENT_STATE2.md) — Current research progress and findings.
+> - [AGENTS2.md](AGENTS2.md) — Research and AI working rules.
+> - [Research Roadmap](08_Project_Management/Roadmap.md) — Research phases and milestones.
+> - [Active Research TODO](08_Project_Management/current_october_november_todo.md) — Current actionable tasks.
+>
+> **Instructions for AI/Codex:** Do not interpret the "Current", "Next Lesson", or "Immediate Next Task" sections below as active instructions. They describe the research state as of 2026-10-01.
+>
+> The original historical content is retained below without modification.
 
 ---
+
+# Original Research State — 2026-10-01
+
+
 
 # 1. Research Direction
 
