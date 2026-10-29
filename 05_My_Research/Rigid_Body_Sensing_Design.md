@@ -1,10 +1,13 @@
-# Rigid-Body Cable Sensing Design
-
 **Version:** 0.3  
-**Last Updated:** 2026-10-19  
-**Research Phase:** 3D Rigid-Body Sensing and Cable Configuration Design  
+**Original Definition:** 2026-10-19  
+**Last Reviewed:** 2026-10-30  
+**Current Research Phase:** Phase B — Balloon-Specific Cable Sensing Design  
+**Current Task:** B1 — Geometry and Candidate Region Definition  
 **Primary Tool:** MATLAB  
-**Status:** Proposed 3D model; sensing validation pending
+**Status:** Mathematical framework established; reference-geometry methods verified in Phase A; balloon-specific implementation pending.
+
+> This document defines the technical measurement and sensing model. Current research progress is maintained in [CURRENT_STATE2.md](../CURRENT_STATE2.md), and active tasks are maintained in [current_october_november_todo.md](../08_Project_Management/current_october_november_todo.md).
+
 
 ---
 
@@ -33,95 +36,171 @@ The full research scope is defined in [Sensing Objective v0.2](Sensing_Objective
 
 ### 2.1 Gastric Environment
 
-The initial environment is represented by a simplified three-dimensional gastric boundary.
+The initial sensing environment is represented by a simplified three-dimensional engineering boundary.
 
-**Reference population:** Adult female, prioritising obesity-related anatomical evidence.  
-**Geometric representation:** Ellipsoidal approximation.  
-**Required dimensions:** Length, width, and height.
+**Reference population:** Adult female, prioritising obesity-related evidence where available.
 
-The gastric boundary is defined as:
+**Primary geometric representation:** Axis-aligned rectangular cavity surrogate.
+
+**Alternative representation:** Ellipsoidal cavity surrogate for later sensitivity analysis.
+
+The selected world-coordinate convention is:
+
+| Axis | Dimension | Meaning |
+|---|---|---|
+| X | \(L_g\) | Length |
+| Y | \(W_g\) | Width |
+| Z | \(H_g\) | Height |
+
+All dimensions must be defined consistently in millimetres for the initial geometry model.
+
+The origin is located at the centre of the engineering boundary.
+
+For a cuboid with dimensions \(L_g,W_g,H_g\):
 
 \[
 \Omega_g=
-\left\{(x,y,z):
-\frac{x^2}{a^2}+
-\frac{y^2}{b^2}+
-\frac{z^2}{c^2}\leq1
+\left\{
+(x,y,z):
+|x|\leq\frac{L_g}{2},
+|y|\leq\frac{W_g}{2},
+|z|\leq\frac{H_g}{2}
 \right\}
+\]
+
+The boundary dimensions are engineering model inputs and must not be interpreted as directly measured clinical balloon-motion limits.
+
+**Existing evidence note:**
+
+`Workspace_Boundary_v0.2_2026-10-20.md` contains a provisional engineering boundary based on a different coordinate convention.
+
+Its reported dimensions must be mapped explicitly into the selected coordinate system before reuse.
+
+The provisional source values are:
+
+- Original X / Width: 150 mm.
+- Original Y / Anteroposterior depth: 160 mm.
+- Original Z / Craniocaudal length: 140 mm.
+
+These values are not automatically equivalent to the new Length, Width and Height definitions.
+
+Their interpretation and suitability must be reviewed in B1.1.
+
+### 2.2 Rigid Spherical Balloon
+
+The initial measurement object is a rigid spherical proxy of a commercial intragastric balloon.
+
+| Parameter | Value | Classification |
+|---|---|---|
+| Balloon volume | 550 mL | Selected engineering baseline |
+| Geometric model | Rigid sphere | Assumed |
+| Equivalent radius | Approximately 50.83 mm | Derived |
+| Equivalent diameter | Approximately 101.65 mm | Derived |
+| Deformation | Excluded | Initial simplification |
+| Motion | Passive and unknown | Research assumption |
+
+The equivalent radius is calculated using:
+
+\[
+r_s=\left(\frac{3V_b}{4\pi}\right)^{1/3}
 \]
 
 where:
 
-- \(a=L_g/2\): Half-length.
-- \(b=W_g/2\): Half-width.
-- \(c=H_g/2\): Half-height.
-
-\(L_g\), \(W_g\), and \(H_g\) represent literature-supported or assumed internal gastric dimensions under specified conditions.
-
-The ellipsoid is centred at the world-frame origin in the initial model.
-
-**Purpose:** Constrain rigid-body movement rather than reproduce detailed gastric anatomy or physiology.
-
-Numerical dimensions remain to be selected and justified.
-
-### 2.2 Rigid Spherical Object
-
-The initial measurement object is a rigid spherical approximation of a commercial intragastric balloon.
-
-| Parameter | Value | Status |
-|---|---|---|
-| Volume | 550 mL | Commercial reference |
-| Shape | Sphere | Engineering assumption |
-| Equivalent diameter | Approximately 101.7 mm | Derived |
-| Equivalent radius | Approximately 50.9 mm | Derived |
-| Deformation | Excluded | Initial model |
-
-The equivalent spherical diameter is:
-
 \[
-D=\left(\frac{6V}{\pi}\right)^{1/3}
+V_b=550,000\ \mathrm{mm}^3
 \]
 
-where \(V\) is expressed in cubic millimetres and \(D\) in millimetres.
+The equivalent sphere diameter is:
 
-The equivalent diameter is not a directly measured external balloon diameter.
+\[
+D_s=2r_s
+\]
+
+The equivalent diameter is calculated from the selected volume and is not a directly measured clinical balloon diameter.
 
 ### 2.3 Geometric Feasibility
 
-<!-- UPDATED: Clarified the 3D feasible centre region and pose space. -->
+The entire spherical balloon must remain inside the selected gastric boundary.
 
-The rigid sphere must remain entirely inside the simplified gastric boundary.
-
-Define the feasible sphere-centre region:
+Define:
 
 \[
 W_{\mathrm{centre}}=
-\{P\in\mathbb R^3:
+\{P\in\mathbb{R}^3:
 B(P,r_s)\subseteq\Omega_g\}
 \]
 
 where:
 
-- \(P\): Sphere-centre position.
-- \(r_s\): Sphere radius.
+- \(P\): Balloon-centre position.
+- \(r_s\): Balloon radius.
 - \(B(P,r_s)\): Solid sphere centred at \(P\).
-- \(W_{\mathrm{centre}}\): Geometrically feasible centre region.
+- \(\Omega_g\): Simplified gastric cavity surrogate.
 
-For the ideal rigid sphere, geometric containment does not depend on orientation.
-
-The complete geometric pose space is:
+For the axis-aligned cuboid with an assumed nonnegative clearance \(c\), full sphere containment requires:
 
 \[
-W_{\mathrm{geo}}
-=
-W_{\mathrm{centre}}\times SO(3)
+|P_x|\leq \frac{L_g}{2}-r_s-c
 \]
 
-This relationship applies to the ideal sphere without considering cables, attachment protrusions, or other mechanical components.
+\[
+|P_y|\leq \frac{W_g}{2}-r_s-c
+\]
 
-MATLAB will evaluate candidate centre positions and verify that the complete sphere remains inside the boundary.
+\[
+|P_z|\leq \frac{H_g}{2}-r_s-c
+\]
 
-The geometric workspace must not be determined from the sphere centre alone.
+The feasible centre region is empty if any right-hand side is negative.
+
+The clearance value must be explicitly selected and documented.
+
+No fixed clearance is assumed to be clinically validated.
+
+For an ideal spherical object, geometric containment is independent of orientation.
+
+However, the cable routing, attachment geometry, and mechanical constraints can restrict the admissible orientations.
+
+### 2.4 Alternative Boundary Representation
+
+An ellipsoidal surrogate may be used to investigate the sensitivity of the results to the chosen boundary shape.
+
+For the selected coordinate convention:
+
+\[
+\Omega_{\mathrm{ellipsoid}}=
+\left\{
+(x,y,z):
+\frac{x^2}{(L_g/2)^2}
++
+\frac{y^2}{(W_g/2)^2}
++
+\frac{z^2}{(H_g/2)^2}
+\leq 1
+\right\}
+\]
+
+The ellipsoid and cuboid must not be treated as equivalent cavity geometries.
+
+Their volumes and full-sphere containment regions differ.
+
+In particular, cuboid centre-travel equations must not be reused as exact ellipsoid containment conditions.
+
+### 2.5 Geometry Modelling Limitations
+
+The simplified model does not establish:
+
+- A patient-specific gastric lumen.
+- A clinically validated three-dimensional balloon-motion range.
+- Anatomical wall deformation.
+- Physiological gastric motion.
+- Physical cable mounting feasibility.
+- Actual balloon shape changes.
+
+These limitations must remain explicit when evaluating candidate configurations.
+
+**B1 objective:** Confirm the geometry parameters, implement balloon containment, and define candidate anchor and attachment regions before proceeding to cable configuration generation.
 
 ---
 
@@ -275,6 +354,47 @@ The analytical Jacobian must be verified using numerical finite differences for 
 
 The rotational increment convention and numerical units must be kept consistent.
 
+### Jacobian Convention and Phase A Verification
+
+For the existing convention:
+
+\[
+d_i=A_i-B_i,\qquad u_i=d_i/L_i
+\]
+
+and a small world-frame rotational perturbation, the analytical measurement Jacobian is:
+
+\[
+H_i=
+\begin{bmatrix}
+-u_i^T & (u_i\times s_i)^T
+\end{bmatrix}
+\]
+
+where \(s_i=Rr_i\).
+
+The sign convention must be kept consistent in the MATLAB implementation.
+
+**Phase A verification:**
+
+The eight-cable reference model implemented in A4 was tested using analytical and numerical Jacobians.
+
+The reported maximum Jacobian discrepancy was:
+
+\[
+4.102\times10^{-11}
+\]
+
+This verifies the selected reference implementation numerically within the tested conditions.
+
+**Phase B requirement:**
+
+The Jacobian must be re-evaluated and numerically verified for each new balloon-specific cable configuration.
+
+The Phase A reference result does not automatically validate a new anchor or attachment geometry.
+
+For conditioning comparisons, translational and rotational variables must be scaled using a clearly defined characteristic length or equivalent physically meaningful normalisation.
+
 ---
 
 ## 4. Cable Configuration and Measurement Evaluation
@@ -423,122 +543,154 @@ Wrench closure is not automatically imposed as a requirement for a passive sensi
 
 ---
 
-## 5. Simulation and Validation
+## 5. Simulation and Validation Strategy
 
-### 5.1 MATLAB Study
+### 5.1 Completed Reference-Method Verification
 
-<!-- UPDATED: Reorganised simulations around 3D 6-DOF measurement. -->
+**Status:** Phase A core scope completed.
 
-**A — 3D Geometry Verification**
+The following methods have been implemented and investigated using selected reference geometries:
 
-- Construct the simplified gastric boundary.
-- Construct the 550 mL rigid sphere.
-- Identify feasible centre positions.
-- Define candidate anchor and attachment positions.
-- Calculate and visualise cable lengths.
+- Cable-length calculations.
+- Jacobian verification.
+- Wrench-closure feasibility.
+- Feasible anchor-region calculations.
+- Multi-pose feasible-region intersection.
+- Three-dimensional workspace sampling.
+- Nonlinear six-degree-of-freedom forward kinematics.
+- Local pose covariance estimation.
+- Monte Carlo pose-estimation validation.
+- NEES statistical consistency evaluation.
 
-**B — Measurement Model Verification**
+The Phase A work establishes reusable computational methods.
 
-- Implement 3D rigid-body transformations.
-- Calculate the analytical 6-DOF Jacobian.
-- Verify translation and rotation derivatives numerically.
-- Investigate rank and conditioning.
+It does not validate the final balloon-specific configuration.
 
-**C — 6-DOF Pose Estimation**
+### 5.2 Phase B — Balloon-Specific Evaluation
 
-- Generate simulated cable-length measurements.
-- Estimate unknown position and orientation.
-- Investigate multiple initial guesses.
-- Identify ambiguous solutions and convergence failures.
+**B1 — Geometry Definition**
 
-**D — Cable Configuration Comparison**
+- Confirm the gastric engineering boundary.
+- Define the 550 mL spherical balloon.
+- Calculate the feasible balloon-centre region.
+- Define candidate anchor and attachment regions.
+- Verify coordinate systems and dimensional consistency.
 
-- Compare 6, 7 and 8 cables.
-- Investigate anchor placements.
-- Investigate attachment placements.
-- Compare measurement performance under consistent conditions.
+**B2 — Cable Configuration Generation**
 
-**E — Measurement Uncertainty and Workspace**
+- Generate six-, seven-, and eight-cable candidates.
+- Define fixed anchors and body-frame attachments.
+- Establish reproducible geometry data.
+- Check initial spacing and mounting constraints.
 
-- Introduce cable-length noise.
+**B3 — Feasibility Screening**
+
+- Sample the defined pose domain.
+- Apply geometric containment.
+- Evaluate cable-length and routing constraints.
+- Investigate cable–balloon and cable–cable interference.
+- Evaluate cable-tension feasibility under stated assumptions.
+- Quantify sampled workspace coverage.
+
+**B4 — Sensing Quality Evaluation**
+
+- Verify the measurement Jacobian for candidate configurations.
+- Evaluate local rank and identifiability.
+- Compare scale-aware singular values and conditioning.
+- Predict local pose covariance.
+- Perform Monte Carlo pose estimation.
 - Calculate position and orientation RMSE.
-- Investigate measurement robustness.
-- Evaluate sensing workspace coverage.
+- Record estimation failures and ambiguity.
 
-**F — Physical Feasibility**
+**B5 — Configuration Selection**
 
-- Investigate cable routing and interference.
-- Introduce low-tension tracking assumptions.
-- Evaluate cable-induced forces and torques.
-- Identify practical sensor and motor requirements.
+- Compare sensing workspace coverage.
+- Compare pose-estimation uncertainty and accuracy.
+- Evaluate mechanical and routing complexity.
+- Identify configuration trade-offs.
+- Select a justified initial cable configuration.
 
-### 5.2 Initial Test Scenarios
+### 5.3 Future Rigid-Body Validation
 
-| Test | Objective |
-|---|---|
-| Static reference poses | Verify 6-DOF estimation |
-| Single-axis translations | Verify translational response |
-| Single-axis rotations | Verify rotational response |
-| Combined translations and rotations | Test full pose reconstruction |
-| Irregular passive-motion sequences | Evaluate measurement tracking |
-| Alternative cable configurations | Compare sensing performance |
+After configuration selection, the model should be evaluated under more comprehensive conditions:
 
-Known test trajectories may provide ground truth but must not be supplied to the estimator as known motion.
+- Multiple static poses.
+- Single-axis and combined 3D motions.
+- Irregular passive-motion scenarios.
+- Alternative sensor-noise and calibration assumptions.
+- Multiple estimator initial guesses.
+- Cable-induced force and torque disturbance.
+- Independent experimental ground truth, if hardware is available.
 
-### 5.3 Validation Criteria
+### 5.4 Validation Requirements
 
-A candidate configuration is considered numerically supported only when:
+A new balloon-specific configuration must not be considered verified solely because the reference MATLAB scripts run successfully.
 
-1. Geometry and cable-length calculations are verified.
-2. Analytical and numerical Jacobians agree within a documented tolerance.
-3. Local identifiability is evaluated.
-4. Global pose ambiguity and estimator convergence are investigated.
-5. Position and orientation errors are quantified.
-6. Measurement noise and uncertainty are considered.
-7. Workspace coverage is evaluated over a defined pose domain.
-8. Physical assumptions and limitations are recorded.
+Validation must include:
 
-Numerical simulation does not replace experimental validation using calibrated measurements and independent ground truth.
+1. Consistent geometry and coordinate definitions.
+2. Verified cable-length calculations.
+3. Numerical Jacobian verification.
+4. Local identifiability assessment.
+5. Explicit feasibility constraints.
+6. Pose-estimation accuracy and uncertainty evaluation.
+7. Convergence and failure analysis.
+8. Documented physical and modelling limitations.
+
+Numerical validation must be distinguished from physical experimental validation.
 
 ---
 
 ## 6. Current Assumptions and Open Questions
 
-<!-- UPDATED: Removed the outdated planar measurement scope. -->
-
 | Parameter | Current Status |
 |---|---|
-| 550 mL rigid sphere | Defined approximation |
-| Simplified 3D gastric boundary | Proposed |
-| Gastric length, width, height | Evidence pending |
-| Initial state | Full 3D 6-DOF pose |
-| Cable number | 6 baseline; 7 and 8 primary |
-| Anchor and attachment locations | To be investigated |
-| Cable-length noise and calibration | To be defined |
-| Low-tension tracking | Proposed, not validated |
-| Cable interference and physical feasibility | Not validated |
-| 6-DOF pose-estimation accuracy | Not evaluated |
+| 550 mL rigid sphere | Defined engineering baseline |
+| Simplified gastric boundary | Provisional; B1 review required |
+| Coordinate convention | X = Length, Y = Width, Z = Height |
+| Geometrically feasible centre region | B1 implementation pending |
+| 6-DOF measurement model | Defined |
+| Reference Jacobian and FK | Verified in Phase A |
+| Balloon-specific Jacobian and FK | Pending |
+| Cable number | 6, 7 and 8 candidates |
+| Anchor regions | B1 definition pending |
+| Attachment regions | B1 definition pending |
+| Routing and interference | Not yet evaluated for balloon geometry |
+| Measurement noise | Reference simulation tested; physical model pending |
+| Low-tension tracking | Proposed; not experimentally validated |
 | Balloon deformation sensing | Future extension |
 
-### Immediate Technical Priority
+### Current Technical Priority
 
-1. Establish a simplified 3D gastric geometric boundary.
-2. Define the feasible rigid-sphere centre region.
-3. Implement the 3D cable-length model.
-4. Verify the 6-DOF measurement Jacobian.
-5. Begin the six-, seven- and eight-cable comparison.
+**B1 — Geometry and Candidate Region Definition**
+
+Immediate tasks:
+
+1. Review and reconcile the available gastric geometry evidence.
+2. Confirm coordinate axes and engineering dimensions.
+3. Construct the 550 mL rigid sphere.
+4. Implement the full sphere-containment model.
+5. Define candidate anchor regions.
+6. Define candidate attachment regions.
+7. Generate a reproducible MATLAB geometry visualisation.
+
+No balloon-specific cable configuration has yet been selected or validated.
 
 ---
 
 ## Related Documents
 
 - [Current Research State](../CURRENT_STATE2.md)
-- [Sensing Objective v0.2](Sensing_Objective_v0.2.md)
 - [Research Guidelines](../AGENTS2.md)
+- [Sensing Objective v0.2](Sensing_Objective_v0.2.md)
 - [Research Roadmap](../08_Project_Management/Roadmap.md)
-- [Research TODO](../08_Project_Management/TODO.md)
-- [Weekly Plan](../08_Project_Management/WEEKLY_PLAN.md)
+- [Active Research TODO](../08_Project_Management/current_october_november_todo.md)
+- [Phase A Research Log](../06_Research_Log/2026-10/)
+- [Workspace Boundary v0.2](Workspace_Boundary_v0.2_2026-10-20.md)
 
 ---
+
+**Current Research Priority:** Establish and verify the balloon-specific 3D geometry baseline before generating, screening, and comparing six-, seven-, and eight-cable sensing configurations.
+
 
 **Current Research Priority:** Develop and verify a 3D 6-DOF cable-length measurement model, then determine whether seven or eight cables provide better sensing performance under consistent geometric and mechanical constraints.
