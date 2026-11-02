@@ -1,201 +1,530 @@
 # Current Research State
 
-**Last Updated:** 2026-10-30  
+**Last Updated:** 2026-11-02  
 **Current Phase:** Phase B — Balloon-Specific Cable Sensing Design  
-**Current Task:** B1 — Geometry and Configuration Definition  
-**Primary Tool:** MATLAB  
-**Status:** A1–A5 core method implementations completed; application-specific configuration design pending.
+**Current Focus:** Six-Cable Workspace Validation and Optimisation  
+**Current Task:** B3.1 — Multi-Position Geometric Feasibility  
+**Primary Tool:** MATLAB
+
+**Overall Status:** Phase A core method reproduction completed. B1 initial geometry and B2.2 single-pose configuration comparison completed. Multi-pose six-cable validation is the next research priority.
 
 ---
 
 ## 1. Research Direction
 
-### Long-Term Goal
+### 1.1 Long-Term Goal
 
 Develop a cable-based measurement system to estimate the position, orientation, and eventually deformation or shape of a passively moving balloon-like object.
 
-The application is motivated by intragastric balloon monitoring in a simplified gastric environment.
+The application is motivated by intragastric balloon monitoring within a simplified gastric environment.
 
-The research focuses on **measurement and state estimation**, rather than active trajectory control.
+The system is intended for **measurement and state estimation**, not active motion control.
 
-### Current Research Question
+### 1.2 Main Research Question
 
-> How do cable number, anchor placement, and attachment placement affect the feasibility, identifiability, and pose-estimation accuracy of a passively moving balloon-like object?
+> Can cable-length measurements be used to accurately estimate the 6-DOF pose of a passively moving balloon, and how do cable number, anchor placement, and attachment placement affect sensing performance?
 
-### Current Scope
+### 1.3 Current Research Priority
 
-The current study focuses on:
+The immediate objective is to establish a numerically justified six-cable sensing configuration.
 
-- Three-dimensional rigid-body pose estimation (6-DOF).
-- A simplified gastric boundary.
-- A 550 mL rigid spherical balloon proxy.
-- Six-, seven-, and eight-cable configurations.
-- Cable-length-based measurements.
-- Unknown and passive balloon motion.
-- Motor-assisted low-tension cable tracking as a proposed physical architecture.
+The current research sequence is:
 
-Deformation estimation and shape reconstruction remain future research extensions.
+1. Evaluate six-cable geometric feasibility.
+2. Evaluate sensing sensitivity across multiple poses.
+3. Evaluate pose estimation accuracy.
+4. Improve anchor–attachment placement.
+5. Select a six-cable reference configuration.
+6. Investigate seven- and eight-cable extensions.
+
+The six-cable reference should be validated before additional cables are introduced.
+
+However, selecting a six-cable reference does not require proof of global optimality.
+
+### 1.4 Current Research Scope
+
+- Three-dimensional rigid-body sensing.
+- Six-degree-of-freedom pose estimation.
+- Simplified rectangular engineering boundary.
+- 550 mL rigid spherical balloon.
+- Fixed world-frame cable anchors.
+- Body-frame attachment coordinates.
+- Cable-length measurements.
+- Passive and unknown balloon motion.
+- Motor-assisted low-tension tracking as a proposed physical architecture.
+
+**Future extensions:**
+
+- Seven-/eight-cable redundancy.
+- Sensor and hardware validation.
+- Deformable balloon modelling.
+- Shape and deformation estimation.
 
 ---
 
-## 2. Research Baseline
+## 2. Established Engineering Baseline
 
-| Parameter | Current Definition | Status |
+### 2.1 Geometry
+
+| Parameter | Current Value | Status |
 |---|---|---|
-| Application | Intragastric balloon sensing | Research context |
-| Population reference | Adult female | Initial focus |
-| Environment | Simplified 3D gastric boundary | Candidate model |
-| Coordinate axes | X = Length, Y = Width, Z = Height | Defined |
-| Balloon volume | 550 mL | Selected engineering baseline |
-| Balloon geometry | Rigid sphere | Initial approximation |
-| Equivalent sphere diameter | Approximately 101.7 mm | Derived from volume |
-| Estimated state | 3D position and orientation | 6-DOF |
-| Object motion | Passive and unknown | Research assumption |
-| Cable number | 6 / 7 / 8 | Comparison candidates |
-| Anchor points | Fixed in world frame | Design pending |
-| Attachment points | Fixed in balloon body frame for rigid study | Design pending |
-| Primary measurements | Cable lengths | Selected |
-| Tension tracking | Motor-assisted low positive tension | Proposed; not validated |
-| Measurement noise | 1 mm standard deviation in Paper 4 tests | Simulation assumption |
-| Accuracy requirement | Not yet established | Research gap |
+| Engineering boundary X | 280 mm | Selected |
+| Engineering boundary Y | 300 mm | Selected |
+| Engineering boundary Z | 320 mm | Selected |
+| Balloon volume | 550 mL | Selected |
+| Balloon geometry | Rigid sphere | Engineering approximation |
+| Balloon radius | Approximately 50.83 mm | Calculated |
+| Balloon diameter | Approximately 101.65 mm | Calculated |
+| Initial balloon centre | [0, 0, 0] mm | Reference pose |
+| Initial rotation | Identity matrix | Reference pose |
+| Cable number | Six | Current baseline |
+| Anchor region | Six boundary faces | Initial geometric model |
+| Attachment region | Entire sphere surface | Initial geometric model |
+| Primary measurement | Cable length | Selected |
 
-The 550 mL sphere and simplified gastric envelope are engineering approximations. They are not validated anatomical or clinical movement models.
+The boundary dimensions were increased following supervisor feedback and are used as a fixed initial engineering baseline.
+
+They are not clinically validated gastric lumen dimensions.
+
+### 2.2 Coordinate Convention
+
+The current MATLAB model uses:
+
+- X — Length.
+- Y — Width.
+- Z — Height.
+
+All geometry coordinates are expressed in millimetres.
+
+**World frame:**
+
+- Cable anchor locations.
+- Balloon centre position.
+- World-frame attachment coordinates.
+
+**Body frame:**
+
+- Attachment locations fixed relative to the rigid balloon.
+
+### 2.3 Balloon Motion Assumptions
+
+The balloon:
+
+- Moves passively.
+- Does not follow a predefined trajectory.
+- May translate and rotate.
+- Has constant volume and no deformation in the initial model.
+
+Its true pose may be used to generate simulated measurements and evaluate estimation errors, but must not be provided to the estimator as a known solution.
+
+### 2.4 Proposed Physical Architecture
+
+Motors may maintain low positive cable tension while tracking passive balloon motion.
+
+The following remain unverified:
+
+- Motor and sensor selection.
+- Cable diameter and compliance.
+- Cable friction and routing.
+- Anchor and attachment hardware.
+- Low-tension force range.
+- Disturbance forces on passive balloon motion.
 
 ---
 
 ## 3. Completed Research — Phase A
 
-The A1–A5 tasks investigated existing methods for cable feasibility, workspace analysis, and pose estimation.
+**Status:** Core A1–A5 method reproduction completed.
 
-These methods form the computational foundation for Phase B.
+Phase A established the numerical methods required for balloon-specific design.
 
-### A1 — Tension Factor and Wrench Feasibility
+### 3.1 A1 — Tension Factor and Wrench Feasibility
 
-**Reference:** Paper 2 — RREF / Tension Factor method.
+**Reference:** Paper 2 — RREF, Tension Factor and WCC.
 
 Completed:
 
-- Reproduced the planar cable tension example.
-- Applied RREF to determine relative cable force ratios.
-- Calculated the Tension Factor.
+- Reproduced a planar cable tension example.
+- Applied RREF to obtain relative cable-force coefficients.
 - Verified equilibrium residuals.
+- Calculated the Tension Factor.
 
-**Key result:** The reference planar example produced TF approximately 0.6671.
+**Verified result:**
 
-**Transfer to Phase B:** Cable tension feasibility and relative tension analysis.
+TF ≈ 0.6671.
 
-### A2 — Feasible Cable Anchor Regions
+**Potential application:**
+
+Mechanical tension feasibility and relative cable-force analysis.
+
+**Limitation:**
+
+Tension Factor is not a direct sensing accuracy metric.
+
+### 3.2 A2 — Feasible Cable Anchor Regions
 
 **Reference:** Paper 3 — Algorithm 1.
 
 Completed:
 
-- Constructed a seven-cable 3D wrench matrix.
-- Implemented the RREF-based feasibility formulation.
-- Evaluated candidate cable anchor locations.
-- Applied strict positive self-stress / wrench-closure conditions.
-- Verified linear relationships for the feasibility inequalities.
+- Constructed a seven-cable wrench matrix.
+- Derived relative coefficient relationships.
+- Evaluated WCC feasibility inequalities.
+- Implemented a single-pose feasible anchor-region calculation.
+- Verified affine boundary-function fitting.
 
-**Key result:** 29,291 feasible points out of 68,921 candidate locations for the selected single-pose A7 example.
+**Verified result:**
 
-**Transfer to Phase B:** Candidate anchor-region screening.
+29,291 feasible points from 68,921 candidate locations in the selected reference example.
 
-### A3 — Multi-Pose Feasible Region Intersection
+**Potential application:**
+
+Mechanically feasible candidate-anchor-region screening when the corresponding WCC assumptions are justified.
+
+### 3.3 A3 — Multi-Pose Feasible Region Intersection
 
 **Reference:** Paper 3 — Algorithm 2.
 
 Completed:
 
-- Implemented the intersection of feasible regions across eight sampled platform positions.
-- Compared single-pose and multi-pose feasibility.
-- Evaluated all seven cables in the reference configuration.
-- Verified retained candidate points against the sampled-pose conditions.
+- Generated eight reference platform positions.
+- Evaluated WCC conditions at each pose.
+- Intersected feasible anchor regions.
+- Verified that cumulative feasible counts were non-increasing.
+- Extended the analysis to individual cable anchors.
 
-**Key result:** The A7 eight-pose intersection retained 1,005 candidate locations in the selected sampling grid.
+**Verified result:**
 
-**Transfer to Phase B:** Configuration feasibility across multiple balloon poses.
+1,005 candidate locations remained in the selected eight-pose seventh-anchor WCC experiment.
 
-### A4 — Forward Kinematics and Pose Estimation Uncertainty
+**Potential application:**
+
+Multi-pose constraint intersection.
+
+**Limitation:**
+
+Paper 3's seven-cable WCC criterion is not automatically applicable to a six-cable sensing system.
+
+### 3.4 A4 — Forward Kinematics and Pose Estimation Uncertainty
 
 **Reference:** Paper 4 — Forward Kinematics and Covariance Bounds.
 
 Completed:
 
-- Implemented an eight-cable 3D measurement model.
-- Derived the 8×6 measurement Jacobian.
-- Verified translation and rotation Jacobians by finite differences.
-- Tested combined translation and rotation perturbations.
-- Implemented a Gauss–Newton 6-DOF pose estimator.
-- Verified noiseless pose recovery.
-- Added Gaussian cable-length measurement noise.
-- Computed local pose-estimation covariance.
-- Performed 100-trial Monte Carlo validation.
-- Evaluated Bias, RMSE, Standard Deviation, and 3σ Coverage.
-- Computed NEES and the 95% ANEES consistency test.
-
-**Selected validated results:**
-
-| Metric | Result |
-|---|---|
-| Jacobian rank | 6 |
-| Maximum numerical Jacobian error | 4.102 × 10⁻¹¹ |
-| Noiseless pose recovery | 4 iterations; near-zero pose error |
-| Cable-length noise standard deviation | 1 mm |
-| Predicted position standard deviations | X: 0.5018, Y: 0.9462, Z: 0.6340 mm |
-| Monte Carlo position standard deviations | X: 0.5170, Y: 0.9731, Z: 0.6753 mm |
-| Average NEES | 6.6459 |
-| 95% ANEES acceptance interval | [5.3402, 6.6977] |
-| Statistical consistency test | Passed |
-
-**Limitations:**
-
-- Results are based on a known rigid-body geometry.
-- The principal Monte Carlo experiment uses one fixed true pose.
-- Measurement noise and geometry are idealised.
-- The implemented estimator uses Gauss–Newton rather than reproducing every published solver.
-- Results do not establish actual hardware measurement accuracy or global FK uniqueness.
-
-**Transfer to Phase B:** Pose identifiability, uncertainty prediction, Monte Carlo accuracy evaluation, and statistical validation.
-
-### A5 — 3D Workspace Sampling
-
-**Reference:** Paper 1 — Workspace review and related feasibility concepts.
-
-Completed:
-
-- Created a 3D platform-position sampling grid.
-- Evaluated wrench feasibility.
-- Added cable-length constraints.
-- Compared roll angles of −10°, 0°, and +10°.
-- Computed the intersection of feasible positions across sampled orientations.
-- Visualised feasible workspace regions.
+- Implemented an eight-cable 3D length-measurement model.
+- Derived and verified the 8 × 6 measurement Jacobian.
+- Tested analytical and finite-difference derivatives.
+- Implemented a Gauss–Newton 6-DOF estimator.
+- Verified noiseless pose reconstruction.
+- Added Gaussian cable-length noise.
+- Calculated local pose covariance.
+- Performed a 100-trial Monte Carlo experiment.
+- Evaluated RMSE, standard deviation, coverage and NEES.
 
 **Selected results:**
 
-| Metric | Feasible Points |
-|---|---:|
-| Total sampled positions | 2,197 |
-| WCC-feasible positions at 0° | 861 |
-| WCC and length feasible at 0° | 765 |
-| Combined feasible at −10° roll | 623 |
-| Combined feasible at +10° roll | 175 |
-| Feasible at all three sampled roll angles | 95 |
+| Metric | Recorded Result |
+|---|---|
+| Jacobian rank | 6 |
+| Maximum numerical Jacobian discrepancy | 4.102 × 10⁻¹¹ |
+| Noiseless reconstruction | Near-zero error, 4 iterations |
+| Assumed cable-length noise SD | 1 mm |
+| Predicted position SD (X/Y/Z) | 0.5018 / 0.9462 / 0.6340 mm |
+| Monte Carlo position SD (X/Y/Z) | 0.5170 / 0.9731 / 0.6753 mm |
+| Average NEES | 6.6459 |
+| 95% ANEES acceptance interval | [5.3402, 6.6977] |
+| Consistency result | Passed |
+
+**Potential application:**
+
+- Balloon pose estimation.
+- Jacobian verification.
+- Local uncertainty prediction.
+- Multi-pose Monte Carlo validation.
 
 **Limitations:**
 
-- The sampling region is an illustrative engineering domain.
-- Cable-length limits are assumed.
-- Only three discrete roll values were considered.
-- Gastric sphere containment, cable–balloon interference, and full 6-DOF orientation coverage were not established.
-- The results do not describe the true gastric workspace.
+The reference model is not the current six-cable balloon configuration.
 
-**Transfer to Phase B:** Geometric and sensing-feasible workspace sampling.
+The principal Monte Carlo experiment used one true pose and an assumed measurement-noise model.
+
+The implemented solver does not reproduce every algorithm in the source paper.
+
+### 3.5 A5 — Three-Dimensional Workspace Sampling
+
+**Reference:** Paper 1 — Workspace Review.
+
+Completed:
+
+- Implemented three-dimensional position sampling.
+- Evaluated selected wrench and cable-length conditions.
+- Compared roll orientations.
+- Visualised feasible regions.
+- Calculated discrete multi-orientation intersections.
+
+**Selected results:**
+
+| Metric | Recorded Result |
+|---|---:|
+| Sampled positions | 2,197 |
+| WCC-feasible positions at zero roll | 861 |
+| WCC and length feasible at zero roll | 765 |
+| Combined feasible at −10° roll | 623 |
+| Combined feasible at +10° roll | 175 |
+| Common feasible positions at three roll angles | 95 |
+
+**Potential application:**
+
+Workspace sampling and pointwise constraint evaluation.
+
+**Limitation:**
+
+These values belong to the reference model, not the balloon geometry.
+
+### Phase A Conclusion
+
+Phase A provided transferable mathematical and numerical methods.
+
+It did not establish the feasibility, sensing accuracy, or optimal configuration of the balloon-specific system.
+
+Completed Phase A exercises should not be repeated unless a specific error, limitation, or new research question requires it.
 
 ---
 
-## 4. Established Mathematical Framework
+## 4. Completed Research — Phase B1
 
-### 4.1 Cable Measurement Model
+**Status:** Completed — Initial Geometry Definition.
+
+### 4.1 B1.1 — Engineering Boundary
+
+The supervisor-recommended enlarged boundary was adopted:
+
+\[
+L_g=280\ \mathrm{mm}
+\]
+
+\[
+W_g=300\ \mathrm{mm}
+\]
+
+\[
+H_g=320\ \mathrm{mm}
+\]
+
+This is an engineering baseline rather than a clinically measured boundary.
+
+### 4.2 B1.2 — Balloon Geometry
+
+The rigid balloon model was implemented using:
+
+\[
+V_b=550000\ \mathrm{mm^3}
+\]
+
+\[
+r_b=\left(\frac{3V_b}{4\pi}\right)^{1/3}
+\]
+
+**Result:**
+
+\[
+r_b\approx50.83\ \mathrm{mm}
+\]
+
+MATLAB sphere visualisation and volume calculations were completed.
+
+### 4.3 B1.3 — Geometrically Feasible Centre Region
+
+With zero additional clearance:
+
+\[
+|P_x|\leq89.17\ \mathrm{mm}
+\]
+
+\[
+|P_y|\leq99.17\ \mathrm{mm}
+\]
+
+\[
+|P_z|\leq109.17\ \mathrm{mm}
+\]
+
+**Verified MATLAB results:**
+
+| Metric | Result |
+|---|---:|
+| Total sampled centres | 29,667 |
+| Feasible centres | 6,783 |
+| Infeasible centres | 22,884 |
+
+These results establish geometric sphere containment within the rectangular engineering model.
+
+They do not establish actual physiological balloon motion limits.
+
+### 4.4 B1.4 — Candidate Anchor Regions
+
+Six continuous boundary-face regions were defined.
+
+An initial 3 × 3 sampling scheme generated:
+
+**26 unique anchor candidates.**
+
+The candidate coordinates were numerically verified and visualised in MATLAB.
+
+### 4.5 B1.5 — Candidate Attachment Regions
+
+The spherical balloon surface was defined as the initial attachment candidate region.
+
+A coarse spherical-coordinate sampling scheme generated:
+
+**40 attachment candidates.**
+
+Maximum recorded radius error:
+
+\[
+7.105\times10^{-15}\ \mathrm{mm}
+\]
+
+All attachment coordinates are defined in the balloon body frame.
+
+### 4.6 B1.6 — Integrated Geometry
+
+Completed:
+
+- Boundary and sphere integration.
+- Anchor and attachment visualisation.
+- Coordinate-frame transformation verification.
+- Candidate geometry validation.
+- MATLAB geometry dataset generation.
+
+**MATLAB result: Geometry verification passed.**
+
+### B1 Conclusion
+
+The initial geometry model is sufficiently defined for cable configuration research.
+
+Remaining physical mounting and interference constraints must be evaluated separately.
+
+---
+
+## 5. Completed Research — Phase B2.1 and B2.2
+
+**Status:** Initial single-pose six-cable configuration comparison completed.
+
+### 5.1 Research Question
+
+How do anchor and attachment positions affect the local 6-DOF sensing performance of the balloon?
+
+### 5.2 B2.1 — Initial Six-Cable Baseline
+
+The original reference configuration used six face-centre anchors and an initial set of attachment locations.
+
+**Results:**
+
+| Metric | Value |
+|---|---:|
+| Cable count | 6 |
+| Jacobian rank | 6 |
+| Scaled minimum singular value | 0.004393 |
+| Scaled condition number | 490.956 |
+
+**Finding:**
+
+The Jacobian was full rank but poorly conditioned.
+
+This demonstrates that local full rank alone does not imply well-balanced sensing sensitivity.
+
+### 5.3 B2.2 Experiment A — Fixed Anchors, Variable Attachments
+
+Six face-centre anchors were held fixed.
+
+Attachment locations and pairings were varied using random search.
+
+**Results:**
+
+| Metric | Value |
+|---|---:|
+| Random trials | 20,000 |
+| Valid sampled configurations | 46 |
+| Scaled minimum singular value | 0.535345 |
+| Best observed condition number | 3.5759 |
+
+**Finding:**
+
+Attachment placement produced a substantial improvement in local sensing conditioning.
+
+The selected configuration is a reference candidate, not a globally optimal design.
+
+### 5.4 B2.2 Experiment B — Variable Anchors and Attachments
+
+Both anchor and attachment locations were varied.
+
+Six unique anchor and attachment positions were selected per random trial.
+
+**Results:**
+
+| Metric | Value |
+|---|---:|
+| Random trials | 20,000 |
+| Routing checks passed | 75 |
+| Rank checks passed | 75 |
+| Scaled minimum singular value | 0.533600 |
+| Best observed condition number | 3.2365 |
+
+**Finding:**
+
+Joint anchor–attachment selection further reduced the observed condition number by approximately 9.49% compared with Experiment A.
+
+However, the minimum singular value decreased slightly.
+
+The selected Experiment B configuration was spatially asymmetric, with five of six anchors on the positive-Z boundary.
+
+### 5.5 Comparison Summary
+
+| Metric | Baseline | Experiment A | Experiment B |
+|---|---:|---:|---:|
+| Jacobian rank | 6 | 6 | 6 |
+| Scaled minimum singular value | 0.004393 | 0.535345 | 0.533600 |
+| Scaled condition number | 490.956 | 3.5759 | 3.2365 |
+| Valid random samples | Not consistently screened | 46 | 75 |
+
+A three-configuration MATLAB visual comparison was generated.
+
+### 5.6 Main B2.2 Conclusions
+
+1. Attachment placement strongly affects local sensing geometry.
+2. Joint anchor–attachment selection can further improve the best observed condition number.
+3. Better condition number does not necessarily imply better minimum singular value.
+4. Random search does not guarantee a globally optimal configuration.
+5. A configuration that performs well at the initial pose may perform poorly elsewhere.
+6. The current results are insufficient to select a final six-cable arrangement.
+
+### 5.7 B2.2 Limitations
+
+- Only the reference pose was evaluated.
+- No full workspace feasibility evaluation was performed.
+- Cable–cable interference was not evaluated systematically.
+- Initial straight-cable outward routing does not establish complete physical routing feasibility.
+- Physical cable diameter and minimum clearance remain unknown.
+- Experimental cable-length noise has not been calibrated.
+- Estimator RMSE was not evaluated for these balloon-specific configurations.
+- Global optimality remains unproven.
+
+The original baseline did not undergo exactly the same geometry screening as Experiments A and B.
+
+### B2 Conclusion
+
+The initial six-cable configuration comparison is complete.
+
+The next task is to determine whether Experiment A and Experiment B remain geometrically feasible and sufficiently informative across multiple balloon poses.
+
+**Do not begin seven-/eight-cable optimisation at this stage.**
+
+---
+
+## 6. Established Mathematical Framework
+
+### 6.1 Cable-Length Measurement Model
 
 For cable i:
 
@@ -204,46 +533,64 @@ B_i=P+Rr_i
 \]
 
 \[
-L_i=\|B_i-A_i\|
+L_i=\|A_i-B_i\|
 \]
 
 where:
 
-- \(A_i\): Fixed anchor in the world frame.
-- \(r_i\): Attachment in the body frame.
-- \(P\): Object-centre position.
-- \(R\): Object orientation.
-- \(B_i\): Attachment in the world frame.
+- \(A_i\): world-frame anchor.
+- \(r_i\): body-frame attachment.
+- \(P\): balloon-centre position.
+- \(R\): balloon orientation.
+- \(B_i\): world-frame attachment.
 
-The measurement model is:
+The measured cable length is:
 
 \[
-L_{\mathrm{meas}}=g(P,R)+v
+L_{i,\mathrm{meas}}=L_i+\varepsilon_i
 \]
 
-### 4.2 Measurement Jacobian
+### 6.2 Measurement Jacobian
 
-For small world-frame pose perturbations:
+For small pose perturbations:
 
 \[
 \delta L\approx H\delta q
 \]
 
+For six cables:
+
 \[
-H\in\mathbb{R}^{n\times6}
+H\in\mathbb R^{6\times6}
 \]
 
-Local full-pose identifiability requires:
+Local six-degree-of-freedom identifiability requires:
 
 \[
 \operatorname{rank}(H)=6
 \]
 
-Full rank does not guarantee globally unique pose estimation, sufficient precision, or mechanical feasibility.
+This condition is necessary for local first-order pose reconstruction, but does not establish global uniqueness or sufficient measurement accuracy.
 
-### 4.3 Pose Estimation and Covariance
+### 6.3 Sensing Quality Metrics
 
-Pose estimation can be formulated as nonlinear least squares:
+Current metrics include:
+
+- Jacobian rank.
+- Scaled singular values.
+- Scaled minimum singular value.
+- Scaled condition number.
+- Predicted pose covariance.
+- Position and orientation RMSE.
+- Estimator convergence and failure rate.
+
+Translation and rotation must be scaled consistently when comparing Jacobian conditioning.
+
+### 6.4 Pose Estimation
+
+The pose estimator is based on nonlinear cable-length equations.
+
+A basic formulation is:
 
 \[
 (\hat P,\hat R)=
@@ -251,134 +598,251 @@ Pose estimation can be formulated as nonlinear least squares:
 \|L_{\mathrm{meas}}-g(P,R)\|^2
 \]
 
-For a locally linearised, full-rank model with measurement covariance \(V\):
+The weighted form should be used when the measurement-noise covariance is known and appropriate.
+
+### 6.5 Local Pose Covariance
+
+For a full-column-rank measurement Jacobian and suitable noise assumptions:
 
 \[
-P_{\mathrm{cov}}\approx
-(H^TV^{-1}H)^{-1}
+\Sigma_q\approx
+(H^T\Sigma_L^{-1}H)^{-1}
 \]
 
-This predicts local pose uncertainty under the stated assumptions.
+Covariance is a local linearised uncertainty prediction.
 
-### 4.4 Feasibility and Sensing Quality
+It does not establish experimentally measured system accuracy.
 
-The following must be evaluated separately:
+### 6.6 Geometric and Mechanical Feasibility
 
-1. Geometric feasibility.
-2. Cable-length and routing constraints.
-3. Cable-tension / wrench feasibility.
-4. Local measurement identifiability.
-5. Pose-estimation uncertainty and accuracy.
+Evaluate separately:
 
-A wrench-feasible configuration is not automatically a high-quality sensing configuration.
+1. Balloon containment.
+2. Cable-length constraints.
+3. Cable–sphere interference.
+4. Cable–cable interference.
+5. Mounting and routing feasibility.
+6. Tension feasibility under a specified mechanical model.
+7. Measurement identifiability.
+8. Estimation accuracy.
 
----
-
-## 5. Current Phase — Phase B
-
-**Objective:** Apply the validated methods to a balloon-specific cable sensing configuration.
-
-### B1 — Geometry and Candidate Regions
-
-**Current task.**
-
-Define:
-
-- Simplified gastric boundary.
-- 550 mL rigid spherical balloon.
-- Feasible sphere-centre region.
-- Candidate anchor regions.
-- Candidate attachment regions.
-- Coordinate systems and physical constraints.
-
-**Expected deliverables:**
-
-- A clearly documented 3D geometry baseline.
-- MATLAB visualisation of the gastric boundary and balloon.
-- Initial candidate anchor/attachment regions.
-- A distinction between literature evidence, derived dimensions, and assumptions.
-
-### B2 — Cable Configuration Generation
-
-Construct comparable six-, seven-, and eight-cable configurations.
-
-Preserve consistent geometry assumptions and measurement conditions.
-
-### B3 — Feasibility Screening
-
-Evaluate:
-
-- Object containment.
-- Cable length limits.
-- Cable routing and interference.
-- Positive-tension feasibility.
-- Multi-pose workspace coverage.
-
-### B4 — Sensing Quality Evaluation
-
-Evaluate:
-
-- Jacobian rank.
-- Scale-aware measurement conditioning.
-- Pose covariance.
-- Position and orientation RMSE.
-- Noise sensitivity.
-- Estimator convergence and failure cases.
-
-### B5 — Configuration Selection
-
-Compare candidates using both feasibility and sensing performance.
-
-Select a justified initial configuration for further investigation.
+Do not substitute wrench closure or force-related workspace metrics for sensing quality.
 
 ---
 
-## 6. Open Research Questions
+## 7. Current Research — Six-Cable Validation
 
-| Priority | Research Question | Status |
+**Current Task:** B3.1 — Multi-Position Geometric Feasibility.
+
+The current objective is to test the existing six-cable configurations before modifying their geometry.
+
+### 7.1 B3.1 — Multi-Position Feasibility
+
+Initial position samples:
+
+\[
+P_x,P_y,P_z\in\{-50,0,50\}\ \mathrm{mm}
+\]
+
+Total:
+
+\[
+N=27
+\]
+
+Initial orientation:
+
+\[
+R=I
+\]
+
+Evaluate:
+
+- Full balloon containment.
+- Cable lengths.
+- Cable–sphere interference.
+- Cable–cable minimum distances.
+- Geometric feasibility coverage.
+
+**Input configurations:**
+
+- Experiment A.
+- Experiment B.
+
+**Expected outputs:**
+
+- Geometric feasibility maps.
+- Minimum cable-distance results.
+- Pose failure classification.
+- A/B feasibility comparison.
+
+### 7.2 B3.2 — Multi-Pose Feasibility
+
+Extend the position samples to include:
+
+- Zero rotation.
+- Roll ±10°.
+- Pitch ±10°.
+- Yaw ±10°.
+
+These are illustrative initial engineering rotations, not measured physiological motion limits.
+
+The first combined set contains 189 poses.
+
+### 7.3 B4.1 — Sensing Quality
+
+Evaluate:
+
+- Jacobian rank across poses.
+- Scaled singular values.
+- Condition-number distributions.
+- Local pose covariance.
+- Weak sensing directions.
+- Sensitivity to selected geometric perturbations.
+
+### 7.4 B5.1 — Six-Cable Configuration Improvement
+
+Use workspace-level evaluation criteria to improve anchor–attachment placement.
+
+The initial optimisation study should:
+
+- Reuse Experiment A and B as references.
+- Use consistent geometric constraints.
+- Evaluate common training poses.
+- Preserve infeasible results.
+- Retain multiple promising configurations.
+- Avoid unsupported global-optimality claims.
+
+### 7.5 B4.2 — Pose Estimation Accuracy
+
+Adapt the Phase A4 forward-kinematics implementation.
+
+Evaluate multiple feasible poses under explicitly defined measurement noise.
+
+Report:
+
+- Position RMSE.
+- Orientation RMSE.
+- Estimator convergence.
+- Local covariance consistency.
+- Geometric calibration sensitivity.
+
+### 7.6 B5.2 — Six-Cable Reference Selection
+
+Select a reproducible six-cable reference configuration using:
+
+- Geometric feasibility.
+- Workspace-level sensing quality.
+- Estimated pose accuracy.
+- Robustness.
+- Implementation complexity.
+
+The selected reference is a research baseline, not a guaranteed global optimum.
+
+---
+
+## 8. Literature and Method Selection
+
+### Existing Phase A Methods
+
+| Literature | Available Method | Application Stage |
 |---|---|---|
-| High | Which gastric boundary parameters should be used for the engineering model? | B1 |
-| High | Where can fixed anchors physically be placed? | B1 |
-| High | Where can attachments be placed on the spherical balloon? | B1 |
-| High | How should cable–balloon interference be modelled? | B1/B3 |
-| High | How do 6, 7, and 8 cables compare under identical conditions? | B2–B4 |
-| High | Which configurations retain rank 6 over the required workspace? | B4 |
-| High | Which feasible configurations minimise pose uncertainty? | B4/B5 |
-| Medium | What measurement noise and calibration models are realistic? | Pending |
-| Medium | How can low cable tension be maintained without disturbing passive motion? | Pending |
-| Medium | How can independent ground truth be measured experimentally? | Pending |
-| Future | Can balloon deformation be estimated together with pose? | Future extension |
+| Paper 1 | Workspace sampling | B3 |
+| Paper 2 | Configuration optimisation framework | B5 |
+| Paper 3 | WCC anchor regions and multi-pose intersection | Future 7-cable study |
+| Paper 4 | Forward kinematics and covariance | B4 |
+
+### Additional Method Categories
+
+The literature extension focuses on:
+
+| Category | Main Use | Stage |
+|---|---|---|
+| Cable–cable interference | Minimum distance between cable segments | B3 |
+| Cable–object interaction | Collision and potential wrapping | B3 / Future |
+| Multi-objective optimisation | Configuration selection | B5 |
+| Geometric calibration | Installation error sensitivity | B4 |
+| Cable-length measurement | Sensor noise and calibration | B4 / Hardware |
+| Redundant cable systems | Seven-/eight-cable extension | Future |
+
+**Research Rule:**
+
+Apply published methods only when they address the current research question.
+
+Do not reproduce additional algorithms solely because they appear in the literature.
 
 ---
 
-## 7. Immediate Next Action
+## 9. Open Research Questions
 
-**Start B1 — Geometry Definition.**
-
-Recommended sequence:
-
-1. Review the existing gastric boundary evidence.
-2. Confirm the selected engineering dimensions and coordinate convention.
-3. Define the 550 mL rigid sphere and its feasible centre region.
-4. Identify candidate anchor and attachment regions.
-5. Create a reproducible MATLAB geometry model.
-
-Do not begin cable-placement optimisation before the geometry assumptions and feasibility constraints are explicit.
+| Priority | Research Question | Planned Stage |
+|---|---|---|
+| Critical | Are Experiments A and B geometrically feasible across multiple poses? | B3 |
+| Critical | How should cable–sphere interference be calculated? | B3 |
+| Critical | How should cable–cable interference be calculated? | B3 |
+| High | Does Experiment B remain better than A across the workspace? | B4 |
+| High | Which six-cable geometries retain local rank six? | B4 |
+| High | What are the weakest sensing directions? | B4 |
+| High | How does cable-length noise affect pose uncertainty? | B4 |
+| High | How sensitive is pose estimation to anchor and attachment errors? | B4 |
+| High | Which configuration provides the best observed workspace-level trade-off? | B5 |
+| Medium | What is the physically appropriate cable-tension range? | Hardware |
+| Medium | What measurement resolution can the proposed sensors achieve? | Hardware |
+| Medium | How should ground-truth pose be measured experimentally? | Phase C |
+| Future | Does a seventh or eighth cable improve sensing accuracy and robustness? | 7/8-cable stage |
+| Future | Can balloon deformation and shape be estimated? | Phase D |
 
 ---
 
-## 8. Main Repository References
+## 10. Immediate Next Action
+
+### Start B3.1 — Six-Cable Multi-Position Geometric Feasibility
+
+**Research Question:**
+
+> Can the existing six-cable configurations remain geometrically feasible when the balloon moves to different positions?
+
+The initial investigation must:
+
+1. Load Experiment A and B geometry.
+2. Generate the same 27 balloon-centre positions.
+3. Verify sphere containment.
+4. Calculate cable lengths.
+5. Test cable–sphere interference.
+6. Test cable–cable minimum distances.
+7. Compare sampled geometric feasibility.
+8. Record failures and limitations.
+
+**Important:**
+
+Do not modify anchor or attachment positions during this first feasibility experiment.
+
+The purpose is to identify limitations of the existing configurations before performing further optimisation.
+
+### Expected Files
+
+- `B3_1_multi_position_feasibility.m`
+- `B3_1_segment_distance_3d.m`
+- `B3_1_results.mat`
+- `B3_1_feasibility_notes.md`
+
+The complete daily execution plan is maintained in `weekly_plan_03.md`.
+
+---
+
+## 11. Main Repository References
 
 ### Research Guidance
 
 - [AGENTS2.md](AGENTS2.md)
 - [README.md](README.md)
 
-### Planning
+### Project Management
 
 - [Research Roadmap](08_Project_Management/Roadmap.md)
-- [October–November TODO](08_Project_Management/current_october_november_todo.md)
-- [Weekly Plan 02](08_Project_Management/weekly_plan_02.md)
+- [Current TODO](08_Project_Management/current_october_november_todo.md)
+- [Weekly Plan 03](08_Project_Management/weekly_plan_03.md)
+- [Previous Weekly Plan](08_Project_Management/weekly_plan_02.md)
 
 ### Research Models
 
@@ -386,11 +850,33 @@ Do not begin cable-placement optimisation before the geometry assumptions and fe
 - [Rigid-Body Sensing Design](05_My_Research/Rigid_Body_Sensing_Design.md)
 - [Workspace Boundary](05_My_Research/Workspace_Boundary_v0.2_2026-10-20.md)
 
-### Completed Method Records
+### Literature
+
+- [Existing Literature Review](02_Paper_Reading/Literature_Review/workspace%20definition/anchor%20point%20and%20attachment%20point%20define.md)
+- `02_Paper_Reading/Literature_Review/Phase_B_Method_Selection_2026-11-02.md` — companion literature file; check repository upload status.
+
+### Research Code and Logs
 
 - [MATLAB Code](04_Code_Exercises/MATLAB/)
 - [October Research Log](06_Research_Log/2026-10/)
+- `06_Research_Log/2026-11/` — current Phase B experiment records.
 
 ---
 
-**Next Milestone:** Establish a balloon-specific 3D geometry baseline and candidate anchor/attachment regions before comparing 6-, 7-, and 8-cable sensing configurations.
+## 12. Research Milestone
+
+**Current Milestone: Establish a validated six-cable reference configuration.**
+
+The next milestone requires:
+
+- Multi-pose geometry evaluation.
+- Sensing Jacobian and uncertainty evaluation.
+- Pose-estimation accuracy evaluation.
+- Workspace-level configuration improvement.
+- Independent validation.
+
+Seven- and eight-cable extensions will follow after sufficient six-cable reference validation.
+
+**Guiding Principle:**
+
+> Research questions determine the methods. Numerical evidence determines the configuration. Additional cables are introduced only when their benefits and requirements can be evaluated meaningfully.
