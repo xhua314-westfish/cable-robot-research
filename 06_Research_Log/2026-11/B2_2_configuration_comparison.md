@@ -4,6 +4,8 @@
 **Phase:** B — Balloon-Specific Cable Sensing Design  
 **Status:** Completed — Initial single-pose configuration comparison
 
+---
+
 ## 1. Research Question
 
 How do anchor and attachment placements influence the local 6-DOF sensing performance of a passive rigid spherical balloon?
@@ -22,9 +24,9 @@ How do anchor and attachment placements influence the local 6-DOF sensing perfor
 
 Three configurations were investigated:
 
-1. **Baseline:** fixed face-centre anchors and initially selected attachments.
-2. **Experiment A:** fixed face-centre anchors with variable attachments.
-3. **Experiment B:** variable anchors and variable attachments.
+1. **Baseline:** Fixed face-centre anchors and initially selected attachments.
+2. **Experiment A:** Fixed face-centre anchors with variable attachments.
+3. **Experiment B:** Variable anchors and variable attachments.
 
 ## 3. Numerical Results
 
@@ -64,12 +66,81 @@ The experiments demonstrate that anchor–attachment configuration substantially
 
 Experiment B produced the lowest observed scaled condition number (3.2365) at the reference pose. However, this is not sufficient to establish workspace-wide sensing quality or global optimality.
 
-## 7. Next Research Task
+**Research Decision:**
 
-**B2.3 — Adapt Paper 3 Algorithms 1 and 2.**
+The initial six-cable configuration comparison is complete, but the final anchor and attachment coordinates have not been selected.
 
-Investigate whether a seventh cable can be added to the existing six-cable reference geometry to satisfy the specified positive-tension wrench-closure condition, initially at one pose and subsequently across multiple poses.
+Experiment A and Experiment B will be retained as candidate configurations for further workspace-level validation.
 
-Keep wrench feasibility separate from sensing accuracy.
+---
 
-Future work will evaluate multi-pose sensing performance, physical feasibility, pose uncertainty, and six-/seven-/eight-cable comparisons.
+## 7. Next Research Task — B3.1
+
+**B3.1 — Six-Cable Multi-Position Geometric Feasibility**
+
+### Research Question
+
+Can the existing Experiment A and Experiment B six-cable configurations remain geometrically feasible when the balloon moves to different positions?
+
+### Initial Evaluation Setup
+
+Use the same 27 balloon-centre positions for both configurations:
+
+\[
+P_x,P_y,P_z\in\{-50,0,50\}\ \mathrm{mm}
+\]
+
+Initial orientation:
+
+\[
+R=I
+\]
+
+### Planned Evaluation
+
+1. Verify balloon containment.
+2. Calculate cable lengths at all 27 positions.
+3. Check cable–sphere interference.
+4. Calculate minimum cable–cable distances.
+5. Identify failed poses and failure mechanisms.
+6. Calculate geometric feasibility coverage.
+7. Compare Experiment A and Experiment B.
+
+### Important Constraint
+
+Do not modify the selected anchor or attachment coordinates during this initial validation.
+
+The purpose is to identify the limitations of the existing configurations before further optimisation.
+
+### Expected Outputs
+
+- `B3_1_multi_position_feasibility.m`
+- `B3_1_segment_distance_3d.m`
+- `B3_1_results.mat`
+- `B3_1_feasibility_notes.md`
+
+## 8. Subsequent Research Direction
+
+After B3.1:
+
+**B3.2 — Multi-Pose Feasibility**
+
+Extend geometric evaluation to multiple orientations.
+
+**B4 — Sensing Quality and Pose Accuracy**
+
+Evaluate Jacobian rank, scaled singular values, condition number, pose covariance, forward kinematics, and Monte Carlo RMSE.
+
+**B5 — Six-Cable Configuration Optimisation**
+
+Improve anchor–attachment placement using workspace-level objectives and select a numerically justified six-cable reference configuration.
+
+**Future — Seven- and Eight-Cable Extension**
+
+Investigate additional cables only after the six-cable reference configuration has undergone sufficient validation.
+
+Paper 3 Algorithms 1 and 2 may be reused when mechanically appropriate, but they are not the immediate next research task.
+
+---
+
+**Current Research Priority:** Validate the existing six-cable configurations across multiple balloon poses before changing the cable count.
