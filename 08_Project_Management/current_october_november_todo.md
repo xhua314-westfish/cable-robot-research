@@ -1,380 +1,721 @@
 # October–November Research TODO
 
-**Last Updated:** 2026-10-30  
-**Original Planning Period:** 2026-10-22 to 2026-11-18  
-**Current Phase:** Phase B — Balloon-Specific Cable Sensing Design  
-**Current Task:** B1 — Geometry and Candidate Region Definition  
-**Workload Reference:** 4–5 hours per research day
+**Last Updated:** 2026-11-02  
+**Research Phase:** Phase B — Balloon-Specific Cable Sensing Design  
+**Current Focus:** Six-Cable Workspace Validation and Configuration Optimisation  
+**Next Task:** B3.1 — Multi-Position Geometric Feasibility  
+**Workload:** 4–5 hours per research day
 
 ---
 
 ## 1. Purpose
 
-This document tracks actionable research tasks, their completion criteria, and required outputs.
+This document tracks the current research tasks, their completion status, expected outputs, and acceptance criteria.
 
-The original October–November plan focused on reproducing cable-robot methods from four papers.
+The research follows a problem-driven approach:
 
-The core Phase A methods were completed ahead of the original schedule.
+**Define geometry → Generate configurations → Evaluate feasibility → Evaluate sensing accuracy → Optimise placement → Select a reference configuration.**
 
-The research now moves to Phase B, where these methods will be applied to balloon-specific cable sensing configurations.
+### Current Research Priority
 
-For long-term milestones, see [Roadmap.md](Roadmap.md).
+The immediate priority is to develop and validate a reliable **six-cable reference configuration**.
 
-For detailed current findings, see [CURRENT_STATE2.md](../CURRENT_STATE2.md).
+Seven- and eight-cable configurations will be investigated after the six-cable system has undergone sufficient geometric and sensing-performance validation.
+
+Literature methods will be selected according to the research question, rather than reproduced without a specific purpose.
 
 ---
 
-## 2. Phase A — Completed Method Reproduction
+## 2. Research Baseline
 
-**Status:** Core scope completed.
+| Parameter | Current Definition | Status |
+|---|---|---|
+| Application | Passive balloon pose sensing | Defined |
+| Engineering boundary | 280 × 300 × 320 mm | Selected engineering baseline |
+| Balloon volume | 550 mL | Selected |
+| Balloon model | Rigid sphere | Initial simplification |
+| Balloon radius | Approximately 50.83 mm | Derived |
+| Motion | Passive and unknown | Assumed |
+| Estimated state | 6-DOF pose | Defined |
+| Initial cable number | 6 | Current |
+| Future cable number | 7 and 8 | Deferred |
+| Anchor region | Six boundary faces | Initial candidate region |
+| Attachment region | Spherical surface | Initial candidate region |
+| Anchor candidates | 26 discrete points | Generated |
+| Attachment candidates | 40 discrete points | Generated |
+| Primary measurements | Cable lengths | Selected |
+| Primary software | MATLAB | Selected |
 
-| ID | Research Task | Main Outcome | Status |
+### Important Assumptions
+
+1. The engineering boundary is not a clinically validated gastric lumen.
+2. The initial sphere is rigid and has constant volume.
+3. The boundary faces also serve as idealised anchor-mounting surfaces in the current simulation.
+4. Actual anchor installation and cable routing remain unverified.
+5. The proposed motors maintain low cable tension without prescribing balloon motion.
+6. The estimator must not use the true balloon trajectory as an input.
+7. Physical sensor resolution and calibration errors have not yet been established experimentally.
+
+---
+
+## 3. Phase A — Literature Method Reproduction
+
+**Status: Core scope completed.**
+
+| Task | Method | Outcome | Status |
 |---|---|---|---|
-| A1 | Paper 2 — RREF, Tension Factor and WCC | Tension feasibility verification | Completed |
-| A2 | Paper 3 — Algorithm 1 | Feasible anchor-region calculation | Completed |
+| A1 | Paper 2 — RREF, TF and WCC | Cable force feasibility analysis | Completed |
+| A2 | Paper 3 — Algorithm 1 | Single-pose feasible anchor region | Completed |
 | A3 | Paper 3 — Algorithm 2 | Multi-pose feasible-region intersection | Completed |
 | A4 | Paper 4 — Forward Kinematics | Jacobian, covariance, Monte Carlo and NEES | Completed |
-| A5 | Paper 1 — Workspace Sampling | Sampled 3D feasible workspace | Completed |
+| A5 | Paper 1 — Workspace Sampling | Three-dimensional feasibility sampling | Completed |
 
-### Phase A Completion Checklist
+### Available Methods
 
-- [x] A1 — Verify RREF and cable force ratios.
-- [x] A1 — Reproduce Tension Factor of approximately 0.6671.
-- [x] A2 — Implement Algorithm 1 feasibility inequalities.
-- [x] A2 — Generate and verify candidate feasible regions.
-- [x] A3 — Implement multi-pose region intersection.
-- [x] A3 — Extend feasibility evaluation to seven cables.
-- [x] A4 — Implement the 8-cable length measurement model.
-- [x] A4 — Verify the 6-DOF measurement Jacobian.
-- [x] A4 — Implement nonlinear forward kinematics using Gauss–Newton.
-- [x] A4 — Evaluate covariance and measurement-noise sensitivity.
-- [x] A4 — Run 100-trial Monte Carlo validation.
-- [x] A4 — Evaluate Bias, RMSE and 3σ coverage.
-- [x] A4 — Perform the 95% ANEES consistency test.
-- [x] A5 — Implement 3D position-grid sampling.
-- [x] A5 — Evaluate WCC and cable-length feasibility.
-- [x] A5 — Evaluate selected roll-angle constraints.
-- [x] Document core methods, assumptions and limitations.
-- [x] Archive MATLAB code and research notes.
+- Cable-length measurement model.
+- Six-degree-of-freedom measurement Jacobian.
+- Jacobian rank and singular-value analysis.
+- Wrench-closure feasibility analysis.
+- Multi-pose feasible-region intersection.
+- Forward kinematics using Gauss–Newton.
+- Local pose-estimation covariance.
+- Monte Carlo validation.
+- Workspace sampling.
 
-### Important Completion Limitations
+### Important Limitation
 
-The completed work demonstrates selected computational methods, not full experimental system validation.
+Phase A demonstrated selected methods using reference geometries.
 
-- Paper 1 is a review; A5 is a method-inspired implementation.
-- Paper 3 feasible regions depend on the selected reference geometry and sampled poses.
-- Paper 4 used a Gauss–Newton estimator and a simplified measurement-noise model.
-- The principal A4 Monte Carlo test used one fixed true pose.
-- The previous workspace experiments do not define a clinically validated gastric workspace.
+It did not validate the final balloon-specific sensing system.
 
-These limitations should be retained when transferring methods to Phase B.
+These methods should be reused and adapted when relevant.
 
 ---
 
-## 3. Phase B — Actionable Research Tasks
+## 4. Phase B1 — Geometry and Candidate Region Definition
 
-**Overall Objective:**
+**Status: Completed — Initial engineering geometry.**
 
-Design and evaluate comparable 6-, 7-, and 8-cable sensing configurations for a passive 550 mL rigid spherical balloon within a simplified gastric environment.
+### B1.1 — Engineering Boundary
 
-### B1 — Geometry and Candidate Region Definition
+- [x] Review existing gastric geometry evidence.
+- [x] Distinguish literature dimensions from engineering assumptions.
+- [x] Adopt the supervisor-recommended enlarged boundary.
+- [x] Define consistent X/Y/Z coordinate conventions.
 
-**Status:** Current.
+**Selected boundary:**
 
-**Research Question:**
+- X — Length: 280 mm.
+- Y — Width: 300 mm.
+- Z — Height: 320 mm.
 
-How should the gastric boundary, balloon geometry, anchor regions, and attachment regions be defined?
+The boundary is an engineering simulation envelope rather than a measured anatomical workspace.
 
-#### B1.1 — Review Existing Geometry Evidence
+### B1.2 — Balloon Geometry
 
-- [ ] Review `Workspace_Boundary_v0.2_2026-10-20.md`.
-- [ ] Cross-check the existing gastric length, width and height assumptions against supporting evidence.
-- [ ] Separate literature-reported dimensions from derived estimates and engineering assumptions.
-- [ ] Select and document the initial engineering boundary.
+- [x] Define a 550 mL rigid spherical balloon.
+- [x] Calculate equivalent radius and diameter.
+- [x] Implement the MATLAB sphere model.
+- [x] Verify volume numerically.
 
-**Deliverable:** B1 geometry parameter table with evidence and assumptions.
+**Result:**
 
-**Acceptance Criteria:** Every selected dimension has a value or range, unit, source or assumption label, and explanation.
+- Radius ≈ 50.83 mm.
+- Diameter ≈ 101.65 mm.
 
-#### B1.2 — Define the 550 mL Balloon Geometry
+### B1.3 — Geometrically Feasible Centre Region
 
-- [ ] Convert 550 mL into the equivalent spherical radius and diameter.
-- [ ] Define the balloon-centre coordinate and local body frame.
-- [ ] Implement the rigid sphere in MATLAB.
-- [ ] Distinguish the rigid spherical proxy from a real deformable balloon.
+- [x] Define full sphere-containment constraints.
+- [x] Calculate feasible balloon-centre limits.
+- [x] Generate three-dimensional centre samples.
+- [x] Visualise feasible and infeasible centres.
+- [x] Verify sampled results.
 
-**Deliverable:** MATLAB sphere geometry and model definition.
+**Results:**
 
-**Acceptance Criteria:** Balloon volume and geometry are numerically verified.
+| Metric | Result |
+|---|---:|
+| X centre limit | ±89.17 mm |
+| Y centre limit | ±99.17 mm |
+| Z centre limit | ±109.17 mm |
+| Total sampled centres | 29,667 |
+| Feasible centres | 6,783 |
+| Infeasible centres | 22,884 |
 
-#### B1.3 — Define the Geometrically Feasible Region
+The results assume zero additional clearance and the selected rectangular boundary.
 
-- [ ] Define the gastric envelope mathematically.
-- [ ] Implement the full sphere-containment condition.
-- [ ] Compute candidate balloon-centre limits.
-- [ ] Visualise feasible and infeasible centre positions.
-- [ ] Document how the simplified boundary affects the result.
+### B1.4 — Candidate Anchor Regions
 
-**Deliverable:** MATLAB geometric-feasibility model and visualisation.
+- [x] Define six continuous boundary-face regions.
+- [x] Implement an initial 3 × 3 face-sampling scheme.
+- [x] Remove duplicate candidate coordinates.
+- [x] Verify candidate points lie on the boundary.
+- [x] Produce a three-dimensional visualisation.
 
-**Acceptance Criteria:** Every retained centre position satisfies the selected containment constraints.
+**Result:** 26 unique anchor candidates.
 
-#### B1.4 — Define Candidate Anchor Regions
+The discrete points are an initial sampling set, not a final design restriction.
 
-- [ ] Distinguish the anatomical boundary from physically mountable anchor structures.
-- [ ] Identify candidate external or fixture-mounted anchor regions.
-- [ ] Define anchor locations in the world coordinate frame.
-- [ ] Record access, mounting and routing constraints.
-- [ ] Produce an initial candidate-region visualisation.
+Physical mounting feasibility remains unresolved.
 
-**Deliverable:** Initial anchor-region definition.
+### B1.5 — Candidate Attachment Regions
 
-**Acceptance Criteria:** All candidate regions have explicit geometric definitions and assumptions.
+- [x] Define body-frame attachment coordinates.
+- [x] Parameterise the spherical surface.
+- [x] Generate 40 candidate attachment points.
+- [x] Verify the surface-radius condition.
+- [x] Produce the MATLAB visualisation.
 
-#### B1.5 — Define Candidate Attachment Regions
+**Result:** 40 attachment candidates.
 
-- [ ] Define the balloon body coordinate frame.
-- [ ] Parameterise attachment locations on the sphere surface.
-- [ ] Identify candidate attachment regions.
-- [ ] Define minimum spacing and basic interference considerations.
-- [ ] Record possible physical attachment mechanisms as unresolved design constraints.
+Maximum recorded radius error: approximately 7.105 × 10⁻¹⁵ mm.
 
-**Deliverable:** Initial attachment-region definition.
+### B1.6 — Geometry Integration
 
-**Acceptance Criteria:** Attachment coordinates are expressed consistently in the body frame and lie on the selected sphere surface.
+- [x] Combine boundary, balloon, anchor and attachment geometry.
+- [x] Verify coordinate transformations.
+- [x] Verify numerical geometry constraints.
+- [x] Generate the integrated three-dimensional figure.
+- [x] Generate the MATLAB geometry dataset locally.
 
-#### B1.6 — Integrate and Verify Geometry
+**Result:** Geometry verification passed.
 
-- [ ] Combine the boundary, sphere and candidate regions in one MATLAB model.
-- [ ] Verify coordinate conventions and units.
-- [ ] Check geometric constraints numerically.
-- [ ] Generate a clean 3D configuration figure.
-- [ ] Save assumptions, results and unresolved questions.
+### B1 Completion Statement
 
-**Deliverable:** B1 geometry script, figure and research note.
+The initial simulation geometry is complete.
 
-**B1 Definition of Done:**
+The following issues are intentionally deferred:
 
-- [ ] Selected geometry and assumptions are documented.
-- [ ] The sphere-containment model is verified.
-- [ ] Candidate anchor regions are defined.
-- [ ] Candidate attachment regions are defined.
-- [ ] MATLAB geometry visualisation is complete.
-- [ ] B1 results are archived for B2.
+- Physical anchor mounting.
+- Attachment mechanism design.
+- Cable–sphere and cable–cable interference.
+- Cable tension and passive-motion disturbance.
+- Hardware feasibility.
+
+These are not considered solved by the B1 geometry verification.
 
 ---
 
-### B2 — Cable Configuration Generation
+## 5. Phase B2 — Six-Cable Configuration Generation
 
-**Status:** Planned.
+**Status: Initial configuration comparison completed; final configuration not yet selected.**
 
-**Research Question:**
+### B2.1 — Initial Six-Cable Baseline
 
-How can comparable six-, seven-, and eight-cable configurations be generated from B1?
+- [x] Define six face-centre anchors.
+- [x] Select six initial attachment points.
+- [x] Establish anchor–attachment correspondence.
+- [x] Calculate cable lengths.
+- [x] Calculate the 6 × 6 measurement Jacobian.
+- [x] Evaluate rank and scaled conditioning.
 
-- [ ] Define cable number as a configuration parameter.
-- [ ] Generate six-cable reference candidates.
-- [ ] Generate seven-cable candidates.
-- [ ] Generate eight-cable candidates.
-- [ ] Define anchor-to-attachment correspondence.
-- [ ] Enforce basic geometry and spacing constraints.
-- [ ] Store candidate coordinates and identifiers.
-- [ ] Produce comparable 3D configuration figures.
+**Recorded results:**
+
+| Metric | Value |
+|---|---:|
+| Jacobian rank | 6 |
+| Scaled minimum singular value | 0.004393 |
+| Scaled condition number | 490.956 |
+
+**Finding:** Full rank does not guarantee good sensing conditioning.
+
+### B2.2 — Anchor–Attachment Configuration Comparison
+
+**Status: Completed — Single-pose exploratory comparison.**
+
+#### Experiment A — Fixed Anchors, Variable Attachments
+
+- [x] Keep six face-centre anchors fixed.
+- [x] Perform 20,000 random configuration trials.
+- [x] Check initial routing constraints.
+- [x] Check Jacobian rank.
+- [x] Record the best observed scaled condition number.
+
+**Results:**
+
+- Valid random configurations: 46.
+- Scaled minimum singular value: 0.535345.
+- Best scaled condition number: 3.5759.
+
+#### Experiment B — Variable Anchors and Attachments
+
+- [x] Select six unique anchors from 26 candidates.
+- [x] Select six unique attachments from 40 candidates.
+- [x] Perform 20,000 random configuration trials.
+- [x] Check initial routing constraints.
+- [x] Check Jacobian rank.
+- [x] Record the best observed configuration.
+- [x] Generate a three-configuration MATLAB comparison figure.
+
+**Results:**
+
+- Routing passed: 75.
+- Rank passed: 75.
+- Scaled minimum singular value: 0.533600.
+- Best scaled condition number: 3.2365.
+
+### B2.2 Comparison
+
+| Metric | Baseline | Experiment A | Experiment B |
+|---|---:|---:|---:|
+| Rank | 6 | 6 | 6 |
+| Scaled minimum singular value | 0.004393 | 0.535345 | 0.533600 |
+| Scaled condition number | 490.956 | 3.5759 | 3.2365 |
+| Random trials | — | 20,000 | 20,000 |
+| Valid random samples | — | 46 | 75 |
+
+### B2.2 Key Findings
+
+1. Attachment placement significantly influences local sensing performance.
+2. Joint anchor–attachment selection can provide further improvement.
+3. Experiment B reduced the observed condition number by approximately 9.49% relative to Experiment A.
+4. Experiment B's minimum singular value was slightly lower than Experiment A's.
+5. Single-pose random search does not establish workspace-wide performance.
+6. The observed best configuration is not necessarily globally optimal.
+
+### Outstanding B2 Tasks
+
+- [ ] Archive the MATLAB comparison figure and configuration datasets in GitHub.
+- [ ] Verify both selected configurations over multiple poses.
+- [ ] Investigate installation and geometric perturbation sensitivity.
+- [ ] Improve the six-cable configuration using workspace-level objectives.
+- [ ] Select a validated six-cable reference configuration.
+
+### B2.3 — Seven-Cable Extension
+
+**Status: Deferred.**
+
+Do not begin the seven-cable extension until the six-cable reference configuration has been validated.
+
+Paper 3 Algorithm 1 and Algorithm 2 may be considered at that stage if their WCC assumptions are relevant to the proposed low-tension tracking mechanism.
+
+---
+
+## 6. Phase B3 — Six-Cable Feasibility Evaluation
+
+**Status: Next.**
+
+### Research Question
+
+Which sampled balloon poses are geometrically feasible for the existing six-cable configurations?
+
+### B3.1 — Multi-Position Feasibility
+
+**Initial pose set:**
+
+\[
+P_x,P_y,P_z\in\{-50,0,50\}\ \text{mm}
+\]
+
+**Number of positions:** 27.
+
+**Orientation:** R = I.
+
+Tasks:
+
+- [ ] Load Experiment A and Experiment B.
+- [ ] Generate the common 27-position test set.
+- [ ] Verify balloon containment.
+- [ ] Calculate cable lengths at each position.
+- [ ] Implement finite-segment cable–sphere interference checks.
+- [ ] Implement finite-segment cable–cable minimum-distance checks.
+- [ ] Identify failed configurations and failure reasons.
+- [ ] Calculate sampled geometric feasibility rates.
+- [ ] Generate a three-dimensional feasibility comparison.
+
+**Relevant literature:** Paper 1 and N1 — Cable–Cable Interference.
 
 **Deliverables:**
 
-- Candidate configuration dataset.
-- MATLAB configuration-generation functions.
-- 6/7/8-cable visualisations.
+- MATLAB feasibility evaluation script.
+- Feasibility data table.
+- Position feasibility map.
+- Explanation of failure cases.
 
-**Definition of Done:**
+**Acceptance criteria:**
 
-- [ ] All three cable counts are represented.
-- [ ] Configurations use common coordinate and unit conventions.
-- [ ] Candidate-generation assumptions are documented.
-- [ ] Candidates are reproducible from stored parameters.
+- [ ] Both configurations use the same position samples.
+- [ ] Cable–sphere and cable–cable checks are numerically verified.
+- [ ] Interference assumptions and clearances are documented.
+- [ ] The sampled feasibility rate is calculated correctly.
+- [ ] No physically unverified cable-length or clearance limit is described as experimentally validated.
 
----
+### B3.2 — Multi-Pose Feasibility
 
-### B3 — Feasibility Screening
+Extend the experiment to include rotations.
 
-**Status:** Planned.
+**Initial orientation samples:**
 
-**Research Question:**
+- Zero rotation.
+- ±10° roll.
+- ±10° pitch.
+- ±10° yaw.
 
-Which configurations satisfy geometric and mechanical constraints throughout the sampled workspace?
+These are seven initial orientation cases, not a validated physiological rotation range.
 
-- [ ] Define a common pose-sampling grid.
-- [ ] Apply balloon containment constraints.
-- [ ] Evaluate cable-length limits.
-- [ ] Implement cable–sphere interference checks.
-- [ ] Investigate cable–cable interference.
-- [ ] Evaluate WCC or specified tension-feasibility conditions.
-- [ ] Apply multi-pose feasible-region intersection.
-- [ ] Calculate sampled feasible workspace coverage.
-- [ ] Identify infeasible or poorly constrained regions.
+Combining 27 positions and 7 orientations gives 189 initial poses.
 
-**Deliverables:**
+Tasks:
 
-- Feasibility evaluation scripts.
-- Feasible workspace maps.
-- Configuration screening summary.
+- [ ] Define orientation matrices consistently.
+- [ ] Transform attachment coordinates at every pose.
+- [ ] Recalculate cable lengths.
+- [ ] Recalculate interference conditions.
+- [ ] Check geometric feasibility across all sampled poses.
+- [ ] Identify poses where a configuration becomes infeasible.
+- [ ] Compare Experiment A and Experiment B.
+- [ ] Generate multi-pose feasibility maps.
 
-**Definition of Done:**
-
-- [ ] Feasibility conditions are explicit.
-- [ ] The same pose samples are used for comparable configurations.
-- [ ] Cable-length and routing constraints are evaluated.
-- [ ] Tension feasibility is assessed under stated assumptions.
-- [ ] Workspace coverage is reported quantitatively.
-
-**Important:** Local 6-DOF identifiability and positive-tension wrench closure are different requirements.
-
----
-
-### B4 — Sensing Quality Evaluation
-
-**Status:** Planned.
-
-**Research Question:**
-
-How accurately and reliably can feasible cable configurations reconstruct six-degree-of-freedom pose?
-
-- [ ] Calculate the measurement Jacobian for each configuration.
-- [ ] Evaluate Jacobian rank over sampled poses.
-- [ ] Apply physically meaningful scaling for conditioning comparisons.
-- [ ] Predict local pose covariance.
-- [ ] Define common sensor-noise scenarios.
-- [ ] Perform Monte Carlo pose-estimation tests.
-- [ ] Calculate position and orientation RMSE.
-- [ ] Evaluate Bias and uncertainty coverage.
-- [ ] Investigate estimator convergence and ambiguous solutions.
-- [ ] Compare results across 6-, 7-, and 8-cable candidates.
+**Relevant literature:** Paper 1 and N1.
 
 **Deliverables:**
 
-- Sensing-quality evaluation scripts.
-- Covariance and RMSE comparisons.
-- Rank and conditioning maps.
-- Configuration performance tables.
+- Multi-pose feasibility results.
+- Orientation-dependent workspace maps.
+- Summary of failure cases.
 
-**Definition of Done:**
+**Acceptance criteria:**
 
-- [ ] Candidate systems are evaluated under consistent conditions.
-- [ ] Rank-deficient regions are identified.
-- [ ] Pose uncertainty is quantified.
-- [ ] Monte Carlo evaluation is completed for selected candidates.
-- [ ] Poor convergence and limitations are documented.
+- [ ] All evaluated poses use consistent coordinate conventions.
+- [ ] Every constraint is recalculated at each pose.
+- [ ] Failed poses are retained in the results.
+- [ ] Feasibility coverage is reported relative to the declared pose set.
 
 ---
 
-### B5 — Configuration Selection
+## 7. Phase B4 — Six-Cable Sensing Quality
 
-**Status:** Planned.
+**Status: Planned.**
 
-**Research Question:**
+### Research Question
 
-Which configuration best balances feasible workspace, pose-estimation accuracy, and physical complexity?
+How accurately and reliably can feasible six-cable configurations reconstruct balloon position and orientation?
 
-- [ ] Compare geometric and mechanical feasibility.
-- [ ] Compare sensing workspace coverage.
-- [ ] Compare pose-estimation uncertainty and RMSE.
-- [ ] Compare cable number and implementation complexity.
-- [ ] Investigate the sensitivity of candidate rankings to noise and geometry assumptions.
-- [ ] Select a preferred initial configuration.
-- [ ] Record alternatives and unresolved physical constraints.
+### B4.1 — Jacobian and Sensitivity Evaluation
+
+Tasks:
+
+- [ ] Calculate the measurement Jacobian at every sampled pose.
+- [ ] Numerically verify the analytical Jacobian for the balloon geometry.
+- [ ] Evaluate Jacobian rank.
+- [ ] Apply characteristic-length scaling.
+- [ ] Calculate scaled singular values.
+- [ ] Calculate scaled condition numbers.
+- [ ] Identify poorly conditioned pose regions.
+- [ ] Calculate local pose covariance under a stated noise model.
+- [ ] Compare Experiment A and Experiment B.
+- [ ] Investigate sensitivity to selected geometric parameter perturbations.
+
+**Relevant literature:** Paper 4 and N5 — Geometric Calibration and Error Compensation.
 
 **Deliverables:**
 
-- Final configuration comparison.
-- Selected cable configuration.
-- Research justification and limitations.
-- Phase C validation recommendations.
+- Rank map.
+- Singular-value distribution.
+- Condition-number distribution.
+- Local covariance maps.
+- Sensitivity comparison.
 
-**Definition of Done:**
+**Acceptance criteria:**
 
-- [ ] Configuration selection is supported by quantitative results.
-- [ ] Selection criteria and trade-offs are explicit.
-- [ ] Preferred anchor and attachment coordinates are documented.
-- [ ] The selected configuration is ready for more extensive validation.
+- [ ] Measurement and wrench Jacobians are not confused.
+- [ ] Translation and rotation scaling is documented.
+- [ ] Singular or poorly conditioned poses are identified.
+- [ ] Covariance is only calculated or interpreted under its valid assumptions.
+- [ ] Local sensitivity is not presented as experimental measurement accuracy.
+
+### B4.2 — Forward Kinematics and Monte Carlo
+
+Tasks:
+
+- [ ] Adapt the existing Phase A4 forward-kinematics code.
+- [ ] Reconstruct six-degree-of-freedom poses from simulated cable lengths.
+- [ ] Introduce explicitly defined measurement noise.
+- [ ] Perform Monte Carlo tests at multiple feasible poses.
+- [ ] Calculate position RMSE.
+- [ ] Calculate orientation RMSE.
+- [ ] Investigate estimator initialisation and convergence.
+- [ ] Investigate selected anchor and attachment calibration errors.
+- [ ] Compare measured simulation errors with local covariance predictions.
+- [ ] Report failed estimates and ambiguous solutions.
+
+**Relevant literature:** Paper 4, N5 and N6 — Direct Cable Length Measurement.
+
+**Initial noise reference:** Independent 1 mm cable-length standard deviation, retained from Phase A as an illustrative simulation assumption.
+
+**Deliverables:**
+
+- Forward-kinematics evaluation script.
+- Position and orientation RMSE.
+- Estimator convergence statistics.
+- Noise and geometry sensitivity results.
+
+**Acceptance criteria:**
+
+- [ ] True poses are not supplied to the estimator as known solutions.
+- [ ] Multiple poses are evaluated.
+- [ ] Error statistics are reported independently for position and orientation.
+- [ ] Failed convergence is documented.
+- [ ] Simulation noise is not described as validated hardware accuracy.
 
 ---
 
-## 4. Current Priority Queue
+## 8. Phase B5 — Six-Cable Optimisation and Selection
 
-**Active task: B1.1 — Review Existing Geometry Evidence.**
+**Status: Planned.**
 
-Recommended execution order:
+### Research Question
 
-| Order | Task | Status |
+Which six-cable arrangement provides the best trade-off between sensing performance, feasible workspace coverage, and implementation complexity?
+
+### B5.1 — Multi-Pose Configuration Improvement
+
+Tasks:
+
+- [ ] Define configuration design variables.
+- [ ] Define explicit geometric and sensing constraints.
+- [ ] Establish a workspace-based optimisation objective.
+- [ ] Compare candidate-search methods.
+- [ ] Use the existing A/B configurations as reference solutions.
+- [ ] Improve anchor and attachment placement across sampled poses.
+- [ ] Record objective-function values and feasibility.
+- [ ] Retain multiple promising configurations.
+- [ ] Avoid claiming global optimality from random search alone.
+
+**Relevant literature:** Paper 2 and N3 — Multi-Objective Configuration Optimisation.
+
+**Optional later method:** N4 — Response Surface Optimisation.
+
+**Candidate optimisation objectives:**
+
+- Maximise feasible workspace coverage.
+- Improve worst-case scaled minimum singular value.
+- Minimise worst-case scaled condition number.
+- Reduce predicted pose uncertainty.
+- Consider physical implementation complexity.
+
+Not every metric must be combined into one weighted objective immediately.
+
+The initial method should remain understandable and reproducible.
+
+**Deliverables:**
+
+- Configuration optimisation script.
+- Candidate ranking table.
+- Optimisation history.
+- Selected promising configurations.
+
+**Acceptance criteria:**
+
+- [ ] Optimisation constraints are explicit.
+- [ ] All candidates are evaluated under common pose samples.
+- [ ] Invalid configurations are excluded or explicitly penalised.
+- [ ] Performance improvements are supported by numerical results.
+- [ ] No unverified global-optimality claim is made.
+
+### B5.2 — Six-Cable Reference Selection
+
+Tasks:
+
+- [ ] Compare feasible workspace coverage.
+- [ ] Compare Jacobian conditioning.
+- [ ] Compare local pose covariance.
+- [ ] Compare position and orientation RMSE.
+- [ ] Compare geometric and mounting complexity.
+- [ ] Evaluate selected configurations on independent validation poses.
+- [ ] Record limitations and unresolved constraints.
+- [ ] Select a preferred six-cable reference configuration.
+- [ ] Save coordinates and cable correspondence.
+
+**Deliverables:**
+
+- Six-Cable Reference Configuration v1.0.
+- Configuration comparison table.
+- MATLAB parameter dataset.
+- Research conclusion and limitations.
+
+**Acceptance criteria:**
+
+- [ ] The selected configuration is numerically reproducible.
+- [ ] Multiple feasible poses are evaluated.
+- [ ] The selected geometry and performance trade-offs are justified.
+- [ ] Independent validation results are documented.
+- [ ] Remaining physical uncertainties are stated.
+
+**Important:** A six-cable reference configuration is a validated research baseline, not a guaranteed global optimum.
+
+If the acceptance criteria are not met, continue six-cable investigation instead of prematurely extending the system.
+
+---
+
+## 9. Future Seven- and Eight-Cable Extension
+
+**Status: Deferred until six-cable reference selection.**
+
+### Seven-Cable Study
+
+- [ ] Start from the selected six-cable reference.
+- [ ] Introduce the seventh cable as an additional design variable.
+- [ ] Evaluate sensing redundancy.
+- [ ] Evaluate changes in uncertainty and workspace coverage.
+- [ ] Investigate WCC only under explicitly justified mechanical assumptions.
+- [ ] Adapt Paper 3 Algorithm 1 and Algorithm 2 when applicable.
+- [ ] Consider joint re-optimisation if adding a cable to the fixed six-cable geometry is inadequate.
+
+### Eight-Cable Study
+
+- [ ] Extend the system to eight cable measurements.
+- [ ] Compare measurement Jacobian singular values and covariance.
+- [ ] Quantify pose-estimation robustness under consistent noise assumptions.
+- [ ] Investigate additional mechanical and routing constraints.
+- [ ] Compare against the six- and seven-cable configurations.
+
+**Relevant future literature:** Paper 3 and N7 — Overconstrained CDPR Design.
+
+Do not equate additional cables with guaranteed improvement.
+
+The benefit must be established quantitatively.
+
+---
+
+## 10. Seven-Research-Day Execution Plan
+
+**Planning period:** 2026-11-02 to 2026-11-10.
+
+| Date | Task | Expected Output | Status |
+|---|---|---|---|
+| Nov 2 | B2.2 review and closure | Three-configuration comparison and research record | Results verified; repository archiving pending |
+| Nov 3 | B3.1 — Multi-position geometric feasibility | Feasibility map and pass rate | Next |
+| Nov 4 | B3.2 — Multi-pose feasibility | Orientation-dependent feasibility map | Planned |
+| Nov 5 | B4.1 — Jacobian and sensing sensitivity | Rank, singular values, conditioning and covariance | Planned |
+| Nov 6 | B5.1 — Multi-pose configuration improvement | Improved candidate configurations | Planned |
+| Nov 9 | B4.2 — FK and Monte Carlo | Position/orientation RMSE and sensitivity | Planned |
+| Nov 10 | B5.2 — Six-cable reference selection | Reference configuration and performance report | Planned |
+
+**Daily workload:** Approximately 4–5 hours.
+
+The sequence may change if a feasibility or estimation problem requires additional investigation.
+
+### Daily Research Workflow
+
+1. State the research question.
+2. Identify the minimum required theory or literature method.
+3. Implement the MATLAB experiment.
+4. Verify the numerical results.
+5. Explain the physical meaning and limitations.
+6. Save the code, results, and short research note.
+
+---
+
+## 11. Current Priority Queue
+
+| Priority | Task | Status |
 |---|---|---|
-| 1 | B1.1 — Gastric boundary evidence and parameters | Current |
-| 2 | B1.2 — 550 mL balloon geometry | Next |
-| 3 | B1.3 — Sphere-centre feasible region | Planned |
-| 4 | B1.4 — Candidate anchor regions | Planned |
-| 5 | B1.5 — Candidate attachment regions | Planned |
-| 6 | B1.6 — Geometry integration and verification | Planned |
-
-Do not begin B2–B5 optimisation until the B1 geometry baseline and relevant constraints have been documented.
-
----
-
-## 5. Scientific and Modelling Rules
-
-1. Treat balloon motion as passive and unknown to the estimator.
-2. Keep fixed world-frame anchors separate from body-frame attachments.
-3. Distinguish anatomical boundaries from physically mountable structures.
-4. Separate geometric feasibility, tension feasibility and sensing quality.
-5. Use Jacobian rank 6 as a local identifiability condition, not proof of global uniqueness.
-6. Do not treat Tension Factor as the primary sensing-accuracy metric.
-7. Use consistent noise assumptions and pose samples when comparing configurations.
-8. Treat covariance as a local, model-dependent prediction.
-9. Document assumptions before selecting numerical design thresholds.
-10. Preserve original simulation evidence and record failed cases.
+| 1 | B3.1 — Multi-position feasibility | Next |
+| 2 | B3.2 — Multi-pose feasibility | Planned |
+| 3 | B4.1 — Jacobian and sensing quality | Planned |
+| 4 | B5.1 — Six-cable optimisation | Planned |
+| 5 | B4.2 — Pose-estimation accuracy | Planned |
+| 6 | B5.2 — Six-cable reference selection | Planned |
+| 7 | Seven-/eight-cable extension | Deferred |
 
 ---
 
-## 6. Research Output Convention
+## 12. Scientific and Modelling Rules
 
-Each completed B-stage task should produce the smallest useful combination of:
-
-- A MATLAB script or function (`.m`).
-- A figure (`.png`) when visual evidence is useful.
-- A short research note (`.md`).
-- Explicit model parameters and units.
-- Numerical verification results.
-- Limitations and the next action.
-
-Use existing repository folders where possible.
-
-**Suggested locations:**
-
-- MATLAB scripts: `04_Code_Exercises/MATLAB/`
-- Research models: `05_My_Research/`
-- Experiment records: `06_Research_Log/`
-- Project planning: `08_Project_Management/`
-
-Avoid copying identical progress reports into multiple files.
+1. Prioritise six-cable validation before adding redundant cables.
+2. Treat passive balloon motion as unknown to the estimator.
+3. Distinguish anatomical assumptions from engineering model dimensions.
+4. Keep world-frame anchors separate from body-frame attachments.
+5. Keep the measurement Jacobian distinct from the wrench matrix.
+6. Distinguish geometric feasibility, tension feasibility and sensing quality.
+7. Do not require WCC without a mechanically justified reason.
+8. Use Jacobian rank six as a local identifiability condition only.
+9. Apply consistent translation/rotation scaling when comparing Jacobian condition numbers.
+10. Use common pose samples, geometric rules and noise models for fair configuration comparisons.
+11. Evaluate estimation accuracy rather than relying on condition numbers alone.
+12. Treat the predicted covariance as local and model-dependent.
+13. Record failed poses, invalid routing and estimator failures.
+14. Document numerical thresholds and modelling assumptions.
+15. Do not claim global optimality without appropriate evidence.
+16. Use literature methods when they solve the current research question.
 
 ---
 
-## 7. Source Material
+## 13. Research Output Convention
 
-### Existing Research Documents
+Use the existing repository structure.
 
-- [Current Research State](../CURRENT_STATE2.md)
+| Output | Location |
+|---|---|
+| MATLAB scripts | `04_Code_Exercises/MATLAB/` |
+| Research models and configuration definitions | `05_My_Research/` |
+| Experiment results and explanations | `06_Research_Log/2026-11/` |
+| Research task planning | `08_Project_Management/` |
+| Literature method selection | `02_Paper_Reading/Literature_Review/` |
+
+### Recommended Outputs per Task
+
+- MATLAB `.m` script.
+- Relevant `.png` figure.
+- Numerical summary or `.mat` dataset.
+- Short `.md` research note.
+- Explicit assumptions, limitations and next action.
+
+Avoid duplicating the same detailed experimental results across multiple project files.
+
+Update `CURRENT_STATE2.md` only when a meaningful research milestone is reached.
+
+---
+
+## 14. Related Files
+
+### Project Management
+
 - [Research Roadmap](Roadmap.md)
-- [Weekly Plan 02](weekly_plan_02.md)
+- [Previous Phase A Plan](weekly_plan_02.md)
+- [Current Research State](../CURRENT_STATE2.md)
+
+### Research Models
+
+- [Rigid-Body Sensing Design](../05_My_Research/Rigid_Body_Sensing_Design.md)
+- [Sensing Objective](../05_My_Research/Sensing_Objective_v0.2.md)
 - [Workspace Boundary](../05_My_Research/Workspace_Boundary_v0.2_2026-10-20.md)
-- [Research Log](../06_Research_Log/2026-10/)
 
-### Paper References
+### Literature
 
-- **Paper 1:** Tho & Thinh (2022), *An Overview of Cable-Driven Parallel Robots: Workspace, Tension Distribution, and Cable Sagging*.
-- **Paper 2:** Cheng & Lau (2023), *Cable Attachment Optimization for Reconfigurable Cable-Driven Parallel Robots Based on Various Workspace Conditions*.
-- **Paper 3:** Cheng, Lau & Hughes (2025), *Determining Feasible Cable Attachment Locations for Cable-Driven Parallel Robot*.
-- **Paper 4:** Patel, Nguyen & Caverly (2023), *Forward Kinematics of a Cable-Driven Parallel Robot with Pose Estimation Error Covariance Bounds*.
+- [Phase A Methods](../02_Paper_Reading/Literature_Review/workspace%20definition/anchor%20point%20and%20attachment%20point%20define.md)
+- `02_Paper_Reading/Literature_Review/Phase_B_Method_Selection_2026-11-02.md` — companion literature method-selection document, to be linked once committed.
+
+### Research Logs
+
+- [October Research Log](../06_Research_Log/2026-10/)
+- `06_Research_Log/2026-11/` — current experiment logs, to be archived.
 
 ---
 
-**Next Action:** Complete B1.1 by reviewing and consolidating the gastric geometry evidence before implementing the B1 MATLAB balloon model.
+## 15. Immediate Next Action
+
+**B3.1 — Six-Cable Multi-Position Geometric Feasibility**
+
+Start with the existing Experiment A and Experiment B six-cable configurations.
+
+Use the same 27 reference centre positions and zero orientation.
+
+Evaluate:
+
+1. Full sphere containment.
+2. Cable lengths.
+3. Cable–sphere interference.
+4. Cable–cable minimum distances.
+5. Geometric feasibility rates.
+
+Preserve failed cases and explain the associated constraints.
+
+**Do not modify anchor or attachment locations during the initial B3.1 validation.**
+
+First establish how the existing configurations behave across multiple positions. Use those results to guide the subsequent six-cable optimisation.
+
+---
+
+**Current Milestone:** Establish a numerically justified six-cable reference configuration before expanding to seven or eight cables.
