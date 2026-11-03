@@ -1,11 +1,10 @@
 # October–November Research TODO
 
-**Last Updated:** 2026-11-02  
+**Last Updated:** 2026-11-03  
 **Research Phase:** Phase B — Balloon-Specific Cable Sensing Design  
-**Current Focus:** Six-Cable Workspace Validation and Configuration Optimisation  
-**Next Task:** B3.1 — Multi-Position Geometric Feasibility  
+**Current Focus:** Six-Cable Sensing Quality and Configuration Optimisation  
+**Next Task:** B4.1 — Jacobian and Sensitivity Evaluation  
 **Workload:** 4–5 hours per research day
-
 ---
 
 ## 1. Purpose
@@ -291,95 +290,145 @@ Paper 3 Algorithm 1 and Algorithm 2 may be considered at that stage if their WCC
 
 ---
 
-## 6. Phase B3 — Six-Cable Feasibility Evaluation
 
-**Status: Next.**
+## 6. Phase B3 — Six-Cable Geometric Feasibility Evaluation
+
+**Status: Completed — Initial discrete multi-pose evaluation.**
 
 ### Research Question
 
-Which sampled balloon poses are geometrically feasible for the existing six-cable configurations?
+Which sampled balloon poses are geometrically feasible for the existing Experiment A and Experiment B six-cable configurations?
 
 ### B3.1 — Multi-Position Feasibility
 
-**Initial pose set:**
+**Status: Completed.**
 
-\[
-P_x,P_y,P_z\in\{-50,0,50\}\ \text{mm}
-\]
+**Test conditions:**
 
-**Number of positions:** 27.
+- Balloon-centre coordinates: Px, Py, Pz ∈ {-50, 0, 50} mm.
+- Number of positions: 27.
+- Orientation: R = I.
+- Configurations: Experiment A and Experiment B.
+- Cable model: Ideal straight, zero-thickness segments.
 
-**Orientation:** R = I.
+**Completed tasks:**
 
-Tasks:
+- [x] Load the two six-cable configurations.
+- [x] Generate 27 common test positions.
+- [x] Verify full balloon containment.
+- [x] Calculate cable lengths.
+- [x] Evaluate cable–sphere interference.
+- [x] Implement and test finite-segment cable–cable distance calculations.
+- [x] Calculate geometric feasibility.
+- [x] Generate a 3D feasibility comparison.
+- [x] Archive code, datasets and research notes.
 
-- [ ] Load Experiment A and Experiment B.
-- [ ] Generate the common 27-position test set.
-- [ ] Verify balloon containment.
-- [ ] Calculate cable lengths at each position.
-- [ ] Implement finite-segment cable–sphere interference checks.
-- [ ] Implement finite-segment cable–cable minimum-distance checks.
-- [ ] Identify failed configurations and failure reasons.
-- [ ] Calculate sampled geometric feasibility rates.
-- [ ] Generate a three-dimensional feasibility comparison.
+**Results:**
 
-**Relevant literature:** Paper 1 and N1 — Cable–Cable Interference.
+| Metric | Experiment A | Experiment B |
+|---|---:|---:|
+| Balloon containment | 27/27 | 27/27 |
+| Cable–sphere pass | 8/27 | 27/27 |
+| Cable–cable pass | 27/27 | 0/27 |
+| Combined geometric pass | 8/27 | 0/27 |
+| Minimum cable–cable distance | 10.697497 mm | Approximately 0 mm |
 
-**Deliverables:**
+**Findings:**
 
-- MATLAB feasibility evaluation script.
-- Feasibility data table.
-- Position feasibility map.
-- Explanation of failure cases.
+1. Experiment A is mainly limited by cable–sphere interference involving Cables 2, 4 and 6.
+2. Experiment B exhibits contact between Cables 5 and 6 at all 27 zero-rotation positions.
+3. Good single-pose Jacobian conditioning does not guarantee multi-position geometric feasibility.
 
-**Acceptance criteria:**
+**Research record:**
 
-- [ ] Both configurations use the same position samples.
-- [ ] Cable–sphere and cable–cable checks are numerically verified.
-- [ ] Interference assumptions and clearances are documented.
-- [ ] The sampled feasibility rate is calculated correctly.
-- [ ] No physically unverified cable-length or clearance limit is described as experimentally validated.
+`06_Research_Log/2026-11/B3_1_feasibility_notes.md`
 
 ### B3.2 — Multi-Pose Feasibility
 
-Extend the experiment to include rotations.
+**Status: Completed.**
 
-**Initial orientation samples:**
+**Test conditions:**
 
-- Zero rotation.
-- ±10° roll.
-- ±10° pitch.
-- ±10° yaw.
+- The same 27 centre positions as B3.1.
+- Seven orientation cases: zero rotation, ±10° roll, ±10° pitch and ±10° yaw.
+- Total combined poses: 189.
+- Fixed anchor and body-frame attachment coordinates.
+- Ideal straight, zero-thickness cables.
 
-These are seven initial orientation cases, not a validated physiological rotation range.
+**Completed tasks:**
 
-Combining 27 positions and 7 orientations gives 189 initial poses.
+- [x] Define and verify rotation matrices.
+- [x] Generate 189 combined translation–rotation poses.
+- [x] Recalculate cable lengths at every pose.
+- [x] Verify consistency with B3.1 zero-rotation results.
+- [x] Evaluate cable–sphere interference.
+- [x] Evaluate cable–cable interference.
+- [x] Diagnose the principal failure mechanisms.
+- [x] Generate orientation-dependent 3D feasibility maps.
+- [x] Save MATLAB results and research notes.
 
-Tasks:
+**Results:**
 
-- [ ] Define orientation matrices consistently.
-- [ ] Transform attachment coordinates at every pose.
-- [ ] Recalculate cable lengths.
-- [ ] Recalculate interference conditions.
-- [ ] Check geometric feasibility across all sampled poses.
-- [ ] Identify poses where a configuration becomes infeasible.
-- [ ] Compare Experiment A and Experiment B.
-- [ ] Generate multi-pose feasibility maps.
+| Metric | Experiment A | Experiment B |
+|---|---:|---:|
+| Cable–sphere pass | 40/189 | 186/189 |
+| Cable–cable pass | 189/189 | 108/189 |
+| Combined geometric pass | 40/189 | 105/189 |
+| Combined sampled pass rate | 21.2% | 55.6% |
+| Minimum cable–cable distance | 6.090818 mm | Approximately 0 mm |
 
-**Relevant literature:** Paper 1 and N1.
+**Combined feasibility by orientation:**
 
-**Deliverables:**
+| Orientation | Experiment A | Experiment B |
+|---|---:|---:|
+| Zero rotation | 8/27 | 0/27 |
+| Roll +10° | 11/27 | 0/27 |
+| Roll -10° | 2/27 | 0/27 |
+| Pitch +10° | 4/27 | 25/27 |
+| Pitch -10° | 5/27 | 27/27 |
+| Yaw +10° | 5/27 | 27/27 |
+| Yaw -10° | 5/27 | 26/27 |
 
-- Multi-pose feasibility results.
-- Orientation-dependent workspace maps.
-- Summary of failure cases.
+**Findings:**
 
-**Acceptance criteria:**
+1. Experiment A remains primarily limited by cable–sphere interference, especially Cable 4.
+2. Experiment B has 81 cable–cable contact poses, all associated with Cable Pair 5–6.
+3. Experiment B's Cable 5–6 contact occurs for all tested centre positions at zero rotation and roll ±10°.
+4. No Cable 5–6 numerical contacts were detected for the tested pitch or yaw ±10° cases.
+5. Experiment B achieves higher combined geometric feasibility on the declared 189-pose test set.
+6. Neither configuration is suitable for final selection without additional sensing and mechanical evaluation.
 
-- [ ] All evaluated poses use consistent coordinate conventions.
-- [ ] Every constraint is recalculated at each pose.
-- [ ] Failed poses are retained in the results.
-- [ ] Feasibility coverage is reported relative to the declared pose set.
+**Numerical verification:**
+
+- Rotation matrix orthogonality and determinant checks passed.
+- Zero-rotation cable-length consistency checks passed.
+- Zero-rotation cable-distance consistency checks passed.
+- The results remain based on discrete sampling.
+
+**Research record:**
+
+`06_Research_Log/2026-11/B3_2_feasibility_notes.md`
+
+### B3 Completion Statement
+
+The initial six-cable discrete geometric feasibility study is complete.
+
+**Important limitations:**
+
+- No continuous workspace guarantee.
+- No simultaneous multi-axis rotation sampling.
+- No experimentally validated cable diameter or clearance.
+- No physical routing or hardware validation.
+- No tension-feasibility or passive-motion disturbance analysis.
+- No workspace-wide Jacobian or pose-accuracy evaluation.
+
+**Research Decision:**
+
+Retain Experiment A and Experiment B as reference candidates for B4.
+
+Proceed to workspace-level sensing analysis before undertaking B5 anchor–attachment optimisation.
+
+Do not select a final six-cable configuration based on geometric pass rate alone.
 
 ---
 
@@ -578,32 +627,34 @@ The benefit must be established quantitatively.
 
 ---
 
+
 ## 10. Seven-Research-Day Execution Plan
 
 **Planning period:** 2026-11-02 to 2026-11-10.
 
 | Date | Task | Expected Output | Status |
 |---|---|---|---|
-| Nov 2 | B2.2 review and closure | Three-configuration comparison and research record | Results verified; repository archiving pending |
-| Nov 3 | B3.1 — Multi-position geometric feasibility | Feasibility map and pass rate | Next |
-| Nov 4 | B3.2 — Multi-pose feasibility | Orientation-dependent feasibility map | Planned |
-| Nov 5 | B4.1 — Jacobian and sensing sensitivity | Rank, singular values, conditioning and covariance | Planned |
-| Nov 6 | B5.1 — Multi-pose configuration improvement | Improved candidate configurations | Planned |
-| Nov 9 | B4.2 — FK and Monte Carlo | Position/orientation RMSE and sensitivity | Planned |
-| Nov 10 | B5.2 — Six-cable reference selection | Reference configuration and performance report | Planned |
+| Nov 2 | B2.2 — Configuration comparison | Initial A/B comparison | Completed |
+| Nov 3 | B3.1 — Multi-position feasibility | 27-position geometric evaluation | Completed |
+| Nov 3 | B3.2 — Multi-pose feasibility | 189-pose geometric evaluation | Completed |
+| Next | B4.1 — Jacobian and sensing sensitivity | Rank, singular values, conditioning, covariance | Next |
+| Planned | B5.1 — Multi-pose configuration improvement | Improved six-cable candidates | Planned |
+| Planned | B4.2 — FK and Monte Carlo | Pose RMSE and convergence statistics | Planned |
+| Planned | B5.2 — Reference configuration selection | Six-cable reference configuration v1.0 | Planned |
 
 **Daily workload:** Approximately 4–5 hours.
 
-The sequence may change if a feasibility or estimation problem requires additional investigation.
+Dates for remaining tasks are provisional and may be adjusted according to numerical validation progress.
 
 ### Daily Research Workflow
 
 1. State the research question.
 2. Identify the minimum required theory or literature method.
 3. Implement the MATLAB experiment.
-4. Verify the numerical results.
+4. Verify numerical results.
 5. Explain the physical meaning and limitations.
-6. Save the code, results, and short research note.
+6. Answer research reflection questions.
+7. Archive code, results and research notes.
 
 ---
 
@@ -611,13 +662,13 @@ The sequence may change if a feasibility or estimation problem requires addition
 
 | Priority | Task | Status |
 |---|---|---|
-| 1 | B3.1 — Multi-position feasibility | Next |
-| 2 | B3.2 — Multi-pose feasibility | Planned |
-| 3 | B4.1 — Jacobian and sensing quality | Planned |
-| 4 | B5.1 — Six-cable optimisation | Planned |
-| 5 | B4.2 — Pose-estimation accuracy | Planned |
-| 6 | B5.2 — Six-cable reference selection | Planned |
-| 7 | Seven-/eight-cable extension | Deferred |
+| 1 | B4.1 — Jacobian and sensing quality | Next |
+| 2 | B5.1 — Six-cable configuration optimisation | Planned |
+| 3 | B4.2 — Pose-estimation accuracy | Planned |
+| 4 | B5.2 — Six-cable reference selection | Planned |
+| 5 | Seven-/eight-cable extension | Deferred |
+
+**Completed milestones:** B1, B2 initial comparison, B3.1 and B3.2.
 
 ---
 
@@ -694,27 +745,57 @@ Update `CURRENT_STATE2.md` only when a meaningful research milestone is reached.
 
 ---
 
+
 ## 15. Immediate Next Action
 
-**B3.1 — Six-Cable Multi-Position Geometric Feasibility**
+**B4.1 — Six-Cable Jacobian and Sensing Quality Evaluation**
 
-Start with the existing Experiment A and Experiment B six-cable configurations.
+### Research Question
 
-Use the same 27 reference centre positions and zero orientation.
+Can the existing Experiment A and Experiment B configurations provide locally identifiable and sufficiently sensitive 6-DOF pose measurements across their geometrically feasible sampled poses?
 
-Evaluate:
+### Planned Evaluation
 
-1. Full sphere containment.
-2. Cable lengths.
-3. Cable–sphere interference.
-4. Cable–cable minimum distances.
-5. Geometric feasibility rates.
+1. Load the saved 189-pose B3.2 dataset.
+2. Reuse the fixed Experiment A/B anchor–attachment configurations.
+3. Calculate the measurement Jacobian at every sampled pose.
+4. Verify the analytical Jacobian numerically.
+5. Evaluate rank and characteristic-length-scaled singular values.
+6. Calculate condition numbers.
+7. Evaluate local pose covariance using an explicitly defined cable-length noise model.
+8. Compare sensing quality over geometrically feasible poses.
+9. Record singular and poorly conditioned poses separately.
+10. Prepare evidence for the B5 optimisation objectives.
 
-Preserve failed cases and explain the associated constraints.
+### Important Evaluation Rules
 
-**Do not modify anchor or attachment locations during the initial B3.1 validation.**
+- Do not modify the selected anchor or attachment coordinates during B4.1.
+- Preserve results for all 189 poses, including geometrically infeasible poses, for diagnostic purposes.
+- Report sensing metrics for geometrically feasible subsets separately.
+- Compare Experiment A and Experiment B using common criteria.
+- Do not interpret assumed sensor noise as experimentally calibrated accuracy.
+- Do not interpret Jacobian rank six as proof of globally unique pose reconstruction.
+- Do not treat geometric feasibility as proof of tension feasibility.
 
-First establish how the existing configurations behave across multiple positions. Use those results to guide the subsequent six-cable optimisation.
+### Expected Deliverables
+
+- MATLAB Jacobian and sensitivity evaluation script.
+- Pose-level sensing quality results.
+- Jacobian rank and singular-value distributions.
+- Condition-number comparison.
+- Local pose covariance analysis.
+- B4.1 research notes.
+
+### Research Decision
+
+Complete B4.1 before selecting new anchor–attachment configurations.
+
+Use the combined B3 and B4 findings to define the constraints and objectives for B5.
+
+---
+
+**Current Milestone:** Establish a numerically justified six-cable reference configuration before expanding to seven or eight cables.
+
 
 ---
 
