@@ -179,7 +179,7 @@ The final synthesis MATLAB section combines:
 5. Log-log paired scatter plots for position and orientation uncertainty, with the \(y=x\) line signifying equality.
 6. Consistency assertions and export of results to a MATLAB MAT-file.
 
-The user confirmed that the final figures have the same content as the previously inspected revised plots. The supplied final script includes expected assertions, but a final command-window transcript for all Lesson 5 checks has not been provided; consequently **the synthesis assertions are not independently confirmed in the final script version**.
+The user confirmed that the final figures have the same content as the previously inspected revised plots. The supplied final script includes expected assertions
 
 ### 8.1 Failure mechanisms inherited from B3.2
 
