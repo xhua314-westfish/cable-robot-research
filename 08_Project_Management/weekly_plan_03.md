@@ -1,13 +1,16 @@
 # Weekly Plan 03 — Six-Cable Workspace Validation and Optimisation
 
+
 **Created:** 2026-11-02  
+**Last Updated:** 2026-11-03  
 **Planning Period:** 2026-11-02 to 2026-11-10  
 **Research Phase:** Phase B — Balloon-Specific Cable Sensing Design  
-**Current Task:** B3.1 — Multi-Position Geometric Feasibility  
+**Current Task:** B4.1 — Jacobian, Sensitivity and Covariance  
 **Workload:** 4–5 hours per research day  
 **Primary Software:** MATLAB
 
-**Status:** Active research plan
+**Status:** Active — B3 completed; B4.1 next
+
 
 ---
 
@@ -184,6 +187,18 @@ Suggested files:
 
 # Day 2 — November 3
 
+**Status: Completed — 2026-11-03**
+
+**Final Result:**
+
+- 27 sampled centre positions evaluated.
+- Experiment A: 8/27 combined geometrically feasible positions.
+- Experiment B: 0/27 combined geometrically feasible positions.
+- Main failure mechanisms identified.
+- Code, results and research notes archived.
+
+**Research Log:** [B3.1 Feasibility Notes](../06_Research_Log/2026-11/B3_1_feasibility_notes.md)
+
 ## B3.1 — Six-Cable Multi-Position Geometric Feasibility
 
 **Research Question:**
@@ -321,6 +336,21 @@ Report distances independently of any provisional clearance threshold.
 ---
 
 # Day 3 — November 4
+
+
+**Status: Completed Early — 2026-11-03**
+
+**Final Result:**
+
+- 189 combined translation–rotation poses evaluated.
+- Experiment A: 40/189 geometrically feasible poses.
+- Experiment B: 105/189 geometrically feasible poses.
+- Experiment B Cable Pair 5–6 contact identified in 81 poses.
+- Zero-rotation consistency checks passed.
+- Orientation-dependent feasibility figures generated.
+- Code, results and research notes archived.
+
+**Research Log:** [B3.2 Feasibility Notes](../06_Research_Log/2026-11/B3_2_feasibility_notes.md)
 
 ## B3.2 — Multi-Pose Feasibility Including Rotation
 
@@ -915,19 +945,29 @@ Additional literature:
 
 ## 7. Research Decision Gates
 
+
 ### Gate 1 — After B3.2
 
-**Question:** Are there enough geometrically admissible poses to justify sensing analysis?
+**Status: Completed — Proceed with documented limitations.**
 
-If yes:
+**Question:** Are there enough geometrically admissible sampled poses to justify sensing analysis?
 
-Proceed with B4.
+**Evidence:**
 
-If no:
+- Experiment A: 40/189 combined geometrically feasible poses.
+- Experiment B: 105/189 combined geometrically feasible poses.
+- Both configurations exhibit distinct geometric limitations.
+- No configuration has established complete workspace feasibility.
 
-Investigate which geometry or interference assumptions are responsible.
+**Decision:**
 
-Do not silently discard the failed cases.
+Proceed to B4.1 using the existing configurations.
+
+Evaluate the measurement Jacobian at all 189 poses for diagnosis, and report sensing-quality statistics on geometrically feasible subsets separately.
+
+Do not modify anchor or attachment positions until the B4 analysis provides evidence for optimisation.
+
+---
 
 ### Gate 2 — After B4.1
 
@@ -1039,20 +1079,62 @@ Only update the main research state file when there is a meaningful milestone.
 
 ---
 
+
 ## 10. Immediate Next Action
 
-**Start B3.1 — Six-Cable Multi-Position Geometric Feasibility.**
+**B4.1 — Six-Cable Jacobian, Sensitivity and Covariance**
 
-First verify the existing A/B MATLAB datasets.
+### Research Question
 
-Then generate the 27-position grid and implement the cable–sphere interference test.
+Can Experiment A and Experiment B provide sufficiently informative and robust 6-DOF pose measurements across their geometrically feasible sampled poses?
 
-After verifying the single-cable geometry, extend the implementation to cable–cable minimum-distance calculations.
+### Required Inputs
 
-**Do not optimise anchor or attachment positions during the initial B3.1 validation.**
+- B1_geometry_baseline.mat
+- B2_6cable_experiment_A.mat
+- B2_experiment_B_results.mat
+- B3_2_results.mat
 
-The purpose of B3.1 is to identify the actual limitations of the existing configurations before deciding how the geometry should be improved.
+MATLAB data directory:
+
+`03_Simulation/MATLAB/workspace definition/`
+
+### Planned Steps
+
+1. Load the saved 189-pose dataset.
+2. Reconstruct the six-cable measurement Jacobian.
+3. Verify the analytical Jacobian against numerical derivatives.
+4. Evaluate Jacobian rank at each pose.
+5. Apply consistent characteristic-length scaling.
+6. Calculate minimum singular values and condition numbers.
+7. Calculate local pose covariance under a declared noise model.
+8. Compare Experiment A and Experiment B on their geometrically feasible subsets.
+9. Identify weak sensing directions and poorly conditioned poses.
+10. Record findings for B5 configuration optimisation.
+
+### Acceptance Criteria
+
+- [ ] Analytical Jacobian verification passed.
+- [ ] All 189 poses evaluated.
+- [ ] Geometrically infeasible poses retained for diagnosis.
+- [ ] Rank-deficient poses identified.
+- [ ] Scaled singular values and condition numbers calculated.
+- [ ] Covariance assumptions documented.
+- [ ] Position and orientation uncertainties reported separately.
+- [ ] Experiment A/B comparison completed.
+- [ ] Research notes and MATLAB outputs archived.
+
+### Research Rules
+
+- Do not change the existing anchor or attachment coordinates.
+- Do not treat full Jacobian rank as proof of global pose identifiability.
+- Do not claim experimentally validated accuracy from assumed noise.
+- Do not claim tension feasibility from geometric feasibility.
+- Preserve the original B3.2 results for reproducibility.
 
 ---
 
-**Research Principle:** Validate the six-cable system first. Optimise according to measured simulation performance. Extend to seven and eight cables only when the six-cable reference is sufficiently established.
+**Research Principle:** Validate geometric feasibility and sensing quality before six-cable configuration optimisation. Extend to seven and eight cables only after a sufficiently justified six-cable reference configuration has been established.
+
+---
+
