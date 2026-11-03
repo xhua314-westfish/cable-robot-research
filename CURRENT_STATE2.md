@@ -1,12 +1,13 @@
+
 # Current Research State
 
-**Last Updated:** 2026-11-02  
+**Last Updated:** 2026-11-03  
 **Current Phase:** Phase B — Balloon-Specific Cable Sensing Design  
-**Current Focus:** Six-Cable Workspace Validation and Optimisation  
-**Current Task:** B3.1 — Multi-Position Geometric Feasibility  
+**Current Focus:** Six-Cable Sensing Quality and Configuration Optimisation  
+**Current Task:** B4.1 — Jacobian, Sensitivity and Covariance  
 **Primary Tool:** MATLAB
 
-**Overall Status:** Phase A core method reproduction completed. B1 initial geometry and B2.2 single-pose configuration comparison completed. Multi-pose six-cable validation is the next research priority.
+**Overall Status:** Phase A core method reproduction completed. B1 geometry definition, B2 initial six-cable configuration comparison, and B3 discrete geometric feasibility evaluation completed. B4.1 is the next research task.
 
 ---
 
