@@ -603,7 +603,7 @@ Establish a six-cable prototype-ready configuration while preserving the long-te
 - [Current Research State](../CURRENT_STATE2.md)
 - [Research Guidelines](../AGENTS2.md)
 - [Active TODO](current_november_todo.md)
-- [Weekly Plan 03](weekly_plan_03.md)
+- [Weekly Plan nov](weekly_plan_nov_04_17_2026.md)
 - [Rigid-Body Sensing Design](../05_My_Research/Rigid_Body_Sensing_Design.md)
 - [Phase B Literature Method Selection](../02_Paper_Reading/Literature_Review/workspace%20definition/Phase_B_Method_Selection_2026-11-02.md)
 - [Research Log](../06_Research_Log/)
