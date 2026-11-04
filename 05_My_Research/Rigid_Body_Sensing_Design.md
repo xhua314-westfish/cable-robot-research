@@ -1,16 +1,25 @@
+
 # Rigid-Body Cable Sensing Design
 
-**Version:** 0.4  
-**Original Definition:** 2026-10-19  
-**Last Updated:** 2026-11-02  
-**Research Phase:** Phase B — Balloon-Specific Cable Sensing Design  
-**Current Focus:** Six-Cable Workspace Validation and Optimisation  
-**Current Task:** B3.1 — Multi-Position Geometric Feasibility  
+**Version:** 0.5
+**Original Definition:** 2026-10-19
+**Last Updated:** 2026-11-04
+**Research Phase:** Phase B — Balloon-Specific Cable Sensing Design
 **Primary Tool:** MATLAB
 
-**Document Purpose:** Define the engineering geometry, cable measurement model, feasibility constraints, sensing metrics, and optimisation framework for rigid-body balloon pose sensing.
+**Document Role:** Technical reference for rigid-body cable geometry, measurement models, geometric feasibility, Jacobian analysis, pose estimation and sensing-oriented configuration evaluation.
 
-Research progress is maintained in [CURRENT_STATE2.md](../CURRENT_STATE2.md). Active tasks are maintained in [current_october_november_todo.md](../08_Project_Management/current_october_november_todo.md) and [weekly_plan_03.md](../08_Project_Management/weekly_plan_03.md).
+This document defines reusable technical methods rather than daily research tasks.
+
+Current progress, research priorities and schedules are maintained in:
+
+- [Current Research State](../CURRENT_STATE2.md)
+- [Research Roadmap](../08_Project_Management/Roadmap.md)
+- [November Research TODO](../08_Project_Management/November/current_november_todo_updated_2026_11_04.md)
+
+The engineering baseline uses a 280 × 300 × 320 mm cuboid and a nominal 550 mL rigid spherical balloon.
+
+The boundary is an engineering assumption, not a clinically validated gastric workspace.
 
 ---
 
@@ -41,17 +50,48 @@ The initial design must consider:
 5. Pose-estimation uncertainty.
 6. Configuration optimisation.
 
-### 1.3 Research Sequence
 
-The research follows:
+### 1.3 Research Strategy and Technical Scope
 
-**Geometry → Configuration → Feasibility → Sensing Quality → Optimisation → Validation**
+This document focuses on the mathematical and numerical foundations of six-degree-of-freedom rigid-body sensing.
 
-The current study focuses on six cables.
+The rigid-body development process is:
 
-Seven- and eight-cable systems will be investigated after establishing a numerically justified six-cable reference configuration.
+**Geometry → Measurement Model → Geometric Feasibility → Sensing Analysis → Pose Estimation → Configuration Validation**
 
-The reference configuration does not need to be globally optimal before extension, but its performance and limitations must be documented.
+The six-cable system provides the initial experimental reference.
+
+The broader research programme follows two parallel workstreams:
+
+**Workstream A — Six-Cable Prototype and Experiments**
+
+Develop an adjustable six-cable reference, evaluate its sensing and mechanical limitations, and validate the system experimentally.
+
+**Workstream B — Seven-/Eight-Cable Theory and Simulation**
+
+Extend the same rigid-body measurement framework to redundant cable configurations and compare sensing performance using common assumptions.
+
+Seven- and eight-cable theoretical studies may proceed while the six-cable experimental platform is under development.
+
+Additional cables must not be assumed to improve sensing performance automatically.
+
+### Technical Document Boundaries
+
+This document covers:
+
+- Rigid-body cable geometry.
+- Geometric and routing feasibility.
+- Measurement Jacobian.
+- Pose estimation and uncertainty.
+- Sensing-oriented configuration evaluation.
+
+The following topics are maintained separately:
+
+- Long-term sensing objectives: `Sensing_Objective_v0.2.md`.
+- Workspace evidence and geometry history: `Workspace_Boundary_v0.2_2026-10-20.md`.
+- Prototype V1.0 and rigid-to-flexible requirements: `Prototype_V1_Rigid_to_Flexible_Design_2026_11_04.md`.
+- Detailed research tasks and acceptance criteria: November TODO.
+- Verified simulation results: Research Logs.
 
 ---
 
@@ -1218,31 +1258,54 @@ Future claims must distinguish:
 
 ---
 
-## 11. Existing Six-Cable Reference Candidates
 
-Three configurations have been investigated at the initial pose.
+## 11. Existing Six-Cable Reference Configurations
 
-| Metric | Initial Baseline | Experiment A | Experiment B |
+The initial six-cable study produced three reference configurations:
+
+- Original baseline.
+- Experiment A — Fixed face-centre anchors with optimised attachment selection.
+- Experiment B — Joint anchor and attachment selection.
+
+### 11.1 Reference-Pose Evaluation
+
+| Metric | Baseline | Experiment A | Experiment B |
 |---|---:|---:|---:|
-| Number of cables | 6 | 6 | 6 |
 | Jacobian rank | 6 | 6 | 6 |
 | Scaled minimum singular value | 0.004393 | 0.535345 | 0.533600 |
 | Scaled condition number | 490.956 | 3.5759 | 3.2365 |
 
-Experiment A holds six face-centre anchor locations fixed and changes the attachment selection.
+These results demonstrate the influence of anchor and attachment placement on local sensing performance.
 
-Experiment B varies both anchor and attachment selection.
+### 11.2 Multi-Pose Evaluation
 
-**Current interpretation:**
+Experiments A and B were subsequently evaluated over 189 sampled poses.
 
-- Experiment A substantially improved local conditioning.
-- Experiment B provided a further modest improvement in the observed condition number.
-- The minimum singular value did not improve from A to B.
-- Neither configuration has been validated across the full target pose set.
+| Metric | Experiment A | Experiment B |
+|---|---:|---:|
+| Geometrically feasible poses | 40/189 | 105/189 |
+| Median scaled condition number | 11.1157 | 4.4673 |
+| Median predicted position uncertainty | 0.3860 mm | 0.1657 mm |
 
-The selected six-cable configuration remains undecided.
+The sensing statistics are evaluated over each configuration's own feasible sampled poses and must not be interpreted as a directly matched-pose comparison.
 
-Detailed numerical evidence and final coordinate datasets should be stored in the Research Log and MATLAB data files.
+The uncertainty values assume independent cable-length noise with a standard deviation of 0.1 mm.
+
+They are theoretical predictions, not measured pose-estimation errors.
+
+### 11.3 Interpretation
+
+Experiment B provides better sampled geometric coverage and generally stronger local sensing performance.
+
+However, its Cable Pair 5–6 exhibits contact in 81 sampled poses.
+
+Experiment A is mainly limited by cable–sphere interference.
+
+Neither configuration is an approved final physical prototype layout.
+
+The B5 design process must retain these configurations as reproducible comparison baselines while exploring new anchor–attachment layouts and cable pairings.
+
+Detailed calculations, figures and result datasets are maintained in the B2, B3 and B4.1 research records.
 
 ---
 
@@ -1260,9 +1323,17 @@ The following literature methods are relevant to the current design.
 | Geometric calibration and error analysis | New sensitivity literature | B4 |
 | Multi-objective configuration optimisation | New optimisation literature | B5 |
 
-The full literature classification is maintained separately in `02_Paper_Reading/Literature_Review/Phase_B_Method_Selection_2026-11-02.md` when available in the repository.
 
-Do not duplicate full literature reviews in this technical model file.
+The detailed literature and method-selection catalogue is maintained in:
+
+[Phase B Method Selection](../02_Paper_Reading/Literature_Review/workspace%20definition/Phase_B_Method_Selection_2026-11-02.md)
+
+This technical document records the mathematical methods used in the sensing model.
+
+Full paper summaries, DOI information, literature comparisons and method-transfer limitations belong in the literature review.
+
+Active-control wrench-closure conditions must not be used as substitutes for passive sensing identifiability or accuracy.
+
 
 ### Main Research Principle
 
@@ -1272,203 +1343,181 @@ Do not directly apply active robot wrench-feasibility conditions as substitutes 
 
 ---
 
-## 13. Phase B Simulation and Validation Sequence
 
-### B1 — Geometry Definition
+## 13. Rigid-Body Sensing Development Stages
 
-**Status:** Completed.
+The rigid-body sensing framework supports the following research stages.
 
-Established:
+| Stage | Technical Objective | Research Role |
+|---|---|---|
+| B1 | Geometry and candidate region definition | Establish geometric parameters |
+| B2 | Initial six-cable configuration generation | Generate comparison baselines |
+| B3 | Multi-pose geometric feasibility | Identify routing and collision limitations |
+| B4.1 | Jacobian and local sensing quality | Evaluate identifiability and uncertainty |
+| B4.2 | Nonlinear pose estimation and Monte Carlo | Evaluate estimator accuracy and robustness |
+| B5 | Configuration refinement and prototype selection | Identify a practical experimental layout |
 
-- Engineering boundary.
-- Rigid spherical balloon.
-- Geometrically feasible centre region.
-- Anchor candidate regions.
-- Attachment candidate regions.
-- Integrated MATLAB geometry.
+B1–B4.1 have established the initial numerical evidence for the rigid spherical model.
 
-### B2 — Initial Configuration Comparison
+B4.2 remains necessary for validated numerical nonlinear pose-estimation accuracy.
 
-**Status:** Completed for single-pose exploratory comparison.
+B5 selects a provisional adjustable six-cable configuration based on documented geometric, sensing and implementation requirements.
 
-Established:
+Global optimality is not required for the initial prototype.
 
-- Six-cable baseline.
-- Experiment A.
-- Experiment B.
-- Initial Jacobian conditioning comparisons.
-
-The final six-cable configuration has not been selected.
-
-### B3 — Geometric Feasibility
-
-**Current priority.**
-
-Evaluate:
-
-- Multi-position geometry.
-- Multi-pose geometry.
-- Cable–sphere interference.
-- Cable–cable interference.
-- Explicit geometric feasibility coverage.
-
-### B4 — Sensing Quality and Accuracy
-
-Evaluate:
-
-- Measurement Jacobian rank.
-- Scaled singular values.
-- Condition number.
-- Local pose covariance.
-- Forward kinematics.
-- Monte Carlo estimation errors.
-- Noise and calibration sensitivity.
-
-### B5 — Configuration Optimisation and Selection
-
-Evaluate and improve:
-
-- Workspace-level sensing performance.
-- Geometric feasibility.
-- Pose-estimation uncertainty.
-- Configuration robustness.
-- Physical implementation complexity.
-
-Select a six-cable reference configuration only after sufficient numerical verification.
+The current task status and schedule must be read from `CURRENT_STATE2.md` and the active November research plan.
 
 ---
 
-## 14. Future Seven- and Eight-Cable Extension
+## 14. Seven- and Eight-Cable Rigid-Body Extension
 
-### 14.1 Seven-Cable Design
+The rigid-body measurement model can be extended to redundant cable configurations.
 
-After selecting a six-cable reference:
-
-- Introduce a seventh cable.
-- Evaluate geometric routing.
-- Evaluate sensing redundancy.
-- Evaluate uncertainty changes.
-- Investigate applicable mechanical tension conditions.
-- Use Paper 3 Algorithm 1 and Algorithm 2 when their assumptions are relevant.
-
-If the additional cable cannot achieve the required design objectives, joint re-optimisation of all seven cables may be necessary.
-
-### 14.2 Eight-Cable Design
-
-Extend the measurement Jacobian to:
+For six rigid-body degrees of freedom:
 
 \[
-H\in\mathbb R^{8\times6}
+H_n\in\mathbb{R}^{n\times6}
 \]
 
-Evaluate:
+where:
 
-- Rank and singular values.
-- Measurement information and covariance.
-- Robustness to selected cable measurement failures.
-- Geometric and mechanical complexity.
-- Workspace coverage.
+\[
+n\in\{6,7,8\}
+\]
 
-Additional independent cable measurements can increase local Fisher information under fixed geometry and suitable independent noise assumptions.
+### 14.1 Seven-Cable Configuration
 
-However, changing the physical layout, adding interference, or introducing new model errors may offset these benefits.
+\[
+H_7\in\mathbb{R}^{7\times6}
+\]
 
-Additional cable count does not automatically guarantee better overall sensing performance.
+Investigate:
 
----
+- Local full-column-rank identifiability.
+- Measurement redundancy.
+- Scaled singular values and conditioning.
+- Predicted pose covariance.
+- Geometric routing and cable interference.
+- Positive-tension feasibility where applicable.
 
-## 15. Validation and Acceptance Requirements
+### 14.2 Eight-Cable Configuration
 
-A six-cable reference configuration should be selected only after completing the relevant checks.
+\[
+H_8\in\mathbb{R}^{8\times6}
+\]
 
-### Geometry
+Investigate the additional measurement information and mechanical complexity introduced by an eighth cable.
 
-- [ ] All selected coordinates are reproducible.
-- [ ] Anchor–attachment correspondence is defined.
-- [ ] Sphere containment is verified.
-- [ ] Cable–sphere interference is evaluated.
-- [ ] Cable–cable interference is evaluated.
-- [ ] Hardware assumptions and unresolved constraints are stated.
+### 14.3 Comparative Evaluation
 
-### Sensing
+Six-, seven- and eight-cable configurations should be compared using:
 
-- [ ] The measurement Jacobian is verified numerically.
-- [ ] Local rank is evaluated across sampled poses.
-- [ ] Scaled singular values are calculated.
-- [ ] Weak sensing directions are identified.
-- [ ] Local pose uncertainty is predicted.
+1. Common pose samples.
+2. Consistent rigid-body geometry.
+3. Identical Jacobian scaling conventions.
+4. Comparable sensor-noise assumptions.
+5. Consistent sensing-quality metrics.
+6. Equivalent geometric and clearance definitions.
+7. Explicit mechanical assumptions.
 
-### Pose Estimation
+Additional independent measurements may improve local information under suitable assumptions, but extra cables may also increase interference, complexity and disturbance.
 
-- [ ] Forward kinematics is verified at multiple poses.
-- [ ] Position RMSE is reported.
-- [ ] Orientation RMSE is reported.
-- [ ] Estimator convergence and failures are recorded.
-- [ ] Noise and calibration assumptions are explicit.
+### 14.4 Research Scheduling
 
-### Optimisation
+Seven-/eight-cable theoretical and numerical studies may proceed in parallel with six-cable prototype development.
 
-- [ ] Objective functions and constraints are documented.
-- [ ] Existing reference configurations are included in comparisons.
-- [ ] Training and validation poses are separated.
-- [ ] Selected candidate performance is reproduced.
-- [ ] Global-optimality claims are avoided unless supported.
+Physical expansion will be decided using relevant simulation and experimental evidence.
 
-### Research Interpretation
-
-- [ ] Simulation results are distinguished from physical experiments.
-- [ ] Limitations are recorded.
-- [ ] Configuration trade-offs are justified.
-- [ ] Remaining research questions are identified.
+Detailed schedules belong in the active project-management documents.
 
 ---
 
-## 16. Current Technical Priority
 
-**B3.1 — Six-Cable Multi-Position Geometric Feasibility**
+## 15. Technical Verification Requirements
 
-The next numerical experiment should:
+This section defines reusable verification requirements for the rigid-body sensing model.
 
-1. Load the existing Experiment A and B configurations.
-2. Generate the 27-position test set.
-3. Recalculate attachment positions and cable lengths.
-4. Verify sphere containment.
-5. Evaluate cable–sphere interference.
-6. Calculate minimum distances between cable segments.
-7. Record geometric feasibility and failure cases.
-8. Compare the two configurations under identical conditions.
+It does not represent the current project task checklist.
 
-**Important:**
+### 15.1 Geometry Verification
 
-Do not change anchor or attachment coordinates during the initial B3.1 evaluation.
+- Verify coordinate frames and units.
+- Verify anchor and attachment coordinates.
+- Verify cable pairing.
+- Verify rigid-body transformations.
+- Check sphere containment and cable interference.
+- Distinguish ideal geometric contact from physical cable clearance.
 
-The purpose is to identify limitations of the current configurations before conducting workspace-level optimisation.
+### 15.2 Measurement Model Verification
+
+- Check analytical cable-length equations.
+- Verify the Jacobian using finite differences.
+- Check matrix dimensions and rank.
+- Use consistent characteristic-length scaling.
+- Evaluate local sensing performance across multiple poses.
+
+### 15.3 Pose Estimation Verification
+
+- Test nonlinear forward kinematics at known synthetic poses.
+- Report estimation residuals.
+- Evaluate convergence and ambiguity.
+- Report position and orientation errors.
+- Test noise and geometric calibration sensitivity.
+
+### 15.4 Configuration Evaluation
+
+- Use common target pose samples.
+- Separate candidate-selection and independent-validation poses.
+- Preserve reference configurations.
+- Record geometric failures and numerical limitations.
+- Avoid unsupported global-optimality claims.
+
+### 15.5 Physical Interpretation
+
+Numerical sensing identifiability does not establish:
+
+- Positive-tension equilibrium.
+- Practical cable clearance.
+- Low-disturbance passive tracking.
+- Experimental pose accuracy.
+- Deformable-balloon shape reconstruction.
+
+Each claim requires its own appropriate model or validation evidence.
+
+Detailed task-specific acceptance criteria are maintained in the November TODO and the Prototype V1.0 design document.
 
 ---
 
-## Related Documents
 
-### Research State and Planning
+
+## 16. Related Documents
+
+### Research Management
 
 - [Current Research State](../CURRENT_STATE2.md)
-- [Research Guidelines](../AGENTS2.md)
-- [Active Research TODO](../08_Project_Management/current_october_november_todo.md)
-- [Weekly Plan 03](../08_Project_Management/weekly_plan_03.md)
 - [Research Roadmap](../08_Project_Management/Roadmap.md)
+- [November Research TODO](../08_Project_Management/November/current_november_todo_updated_2026_11_04.md)
+- [November Weekly Plan](../08_Project_Management/November/weekly_plan_nov_04_17_2026.md)
 
-### Research Definition
+### Technical Design
 
-- [Sensing Objective v0.2](Sensing_Objective_v0.2.md)
-- [Workspace Boundary v0.2](Workspace_Boundary_v0.2_2026-10-20.md)
+- [Sensing Objective](Sensing_Objective_v0.2.md)
+- [Workspace Boundary](Workspace_Boundary_v0.2_2026-10-20.md)
+- [Prototype V1.0 and Flexible Transition](Prototype_V1_Rigid_to_Flexible_Design_2026_11_04.md)
 
-### Code and Research Evidence
+### Research Evidence
 
-- [MATLAB Code](../04_Code_Exercises/MATLAB/)
-- [October Research Log](../06_Research_Log/2026-10/)
-- `06_Research_Log/2026-11/` — current Phase B experiment results.
+- [MATLAB Simulation](../03_Simulation/MATLAB/)
+- [Research Logs](../06_Research_Log/)
+- [Phase B Literature Method Selection](../02_Paper_Reading/Literature_Review/workspace%20definition/Phase_B_Method_Selection_2026-11-02.md)
 
 ---
 
-**Current Research Goal:** Establish a reproducible six-cable reference configuration with quantified geometric feasibility, sensing sensitivity and pose-estimation accuracy.
+**Technical Scope:** Rigid-body geometry, cable-length measurement, geometric feasibility, Jacobian analysis, pose estimation and sensing-oriented configuration evaluation.
+
+**Long-Term Compatibility:** The same measurement framework supports theoretical comparisons of six-, seven- and eight-cable systems.
+
+**Guiding Principle:** Validate the sensing model mathematically and numerically, then distinguish its predictions from physical experimental evidence.
+
 
 **Guiding Principle:** Select the configuration based on verified sensing performance and physical constraints, rather than single-pose conditioning alone.
