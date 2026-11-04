@@ -12,8 +12,6 @@
 
 ---
 
----
-
 ## 1. Research Goal
 
 Develop a cable-based measurement and sensing system for estimating the position, orientation, and eventually deformation of a passively moving balloon-like object.
@@ -598,6 +596,10 @@ Establish a six-cable prototype-ready configuration while preserving the long-te
 
 ---
 
-**Next Milestone:** Establish the geometric feasibility and sensing performance of the six-cable configurations before beginning additional cable design.
 
-**Guiding Principle:** Select methods according to research questions and validate results before making design decisions.
+**Next Milestone:** Complete B5 six-cable prototype configuration selection and the initial B5.5 rigid-to-flexible compatibility assessment.
+
+**Parallel Research Direction:** Seven- and eight-cable theoretical and simulation studies may proceed alongside six-cable prototype development. Physical hardware expansion requires separate engineering justification.
+
+**Guiding Principle:** Prioritise an adjustable six-cable experimental reference, maintain consistent sensing-performance comparisons across cable numbers, and use numerical and experimental evidence to guide future design decisions.
+
