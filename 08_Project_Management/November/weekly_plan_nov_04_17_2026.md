@@ -42,6 +42,36 @@
 - Keep **existing A/B datasets immutable** as comparison references. Record random seeds, coordinates and code versions.
 - Do not start 7/8-cable configuration optimisation in these two weeks; reserve expandable mechanical and sensor interfaces.
 
+
+### Parallel Research Workstreams
+
+The long-term research objective remains the comparison of six-, seven-, and eight-cable sensing systems.
+
+**Workstream A — Six-Cable Prototype**
+
+This is the primary focus of the current two-week plan.
+
+Tasks include configuration selection, flexible-balloon compatibility and preparation for engineering sizing.
+
+**Workstream B — Seven-/Eight-Cable Theory**
+
+Theoretical and simulation work may proceed in parallel when it does not delay the primary prototype tasks.
+
+Potential activities include:
+
+- Seven-/eight-cable measurement Jacobians.
+- Measurement redundancy and observability.
+- Sensing covariance and workspace analysis.
+- Cable interference and tension feasibility.
+
+No dedicated seven-/eight-cable workdays are assigned during 4–17 November.
+
+Their detailed scheduling will be decided after reviewing the results of this two-week period.
+
+**Integration Rule**
+
+Use consistent geometry, pose samples, sensing metrics and assumptions when comparing six-, seven-, and eight-cable systems.
+
 ---
 
 
@@ -213,6 +243,25 @@ The completion date is a planning target, not permission to bypass unresolved cr
 
 **Acceptance:** Fully reproducible V1.0 inputs for B6; explicit usable test region and outstanding hardware/force assumptions.
 
+
+### Prototype V1.0 Decision Gate
+
+A provisional Prototype V1.0 may be selected only when:
+
+- [ ] Six anchor coordinates are defined.
+- [ ] Six attachment coordinates are defined.
+- [ ] Cable pairing is explicit.
+- [ ] The initial experimental pose region is declared.
+- [ ] No known critical geometric interference exists within the required core pose set.
+- [ ] Jacobian rank and sensing metrics are evaluated.
+- [ ] Preliminary cable-length ranges are available.
+- [ ] Adjustable mounting requirements are documented.
+- [ ] Remaining tension and flexible-balloon uncertainties are recorded.
+
+**Decision:** Select V1.0 provisionally, or document the blocking constraints and retain the best candidates.
+
+Prototype V1.0 selection does not authorise final motor procurement before B5.5 compatibility and B6 mechanical sizing.
+
 ### Day 9 — Mon 16 Nov | B5.5.2–B5.5.3 Attachment Migration and Flexible Routing | 4–5 h
 
 **Research question:** How can a small, interpretable set of shape changes be introduced without delaying the prototype?
@@ -278,6 +327,21 @@ The completion date is a planning target, not permission to bypass unresolved cr
 ## 6. Literature and Theory Reference Register
 
 Theoretical principles are listed alongside papers. A paper can support an approach without validating the specific values used in this project.
+
+
+### Reference-to-Task Mapping
+
+| Reference | Applicable Tasks | Method or Theory |
+|---|---|---|
+| R1 — Cheng & Lau (2023) | B5.1–B5.4 | Attachment optimisation, reconfigurable cable layouts and workspace constraints |
+| R2 — Youssef & Otis (2020) | B5.2, B5.4, B5.5.3 | Cable interference avoidance and configuration adjustment |
+| R3 — Gent Balloon Inflation Models (2015) | B5.5.1–B5.5.3 | Nonlinear spherical membrane inflation and material-model limitations |
+| R4 — Liu et al. (2025) | B5.5.1, B5.5.4 | Model-based deformable shape reconstruction and measurement constraints |
+
+These publications provide theoretical and methodological support.
+
+They do not directly validate the proposed balloon geometry, prototype configuration, simplified affine deformation model or experimental sensing accuracy.
+
 
 **[R1] Cheng, H. H., & Lau, D. (2023).** *Cable Attachment Optimization for Reconfigurable Cable-Driven Parallel Robots Based on Various Workspace Conditions.* IEEE Transactions on Robotics, 39(5), 3759–3775. DOI: **10.1109/TRO.2023.3288838**.  
 Link: https://doi.org/10.1109/TRO.2023.3288838  
