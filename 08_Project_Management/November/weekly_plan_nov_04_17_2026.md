@@ -44,24 +44,53 @@
 
 ---
 
+
 ## 2. Daily Overview
 
-| Workday | Date | Effort | Main focus | Main deliverable |
-|---|---|---:|---|---|
-| 1 | Wed **4 Nov** | **2–2.5 h (half-day)** | B5.1 audit and design requirements | `B5_1_configuration_audit.md`; V1.0 acceptance sheet |
-| 2 | Thu 5 Nov | 4–5 h | B5.2 expanded anchor/attachment candidate sets | candidate `.mat`, visualisation and checks |
-| 3 | Fri 6 Nov | 4–5 h | B5.3 diverse configurations and cable pairing | seeded candidate generator and sample summary |
-| — | Sat 7 – Sun 8 Nov | — | Weekend / optional catch-up | No mandatory tasks |
-| 4 | Mon 9 Nov | 4–5 h | B5.4 fast multi-pose geometric screening | collision/clearance results and failed-pose labels |
-| 5 | Tue 10 Nov | 4–5 h | B5.5 sensing assessment and candidate ranking | ranked shortlist, Pareto comparison |
-| 6 | Wed 11 Nov | 4–5 h | B5.6 constrained local refinement and independent validation | two/three finalists, validation results |
-| 7 | Thu 12 Nov | 4–5 h | B5.7 choose provisional Prototype V1.0 | frozen configuration dataset and cable-length ranges |
-| 8 | Fri 13 Nov | 4–5 h | B5.5.1 simplified flexible balloon model | deformation parameterisation and example meshes |
-| — | Sat 14 – Sun 15 Nov | — | Weekend / optional catch-up | No mandatory tasks |
-| 9 | Mon 16 Nov | 4–5 h | B5.5.2–3 attachment migration and routing | flexible routing and geometry comparison |
-| 10 | Tue 17 Nov | 4–5 h | B5.5.4–5 observability + compatibility gate | rigid/flexible design decision + B6 handoff |
+**Planning Period:** 4–17 November 2026
 
-**Total planned effort:** approximately **38–43 hours** (nine full days plus one half-day). If a critical collision, observability or hardware issue appears, retain the shortlist and document the blocker rather than calling a failed design “V1.0 validated.”
+**Workload:**
+- November 4: Half-day, 2–2.5 hours.
+- Other weekdays: Approximately 4–5 hours.
+- Weekends: No mandatory tasks.
+
+### Week 1 — B5 Configuration Search
+
+| Day | Date | Task | Main Activity | Expected Output |
+|---|---|---|---|---|
+| 1 | Wed 4 Nov | B5.1 | Existing configuration audit | A/B coordinates and V1.0 requirements |
+| 2 | Thu 5 Nov | B5.1 | Candidate-region expansion | Expanded anchor/attachment sets |
+| 3 | Fri 6 Nov | B5.1 | Configuration families and pairing | Diverse candidate pool |
+| 4 | Mon 9 Nov | B5.2 | Multi-pose geometric screening | Interference and clearance results |
+| 5 | Tue 10 Nov | B5.3 | Sensing quality evaluation | Candidate ranking and shortlist |
+
+### Week 2 — B5 Selection and B5.5 Flexible Transition
+
+| Day | Date | Task | Main Activity | Expected Output |
+|---|---|---|---|---|
+| 6 | Wed 11 Nov | B5.4 | Local refinement and validation | Improved finalists |
+| 7 | Thu 12 Nov | B5.4 | Prototype V1.0 selection | Coordinates, pairing and cable lengths |
+| 8 | Fri 13 Nov | B5.5.1 | Flexible balloon model | Deformation model and assumptions |
+| 9 | Mon 16 Nov | B5.5.2–B5.5.3 | Attachment migration and routing | Flexible geometry evaluation |
+| 10 | Tue 17 Nov | B5.5.4–B5.5.5 | Observability and compatibility | B6 engineering handoff |
+
+### Two-Week Completion Criteria
+
+By 17 November, the target is to obtain:
+
+1. A provisional six-cable Prototype V1.0 or a documented shortlist with blockers.
+2. Reproducible anchor–attachment coordinates and cable pairing.
+3. Multi-pose geometric and sensing evaluation results.
+4. Preliminary cable-length ranges.
+5. An initial flexible-balloon model.
+6. Attachment migration and flexible-routing results.
+7. A rigid/deformation observability assessment.
+8. A documented hardware compatibility decision.
+9. Initial input requirements for B6 Engineering Sizing.
+
+The total workload is approximately 38–47.5 hours.
+
+The completion date is a planning target, not permission to bypass unresolved critical constraints.
 
 ---
 
@@ -84,7 +113,7 @@
 
 **Acceptance:** All six A/B anchor–attachment pairs are recorded. The provisional V1.0 core pose region is **declared**, not silently chosen after scoring.
 
-### Day 2 — Thu 5 Nov | B5.2 Expanded Candidate Regions | 4–5 h
+### Day 2 — Thu 5 Nov | B5.1 Candidate Region Expansion | 4–5 h
 
 **Research question:** Does the original 26/40-point discretisation exclude useful designs?
 
@@ -96,11 +125,11 @@
 
 **Theory:** spherical coordinates and surface-geometry constraints `||r_i|| = r_b`; [R1] supports workspace-constrained attachment selection. **Note:** 5×5 and Fibonacci sampling are engineering choices, not numbers endorsed by [R1].
 
-**Output:** `B5_2_expanded_candidates.m`, `B5_2_candidate_sets.mat`, `B5_2_candidate_regions.png`.
+**Output:** `B5_1_candidate_expansion.m`, `B5_1_candidate_sets.mat`, `B5_1_candidate_regions.png`.
 
 **Acceptance:** Valid, reproducible coordinates; both candidate sets retain broad geometric diversity.
 
-### Day 3 — Fri 6 Nov | B5.3 Configuration Families and Pairing | 4–5 h
+### Day 3 — Fri 6 Nov | B5.1 Configuration Families and Pairing | 4–5 h
 
 **Research question:** How can new six-cable layouts be explored without merely perturbing Experiment B?
 
@@ -112,11 +141,11 @@
 
 **Theory:** `C = {(A_i,r_i)}_(i=1..6)` and associated segment geometry `C_i(t)=B_i+t(A_i-B_i)`, `t in [0,1]`. **Evidence:** [R1] for reconfigurable attachments and workspace-constrained constraints.
 
-**Output:** `B5_3_candidate_generation.m`, `B5_3_candidate_pool.mat`, `B5_3_generation_notes.md`.
+**Output:** `B5_1_configuration_families.m`, `B5_1_candidate_pool.mat`, `B5_1_generation_notes.md`.
 
 **Acceptance:** At least three different anchor-distribution families represented; pairing is stored explicitly; no global-optimality claim.
 
-### Day 4 — Mon 9 Nov | B5.4 Multi-Pose Geometric Screening | 4–5 h
+### Day 4 — Mon 9 Nov | B5.2 Multi-Pose Geometric Screening | 4–5 h
 
 **Research question:** Can the new layouts avoid balloon penetration and cable interference on a useful initial test region?
 
@@ -128,11 +157,11 @@
 
 **Theory:** finite-line-segment minimum distance; nonpenetration and clearance constraints. **Evidence:** [R2] cable interference/reconfiguration and [R1] interference-free constraints.
 
-**Output:** `B5_4_geometry_screen.m`, `B5_4_geometry_results.mat`, `B5_4_failure_summary.csv`.
+**Output:** `B5_2_geometric_screening.m`, `B5_2_geometry_results.mat`, `B5_2_failure_summary.csv`.
 
 **Acceptance:** Each failure has a reason; the exact pose set is identical for all candidate configurations; a mount/physical-cable clearance assumption remains explicitly unresolved if not specified.
 
-### Day 5 — Tue 10 Nov | B5.5 Multi-Pose Sensing Quality and Ranking | 4–5 h
+### Day 5 — Tue 10 Nov | B5.3 Multi-Pose Sensing Quality and Ranking | 4–5 h
 
 **Research question:** Among geometrically viable layouts, which have acceptable local length-to-pose sensitivity?
 
@@ -144,7 +173,7 @@
 
 **Theory:** `H_s = H diag(1,1,1,1/r_b,1/r_b,1/r_b)`; `sigma_min(H_s)`; `kappa(H_s)`; `Sigma_q ≈ (H' Sigma_L^(-1) H)^(-1)` when locally identifiable. **Evidence:** B4.1 results and Fisher-information / SVD theory; [R1] motivates workspace-based constraints. The 0.1 mm sensor noise is **assumed**.
 
-**Output:** `B5_5_sensing_ranking.m`, `B5_5_candidate_ranking.csv`, `B5_5_shortlist.mat`.
+**Output:** `B5_3_sensing_evaluation.m`, `B5_3_candidate_ranking.csv`, `B5_3_shortlist.mat`.
 
 **Acceptance:** No candidate with severe geometric failure is reported as feasible; no arbitrary “Condition Number < 5” is claimed as a validated specification.
 
@@ -152,7 +181,7 @@
 
 ## 4. Week 2 — Provisional V1.0 and Flexible Compatibility (11–17 November)
 
-### Day 6 — Wed 11 Nov | B5.6 Local Refinement and Independent Spot Checks | 4–5 h
+### Day 6 — Wed 11 Nov | B5.4 Local Refinement and Validation | 4–5 h
 
 **Research question:** Can a small number of geometric adjustments remove bottlenecks without sacrificing sensing quality?
 
@@ -164,11 +193,11 @@
 
 **Theory:** constrained local refinement; independent validation counters selection bias. **Evidence:** [R1], [R2]. Algorithm (bounded local search) is an **engineering implementation choice**.
 
-**Output:** `B5_6_refinement.m`, `B5_6_validation_results.mat`, `B5_6_finalists.md`.
+**Output:** `B5_4_local_refinement.m`, `B5_4_validation_results.mat`, `B5_4_finalists.md`.
 
 **Acceptance:** Finalists have reproducible 6×3 coordinate arrays and performance evidence on training and independent pose sets.
 
-### Day 7 — Thu 12 Nov | B5.7 Prototype Configuration V1.0 Decision | 4–5 h
+### Day 7 — Thu 12 Nov | B5.4 Prototype Configuration V1.0 Selection | 4–5 h
 
 **Research question:** Is one six-cable geometry sufficiently safe and informative for initial, deliberately limited experiments?
 
@@ -180,11 +209,11 @@
 
 **Theory:** `L_i=||A_i-P-Rr_i||`, `Delta L_i=max_Q L_i-min_Q L_i`; attachment constraints [R1]. **Important:** sampled length range is not a guarantee over continuous or deformed motion.
 
-**Output:** `B5_7_prototype_V1.mat`, `B5_7_prototype_V1_coordinates.csv`, `B5_7_cable_length_ranges.csv`, `B5_7_decision.md`.
+**Output:** `B5_4_prototype_V1.mat`, `B5_4_prototype_V1_coordinates.csv`, `B5_4_cable_length_ranges.csv`, `B5_7_decision.md`.
 
 **Acceptance:** Fully reproducible V1.0 inputs for B6; explicit usable test region and outstanding hardware/force assumptions.
 
-### Day 8 — Fri 13 Nov | B5.5.1 Simplified Flexible Balloon Model | 4–5 h
+### Day 9 — Mon 16 Nov | B5.5.2–B5.5.3 Attachment Migration and Flexible Routing | 4–5 h
 
 **Research question:** How can a small, interpretable set of shape changes be introduced without delaying the prototype?
 
@@ -212,7 +241,7 @@
 
 **Theory:** `B_i=P+R F r_i0`, `L_i=||A_i-B_i||`, `Delta B_i=R(F-I)r_i0`; collision constraints [R1], [R2]. Actual membrane stress/connections require [R3] and experiments.
 
-**Output:** `B5_5_2_3_flexible_routing.m`, `B5_5_flexible_geometry_results.mat`, `B5_5_attachment_migration.png`.
+**Output:** `B5_5_2_3_flexible_routing.m`, `B5_5_2_3_flexible_geometry_results.mat`, `B5_5_attachment_migration.png`.
 
 **Acceptance:** At least rigid/no-deformation and multiple declared deformation cases compared under matching poses. A sphere-collision routine is **not** reused unchanged for an ellipsoid.
 
@@ -228,7 +257,7 @@
 
 **Theory:** `delta L ≈ H_rigid delta q + H_def delta eta`; `rank(H_total) <= 6` for six scalar length channels; local null space via SVD; [R4] supports model-based constraints/sensor augmentation. For later force-sizing, `W(q)T+w_ext=0` with `T_i >= 0` is a **separate mechanical feasibility model**, not a consequence of measurement-Jacobian rank.
 
-**Output:** `B5_5_4_observability.m`, `B5_5_5_compatibility_decision.md`, `B6_sizing_input_checklist.md`, `two_week_review_2026_11_17.md`.
+**Output:** `B5_5_4_observability.m`, `B5_5_4_compatibility_decision.md`, `B5_5_4_sizing_input_checklist.md`, `two_week_review_2026_11_17.md`.
 
 **Acceptance:** Honest V1.0 keep/adjust/reject decision; clear list of remaining measurements and B6 work. No unsupported claim that six cables independently recover six rigid DOFs **plus** general deformation.
 
