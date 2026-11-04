@@ -1,12 +1,63 @@
 
-# November Research TODO — Cable Sensing Prototype Development
 
-**Version:** 0.2
-**Last Updated:** 2026-11-04
-**Research Phase:** Phase B — Balloon-Specific Cable Sensing Design
-**Current Task:** B5.1 — Configuration Audit and Candidate Expansion
-**Primary Tool:** MATLAB
-**Research Strategy:** Prototype-First Development with Parallel Cable-Number Investigation
+# October–November Research TODO — Historical Research Record
+
+> **ARCHIVED — Superseded Research Plan**
+>
+> **Original Last Updated:** 2026-11-03
+>
+> **Archived On:** 2026-11-04
+>
+> **Historical Scope:** B1–B4 Research Development and Earlier B5 Planning
+>
+> **Status:** Retained for research history and reproducibility. Not an active task list.
+
+---
+
+## Archive Notice
+
+This document preserves the original October–November research planning process, including:
+
+- B1 geometry definition.
+- B2 six-cable configuration experiments.
+- B3 geometric feasibility analysis.
+- B4 sensing-quality planning.
+- The original B5 configuration optimisation approach.
+- Historical research decisions and task definitions.
+
+Some task IDs, milestone descriptions and research priorities differ from the current project structure.
+
+These differences are retained as historical evidence.
+
+**Do not use this document to determine the current research task, daily schedule or latest research priorities.**
+
+### Current Authoritative Documents
+
+- [Current Research State](../CURRENT_STATE2.md)
+- [Research Roadmap](Roadmap.md)
+- [Active November Research TODO](November/current_november_todo_updated_2026_11_04.md)
+- [Active November Weekly Plan](November/weekly_plan_nov_04_17_2026.md)
+- [Research and AI Working Rules](../AGENTS2.md)
+
+### Interpretation Rule
+
+If this historical document conflicts with an active project document, use the active document for current planning.
+
+Preserve historical numerical results, original task descriptions and research decisions for traceability.
+
+The original document content begins below.
+
+---
+
+## Historical Research Plan
+
+**Original Research Phase:** Phase B — Balloon-Specific Cable Sensing Design
+
+**Original Focus:** Six-Cable Sensing Quality and Configuration Optimisation
+
+**Original Next Task:** B4.1 — Jacobian and Sensitivity Evaluation
+
+**Original Workload:** Approximately 4–5 hours per research day
 
 ---
 
