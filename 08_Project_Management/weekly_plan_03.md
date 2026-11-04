@@ -1,5 +1,7 @@
 # Weekly Plan 03 — Six-Cable Workspace Validation and Optimisation
 
+** follow the new plan
+** weekly_plan_nov_04_17_2026.md
 
 **Created:** 2026-11-02  
 **Last Updated:** 2026-11-03  
