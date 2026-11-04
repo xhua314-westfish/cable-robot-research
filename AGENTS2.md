@@ -1,10 +1,24 @@
+
 # AGENTS2 — Research and AI Working Rules
 
-**Version:** 0.4  
-**Last Updated:** 2026-11-02  
-**Project:** Cable-Robot-Based Sensing for a Passive Deformable Balloon  
-**Research Strategy:** Research-Question-Driven Learning and Numerical Validation  
+**Version:** 0.5
+**Last Updated:** 2026-11-04
+**Project:** Cable-Robot-Based Sensing for a Passive Deformable Balloon
+**Research Strategy:** Research-Question-Driven, Prototype-First and Parallel Research
 **Primary Tool:** MATLAB
+
+---
+
+This document defines the stable working rules for AI-assisted research, mathematical modelling, MATLAB implementation, experimental validation, literature selection, and GitHub/Codex collaboration.
+
+**Core Principle:**
+
+> Research questions determine the methods. Numerical evidence supports design decisions. Experiments validate the physical system.
+
+This file contains long-term working rules, not daily task schedules or frequently changing numerical results.
+
+The latest research progress and active tasks must be obtained from `CURRENT_STATE2.md` and the active November research plans.
+
 
 ---
 
@@ -38,20 +52,52 @@ Develop a cable-based measurement system capable of estimating the position, ori
 
 The application is motivated by intragastric balloon sensing within a simplified gastric environment.
 
-### Initial Technical Scope
 
-- Three-dimensional rigid-body pose estimation.
-- Six-degree-of-freedom position and orientation.
-- Simplified gastric engineering boundary.
-- 550 mL rigid spherical balloon proxy.
-- Six-cable reference configuration.
+### Research Scope and Development Priorities
+
+**Long-Term Research Goal**
+
+Develop and compare six-, seven-, and eight-cable measurement systems for estimating the position, orientation and eventually deformation of a passively moving balloon-like object.
+
+The long-term comparison of six-, seven- and eight-cable configurations remains a central research objective.
+
+**Immediate Engineering Priority**
+
+Establish an adjustable six-cable experimental sensing system as early as reasonably possible.
+
+The six-cable system serves as:
+
+- A reference for sensing-performance evaluation.
+- A platform for cable-length and tension measurements.
+- An experimental baseline for calibration and pose estimation.
+- A foundation for deformable-balloon experiments.
+- A reference for future seven-/eight-cable comparisons.
+
+Global configuration optimality is not required before building the first prototype.
+
+**Parallel Theoretical Priority**
+
+Seven- and eight-cable theory and simulation may proceed while the six-cable test rig is being designed, assembled or experimentally validated.
+
+Their investigation must not unnecessarily delay the six-cable prototype.
+
+**Deformable-Balloon Priority**
+
+Before finalising hardware, evaluate whether the selected rigid-body configuration can accommodate a deformable balloon.
+
+Anchor locations may be retained when justified by geometric and mechanical verification.
+
+Attachment locations and cable routing must be re-evaluated under deformation.
+
+**Physical Architecture**
+
+- Passive balloon motion.
 - Cable-length-based sensing.
-- Fixed world-frame anchors.
-- Body-frame attachment coordinates.
-- Passive and unknown balloon motion.
-- Proposed motor-assisted low-tension cable tracking.
-
-Seven- and eight-cable systems are subsequent research extensions.
+- Motor-assisted low-tension tracking.
+- Adjustable external anchors.
+- Replaceable balloon attachment interfaces.
+- Modular sensing and motor hardware.
+- Provision for additional cable channels.
 
 ### Fundamental Rules
 
@@ -111,34 +157,85 @@ Reopen Phase A only when:
 
 A completed reference-method implementation does not establish validation of the balloon-specific system.
 
-### Phase B Working Order
 
-The overall task structure remains:
+### Phase B and Prototype Development Rules
 
-B1 — Geometry Definition  
-B2 — Initial Configuration Generation  
-B3 — Geometric Feasibility  
-B4 — Sensing Quality and Accuracy  
-B5 — Configuration Optimisation and Selection
+The research follows two parallel workstreams.
 
-For the current six-cable research strategy:
+#### Workstream A — Six-Cable Prototype and Experimental Validation
 
-1. Establish an initial geometry and configuration.
-2. Evaluate geometric feasibility across multiple positions and orientations.
-3. Evaluate measurement sensitivity and uncertainty.
-4. Optimise anchor and attachment placement across the required pose set.
-5. Validate pose estimation and select a six-cable reference.
-6. Extend to seven and eight cables.
+**Priority: Immediate**
 
-The detailed B3–B5 order may alternate between evaluation and optimisation as needed.
+1. Complete six-cable geometric and sensing evaluation.
+2. Search for a practical and adjustable Prototype Configuration V1.0.
+3. Verify initial rigid-to-flexible balloon compatibility.
+4. Calculate cable length, tension and motor requirements.
+5. Build an adjustable six-cable test rig.
+6. Perform calibration and rigid-body pose estimation experiments.
+7. Extend experiments to a deformable balloon.
+8. Refine the system using measured results.
 
-**Decision Gate:**
+The purpose is to establish a working experimental platform, not to prove global configuration optimality.
 
-Do not begin seven-/eight-cable design solely because six scalar cable measurements can produce a full-rank Jacobian at one pose.
+#### Workstream B — Seven- and Eight-Cable Theory and Simulation
 
-First establish a numerically justified six-cable reference with documented feasibility and sensing performance.
+**Priority: Parallel**
 
-Global optimality is not required for the reference design, but unsupported optimality claims are prohibited.
+1. Extend the measurement Jacobian to seven and eight cables.
+2. Investigate measurement redundancy and observability.
+3. Evaluate scaled singular values and condition numbers.
+4. Calculate predicted pose covariance.
+5. Investigate geometric workspace and cable interference.
+6. Evaluate positive-tension feasibility where mechanically relevant.
+7. Compare six-, seven- and eight-cable systems under consistent assumptions.
+
+Theoretical and simulation studies may begin before six-cable experimental validation is fully completed.
+
+Physical expansion beyond six cables requires separate engineering justification.
+
+#### Workstream Integration
+
+Both workstreams must use comparable:
+
+- Balloon geometry.
+- Target pose samples.
+- Measurement-noise assumptions.
+- Geometric feasibility criteria.
+- Jacobian scaling.
+- Pose estimation metrics.
+- Mechanical constraints.
+
+Do not assume that adding cables automatically improves overall system performance.
+
+#### Flexible-Balloon Transition
+
+Between six-cable configuration selection and engineering sizing, conduct an initial rigid-to-flexible compatibility assessment.
+
+The assessment must include:
+
+- Reduced-order deformation modelling.
+- Attachment migration.
+- Cable–deformed-surface interference.
+- Combined rigid-pose and deformation observability.
+- Hardware compatibility and adjustment requirements.
+
+Do not assume that six cable-length measurements can uniquely recover six rigid-body degrees of freedom plus arbitrary additional deformation parameters.
+
+#### Prototype Decision Gate
+
+A six-cable Prototype V1.0 may be selected when:
+
+1. Anchor and attachment coordinates are explicit.
+2. Cable pairing is documented.
+3. The initial experimental pose region is defined.
+4. Essential geometric interference checks are passed.
+5. Local sensing quality is evaluated.
+6. Remaining physical uncertainties are documented.
+7. Mechanical adjustment and future expansion are considered.
+
+Global optimisation and complete deformable shape reconstruction are not prerequisites for initial prototype construction.
+
+However, critical geometric, mechanical and safety issues must not be ignored to accelerate development.
 
 ---
 
@@ -146,19 +243,38 @@ Global optimality is not required for the reference design, but unsupported opti
 
 Before beginning a research task, read the minimum relevant repository context.
 
+
 ### Recommended Loading Order
 
+Before starting a research task, load the minimum relevant repository context in the following order:
+
 1. `AGENTS2.md` — Stable AI and research rules.
-2. `CURRENT_STATE2.md` — Verified progress and current task.
-3. `08_Project_Management/current_october_november_todo.md` — Active tasks and acceptance criteria.
-4. `08_Project_Management/weekly_plan_03.md` — Current daily execution plan, while it remains active.
-5. `08_Project_Management/Roadmap.md` — Research phases and milestones.
-6. Relevant technical files in `05_My_Research/`.
-7. Relevant MATLAB scripts and records in `04_Code_Exercises/` and `06_Research_Log/`.
+2. `CURRENT_STATE2.md` — Current research state and verified progress.
+3. Active TODO in `08_Project_Management/November/`.
+4. Active weekly plan in `08_Project_Management/November/`.
+5. `08_Project_Management/Roadmap.md` — Long-term milestones and parallel workstreams.
+6. Relevant technical models in `05_My_Research/`.
+7. Relevant MATLAB scripts, saved configuration datasets and research logs.
 
-Use the most recent active weekly plan when future plans replace `weekly_plan_03.md`.
+The active November plan currently begins with:
 
-Read `weekly_plan_02.md` only when historical Phase A scheduling information is relevant.
+`08_Project_Management/November/weekly_plan_nov_04_17_2026.md`
+
+When a new weekly plan is created, use the newest explicitly active plan rather than automatically selecting an old schedule.
+
+Historical plans should be consulted only when needed.
+
+### Context Loading Principles
+
+- Read only the files relevant to the current task.
+- Preserve verified research results across sessions.
+- Distinguish completed, ongoing and planned tasks.
+- Do not infer completion from dates alone.
+- Do not invent missing numerical results.
+- Do not silently change the active research workstream.
+- Identify and explain conflicting repository information.
+- Prefer verified experimental or numerical evidence over outdated planning statements.
+
 
 ### Context Loading Principles
 
@@ -590,6 +706,48 @@ Next action:
 
 Do not rely on chat history alone to preserve project progress.
 
+
+### Research-Driven Teaching Rules
+
+When assisting with a new research task:
+
+1. State the research question.
+2. Explain why the task is required for the current research.
+3. Identify relevant published methods and theoretical equations.
+4. Distinguish literature-supported methods from engineering assumptions.
+5. Explain the mathematical model and physical meaning.
+6. Provide incremental MATLAB implementation.
+7. Let the user run and inspect numerical results.
+8. Interpret actual outputs before continuing.
+9. Include short research reflection questions when useful.
+10. Summarise findings and limitations before archiving.
+
+Do not introduce multiple advanced algorithms simultaneously unless explicitly requested.
+
+Do not skip numerical verification or interpretation to accelerate lesson progression.
+
+### Parallel Workstream Management
+
+At the beginning of a task, identify its workstream:
+
+- Workstream A: Six-cable prototype and experiments.
+- Workstream B: Seven-/eight-cable theory and simulation.
+- Shared: Mathematical methods, deformation modelling, sensing evaluation and literature research.
+
+The AI should:
+
+1. Prioritise the active task selected by the user.
+2. Keep Workstream A moving toward an adjustable prototype.
+3. Support Workstream B without unnecessarily delaying Workstream A.
+4. Reuse validated mathematical and MATLAB methods across workstreams.
+5. Maintain a consistent basis for six-/seven-/eight-cable comparisons.
+6. Record dependencies between the workstreams.
+7. Avoid restarting completed lessons when switching workstreams.
+8. Recommend schedule changes only when justified by progress or unresolved constraints.
+
+If the user explicitly selects a task in one workstream, do not redirect to another without explaining a necessary dependency.
+
+
 ---
 
 ## 12. Repository Maintenance Rules
@@ -601,11 +759,11 @@ Each file has one primary responsibility.
 | `README.md` | Project overview |
 | `AGENTS2.md` | Stable research and AI rules |
 | `CURRENT_STATE2.md` | Current progress and findings |
-| `08_Project_Management/Roadmap.md` | Long-term research milestones |
-| `08_Project_Management/current_october_november_todo.md` | Active tasks and acceptance criteria |
+| `08_Project_Management/Roadmap.md` | Long-term milestones and parallel workstreams |
+| `08_Project_Management/November/` | Active November TODO and weekly plans |
 | `08_Project_Management/weekly_plan_02.md` | Historical Phase A plan |
-| `08_Project_Management/weekly_plan_03.md` | Current daily research plan |
-| `05_My_Research/` | Technical models and design decisions |
+| `08_Project_Management/weekly_plan_03.md` | Historical Phase B planning record |
+| `05_My_Research/` | Technical models, sensing objectives and prototype design decisions |
 | `04_Code_Exercises/MATLAB/` | MATLAB implementations |
 | `06_Research_Log/` | Experimental results |
 | `02_Paper_Reading/` | Literature and method selection |
@@ -631,6 +789,23 @@ When the user requests manual updates:
 4. Do not modify GitHub directly unless explicitly requested.
 5. Update only one file at a time.
 6. Verify the updated repository file before continuing.
+
+### User-Preferred Manual Update Format
+
+When updating research documents:
+
+1. Inspect the existing GitHub file first.
+2. Identify outdated, duplicated or conflicting content.
+3. Explain which sections should be retained, replaced or removed.
+4. Provide the updated content directly as copyable Markdown text.
+5. Prefer precise replacement sections over rewriting a large file when only limited changes are required.
+6. Update only one GitHub file at a time.
+7. Do not edit, commit or push changes without explicit user approval.
+8. Wait for the user's confirmation before preparing the next file.
+9. Preserve verified results and existing references.
+10. Verify the updated repository file when the user requests a final check.
+
+When a complete rewritten file is necessary, provide it as directly reviewable text unless the user explicitly requests a downloadable artifact.
 
 ### Codex Collaboration Rules
 
@@ -691,16 +866,45 @@ Do not invent citations, model parameters, simulation results or experimental ac
 
 ---
 
-## 14. Guiding Principle
 
-> Use the simplest defensible model that answers the current research question. Verify its numerical behaviour and physical assumptions before proceeding to the next design decision.
+## 14. Guiding Principles
 
-### Research Priority Rule
+> Research questions determine the methods. Numerical evidence supports design decisions. Experiments validate the physical system.
 
-**First:** Validate and improve the six-cable sensing configuration.
+### Research Priorities
 
-**Then:** Compare seven- and eight-cable extensions using consistent criteria.
+**Immediate Priority**
 
-**Finally:** Extend the validated rigid-body measurement approach toward passive deformable-balloon shape sensing.
+Select and build an adjustable six-cable prototype that supports early experimental validation.
 
-The exact active task, completion status and next action must always be read from `CURRENT_STATE2.md` and the latest active research plan, rather than being hard-coded into this file.
+**Parallel Priority**
+
+Investigate seven- and eight-cable sensing theory and simulation without unnecessarily delaying prototype development.
+
+**Flexible-Balloon Priority**
+
+Evaluate rigid-to-flexible compatibility before final hardware selection, while reserving detailed deformation reconstruction for later research.
+
+**Long-Term Priority**
+
+Compare six-, seven- and eight-cable systems in terms of pose-estimation accuracy, sensing workspace, measurement redundancy, mechanical feasibility and implementation complexity.
+
+### Engineering Principles
+
+- Prototype early, but do not ignore essential constraints.
+- Preserve the ability to adjust anchor and attachment locations.
+- Keep hardware modular where practical.
+- Use experimental calibration to refine simulation assumptions.
+- Distinguish numerical predictions from experimentally validated performance.
+- Do not claim global optimality without appropriate evidence.
+- Do not assume additional cables guarantee better sensing.
+- Maintain the long-term objective of deformable balloon sensing and shape reconstruction.
+
+### AI Collaboration Principle
+
+The AI should work as a research assistant that supports problem definition, literature interpretation, mathematical modelling, MATLAB implementation, numerical verification, experimental planning and documentation.
+
+The AI must not silently change research priorities or overwrite established design decisions.
+
+Current tasks and completion status must always be read from the latest active research documents.
+
