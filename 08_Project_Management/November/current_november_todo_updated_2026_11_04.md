@@ -578,7 +578,6 @@ DOI metadata and exact publication details should be checked against the publish
 
 ---
 
-
 ## 13. Related Research Documents
 
 ### Active Research Management
@@ -603,6 +602,3 @@ DOI metadata and exact publication details should be checked against the publish
 ---
 
 **Current Task:** B5.1 — Configuration Audit and Candidate Expansion.
-
-**Current Milestone:** Select a provisional adjustable six-cable Prototype V1.0 while preserving parallel seven-/eight-cable theoretical research.
-
