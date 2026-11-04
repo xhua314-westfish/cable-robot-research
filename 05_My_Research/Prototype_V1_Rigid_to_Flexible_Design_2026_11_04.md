@@ -1,12 +1,39 @@
+
 # Prototype V1.0 — Six-Cable Configuration and Rigid-to-Flexible Design
 
-**Version:** 0.1 (engineering requirements draft)  
-**Date:** 2026-11-04  
-**Research phase:** B5 / B5.5 — Prototype-first configuration selection and flexible-balloon compatibility  
-**Status:** Design requirements defined; Prototype V1.0 coordinates **not yet selected**  
-**System intent:** Passive balloon sensing with motor-assisted low-tension cable tracking; **not active trajectory control**.
+**Version:** 0.2
+**Original Date:** 2026-11-04
+**Research Phase:** B5 — Prototype Selection / B5.5 — Flexible Compatibility
+**Document Status:** Engineering requirements defined; final Prototype V1.0 geometry not yet selected.
+**Primary Tool:** MATLAB
 
-> **Role of this document:** Define the engineering handoff from six-cable rigid-body configuration selection (B5) to flexible-balloon compatibility checks (B5.5) and engineering sizing (B6). It supplements, rather than replaces, `Rigid_Body_Sensing_Design.md` and `Sensing_Objective_v0.2.md`. Daily progress belongs in the November Weekly Plan.
+---
+
+## Document Purpose
+
+This document defines the engineering requirements for selecting an adjustable six-cable sensing prototype and assessing its compatibility with a deformable balloon.
+
+It connects three research stages:
+
+1. **B5 — Configuration Selection:** Choose a provisional rigid-body six-cable layout.
+2. **B5.5 — Flexible Compatibility:** Assess attachment migration, flexible cable routing, observability and hardware implications.
+3. **B6 — Engineering Sizing:** Transfer the selected geometry and physical requirements into cable, motor and sensor design.
+
+The prototype is intended for passive balloon sensing with motor-assisted low-tension cable tracking.
+
+It is not intended for active balloon trajectory control.
+
+This document does not duplicate the complete rigid-body sensing model, daily schedule or experimental research logs.
+
+**Document boundaries:**
+
+- Rigid-body mathematics: `Rigid_Body_Sensing_Design.md`.
+- Current progress: `CURRENT_STATE2.md`.
+- Active tasks: November TODO.
+- Daily execution: November Weekly Plan.
+- Numerical evidence: Research Logs.
+
+---
 
 ## 1. Design Decision and Scope
 
@@ -25,125 +52,214 @@
 
 **Timing rule:** Preliminary frame design can proceed in parallel, but final reel/motor specifications await credible load, travel, speed and tension assumptions.
 
-## 2. Verified Starting Baseline (B1–B4.1)
 
-| Parameter | Established engineering baseline |
+## 2. Engineering Design Baseline
+
+The initial prototype uses the geometry established in B1–B4.1.
+
+| Parameter | Engineering Baseline |
 |---|---|
-| Engineering cavity | Axis-aligned box 280 × 300 × 320 mm; X=Length, Y=Width, Z=Height |
-| Initial balloon | 550 mL rigid equivalent sphere; radius ~50.83 mm |
-| Cable number | 6 independent length measurements |
-| Current anchor candidates | 26 discrete points on six box faces |
-| Current attachment candidates | 40 sampled points on sphere surface |
-| B3.2 pose samples | 27 translations × 7 individual-axis orientations = 189 poses |
-| A geometric pass | 40/189 (ideal zero-thickness straight segments) |
-| B geometric pass | 105/189; Cable Pair 5–6 numerical contact in 81 poses |
-| A median scaled minimum singular value | 0.182628 over its 40 feasible poses |
-| B median scaled minimum singular value | 0.416239 over its 105 feasible poses |
-| A/B median condition number | 11.1157 / 4.4673 over their respective feasible poses |
-| A/B median predicted position uncertainty | 0.3860 / 0.1657 mm using assumed σ_L = 0.1 mm |
-| A/B median predicted orientation uncertainty | 0.5663° / 0.2913° using the same hypothetical noise |
-| Common feasible poses | 19; B predicted position uncertainty lower in 19/19, orientation lower in 18/19 |
+| Boundary | 280 × 300 × 320 mm |
+| Coordinate axes | X = Length, Y = Width, Z = Height |
+| Balloon | 550 mL rigid spherical reference |
+| Balloon radius | Approximately 50.83 mm |
+| Initial cable number | 6 |
+| Original anchor candidates | 26 |
+| Original attachment candidates | 40 |
+| Reference configurations | Experiment A and Experiment B |
+| Evaluation | Common rigid-body pose samples |
+| Primary measurement | Cable length |
 
-**Interpretation:** Experiment B is a useful *comparison baseline*, not an acceptable final hardware arrangement: the Cable 5–6 contact must be addressed. Its better medians do not establish feasibility at zero rotation, a practical core test condition.
+### Existing Configuration Limitations
 
-**Coordinate sources:** `B2_6cable_experiment_A.mat` (`config6.A`, `config6.r`) and `B2_experiment_B_results.mat` (`resultB.A`, `resultB.r`). These exact 6×3 coordinates and row-wise cable pairings must be copied into the V1.0 configuration record after selection; do not invent them from aggregate performance data.
+Experiment A is primarily limited by cable–sphere interference.
 
-## 3. B5 — Rapid Six-Cable Configuration Selection
+Experiment B is primarily limited by interference between Cable Pair 5–6.
 
-### B5.1 Configuration audit and design variables
+Neither configuration is approved as the final physical prototype.
 
-For cable *i*:
+Both remain numerical comparison baselines during B5.
 
-\[
-\mathcal C_6=\{(A_i,r_{i0})\}_{i=1}^{6},\quad A_i\in\Omega_A,\quad \|r_{i0}\|=r_b.
-\]
+### Design Implications
 
-Each row defines **one cable** and its unique anchor–attachment correspondence. An assignment permutation changes cable geometry even if the two unpaired point sets remain the same.
+Prototype V1.0 should:
 
-**Method:** Audit A/B coordinates, mounting face labels, minimum anchor/attachment spacing and routing constraints. Generate alternative spatial layout families rather than only perturbing B. Include six-face distributed, layered/opposite-face, asymmetric, and altered-pairing candidates; families are candidate-generation heuristics, not literature-proven optimum layouts.
+- Allow anchor-position adjustment.
+- Support replaceable attachment locations.
+- Provide explicit cable pairing.
+- Avoid critical interference over a declared core test region.
+- Maintain acceptable local sensing identifiability.
+- Allow cable-length and tension measurement.
+- Support initial flexible-balloon experiments.
+- Reserve reasonable provision for additional sensing channels.
 
-**Evidence/theory:** Constrained cable attachment placement and interference-free workspace formulations in Cheng & Lau [R1]; general CDPR kinematics in Pott [R5].
+The exact V1.0 anchor and attachment coordinates must be selected using actual B5 evaluation results.
 
-**Deliverable:** `B5_1_configuration_audit.csv` or `.mat`, including coordinate system, units, 6×3 A/r, pairing ID and mount-face labels.
+Aggregate performance statistics must not be used to invent missing coordinates.
 
-### B5.2 Expand candidate regions without exhaustive search
+Detailed B2–B4.1 results belong in `CURRENT_STATE2.md` and the associated Research Logs.
 
-**Anchor:** compare existing 26-point 3×3 face grid with a 5×5 face grid (98 unique surface points for this rectangular box); where installation permits, refine continuously on mounting planes/rails.
+---
 
-**Attachment:** compare existing 40-point latitude/longitude sample with a larger approximately uniform surface sample (e.g., Fibonacci sphere). Preserve unique, separated physical mounting locations and accessible attachment hardware.
 
-\[
-\|A_i-A_j\|\ge d_{A,\min},\qquad
-\|r_{i0}-r_{j0}\|\ge d_{r,\min}\quad (i\ne j).
-\]
+## 3. B5 — Rapid Six-Cable Prototype Configuration Selection
 
-The required physical separations are **undetermined** until mounting hardware is chosen. Candidate counts and Fibonacci sampling are *engineering search choices*, not numerical values from [R1].
+**Objective:** Select a practical, adjustable and numerically justified six-cable Prototype V1.0 without requiring proof of global optimality.
 
-**Deliverable:** Expanded candidate datasets and a visual check of coverage and mount accessibility.
+### 3.1 B5.1 — Configuration Audit and Candidate Expansion
 
-### B5.3 Staged geometric screening
-
-Rigid pose geometry:
+**Design variables:**
 
 \[
-B_i(q)=P+Rr_{i0},\qquad
-C_i(t;q)=B_i(q)+t\,[A_i-B_i(q)],\quad 0\le t\le1.
+\mathcal C_6=\{(A_i,r_i)\}_{i=1}^{6}
 \]
 
-**Evaluate in sequence:** valid mounting, unique/separated attachment points, positive cable lengths, sphere containment, cable–sphere nonpenetration, segment–segment distance, cable routing and mount accessibility. Store *which cable and which pose failed*, not just a binary score.
+where each cable has:
 
-\[
-d_{ij}(q)=\min_{s,t\in[0,1]}\|C_i(s;q)-C_j(t;q)\|.
-\]
+- One world-frame anchor \(A_i\).
+- One body-frame attachment \(r_i\).
+- An explicit anchor–attachment correspondence.
 
-For physical cables, a proposed centerline clearance check is
+Cable pairing is a design variable.
 
-\[
-d_{ij}(q)\ge\frac{d_i+d_j}{2}+c_{\mathrm{mount}},
-\]
+**Engineering requirements:**
 
-where the diameters and extra clearance must be specified from hardware evidence. The zero-thickness numerical contact threshold from B3 is **not** a validated physical clearance margin. Cable–sphere checks must likewise account for cable radius, local connector hardware and contact exclusions.
+- Review existing Experiment A/B configurations.
+- Expand anchor candidate regions where mounting is practical.
+- Expand attachment candidates beyond the initial coarse spherical grid.
+- Consider multiple anchor-distribution families.
+- Evaluate alternative cable pairings.
+- Define minimum physical spacing as an adjustable design parameter.
+- Preserve reproducibility of candidate generation.
 
-**Pose policy:** Declare a smaller *core commissioning set* and a broader target set. Preserve the original 189 poses for comparable reporting; do not imply sampled feasibility equals continuous-workspace coverage. Core zero-rotation feasibility is particularly important because B failed at all 27 zero-rotation positions.
+**Expected Output:** Reproducible candidate configurations with coordinates, pairing and mounting-region definitions.
 
-**Evidence/theory:** Segment-distance geometry; interference-free constraints in [R1]; reconfigurable cable–cable collision mitigation in Youssef & Otis [R2]. [R2]'s actively controlled, rail-based robot is *not* a direct model of passive balloon sensing.
+### 3.2 B5.2 — Multi-Pose Geometric Screening
 
-### B5.4 Assess sensing quality only after geometry screening
+**Objective:** Identify layouts that avoid significant interference over a declared experimental pose set.
 
-For rigid pose, let \(u_i=(A_i-B_i)/L_i\), \(s_i=Rr_{i0}\). For a **world-frame infinitesimal rotation perturbation**:
+Check:
 
-\[
-H_i=\begin{bmatrix}-u_i^T & (u_i\times s_i)^T\end{bmatrix},\qquad
-H_s=H\,\mathrm{diag}(1,1,1,1/r_b,1/r_b,1/r_b).
-\]
+- Balloon containment.
+- Cable–balloon penetration.
+- Cable–cable interference.
+- Cable length and routing.
+- Minimum cable separation.
+- Anchor mounting accessibility.
+- Attachment mounting accessibility.
 
-Evaluate \(\mathrm{rank}(H_s)\), \(\sigma_{\min}(H_s)\), \(\kappa(H_s)\), and predicted covariance (only if full rank and under a declared noise model):
+Two pose sets should be distinguished:
 
-\[
-\Sigma_q\approx (H^T\Sigma_L^{-1}H)^{-1}.
-\]
+**Core Experimental Pose Set:** Required poses for initial prototype commissioning.
 
-**Decision strategy:** First require defined *core* geometry and a nondegenerate Jacobian, then prefer broader geometric coverage and better worst-case sensing quality. Report medians and worst cases. Keep several non-dominated designs instead of inventing arbitrary weighted scores. Use identical poses and noise assumptions across candidates.
+**Extended Evaluation Pose Set:** Broader numerical samples used for comparison and limitation assessment.
 
-**Evidence/theory:** Singular-value/least-squares sensitivity; local Fisher information \(H^T\Sigma_L^{-1}H\) (E-optimal weakest-direction reasoning). This is a mathematical basis—not an experimentally established precision specification.
+Physical cable diameter and mounting clearance must be included when their values become available.
 
-### B5.5 Select and freeze Prototype V1.0 for a first build
+Ideal zero-thickness line-segment feasibility does not establish physical clearance.
 
-**Minimum handoff record:**
+**Expected Output:** Geometry-feasibility results, interference records and shortlisted configurations.
 
-- Six anchor coordinates (world frame, mm), six nominal attachment coordinates (balloon/body reference, mm), numbered one-to-one cable pairing.
-- A schematic and mount-face/accessibility notes.
-- Core and extended pose sets; pose-level geometry pass/fail with minimum clearances.
-- Rank, minimum singular value, condition number and theoretical pose uncertainty under explicitly assumed sensor noise.
-- Preliminary rigid geometric cable lengths and travel ranges; independent verification samples.
-- Adjustable mount locations and limits; exact assumptions and known unverified physical constraints.
-- Version lock `Prototype_V1_0` plus at least one alternative candidate.
+### 3.3 B5.3 — Multi-Pose Sensing Evaluation
 
-**Go/no-go:** A candidate may be released for *limited, supervised prototype commissioning* if its specified core use envelope is interference-free under stated mechanical dimensions, sensor geometry is locally identifiable there, and remaining tension/force issues are explicitly carried into B6. Do **not** claim validated low-disturbance passive operation or a feasible full anatomical workspace.
+**Objective:** Rank geometrically admissible configurations by rigid-body sensing performance.
 
-## 4. B5.5 — Rigid-to-Flexible Balloon Transition
+Evaluate:
 
-**Purpose:** Test compatibility *before locking expensive hardware*, without delaying the prototype until arbitrary 3D shape reconstruction is solved.
+- Measurement Jacobian rank.
+- Scaled minimum singular value.
+- Scaled condition number.
+- Weak sensing directions.
+- Predicted position and orientation uncertainty.
+- Performance across common pose samples.
+
+Candidates must be compared under consistent noise assumptions and Jacobian scaling conventions.
+
+Prioritise required geometric feasibility, then compare sensing performance and implementation trade-offs.
+
+Do not select a prototype using reference-pose condition number alone.
+
+**Expected Output:** Ranked candidates and a documented sensing-performance comparison.
+
+Detailed Jacobian derivations and covariance equations are maintained in `Rigid_Body_Sensing_Design.md`.
+
+### 3.4 B5.4 — Refinement and Prototype V1.0 Selection
+
+**Objective:** Select a provisional six-cable layout suitable for experimental development.
+
+Refine promising configurations through:
+
+- Anchor-position adjustment.
+- Attachment-position adjustment.
+- Cable-pairing changes.
+- Geometric re-evaluation.
+- Independent validation poses.
+- Mounting and assembly review.
+
+### Prototype V1.0 Selection Record
+
+The selected configuration must include:
+
+| Item | Required Information |
+|---|---|
+| Anchors | Six world-frame coordinates |
+| Attachments | Six body-frame reference coordinates |
+| Cable pairing | Explicit one-to-one mapping |
+| Geometry version | Boundary and balloon parameters |
+| Core test region | Required initial experimental poses |
+| Geometric results | Interference and minimum clearance |
+| Sensing results | Rank, singular values and predicted uncertainty |
+| Cable lengths | Nominal lengths and sampled travel range |
+| Mechanical interfaces | Mounting and adjustment requirements |
+| Open issues | Remaining physical and experimental uncertainties |
+
+### Selection Decision
+
+Possible outcomes:
+
+- **PROVISIONAL_V1:** A configuration satisfies the declared initial numerical and engineering requirements.
+- **REVISE_CONFIGURATION:** Critical geometry or sensing limitations remain.
+- **RESTRICT_CORE_REGION:** A scientifically justified smaller experimental region is required.
+- **REVIEW_ARCHITECTURE:** No suitable configuration has been identified within the evaluated design space.
+
+A provisional selection permits further engineering analysis.
+
+It does not constitute verified positive-tension feasibility, experimentally validated accuracy or approval for final hardware procurement.
+
+**Output:** A versioned six-cable configuration and B5 decision record.
+
+---
+
+
+## 4. B5.5 — Rigid-to-Flexible Balloon Compatibility
+
+**Objective:** Determine whether the provisional rigid-body six-cable configuration can support initial flexible-balloon sensing experiments.
+
+**Status:** Planned after selection of a provisional rigid Prototype V1.0.
+
+This stage is a limited engineering compatibility assessment, not a complete nonlinear membrane-model validation or full shape-reconstruction project.
+
+### Research Questions
+
+1. How do balloon attachment positions change during deformation?
+2. Does deformation introduce additional cable interference?
+3. How do cable-length requirements change?
+4. Which rigid-body and deformation variables are locally identifiable?
+5. Can the proposed prototype hardware be retained or adjusted?
+
+### Task Structure
+
+| Task | Technical Focus | Required Output |
+|---|---|---|
+| B5.5.1 | Simplified flexible-balloon model | Deformation assumptions and model |
+| B5.5.2 | Attachment migration | Material-point displacement and mounting requirements |
+| B5.5.3 | Flexible cable routing | Interference and length changes |
+| B5.5.4 | Rigid–deformation observability | Extended Jacobian and identifiable state analysis |
+| B5.5.5 | Hardware compatibility | Keep, modify or redesign decision |
+
+The simplified affine or ellipsoidal deformation model is an engineering screening approximation.
+
+It must not be presented as a validated physical model of intragastric balloon deformation.
 
 ### B5.5.1 Define an initial flexible-balloon model
 
@@ -285,23 +401,73 @@ Account for inertia, acceleration, friction, drum-radius changes, safety factors
 
 **A redesign is required if** the deformed balloon introduces systematic cable–surface collisions, strain concentration at fixtures, unsupported tension demands or insufficient measurement information for the selected estimation objective.
 
-## 7. Verification and Versioning Requirements
+---
 
-| Stage | Verification | Status |
-|---|---|---|
-| B5 | Baseline A/B reproducibility and candidate diversity | Pending |
-| B5 | Core-pose geometric and Jacobian checks | Pending |
-| B5 | Independent validation poses | Pending |
-| B5 | V1.0 coordinate and pairing version lock | Pending |
-| B5.5 | Affine model reduces to rigid at F=I | Pending |
-| B5.5 | Flexible surface intersection and clearance checks | Pending |
-| B5.5 | Extended Jacobian finite-difference and rank checks | Pending |
-| B5.5 | Compatibility gate | Pending |
-| B6 | Preliminary mass/tension/drum sizing | Pending |
 
-**Dataset convention:** `Prototype_V1_0` must store `A` (6×3), `r0` (6×3), units, frame definition, row-wise pairing, geometry version, target pose set, flexible-model version, active routing model, physical clearance assumptions, verification result and date. Keep old configurations immutable and record subsequent revisions as `V1_1`, `V2_0`, etc.
+## 7. Prototype Configuration and Version Control
 
-**Reference pose and datasets:** `B1_geometry_baseline.mat`, `B2_6cable_experiment_A.mat`, `B2_experiment_B_results.mat`, `B3_2_results.mat`, `B4_1_results.mat`. Planned results and hardware specifications must never be marked completed before numerical or experimental confirmation.
+### 7.1 Configuration Data Structure
+
+Each prototype configuration must contain:
+
+| Field | Description |
+|---|---|
+| `version` | Prototype version identifier |
+| `A` | 6 × 3 world-frame anchor coordinates |
+| `r0` | 6 × 3 body-frame attachment coordinates |
+| `pairing` | Cable-to-anchor/attachment mapping |
+| `units` | Coordinate and measurement units |
+| `geometry_version` | Boundary and balloon model identifier |
+| `pose_set` | Declared evaluation poses |
+| `length_range` | Sampled cable-length limits |
+| `clearance` | Geometric clearance assumptions and results |
+| `sensing_metrics` | Rank, singular values and predicted uncertainty |
+| `validation_status` | Numerical and experimental evidence status |
+| `limitations` | Unresolved mechanical or measurement issues |
+
+### 7.2 Version Naming
+
+Use:
+
+- `Prototype_V1_0` — Initial provisional configuration.
+- `Prototype_V1_1` — Limited adjustment without changing the overall architecture.
+- `Prototype_V2_0` — Substantial configuration or architecture revision.
+
+Preserve previous configurations and their evaluation datasets.
+
+Do not overwrite verified historical results without retaining their provenance.
+
+### 7.3 Existing Numerical References
+
+The initial numerical baseline includes:
+
+- `B1_geometry_baseline.mat`
+- `B2_6cable_experiment_A.mat`
+- `B2_experiment_B_results.mat`
+- `B3_2_results.mat`
+- `B4_1_results.mat`
+
+These files represent the earlier simulation baseline.
+
+They must not be confused with a validated Prototype V1.0 configuration.
+
+### 7.4 Engineering Release Conditions
+
+A provisional prototype configuration may be passed to B6 when:
+
+- Anchor and attachment coordinates are documented.
+- Cable pairing is reproducible.
+- Required core-pose geometry checks are completed.
+- Local sensing feasibility is assessed.
+- Flexible compatibility limitations are identified.
+- Preliminary cable-length requirements are available.
+- Remaining mechanical and tension assumptions are explicit.
+
+Detailed research acceptance checklists belong in the November TODO.
+
+Actual validation evidence belongs in the Research Logs.
+
+---
 
 ## 8. Literature and Theory Register
 
@@ -317,12 +483,33 @@ Account for inertia, acceleration, friction, drum-radius changes, safety factors
 
 **Method provenance note:** All measurement Jacobian, affine deformation and extended observability equations above are either standard geometry/calculus/linear algebra or explicit engineering models for this project. The cited papers provide relevant mathematical/engineering context; none directly validates the entire proposed gastric-balloon architecture.
 
-## 9. Active Project Documents
 
-- Research state: [`../CURRENT_STATE2.md`](../CURRENT_STATE2.md)
-- November TODO: [`../08_Project_Management/November/`](../08_Project_Management/November/) — use the exact committed November TODO filename.
-- Current two-week plan: [`../08_Project_Management/November/weekly_plan_nov_04_17_2026.md`](../08_Project_Management/November/weekly_plan_nov_04_17_2026.md)
-- Existing rigid design: [`Rigid_Body_Sensing_Design.md`](Rigid_Body_Sensing_Design.md)
-- Existing sensing objective: [`Sensing_Objective_v0.2.md`](Sensing_Objective_v0.2.md)
+## 9. Related Project Documents
 
-**Immediate next action:** Complete the B5 configuration audit, candidate expansion and core-pose screening according to the November plan. Do not lock a motor or cable design until critical geometry, loading and tension assumptions are explicit.
+### Research Management
+
+- [Current Research State](../CURRENT_STATE2.md)
+- [Research Roadmap](../08_Project_Management/Roadmap.md)
+- [November Research TODO](../08_Project_Management/November/current_november_todo_updated_2026_11_04.md)
+- [November Weekly Plan](../08_Project_Management/November/weekly_plan_nov_04_17_2026.md)
+
+### Technical Design
+
+- [Sensing Objective](Sensing_Objective_v0.2.md)
+- [Rigid-Body Sensing Design](Rigid_Body_Sensing_Design.md)
+- [Workspace Boundary](Workspace_Boundary_v0.2_2026-10-20.md)
+
+### Research Evidence
+
+- [MATLAB Simulations](../03_Simulation/MATLAB/)
+- [Research Logs](../06_Research_Log/)
+- [Literature Review](../02_Paper_Reading/Literature_Review/)
+
+---
+
+**Engineering Objective:** Select an adjustable six-cable Prototype V1.0 and establish its compatibility with initial flexible-balloon experiments.
+
+**Long-Term Objective:** Support experimental sensing research and future six-/seven-/eight-cable comparison.
+
+**Guiding Principle:** Prototype decisions must be based on documented numerical evidence, physical assumptions and clearly stated limitations.
+
