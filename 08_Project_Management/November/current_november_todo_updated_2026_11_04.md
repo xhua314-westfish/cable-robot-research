@@ -184,7 +184,7 @@ Quantified nonlinear pose-estimation accuracy claims require appropriate estimat
 
 **Theory:** \(\mathcal C=\{(A_i,r_i)\}_{i=1}^{6}\), \(A_i\in\Omega_A\), \(\|r_i\|=r_b\), optional spacing \(\|r_i-r_j\|\ge d_{r,\min}\). The pairing permutation changes cable segments and Jacobian even if the two point sets stay unchanged.
 
-**Literature:** [R1] reconfigurable attachment optimisation and workspace constraints; [R3] Fibonacci spherical sampling (numerical distribution argument, **not** proof of better sensing); [R9] manufacturable sensing-layout optimisation (methodological analogy, different sensor technology).
+**Literature:** [R1] reconfigurable attachment optimisation and workspace constraints; [R3] Fibonacci spherical sampling (numerical distribution argument, **not** proof of better sensing); [R8] manufacturable sensing-layout optimisation (methodological analogy, different sensor technology).
 
 **Deliverables:** configuration audit table/figure; expanded candidate `.mat`; search-family definition; random seeds.  
 **Acceptance:** candidate locations and pairing reproducible; A/B baseline coordinates untouched.
@@ -343,7 +343,7 @@ B_i=P+R\,F(\eta)r_{i0},\qquad L_i=\|A_i-B_i\|.
 - [ ] Compare several replacement/mounting concepts without prematurely assuming point loads on thin membrane are safe.
 
 **Theory:** material attachment tracking and membrane traction/strain; \(\Delta B_i=R(F-I)r_{i0}\).  
-**Literature:** [R5] membrane deformation under inflation; [R6] soft surface deformation and sensor/mechanics co-design; [R9] manufacturability-aware placement (methodological analogy).
+**Literature:** [R5] membrane deformation under inflation; [R6] soft surface deformation and sensor/mechanics co-design; [R8] manufacturability-aware placement (methodological analogy).
 
 **Output:** per-cable migration table; attachment-interface design requirements; provisional allowable shape/attachment motion.
 
@@ -369,7 +369,7 @@ B_i=P+R\,F(\eta)r_{i0},\qquad L_i=\|A_i-B_i\|.
 - [ ] Consider physically justified constraints, time-dependent dynamics/prior information, independent sensors or future seventh/eighth cables only if a specific identification goal requires them. More cables alone do not guarantee full freeform-shape reconstruction.
 
 **Theory:** \(\delta L\approx H_{\mathrm{rigid}}\delta q+H_{\eta}\delta\eta\); local identifiability requires full column rank for the independent unknowns absent additional constraints.  
-**Literature:** [R6] model-based shape estimation with mechanical constraints; [R9] sensor placement and deformation estimation; Jacobian rank/null-space linear algebra.
+**Literature:** [R6] model-based shape estimation with mechanical constraints; [R8] sensor placement and deformation estimation; Jacobian rank/null-space linear algebra.
 
 **Output:** extended Jacobian check, unobservable direction examples, explicit list of measurable versus not-yet-measurable states.
 
@@ -455,7 +455,7 @@ B_i=P+R\,F(\eta)r_{i0},\qquad L_i=\|A_i-B_i\|.
 - [ ] Compare V1.0 versus V2.0 on identical physical experiments and independent test poses.
 - [ ] Develop a reduced-order shape estimator or a mechanics-assisted model only after the targeted deformation states and sensing observability are justified.
 
-**Basis:** [R6] mechanics-informed shape reconstruction; [R9] sensor-layout/deformation co-optimisation (method transfer, **not** identical to cable-length balloon measurement).
+**Basis:** [R6] mechanics-informed shape reconstruction; [R8] sensor-layout/deformation co-optimisation (method transfer, **not** identical to cable-length balloon measurement).
 
 ---
 
@@ -571,7 +571,7 @@ DOI metadata and exact publication details should be checked against the publish
 **[R7]** *On the Minimum Cable Tensions for the Cable-Based Parallel Robots* (2014). Journal of Applied Mathematics, Article 350492. **DOI:** https://doi.org/10.1155/2014/350492  
 **Use:** B6.2–B6.3; minimum positive cable tensions and wrench/force constraints. **Transfer limitation:** actuator-force analysis requires the correct external-wrench and passive-following model.
 
-**[R9]** *Model-Free Co-Optimization of Manufacturable Sensor Layouts and Deformation Proprioception* (2026). IEEE Transactions on Robotics, 42, 1662–1679. **DOI:** https://doi.org/10.1109/TRO.2026.3677076  
+**[R8]** *Model-Free Co-Optimization of Manufacturable Sensor Layouts and Deformation Proprioception* (2026). IEEE Transactions on Robotics, 42, 1662–1679. **DOI:** https://doi.org/10.1109/TRO.2026.3677076
 **Use:** B5.1, B5.5.2, B5.5.4, B9; reason to treat sensor/attachment layout and manufacturability as coupled design variables. **Transfer limitation:** method uses flexible strain/length sensing and data-driven learning; not direct evidence for the proposed six-cable balloon.
 
 **Publication note:** The formula \(F=\mathrm{diag}(\lambda_x,\lambda_y,\lambda_z)\) is a project-level **kinematic deformation hypothesis**. \(\det F\approx1\) is the familiar volume-ratio determinant constraint if enclosed volume is approximately preserved. The paper [R5] motivates future nonlinear membrane physics; it does not establish this low-dimensional hypothesis as experimentally accurate.
