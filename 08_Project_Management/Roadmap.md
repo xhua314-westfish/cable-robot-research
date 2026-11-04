@@ -274,94 +274,65 @@ Remaining tasks:
 
 B4.2 should be completed before making validated pose-accuracy claims, but it does not need to block preliminary mechanical-frame design.
 
-### B5 — Rapid Six-Cable Configuration Selection
 
-**Status:** Current.
+### B5 — Rapid Six-Cable Prototype Configuration Selection
 
-**Main Objective:**
+**Status:** Active.
 
-Select an adjustable and practically implementable six-cable Prototype Configuration V1.0 without requiring proof of global optimality.
+**Objective:** Select a numerically justified, adjustable six-cable Prototype Configuration V1.0 suitable for initial experimental development.
 
-**B5.1 — Configuration Audit and Candidate Expansion**
+Global optimality is not required.
 
-- Review Experiment A and B anchor–attachment coordinates.
-- Identify existing geometric limitations.
-- Expand candidate anchor and attachment regions.
-- Explore different cable-pairing arrangements.
-- Define initial manufacturing and adjustment requirements.
+| Task | Research Activity | Expected Output |
+|---|---|---|
+| B5.1 | Configuration audit and candidate expansion | Expanded anchor–attachment design space |
+| B5.2 | Multi-pose geometric screening | Feasible configurations and interference records |
+| B5.3 | Multi-pose sensing evaluation | Jacobian, singular values, covariance and candidate ranking |
+| B5.4 | Refinement and Prototype V1.0 selection | Final candidate coordinates, pairing and design limitations |
 
-**B5.2 — Fast Geometric Screening**
+### B5 Completion Criteria
 
-- Evaluate balloon containment.
-- Evaluate cable–sphere interference.
-- Evaluate cable–cable interference.
-- Introduce parameterised physical cable clearances.
-- Identify promising geometrically feasible configurations.
+- Six anchor coordinates are documented.
+- Six body-frame attachment coordinates are documented.
+- Cable correspondence is explicit.
+- The initial experimental pose region is defined.
+- Critical geometric constraints are checked.
+- Local sensing quality is evaluated.
+- Independent validation poses are considered.
+- Cable-length ranges are calculated.
+- Physical adjustment requirements are identified.
 
-**B5.3 — Multi-Pose Sensing Evaluation**
+**Outcome:** Prototype Configuration V1.0, ready for flexible compatibility assessment and preliminary engineering sizing.
 
-- Evaluate Jacobian rank and scaled singular values.
-- Evaluate condition numbers.
-- Predict local position and orientation uncertainty.
-- Compare candidates using common target poses.
-- Identify weak sensing directions and unacceptable configurations.
+---
 
-**B5.4 — Shortlist and Local Refinement**
+### B5.5 — Rigid-to-Flexible Balloon Compatibility
 
-- Retain multiple promising configuration families.
-- Improve anchor–attachment placement and cable pairing.
-- Evaluate independent validation poses.
-- Compare geometric feasibility, sensing quality and implementation complexity.
-- Avoid unsupported claims of global optimality.
+**Status:** Planned after B5 configuration selection.
 
-**B5.5 — Prototype Configuration V1.0 Selection**
+**Objective:** Evaluate whether the rigid-body cable configuration can support an initial deformable-balloon experiment without major hardware redesign.
 
-- Select six anchor coordinates.
-- Select six body-frame attachment coordinates.
-- Record the cable-pairing relationship.
-- Define the initial experimental pose region.
-- Record geometric clearance and sensing quality.
-- Calculate preliminary cable-length ranges.
-- Identify adjustable mechanical interfaces.
+| Task | Research Activity | Expected Output |
+|---|---|---|
+| B5.5.1 | Reduced-order flexible balloon model | Deformation model and assumptions |
+| B5.5.2 | Attachment migration | Attachment displacement under deformation |
+| B5.5.3 | Flexible cable routing | Cable length, clearance and interference checks |
+| B5.5.4 | Rigid–deformation observability | Extended Jacobian and identifiability assessment |
+| B5.5.5 | Hardware compatibility | Retain, adjust or redesign decision |
 
-**Expected Outcome:**
+### B5.5 Decision Criteria
 
-A reproducible six-cable Prototype Configuration V1.0 suitable for preliminary engineering sizing.
+- The deformation model and limitations are documented.
+- Attachment migration is quantified.
+- Cable geometry is checked against the deformed surface.
+- Unobservable rigid/deformation state combinations are identified.
+- Anchor and attachment adjustment requirements are stated.
+- Preliminary design margins are available for B6.
 
-### B5.5 — Rigid-to-Flexible Balloon Transition
+**Outcome:** A documented rigid-to-flexible compatibility decision.
 
-**Status:** Planned immediately after B5.
+Complete shape reconstruction is not required before beginning preliminary prototype engineering.
 
-This work package is distinct from the B5.5 subtask above.
-
-To avoid numbering ambiguity in the active task plan, use:
-
-- B5.1–B5.5 for configuration selection subtasks.
-- B5F.1–B5F.5 for flexible compatibility subtasks.
-
-**B5F.1 — Initial Flexible Balloon Model**
-
-Define a reduced-order deformation model and document its assumptions.
-
-**B5F.2 — Attachment Migration**
-
-Estimate how attachment locations move relative to the balloon body during deformation.
-
-**B5F.3 — Flexible Cable Geometry**
-
-Re-evaluate cable lengths and interference using the deformed balloon surface.
-
-**B5F.4 — Rigid–Deformation Observability**
-
-Investigate whether cable-length measurements can distinguish rigid-body motion and deformation.
-
-**B5F.5 — Hardware Compatibility**
-
-Decide whether the selected anchors, attachments and cable-routing arrangement can be retained or require modification.
-
-**Expected Outcome:**
-
-An initial flexible compatibility assessment and documented requirements for an adjustable test rig.
 
 ### Phase B Decision Rule
 
@@ -598,15 +569,32 @@ Establish a six-cable prototype-ready configuration while preserving the long-te
 
 ---
 
+
 ## 12. Related Documents
 
+### Research Management
+
 - [Current Research State](../CURRENT_STATE2.md)
-- [Research Guidelines](../AGENTS2.md)
-- [Active TODO](current_november_todo.md)
-- [Weekly Plan nov](weekly_plan_nov_04_17_2026.md)
+- [AI and Research Rules](../AGENTS2.md)
+- [November Research TODO](November/current_november_todo_updated_2026_11_04.md)
+- [November Weekly Plan](November/weekly_plan_nov_04_17_2026.md)
+
+### Technical Design
+
 - [Rigid-Body Sensing Design](../05_My_Research/Rigid_Body_Sensing_Design.md)
-- [Phase B Literature Method Selection](../02_Paper_Reading/Literature_Review/workspace%20definition/Phase_B_Method_Selection_2026-11-02.md)
-- [Research Log](../06_Research_Log/)
+- [Prototype V1.0 and Flexible Transition](../05_My_Research/Prototype_V1_Rigid_to_Flexible_Design_2026_11_04.md)
+- [Sensing Objective](../05_My_Research/Sensing_Objective_v0.2_updated_2026_11_04.md)
+
+### Research Evidence
+
+- [Phase B Method Selection](../02_Paper_Reading/Literature_Review/workspace%20definition/Phase_B_Method_Selection_2026-11-02.md)
+- [Research Logs](../06_Research_Log/)
+
+---
+
+**Current Milestone:** B5 — Rapid Six-Cable Prototype Configuration Selection.
+
+**Long-Term Goal:** Compare six-, seven- and eight-cable sensing systems while progressively extending the experimental platform toward deformable-balloon sensing.
 
 ---
 
