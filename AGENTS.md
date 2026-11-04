@@ -16,7 +16,7 @@ Before starting a research or coding task, read:
 
 1. `AGENTS2.md` — Research principles, modelling conventions, validation rules and AI workflow.
 2. `CURRENT_STATE2.md` — Current research phase, completed work and unresolved questions.
-3. `08_Project_Management/current_october_november_todo.md` — Active tasks and completion criteria.
+3. `08_Project_Management/current_november_todo.md` — Active tasks and completion criteria.
 4. `08_Project_Management/Roadmap.md` — Research milestones and phase definitions.
 
 Then inspect only the MATLAB scripts, research models and notes relevant to the active task.
@@ -51,7 +51,7 @@ The research concerns measurement and estimation, not active trajectory control.
 
 **Phase B:** Balloon-specific cable sensing design — current.
 
-**Active work package:** B1 — Geometry and Candidate Region Definition.
+**Active work package:** B5 .
 
 The Phase B sequence is:
 
@@ -153,7 +153,7 @@ The repository, rather than a long chat history, should retain the essential res
 | `AGENTS2.md` | Detailed research and AI working rules |
 | `CURRENT_STATE2.md` | Current research status |
 | `08_Project_Management/Roadmap.md` | Long-term research stages |
-| `08_Project_Management/current_october_november_todo.md` | Current actionable tasks |
+| `08_Project_Management/current_november_todo.md` | Current actionable tasks |
 | `08_Project_Management/weekly_plan_02.md` | Archived Phase A sprint record |
 | `05_My_Research/` | Research models and technical designs |
 | `04_Code_Exercises/MATLAB/` | MATLAB implementations |
