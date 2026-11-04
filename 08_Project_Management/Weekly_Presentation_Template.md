@@ -29,15 +29,29 @@
 
 ---
 
-## 2. Source files and evidence priority
 
-Use the **latest available** versions relevant to the active week:
+## 2. Source Files and Evidence Priority
 
-1. **Weekly plan:** for example, `08_Project_Management/weekly_plan_02.md`, replaced by the current plan each week.
-2. **Milestone TODO:** for example, `08_Project_Management/current_october_november_todo.md`.
-3. **Research direction:** `CURRENT_STATE2.md`, `05_My_Research/Sensing_Objective_v0.2.md`, or newer replacements.
-4. **Actual evidence:** MATLAB `.m` scripts, figures, printed outputs, numerical checks, paper notes and `06_Research_Log` entries.
-5. **Latest PPTX:** the most recently edited draft for this week (attach it or provide an accessible, verified GitHub file).
+Use the latest active research documents relevant to the reporting week.
+
+1. **Active Weekly Plan:** `08_Project_Management/November/weekly_plan_nov_04_17_2026.md`, or its successor for future reporting periods.
+2. **Active Research TODO:** `08_Project_Management/November/current_november_todo_updated_2026_11_04.md`, or its successor.
+3. **Current Research State:** `CURRENT_STATE2.md`.
+4. **Research Roadmap:** `08_Project_Management/Roadmap.md`.
+5. **Research and AI Rules:** `AGENTS2.md`.
+6. **Actual Research Evidence:** MATLAB scripts, numerical results, saved datasets, figures, literature notes and Research Logs.
+7. **Latest Weekly PPTX:** The most recently edited presentation draft.
+
+### Source Priority
+
+Actual verified research evidence takes precedence over planned tasks and completion checkboxes.
+
+Historical files such as `weekly_plan_02.md`, `weekly_plan_03.md` and `current_october_november_todo.md` must not be treated as active plans.
+
+When documents disagree, identify the inconsistency and consult the latest verified research state.
+
+The weekly presentation must distinguish completed work, ongoing work and future tasks.
+
 
 **Evidence priority:** Actual verified output and dated notes > task checkboxes > future plans. A planned task is not proof of completion. If sources disagree, identify the difference and use the newest verifiable evidence.
 
@@ -57,7 +71,7 @@ Do not edit the permanent template to store these values. Enter them in the week
 | Friday presentation date | `[YYYY-MM-DD]` |
 | Active weekly-plan path | `[GitHub path / link]` |
 | Main research question | `[One clear question]` |
-| Key tasks / milestone IDs | `[A2 / A3 / B1 / etc.]` |
+| Key tasks / milestone IDs | `[B5.1 / B5.2 / B5.3 / B5.4 / B5.5.1–B5.5.5 / B6 / etc.]` |
 | Intended deliverables | `[Code / plot / numeric verification / paper reproduction]` |
 | Already verified before this week | `[Evidence / date / None]` |
 | Key paper(s) and DOI | `[Links or TBD]` |
@@ -154,10 +168,12 @@ Copy this block into the day's message or research log:
 
 - **Anatomical bounding box ≠ balloon-centre feasible region ≠ sensing workspace.**
 - **WCC / TF (force feasibility) ≠ Jacobian rank / covariance / RMSE (sensing performance).**
-- **6 cables** are the measurement baseline; **7/8 cables** are research candidates, not a proven accuracy ranking.
-- **Original paper method reproduction ≠ system-specific anchor/attachment optimization.**
-- **Anchor** `A_i` is fixed in the world frame; **attachment** `r_i` is fixed in the balloon body frame; `B_i = P + R*r_i`.
-- Balloon motion remains **passive and unknown**, whereas low-tension motors are only a proposed cable-tracking mechanism.
+- **Six-cable prototype:** Primary experimental development workstream.
+- **Seven-/eight-cable research:** Parallel theoretical and simulation workstream.
+- **Cable-number comparison:** Use common pose samples, consistent noise assumptions and comparable sensing metrics.
+- **Scientific limitation:** Additional cables do not automatically guarantee higher sensing accuracy or better geometric feasibility.
+- **Experimental interpretation:** Distinguish numerical sensing predictions from physically validated measurement performance.
+
 
 ---
 
