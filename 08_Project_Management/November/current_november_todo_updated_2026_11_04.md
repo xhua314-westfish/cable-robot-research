@@ -1,26 +1,96 @@
-# October–November Research TODO — Prototype-First Roadmap
 
-**Last updated:** 2026-11-04  
-**Research phase:** Phase B — Balloon-Specific Cable Sensing Design  
-**Current task:** B5.1 — Configuration Audit and Prototype-Oriented Design-Space Expansion  
-**Working pace:** approximately 4–5 hours per research day  
-**Priority:** Select a practical adjustable six-cable prototype (V1.0), begin engineering sizing and experiments, then refine using measured data.
+# November Research TODO — Cable Sensing Prototype Development
+
+**Version:** 0.2
+**Last Updated:** 2026-11-04
+**Research Phase:** Phase B — Balloon-Specific Cable Sensing Design
+**Current Task:** B5.1 — Configuration Audit and Candidate Expansion
+**Primary Tool:** MATLAB
+**Research Strategy:** Prototype-First Development with Parallel Cable-Number Investigation
 
 ---
 
+## Document Purpose
+
+This document defines the active research tasks, research questions, theoretical foundations, expected deliverables and acceptance criteria for the current prototype development programme.
+
+Its primary focus is:
+
+**B5 → B5.5 → B6 → B7 → B8 → B9**
+
+The long-term research goal remains the comparison of six-, seven- and eight-cable sensing systems.
+
+Detailed daily scheduling belongs in the active November Weekly Plan.
+
+Verified experimental results belong in Research Logs.
+
+Current research progress belongs in `CURRENT_STATE2.md`.
+
+---
+
+
 ## 1. Research Objective and Decision
 
-**Long-term question:** Can cable-length measurements estimate rigid-body motion and eventually deformation/shape of a passively moving balloon, without prescribing its trajectory?
+### Long-Term Research Objective
 
-**Near-term question:** Can we select a reproducible, interference-aware six-cable configuration sufficient to design an adjustable experiment, without waiting for proof of global optimality or complete soft-body shape reconstruction?
+Develop a cable-based measurement system capable of estimating the position, orientation and eventually deformation or shape of a passively moving balloon-like object.
 
-**Approved research sequence:**
+Compare six-, seven- and eight-cable sensing systems in terms of:
 
-**B5 — Rapid Configuration Selection → B5.5 — Rigid-to-Flexible Compatibility Gate → B6 — Engineering Sizing → B7 — Adjustable Prototype → B8 — Rigid/Flexible Experiments → B9 — Data-Driven Refinement.**
+- Pose estimation accuracy.
+- Measurement identifiability.
+- Sensing workspace.
+- Measurement redundancy.
+- Geometric feasibility.
+- Mechanical complexity.
 
-B4.2 (nonlinear forward kinematics and Monte Carlo validation) is a **parallel validation task**, not a prerequisite for starting preliminary frame design; it **must** be completed before making quantified pose-accuracy claims.
+### Immediate Research Objective
 
-**Principles:** (1) sensing rather than trajectory control; (2) low-tension passive-motion tracking; (3) preserve mechanical adjustability; (4) distinguish geometric, sensing and static/tension feasibility; (5) record assumed versus measured quantities; (6) defer seven/eight cables unless an identified observability or mechanical requirement justifies them.
+Select an adjustable six-cable Prototype Configuration V1.0 and prepare for experimental validation.
+
+Global configuration optimality is not required before constructing the first prototype.
+
+### Parallel Research Strategy
+
+**Workstream A — Six-Cable Prototype and Experiments**
+
+Primary engineering priority:
+
+B5 Configuration Selection → B5.5 Flexible Compatibility → B6 Engineering Sizing → B7 Adjustable Prototype → B8 Experiments → B9 Refinement.
+
+**Workstream B — Seven-/Eight-Cable Theory and Simulation**
+
+Parallel theoretical research may investigate:
+
+- Seven- and eight-cable measurement Jacobians.
+- Measurement redundancy and observability.
+- Sensing uncertainty and conditioning.
+- Geometric workspace and cable interference.
+- Tension feasibility under justified mechanical assumptions.
+
+Workstream B may proceed while the six-cable test rig is being designed, assembled or experimentally validated.
+
+Physical expansion beyond six cables requires separate engineering justification.
+
+### Parallel Validation Task
+
+B4.2 — Nonlinear Forward Kinematics and Monte Carlo — remains outstanding.
+
+B4.2 may proceed alongside prototype preparation.
+
+Quantified nonlinear pose-estimation accuracy claims require appropriate estimator validation, while experimental accuracy claims additionally require physical measurement and independent ground truth.
+
+### Research Principles
+
+1. Passive balloon motion is not prescribed by the cable system.
+2. Motors may maintain low positive cable tension while tracking motion.
+3. Geometric feasibility, sensing quality and tension feasibility are separate.
+4. Numerical assumptions must not be presented as measured physical facts.
+5. Prototype hardware should be adjustable and modular.
+6. Additional cables do not automatically guarantee better sensing performance.
+7. The long-term six-/seven-/eight-cable comparison must be preserved.
+
+---
 
 ## 2. Engineering Baseline and Established Results
 
@@ -102,30 +172,89 @@ B4.2 (nonlinear forward kinematics and Monte Carlo validation) is a **parallel v
 **Deliverables:** candidate ranking and sensing statistics; poor-pose table.  
 **Acceptance:** common conventions, units, pose set and noise assumptions for all candidates.
 
-### B5.4 — Bounded Search, Shortlist and Local Adjustment
 
-**Question:** Can we obtain an implementable layout quickly without overfitting to Experiment B?
+### B5.4 — Configuration Refinement and Prototype V1.0 Selection
 
-- [ ] Use a reproducible **multi-family, staged random/discrete search**: inexpensive configuration checks → reduced-pose geometry screen → full 189-pose screen → sensing diagnostics.
-- [ ] Keep multiple non-dominated or structurally distinct candidates; refine only the promising candidates by local face/attachment displacement or pairing changes.
-- [ ] Rank first by satisfying *all required core poses*, then consider expanded-set coverage, worst-direction sensitivity, uncertainty, assembly complexity and adjustability.
-- [ ] Log search budget, random seed, candidate history and rejected designs. Do not claim global optimality.
-- [ ] Prefer a feasible, maintainable arrangement over a tiny condition-number improvement with cable collisions.
+**Research Question:**
 
-**Basis:** constrained design-space search and multi-criteria engineering selection; [R1] optimisation under workspace/IFC constraints. The particular search sequence and ranking policy are **project decisions**, not an algorithm directly prescribed by [R1].
+Can a practical six-cable configuration be selected using geometric feasibility, sensing quality and implementation requirements without requiring global optimisation?
 
-**Deliverables:** candidate ranking `.csv`, search `.mat`, comparison figures, shortlist of 2–3 configurations.
+#### Configuration Refinement
 
-### B5.4b — Freeze Prototype Configuration V1.0 (Rigid Reference)
+- [ ] Perform reproducible constrained searches over multiple configuration families.
+- [ ] Preserve promising candidates with different geometric arrangements.
+- [ ] Refine selected anchor coordinates, attachment coordinates and cable pairing.
+- [ ] Apply geometric constraints after each modification.
+- [ ] Compare candidates using common pose samples.
+- [ ] Evaluate independent validation poses.
+- [ ] Record random seeds, optimisation settings and rejected candidates.
+- [ ] Retain two or three finalists when appropriate.
 
-- [ ] Select one six-cable arrangement for initial prototype design; keep up to two backups.
-- [ ] Save exact \(A_{V1}\in\mathbb R^{6\times3}\), \(r_{V1}\in\mathbb R^{6\times3}\), pairing, frame coordinates and reference pose.
-- [ ] Report core-pose clearance, expanded-set geometry pass, Jacobian properties, covariance under specified noise and known failure modes.
-- [ ] Calculate nominal cable segment lengths and preliminary min/max length across *specified poses*, not an unsupported continuous-range claim.
-- [ ] Define adjustment slots, replaceable attachments and unused mounting channels for possible future 7/8-cable studies.
-- [ ] Mark **V1.0 provisional for flexible adaptation and engineering loads**; do not purchase final motors solely from rigid-only data.
+#### Prototype V1.0 Selection
 
-**Decision gate:** A clearly documented, buildable **rigid V1.0** with verified numerical core-pose behaviour. Full shape observability and global optimality are **not prerequisites** for proceeding.
+- [ ] Select one provisional six-cable configuration or document unresolved blockers.
+- [ ] Save six world-frame anchor coordinates.
+- [ ] Save six body-frame attachment coordinates.
+- [ ] Record the exact cable-pairing relationship.
+- [ ] Define the initial experimental pose region.
+- [ ] Record geometric feasibility and clearance.
+- [ ] Record Jacobian rank and sensing-quality metrics.
+- [ ] Calculate preliminary cable-length ranges.
+- [ ] Define adjustable anchor mounting requirements.
+- [ ] Define replaceable attachment interfaces.
+- [ ] Preserve optional expansion interfaces for seven/eight cables.
+
+#### Theoretical Basis
+
+Configuration design:
+
+\[
+\mathcal C_6=\{(A_i,r_i)\}_{i=1}^{6}
+\]
+
+Cable length:
+
+\[
+L_i(q)=\|A_i-(P+Rr_i)\|
+\]
+
+Sampled cable stroke:
+
+\[
+\Delta L_i=
+\max_{q\in Q}L_i(q)-
+\min_{q\in Q}L_i(q)
+\]
+
+Sensing evaluation uses the verified measurement Jacobian, scaled singular values and local covariance framework.
+
+**Literature:** [R1] for workspace-dependent configuration optimisation; [R2] for interference-aware design.
+
+The specific candidate-search algorithm and prototype acceptance policy are project-level engineering choices.
+
+#### Deliverables
+
+- Shortlisted configuration datasets.
+- Candidate comparison table.
+- Independent validation results.
+- Prototype V1.0 coordinate matrix and pairing.
+- Preliminary cable-length range table.
+- Prototype decision record.
+
+#### Acceptance Criteria
+
+- [ ] Configuration coordinates are reproducible.
+- [ ] The required core experimental poses satisfy the stated geometric conditions.
+- [ ] Major interference risks are identified.
+- [ ] Local sensing quality is evaluated.
+- [ ] Remaining mechanical limitations are documented.
+- [ ] The configuration can be adjusted during experimental development.
+
+**Decision Gate:**
+
+Prototype V1.0 may proceed to B5.5 as a provisional rigid-body configuration.
+
+It must not be declared fully hardware-validated before flexible compatibility, force analysis and experimental testing.
 
 ---
 
@@ -292,35 +421,83 @@ B_i=P+R\,F(\eta)r_{i0},\qquad L_i=\|A_i-B_i\|.
 
 ---
 
-## 10. Suggested Execution Order and Short Deliverables
 
-| Order | Work | Release / decision |
+## 10. Research Execution Order
+
+| Stage | Research Task | Main Deliverable |
 |---|---|---|
-| 1 | B5.1–B5.2 | Expanded points; A/B audit; shortlisted collision-screened configurations |
-| 2 | B5.3–B5.4b | **Rigid Prototype V1.0 coordinates + pairing + core test envelope** |
-| 3 | B5.5.1–B5.5.5 | **Flexible compatibility decision + design margins** (limited screening) |
-| 4 | B6.1–B6.3 | Stroke, load/tension analysis, motor/drum/sensor preliminary sizing and BOM |
-| 5 | B7 | Adjustable rig and independent calibration/reference measurements |
-| 6 | B8 | Rigid then flexible experiments, quantitative error and disturbance results |
-| 7 | B9 | Evidence-based redesign / optional additional measurement channels |
+| 1 | B5.1 | Configuration audit and expanded candidate sets |
+| 2 | B5.2 | Multi-pose geometric feasibility results |
+| 3 | B5.3 | Sensing evaluation and candidate ranking |
+| 4 | B5.4 | Provisional six-cable Prototype V1.0 |
+| 5 | B5.5.1–B5.5.5 | Rigid-to-flexible compatibility decision |
+| 6 | B6 | Engineering sizing and initial hardware specifications |
+| 7 | B7 | Adjustable six-cable test rig |
+| 8 | B8 | Rigid and flexible balloon experiments |
+| 9 | B9 | Experiment-driven configuration refinement |
 
-**Recommended cadence:** work in 4–5-hour research days; keep the daily plan in `weekly_plan_03.md` (to be revised after this document), not in this high-level file. Do not let a long soft-body modelling phase block modular frame design.
+### Parallel Activities
 
-## 11. Research Rules and Definition of Done
+**B4.2:** Nonlinear forward-kinematics and Monte Carlo validation.
 
-1. Prototype V1.0 is a **documented, adjustable engineering baseline**, not a globally optimal configuration.
-2. Every retained configuration must have an explicit 6×3 anchor array, 6×3 attachment array, pairing and fixed-coordinate convention.
-3. Do not use B's feasible-only sample subset to optimise away hard poses; compare designs on common declared test sets.
-4. B3 zero-thickness cable non-intersection is **not** proof of mechanical clearance; use diameter and mounting-envelope margins once available.
-5. Six rigid-body measurements do **not** automatically identify six rigid DOFs plus arbitrary independent deformation parameters.
-6. External anchors may remain physically fixed across rigid-to-flexible conversion, but their **optimality and safety are not guaranteed**; attachment-site movement and load transfer require re-evaluation.
-7. Static tension models are conditional on specified external forces, buoyancy/support and actuation mode. Low-tension tracking must not unintentionally drive balloon motion.
-8. All claimed DOI links should point to the actual cited work. Distinguish published method, mathematical consequence and project-specific engineering choice.
-9. Update one GitHub file per user confirmation. Keep completed B1–B4 numerical details in their existing logs instead of duplicating them here.
+**Seven-/Eight-Cable Theory:** Jacobian redundancy, sensing uncertainty, workspace and mechanical feasibility studies.
+
+Parallel theoretical tasks must not unnecessarily delay the primary six-cable prototype.
+
+### Active Execution Schedule
+
+**Current Planning Period:** 4–17 November 2026.
+
+Detailed daily tasks:
+
+`08_Project_Management/November/weekly_plan_nov_04_17_2026.md`
+
+The next two-week schedule will be prepared after reviewing actual progress.
 
 ---
 
-## 12. Verified References and Method Mapping
+
+## 11. Research Acceptance Rules
+
+A research task is complete only when its required outputs and validation evidence are available.
+
+### Configuration Selection
+
+- Coordinate matrices and cable pairing must be reproducible.
+- Training and validation pose sets must be distinguished.
+- Failed configurations and interference cases must be recorded.
+- Numerical feasibility must not be presented as physical validation.
+- Global optimality must not be claimed without appropriate proof.
+
+### Flexible Compatibility
+
+- Deformation assumptions must be explicit.
+- Attachment migration must be evaluated.
+- Flexible cable routing must be checked.
+- Combined rigid-pose and deformation observability must be assessed.
+- Hardware compatibility decisions must be documented.
+
+### Engineering and Experiments
+
+- Cable tension requires an explicit mechanical load/support model.
+- Low-tension tracking must not be confused with active trajectory control.
+- Hardware parameters must be justified through calculation, specification or measurement.
+- Experimental accuracy requires independent ground truth.
+- Simulation results and physical measurements must be reported separately.
+
+General AI, MATLAB, documentation and GitHub working rules are maintained in `AGENTS2.md`.
+
+---
+
+
+## 12. Literature References and Method Mapping
+
+The references below provide theoretical background and methodological support.
+
+A cited method does not automatically validate the engineering assumptions or experimental performance of this balloon sensing system.
+
+DOI metadata and exact publication details should be checked against the publisher or DOI registry before use in formal academic writing.
+
 
 **[R1]** Cheng, H. H., & Lau, D. (2023). *Cable Attachment Optimization for Reconfigurable Cable-Driven Parallel Robots Based on Various Workspace Conditions.* IEEE Transactions on Robotics, 39(5), 3759–3775. **DOI:** https://doi.org/10.1109/TRO.2023.3288838  
 **Use:** B5.1, B5.2, B5.4; variables/constraints and interference-aware optimisation. **Transfer limitation:** their force/tension objectives are not direct sensing objectives.
@@ -350,13 +527,31 @@ B_i=P+R\,F(\eta)r_{i0},\qquad L_i=\|A_i-B_i\|.
 
 ---
 
-## 13. Repository Follow-up Updates (One File at a Time)
 
-After this TODO is manually committed, update in order:
+## 13. Related Research Documents
 
-1. `08_Project_Management/weekly_plan_03.md` — replace outdated seven-day schedule with actionable B5 → B5.5 → B6 tasks (4–5 hours/day).
-2. `CURRENT_STATE2.md` — correct current milestone to B4.1 complete; set prototype-first priority, new flexible compatibility gate and deferred B4.2 accuracy validation.
-3. Relevant `05_My_Research/` design notes — only where necessary to add flexible attachment model and V1.0 hardware requirements; do not duplicate entire TODO.
-4. Later create dedicated B5 and B5.5 Research Logs once experiments run and results exist.
+### Active Research Management
 
-**Immediate next action:** B5.1 configuration audit. Do not start numerical optimization until the design variables, installation constraints and minimum required core test poses are declared.
+- [Current Research State](../../CURRENT_STATE2.md)
+- [Research Roadmap](../Roadmap.md)
+- [November Weekly Plan](weekly_plan_nov_04_17_2026.md)
+- [AI Research Rules](../../AGENTS2.md)
+
+### Technical Design
+
+- [Rigid-Body Sensing Design](../../05_My_Research/Rigid_Body_Sensing_Design.md)
+- [Prototype V1.0 and Flexible Transition](../../05_My_Research/Prototype_V1_Rigid_to_Flexible_Design_2026_11_04.md)
+- [Sensing Objective](../../05_My_Research/Sensing_Objective_v0.2.md)
+
+### Research Evidence
+
+- [November Research Logs](../../06_Research_Log/2026-11/)
+- [MATLAB Simulation](../../03_Simulation/MATLAB/)
+- [Literature Review](../../02_Paper_Reading/Literature_Review/)
+
+---
+
+**Current Task:** B5.1 — Configuration Audit and Candidate Expansion.
+
+**Current Milestone:** Select a provisional adjustable six-cable Prototype V1.0 while preserving parallel seven-/eight-cable theoretical research.
+
