@@ -1,10 +1,35 @@
-# Workspace Boundary v0.2 — Preliminary 3D Gastric Geometry
 
-**Original Date:** 2026-10-20  
-**Last Reviewed:** 2026-10-30  
-**Current Phase:** Phase B — Balloon-Specific Cable Sensing Design  
-**Current Task:** B1.1 — Review Existing Geometry Evidence  
-**Status:** Provisional engineering geometry; not a clinically validated gastric workspace
+# Workspace Boundary — Engineering Geometry and Historical Evidence
+
+**Version:** 0.3
+**Original Date:** 2026-10-20
+**Last Updated:** 2026-11-04
+**Research Phase:** Phase B — Balloon-Specific Cable Sensing Design
+**Geometry Status:** B1 engineering baseline completed; anatomical validation pending.
+
+**Current Engineering Boundary:** 280 × 300 × 320 mm.
+
+**Historical Reference Boundary:** 140 × 150 × 160 mm.
+
+---
+
+## Document Purpose
+
+This document records the geometric assumptions, coordinate conventions and boundary evidence used to define the balloon sensing environment.
+
+It distinguishes three types of information:
+
+1. Literature-reported anatomical measurements.
+2. Historical engineering reference scenarios.
+3. Current numerical simulation parameters.
+
+The current B1–B4 MATLAB studies use the 280 × 300 × 320 mm engineering boundary.
+
+The earlier 140 × 150 × 160 mm model is retained as a historical reference scenario.
+
+Neither boundary is a clinically validated patient-specific gastric workspace.
+
+Detailed project progress belongs in `CURRENT_STATE2.md`.
 
 ---
 
@@ -74,66 +99,102 @@ Anatomical directions, laboratory gravity and engineering axes must not be confl
 
 ---
 
+
 ## 3. Boundary Evidence and Engineering Parameters
 
-### 3.1 Source Evidence
+### 3.1 Literature Evidence
 
-The principal directly reported orthogonal bounding-box ranges cited in the existing literature synthesis are attributed to Lamart et al. (2013), based on CT data from 30 adult men in a supine position.
+The existing literature review provides anatomical and morphological evidence relevant to stomach geometry.
 
-These data are not direct measurements of adult women with intragastric balloons.
+The historical orthogonal dimension ranges were attributed to Lamart et al. (2013), based on CT data from an adult male cohort.
 
-The ranges must not be interpreted as:
+These data are not direct measurements of the target adult-female population or actual intragastric-balloon motion.
 
-- Adult-female population confidence intervals.
+The historical ranges must not be interpreted as:
+
+- Population-wide anatomical limits.
+- Validated dimensions for adult women.
 - Patient-specific gastric lumen dimensions.
-- Balloon migration ranges.
-- Clinically validated sensing workspace boundaries.
+- Clinically measured balloon-motion ranges.
+- Cable-robot sensing workspace boundaries.
 
-Other studies in the literature synthesis contribute information about gastric volume, geometry, variability and morphology.
+The supporting literature evidence is maintained in:
 
-However, their reported quantities are not necessarily directly interchangeable with three orthogonal bounding-box dimensions.
+`02_Paper_Reading/Literature_Review/workspace definition/Gastric_Boundary_Evidence_Summary_v0.1.md`
 
-### 3.2 Engineering Parameter Table
+### 3.2 Historical Engineering Reference
 
-The following parameters are mapped into the selected X/Y/Z coordinate convention.
+The original boundary document used:
 
-| Parameter | Literature-observed range | Engineering candidate range | Provisional reference |
+| Dimension | Historical literature range | Historical engineering candidate range | Historical reference |
 |---|---|---|---|
-| \(L_g\) — X | 60–150 mm | 120–170 mm | 140 mm |
-| \(W_g\) — Y | 90–160 mm | 130–160 mm | 150 mm |
-| \(H_g\) — Z | 100–200 mm | 130–180 mm | 160 mm |
+| X — Length | 60–150 mm | 120–170 mm | 140 mm |
+| Y — Width | 90–160 mm | 130–160 mm | 150 mm |
+| Z — Height | 100–200 mm | 130–180 mm | 160 mm |
 
-**Parameter interpretation:**
+These ranges and their interpretation belong to the historical geometry investigation.
 
-- \(L_g\) corresponds to the previously reported craniocaudal projected extent.
-- \(W_g\) corresponds to transverse width.
-- \(H_g\) corresponds to anteroposterior depth in the source evidence.
-
-The engineering candidate ranges are selected for simulation and sensitivity studies.
-
-Values outside the original observed range, including \(L_g\) values above 150 mm, are engineering extrapolations rather than directly validated clinical observations.
-
-### 3.3 Provisional Reference Geometry
-
-For the initial engineering example:
+The reference box was:
 
 \[
-L_g=140\ \mathrm{mm}
+D_{\mathrm{historical}}=
+[140,150,160]\ \mathrm{mm}
+\]
+
+This model remains useful for understanding the original evidence synthesis and containment calculations.
+
+It is not the current MATLAB engineering baseline.
+
+### 3.3 Current B1 Engineering Baseline
+
+The active numerical model uses:
+
+\[
+L_g=280\ \mathrm{mm}
 \]
 
 \[
-W_g=150\ \mathrm{mm}
+W_g=300\ \mathrm{mm}
 \]
 
 \[
-H_g=160\ \mathrm{mm}
+H_g=320\ \mathrm{mm}
 \]
 
-These dimensions preserve the physical lengths used in the previous reference geometry while applying the new coordinate convention.
+Therefore:
 
-**Status:** Provisional. The dimensions remain subject to review in B1.1.
+\[
+D_{\mathrm{B1}}=
+[280,300,320]\ \mathrm{mm}
+\]
 
-They are not final clinically validated boundary parameters.
+| Parameter | Value | Classification |
+|---|---:|---|
+| X — Length | 280 mm | Engineering assumption |
+| Y — Width | 300 mm | Engineering assumption |
+| Z — Height | 320 mm | Engineering assumption |
+| Balloon volume | 550 mL | Selected nominal reference |
+| Balloon equivalent radius | Approximately 50.83 mm | Derived |
+| Initial clearance | 0 mm | Numerical modelling assumption |
+
+The engineering dimensions provide a simplified and sufficiently spacious initial environment for testing cable geometry, workspace feasibility and sensing performance.
+
+They were not directly derived as a clinically validated adult-female gastric bounding box.
+
+### 3.4 Parameter Selection and Future Refinement
+
+The active boundary dimensions are fixed across B1–B4 to preserve consistency between numerical experiments.
+
+Future research may investigate alternative dimensions when:
+
+- Stronger anatomical evidence becomes available.
+- Physical test-rig constraints are established.
+- Balloon deformation is introduced.
+- Sensitivity to environmental dimensions needs evaluation.
+
+Any change must be documented as a new geometry version.
+
+Results generated with different boundary dimensions must not be compared without explicitly accounting for the geometry change.
 
 ---
 
@@ -188,13 +249,12 @@ For full 6-DOF pose sensing, orientation must be defined relative to identifiabl
 
 ---
 
+
 ## 5. Cuboid Boundary and Geometric Containment
 
-### 5.1 Initial Engineering Boundary
+### 5.1 Current Engineering Boundary
 
-The initial cavity surrogate is an axis-aligned rectangular box centred at the origin.
-
-Define:
+The current cavity model is an axis-aligned cuboid centred at the origin.
 
 \[
 \Omega_g=
@@ -206,51 +266,44 @@ Define:
 \right\}
 \]
 
-For the provisional reference dimensions:
+For the B1 engineering baseline:
 
 \[
-\Omega_g=
-\left\{
-(x,y,z):
-|x|\leq70,
-|y|\leq75,
-|z|\leq80
-\right\}
-\]
-
-All coordinates are in millimetres.
-
-The calculated cuboid volume is:
-
-\[
-V_{\mathrm{box}}=140\times150\times160
+|x|\leq140\ \mathrm{mm}
 \]
 
 \[
-V_{\mathrm{box}}=3360000\ \mathrm{mm}^3
-=3360\ \mathrm{mL}
+|y|\leq150\ \mathrm{mm}
 \]
 
-This volume is not a measured stomach lumen volume.
+\[
+|z|\leq160\ \mathrm{mm}
+\]
+
+The cuboid volume is:
+
+\[
+V_{\mathrm{box}}=
+280\times300\times320
+\]
+
+\[
+V_{\mathrm{box}}=
+26{,}880{,}000\ \mathrm{mm}^3
+=26{,}880\ \mathrm{mL}
+\]
+
+This is the volume of the idealised engineering box, not a measured stomach capacity.
 
 ### 5.2 Full Sphere Containment
 
-Let:
+For a rigid spherical balloon with centre position
 
 \[
-P=
-\begin{bmatrix}
-P_x\\
-P_y\\
-P_z
-\end{bmatrix}
+P=[P_x,P_y,P_z]^T
 \]
 
-be the balloon-centre position.
-
-For a sphere of radius \(r_b\), the complete sphere must fit within the cavity.
-
-With an assumed clearance \(c\geq0\):
+and radius \(r_b\), full containment requires:
 
 \[
 |P_x|\leq\frac{L_g}{2}-r_b-c
@@ -264,125 +317,175 @@ With an assumed clearance \(c\geq0\):
 |P_z|\leq\frac{H_g}{2}-r_b-c
 \]
 
-The geometrically feasible centre domain is empty when any right-hand side is negative.
+where \(c\geq0\) is an assumed geometric clearance.
 
-These constraints verify containment in the rectangular surrogate only.
+The initial B1 simulation uses:
 
-### 5.3 Reference Clearance Calculation
+\[
+c=0\ \mathrm{mm}
+\]
 
-For comparison with the previous engineering study, use an illustrative clearance:
+The zero-clearance assumption is used for ideal numerical containment.
+
+It is not a validated physical clearance for a real balloon or cable system.
+
+### 5.3 Current Geometrically Feasible Centre Region
+
+For a nominal 550 mL sphere:
+
+\[
+r_b\approx50.83\ \mathrm{mm}
+\]
+
+The approximate feasible centre bounds are:
+
+| Axis | Boundary dimension | Feasible centre coordinate | Total centre travel |
+|---|---:|---:|---:|
+| X — Length | 280 mm | ±89.17 mm | 178.35 mm |
+| Y — Width | 300 mm | ±99.17 mm | 198.35 mm |
+| Z — Height | 320 mm | ±109.17 mm | 218.35 mm |
+
+The values are rounded independently.
+
+These are ideal geometric limits, not observed physiological motion amplitudes.
+
+The region is calculated from full-sphere containment, rather than centre-point containment alone.
+
+### 5.4 MATLAB Implementation
+
+```matlab
+%% Current B1 engineering geometry
+
+Lg = 280;  % mm, X length
+Wg = 300;  % mm, Y width
+Hg = 320;  % mm, Z height
+
+V_balloon_ml = 550;
+V_balloon = V_balloon_ml * 1000;
+
+r_balloon = (3*V_balloon/(4*pi))^(1/3);
+
+clearance = 0;  % mm, ideal geometry
+
+centre_limit = [Lg; Wg; Hg]/2 ...
+             - r_balloon - clearance;
+
+assert(all(centre_limit >= 0), ...
+    'No feasible sphere-centre region.');
+
+fprintf('X: +/- %.2f mm\n',centre_limit(1));
+fprintf('Y: +/- %.2f mm\n',centre_limit(2));
+fprintf('Z: +/- %.2f mm\n',centre_limit(3));
+```
+
+The authoritative B1 implementation is:
+
+`03_Simulation/MATLAB/workspace definition/B1_balloon_geometry_2026_10_30.m`
+
+The saved geometry dataset is:
+
+`B1_geometry_baseline.mat`
+
+### 5.5 Historical Containment Calculation
+
+For historical comparison only:
+
+\[
+D_{\mathrm{historical}}=
+[140,150,160]\ \mathrm{mm}
+\]
+
+with:
 
 \[
 c=5\ \mathrm{mm}
 \]
 
-This clearance is an engineering assumption and is not clinically established.
+The previously calculated approximate centre extents were:
 
-The resulting centre-travel table is:
+| Axis | Historical centre extent |
+|---|---:|
+| X | ±14.17 mm |
+| Y | ±19.17 mm |
+| Z | ±24.17 mm |
 
-| Axis | Boundary dimension | No-clearance total travel | Centre extent with 5 mm clearance | Total travel with 5 mm clearance |
-|---|---:|---:|---:|---:|
-| X — Length | 140 mm | 38.35 mm | ±14.17 mm | 28.35 mm |
-| Y — Width | 150 mm | 48.35 mm | ±19.17 mm | 38.35 mm |
-| Z — Height | 160 mm | 58.35 mm | ±24.17 mm | 48.35 mm |
+These results are retained to document the earlier engineering model.
 
-These results are the previous containment calculations rearranged into the new coordinate system.
-
-They do not represent observed physiological movement amplitudes.
-
-### 5.4 General Implementation
-
-The centre bounds should be calculated directly from the selected parameters:
-
-```matlab
-Vb = 550000;                  % mm^3
-rb = (3*Vb/(4*pi))^(1/3);     % mm
-
-Lg = 140;                     % mm, provisional
-Wg = 150;                     % mm, provisional
-Hg = 160;                     % mm, provisional
-
-clearance = 5;                % mm, assumed
-
-halfTravel = [Lg; Wg; Hg]/2 - rb - clearance;
-
-isNonempty = all(halfTravel >= 0);
-
-if ~isNonempty
-    error('No geometrically feasible sphere-centre region.');
-end
-
-% Candidate centre P must satisfy:
-% all(abs(P) <= halfTravel)
-```
-
-The numerical example is a reference calculation, not a completed B1 implementation.
+They must not be used as the current B1–B4 workspace limits.
 
 ---
+
 
 ## 6. Alternative Ellipsoidal Boundary
 
-An ellipsoidal cavity may be used as a sensitivity scenario.
+An ellipsoidal cavity may be investigated as a future sensitivity scenario.
 
-Under the selected coordinate convention:
-
-\[
-\Omega_{\mathrm{ellipsoid}}=
-\left\{
-(x,y,z):
-\frac{x^2}{(L_g/2)^2}
-+
-\frac{y^2}{(W_g/2)^2}
-+
-\frac{z^2}{(H_g/2)^2}
-\leq1
-\right\}
-\]
-
-For the provisional parameters, its semi-axes are:
+For engineering dimensions \(L_g,W_g,H_g\):
 
 \[
-a=70,\quad b=75,\quad c_e=80\ \mathrm{mm}
+\frac{x^2}{(L_g/2)^2}+
+\frac{y^2}{(W_g/2)^2}+
+\frac{z^2}{(H_g/2)^2}\leq1
 \]
 
-The corresponding model volume is approximately 1759 mL.
+Using the current engineering dimensions:
 
-The ellipsoid and cuboid have different internal geometry despite sharing the same bounding-box dimensions.
+\[
+a=140,\qquad b=150,\qquad c_e=160
+\]
 
-**Important:** The cuboid sphere-centre travel limits must not be reused as exact ellipsoid containment limits.
+where all semi-axes are in millimetres.
 
-The full sphere must be checked against the ellipsoidal surface using an appropriate geometric or numerical containment procedure.
+The corresponding ideal ellipsoid volume is approximately:
+
+\[
+V_{\mathrm{ellipsoid}}\approx14{,}074\ \mathrm{mL}
+\]
+
+The cuboid and ellipsoid have different internal geometry despite sharing the same overall dimensions.
+
+The cuboid sphere-containment limits cannot be directly reused as exact ellipsoidal containment limits.
+
+Full-sphere containment within an ellipsoid requires an appropriate geometric or numerical test.
+
+**Status:** Alternative modelling scenario. Not the active B1–B4 geometry.
 
 ---
 
-## 7. Sensitivity Scenarios
 
-The provisional candidate dimension ranges are:
+## 7. Geometry Sensitivity and Future Scenarios
 
-\[
-L_g\in[120,170]\ \mathrm{mm}
-\]
+The current B1–B4 numerical baseline is:
 
 \[
-W_g\in[130,160]\ \mathrm{mm}
+D_{\mathrm{B1}}=[280,300,320]\ \mathrm{mm}
 \]
 
-\[
-H_g\in[130,180]\ \mathrm{mm}
-\]
+Future sensitivity studies may investigate:
 
-For initial sensitivity analysis:
+- Smaller or larger engineering boundaries.
+- Different cuboid aspect ratios.
+- Ellipsoidal boundaries.
+- Alternative geometric clearance assumptions.
+- Balloon volume changes.
+- Flexible balloon deformation.
 
-1. Vary one engineering dimension at a time.
-2. Keep other dimensions at their provisional reference values.
-3. Recalculate the whole-sphere containment constraints.
-4. Report the resulting feasible centre region.
-5. Identify cases with no feasible region.
-6. Compare the cuboid and ellipsoid only using their respective containment methods.
+The historical ranges documented in Section 3 may be retained as separate reference scenarios.
 
-Combining independently reported or assumed ranges produces synthetic simulation scenarios.
+They should not be treated as validated bounds for the current experimental system.
 
-Such combinations are not measurements of an individual stomach.
+For each alternative scenario:
+
+1. Declare the geometry and its evidence classification.
+2. Recalculate the feasible balloon-centre region.
+3. Regenerate anchor candidates where appropriate.
+4. Re-evaluate cable geometry and interference.
+5. Recompute sensing metrics.
+6. Report differences from the current B1 baseline.
+
+A new geometry scenario should have its own parameter set and version identifier.
+
+Do not silently overwrite the original B1 baseline dataset.
 
 ---
 
@@ -407,38 +510,46 @@ The selected boundary should be revised if stronger relevant evidence becomes av
 
 ---
 
-## 9. Phase B1 Handoff
 
-**Current task:** B1.1 — Review Existing Geometry Evidence.
+## 9. B1 Completion and B5 Handoff
 
-### B1.1 — Evidence and Parameter Review
+### 9.1 Completed B1 Geometry Tasks
 
-- [ ] Cross-check the literature-observed dimension ranges.
-- [ ] Verify the selected coordinate mapping.
-- [ ] Confirm the provisional engineering dimension ranges.
-- [ ] Distinguish reported, derived and assumed quantities.
-- [ ] Record any remaining anatomical uncertainty.
+**Status:** Completed.
 
-### B1.2 — Balloon Geometry
+The initial geometry model established:
 
-- [ ] Implement the 550 mL sphere in MATLAB.
-- [ ] Verify the radius, diameter and volume.
-- [ ] Define the balloon body frame.
+- A 280 × 300 × 320 mm engineering cuboid.
+- A nominal 550 mL rigid spherical balloon.
+- Whole-sphere containment constraints.
+- A geometrically feasible balloon-centre region.
+- 26 initial anchor candidates.
+- 40 initial body-frame attachment candidates.
+- MATLAB visualisation and geometry verification.
+- A saved B1 geometry dataset.
 
-### B1.3 — Feasible Centre Region
+These results provide the geometry baseline for subsequent six-cable configuration evaluation.
 
-- [ ] Implement the cuboid containment constraints.
-- [ ] Test reference and boundary positions.
-- [ ] Visualise the full sphere and feasible centre region.
+### 9.2 Remaining Geometry Limitations
 
-### B1.4–B1.6 — Candidate Regions and Integration
+The B1 model does not establish:
 
-- [ ] Define candidate fixed anchor regions.
-- [ ] Define candidate balloon-surface attachment regions.
-- [ ] Combine the geometry and constraints.
-- [ ] Save the MATLAB model and verification note.
+- Clinically validated gastric dimensions.
+- Physical anchor mounting feasibility.
+- Finite cable-clearance requirements.
+- Physiological balloon-motion limits.
+- Flexible-balloon containment.
+- Actual cable-tension feasibility.
 
-Anchor-region and attachment-region selection must distinguish physically supported mounting assumptions from purely mathematical candidate locations.
+### 9.3 B5 Configuration Design Handoff
+
+The current geometry model is used for B5 six-cable configuration development.
+
+B5 may expand the original anchor and attachment candidate sets without changing the declared B1 engineering boundary.
+
+Any proposed changes to the boundary, clearance model or balloon geometry must be recorded explicitly.
+
+The long-term seven-/eight-cable comparison should use consistent geometry and evaluation conventions.
 
 ---
 
@@ -466,14 +577,32 @@ The following references are retained from the existing nine-paper literature sy
 
 ---
 
+
 ## 11. Related Research Documents
 
+### Active Research Management
+
 - [Current Research State](../CURRENT_STATE2.md)
+- [Research Roadmap](../08_Project_Management/Roadmap.md)
+- [November Research TODO](../08_Project_Management/November/current_november_todo_updated_2026_11_04.md)
+- [November Weekly Plan](../08_Project_Management/November/weekly_plan_nov_04_17_2026.md)
+
+### Technical Design
+
 - [Sensing Objective](Sensing_Objective_v0.2.md)
 - [Rigid-Body Sensing Design](Rigid_Body_Sensing_Design.md)
-- [Research Roadmap](../08_Project_Management/Roadmap.md)
-- [Active Research TODO](../08_Project_Management/current_october_november_todo.md)
+- [Prototype V1.0 Design](Prototype_V1_Rigid_to_Flexible_Design_2026_11_04.md)
+
+### Geometric Evidence
+
+- [Gastric Boundary Evidence](../02_Paper_Reading/Literature_Review/workspace%20definition/Gastric_Boundary_Evidence_Summary_v0.1.md)
 
 ---
 
-**Current Status:** Provisional engineering geometry documented with consistent X/Y/Z coordinates. Formal B1.1 evidence review and B1 numerical validation remain outstanding.
+**Current Engineering Boundary:** 280 × 300 × 320 mm.
+
+**Historical Reference Boundary:** 140 × 150 × 160 mm.
+
+**Geometry Status:** B1 completed. Anatomical and physical validation remain outstanding.
+
+**Guiding Principle:** Keep literature evidence, historical engineering assumptions and current simulation parameters clearly separated.
