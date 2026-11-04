@@ -1,17 +1,66 @@
-# Weekly Plan 03 — Six-Cable Workspace Validation and Optimisation
 
-** follow the new plan
-** weekly_plan_nov_04_17_2026.md
+# Weekly Plan 03 — Historical Six-Cable Research Schedule
 
-**Created:** 2026-11-02  
-**Last Updated:** 2026-11-03  
-**Planning Period:** 2026-11-02 to 2026-11-10  
-**Research Phase:** Phase B — Balloon-Specific Cable Sensing Design  
-**Current Task:** B4.1 — Jacobian, Sensitivity and Covariance  
-**Workload:** 4–5 hours per research day  
-**Primary Software:** MATLAB
+> **ARCHIVED — Superseded Weekly Research Plan**
+>
+> **Original Created:** 2026-11-02
+>
+> **Original Last Updated:** 2026-11-03
+>
+> **Original Planning Period:** 2026-11-02 to 2026-11-10
+>
+> **Archived On:** 2026-11-04
+>
+> **Historical Research Scope:** B2.2–B4.2 and Earlier B5 Planning
+>
+> **Status:** Historical research plan. Not used for current task scheduling.
 
-**Status:** Active — B3 completed; B4.1 next
+---
+
+## Archive Notice
+
+This document preserves the original seven-research-day plan for six-cable sensing development.
+
+It includes:
+
+- B2.2 configuration comparison and verification.
+- B3.1 multi-position geometric feasibility.
+- B3.2 multi-pose geometric feasibility.
+- B4.1 Jacobian and sensing-quality evaluation.
+- B4.2 forward kinematics and Monte Carlo planning.
+- The earlier B5 configuration optimisation approach.
+
+Some task numbers, schedules and research priorities have subsequently changed.
+
+The original content is retained for research traceability and historical reference.
+
+**Do not use this document as the active research schedule.**
+
+### Current Authoritative Documents
+
+- [Current Research State](../CURRENT_STATE2.md)
+- [Research Roadmap](Roadmap.md)
+- [Active November Research TODO](November/current_november_todo_updated_2026_11_04.md)
+- [Active November Weekly Plan](November/weekly_plan_nov_04_17_2026.md)
+- [Research and AI Working Rules](../AGENTS2.md)
+
+### Interpretation Rule
+
+When this document conflicts with an active research plan, follow the active plan for current scheduling and task definitions.
+
+Historical task descriptions and numerical assumptions should remain unchanged unless correcting a documented factual error.
+
+---
+
+## Historical Planning Context
+
+**Original Research Phase:** Phase B — Balloon-Specific Cable Sensing Design
+
+**Original Current Task:** B4.1 — Jacobian, Sensitivity and Covariance
+
+**Original Workload:** 4–5 hours per research day
+
+**Original Software:** MATLAB
 
 
 ---
