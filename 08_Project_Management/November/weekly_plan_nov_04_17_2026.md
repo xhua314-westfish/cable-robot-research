@@ -239,7 +239,7 @@ The completion date is a planning target, not permission to bypass unresolved cr
 
 **Theory:** `L_i=||A_i-P-Rr_i||`, `Delta L_i=max_Q L_i-min_Q L_i`; attachment constraints [R1]. **Important:** sampled length range is not a guarantee over continuous or deformed motion.
 
-**Output:** `B5_4_prototype_V1.mat`, `B5_4_prototype_V1_coordinates.csv`, `B5_4_cable_length_ranges.csv`, `B5_7_decision.md`.
+**Output:** `B5_4_prototype_V1.mat`, `B5_4_prototype_V1_coordinates.csv`, `B5_4_cable_length_ranges.csv`, `B5_4_decision.md`.
 
 **Acceptance:** Fully reproducible V1.0 inputs for B6; explicit usable test region and outstanding hardware/force assumptions.
 
@@ -262,7 +262,7 @@ A provisional Prototype V1.0 may be selected only when:
 
 Prototype V1.0 selection does not authorise final motor procurement before B5.5 compatibility and B6 mechanical sizing.
 
-### Day 9 — Mon 16 Nov | B5.5.2–B5.5.3 Attachment Migration and Flexible Routing | 4–5 h
+### Day 8 — Fri 13 Nov | B5.5.1 Attachment Migration and Flexible Routing | 4–5 h
 
 **Research question:** How can a small, interpretable set of shape changes be introduced without delaying the prototype?
 
@@ -345,11 +345,11 @@ They do not directly validate the proposed balloon geometry, prototype configura
 
 **[R1] Cheng, H. H., & Lau, D. (2023).** *Cable Attachment Optimization for Reconfigurable Cable-Driven Parallel Robots Based on Various Workspace Conditions.* IEEE Transactions on Robotics, 39(5), 3759–3775. DOI: **10.1109/TRO.2023.3288838**.  
 Link: https://doi.org/10.1109/TRO.2023.3288838  
-**Use:** B5.1–B5.6: configuration and attachment variables; workspace-based inequality/interference constraints. **Limitation:** Its wrench feasibility and active-force optimisation criteria must not be used as direct sensing-quality claims for passive balloon tracking.
+**Use:** B5.1–B5.5: configuration and attachment variables; workspace-based inequality/interference constraints. **Limitation:** Its wrench feasibility and active-force optimisation criteria must not be used as direct sensing-quality claims for passive balloon tracking.
 
 **[R2] Youssef, K., & Otis, M. J.-D. (2020).** *Reconfigurable fully constrained cable driven parallel mechanism for avoiding interference between cables.* Mechanism and Machine Theory, 148, 103781. DOI: **10.1016/j.mechmachtheory.2020.103781**.  
 Link: https://doi.org/10.1016/j.mechmachtheory.2020.103781  
-**Use:** B5.3–B5.6 and B5.5.3: motivation for reconfiguration and geometric interference avoidance. **Limitation:** The work concerns a different CDPR architecture; our segment-distance and deformed-surface checks are our own implementations.
+**Use:** B5.3–B5.5 and B5.5.3: motivation for reconfiguration and geometric interference avoidance. **Limitation:** The work concerns a different CDPR architecture; our segment-distance and deformed-surface checks are our own implementations.
 
 **[R3] *Gent models for the inflation of spherical balloons* (2015).** International Journal of Non-Linear Mechanics, 68, 52–58. DOI: **10.1016/j.ijnonlinmec.2014.05.016**.  
 Link: https://doi.org/10.1016/j.ijnonlinmec.2014.05.016  
