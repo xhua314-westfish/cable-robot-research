@@ -583,7 +583,7 @@ Establish a six-cable prototype-ready configuration while preserving the long-te
 
 - [Rigid-Body Sensing Design](../05_My_Research/Rigid_Body_Sensing_Design.md)
 - [Prototype V1.0 and Flexible Transition](../05_My_Research/Prototype_V1_Rigid_to_Flexible_Design_2026_11_04.md)
-- [Sensing Objective](../05_My_Research/Sensing_Objective_v0.2_updated_2026_11_04.md)
+- [Sensing Objective](../05_My_Research/Sensing_Objective_v0.2.md)
 
 ### Research Evidence
 
