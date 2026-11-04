@@ -262,7 +262,7 @@ A provisional Prototype V1.0 may be selected only when:
 
 Prototype V1.0 selection does not authorise final motor procurement before B5.5 compatibility and B6 mechanical sizing.
 
-### Day 8 — Fri 13 Nov | B5.5.1 Attachment Migration and Flexible Routing | 4–5 h
+### Day 8 — Fri 13 Nov | B5.5.1 Simplified Flexible Balloon Model | 4–5 h
 
 **Research question:** How can a small, interpretable set of shape changes be introduced without delaying the prototype?
 
@@ -278,7 +278,7 @@ Prototype V1.0 selection does not authorise final motor procurement before B5.5 
 
 **Acceptance:** Transparent distinction between the **engineering affine proxy** and a validated material model; surface and material points move consistently.
 
-### Day 9 — Mon 16 Nov | B5.5.2–3 Attachment Migration and Flexible Routing | 4–5 h
+### Day 9 — Mon 16 Nov | B5.5.2–B5.5.3 Attachment Migration and Flexible Routing | 4–5 h
 
 **Research question:** Can V1.0 anchors and attachment fixtures remain workable over the selected deformation cases?
 
@@ -294,7 +294,7 @@ Prototype V1.0 selection does not authorise final motor procurement before B5.5 
 
 **Acceptance:** At least rigid/no-deformation and multiple declared deformation cases compared under matching poses. A sphere-collision routine is **not** reused unchanged for an ellipsoid.
 
-### Day 10 — Tue 17 Nov | B5.5.4–5 Observability and B6 Handoff | 4–5 h
+### Day 10 — Tue 17 Nov | B5.5.4–B5.5.5 Observability and B6 Handoff | 4–5 h
 
 **Research question:** What do six lengths identify when rigid motion and deformation coexist, and can the V1.0 hardware be retained?
 
@@ -306,7 +306,7 @@ Prototype V1.0 selection does not authorise final motor procurement before B5.5 
 
 **Theory:** `delta L ≈ H_rigid delta q + H_def delta eta`; `rank(H_total) <= 6` for six scalar length channels; local null space via SVD; [R4] supports model-based constraints/sensor augmentation. For later force-sizing, `W(q)T+w_ext=0` with `T_i >= 0` is a **separate mechanical feasibility model**, not a consequence of measurement-Jacobian rank.
 
-**Output:** `B5_5_4_observability.m`, `B5_5_4_compatibility_decision.md`, `B5_5_4_sizing_input_checklist.md`, `two_week_review_2026_11_17.md`.
+**Output:** `B5_5_4_observability.m`, `B5_5_5_compatibility_decision.md`, `B6_sizing_input_checklist.md`, `two_week_review_2026_11_17.md`.
 
 **Acceptance:** Honest V1.0 keep/adjust/reject decision; clear list of remaining measurements and B6 work. No unsupported claim that six cables independently recover six rigid DOFs **plus** general deformation.
 
@@ -345,11 +345,13 @@ They do not directly validate the proposed balloon geometry, prototype configura
 
 **[R1] Cheng, H. H., & Lau, D. (2023).** *Cable Attachment Optimization for Reconfigurable Cable-Driven Parallel Robots Based on Various Workspace Conditions.* IEEE Transactions on Robotics, 39(5), 3759–3775. DOI: **10.1109/TRO.2023.3288838**.  
 Link: https://doi.org/10.1109/TRO.2023.3288838  
-**Use:** B5.1–B5.5: configuration and attachment variables; workspace-based inequality/interference constraints. **Limitation:** Its wrench feasibility and active-force optimisation criteria must not be used as direct sensing-quality claims for passive balloon tracking.
+**Use:** B5.1–B5.4: configuration and attachment variables, workspace-based inequality constraints and interference-aware design. **Limitation:** Its wrench feasibility and active-force optimisation criteria must not be treated as direct evidence of passive balloon sensing accuracy.
+
 
 **[R2] Youssef, K., & Otis, M. J.-D. (2020).** *Reconfigurable fully constrained cable driven parallel mechanism for avoiding interference between cables.* Mechanism and Machine Theory, 148, 103781. DOI: **10.1016/j.mechmachtheory.2020.103781**.  
 Link: https://doi.org/10.1016/j.mechmachtheory.2020.103781  
-**Use:** B5.3–B5.5 and B5.5.3: motivation for reconfiguration and geometric interference avoidance. **Limitation:** The work concerns a different CDPR architecture; our segment-distance and deformed-surface checks are our own implementations.
+**Use:** B5.2, B5.4 and B5.5.3: cable interference avoidance and geometric reconfiguration. **Limitation:** This paper concerns a different CDPR architecture; the proposed segment-distance and deformed-surface checks require project-specific implementation and verification.
+
 
 **[R3] *Gent models for the inflation of spherical balloons* (2015).** International Journal of Non-Linear Mechanics, 68, 52–58. DOI: **10.1016/j.ijnonlinmec.2014.05.016**.  
 Link: https://doi.org/10.1016/j.ijnonlinmec.2014.05.016  
