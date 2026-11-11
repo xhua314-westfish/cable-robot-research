@@ -1,0 +1,15 @@
+ID,Name,Metric,Unit,NumericTarget,Status,Method
+R01,Rigid pose estimation,6-DOF reconstruction capability,Boolean,NaN,Defined,Noise-free nonlinear pose reconstruction
+R02,Core geometric feasibility,Passing sampled Core poses,poses,189,Provisional,189 Core poses and geometric checks
+R03,Position RMSE,3D position RMSE,mm,NaN,TBD,Independent ground-truth pose comparison
+R04,Orientation RMSE,SO(3) geodesic angle RMSE,degree,NaN,TBD,Relative rotation matrix angle
+R05,Maximum pose error,Maximum position/orientation errors,mm / degree,NaN,TBD,Worst-case errors on held-out poses
+R06,Local observability,Rank of scaled Jacobian,rank,6,Defined,SVD of scaled measurement Jacobian
+R07,Physical cable clearance,Minimum physical cable clearance,mm,NaN,TBD,Finite cable diameter and clearance model
+R08,Rail mountability,Number of off-rail anchors,count,0,Defined,Point-to-rail geometric verification
+R09,Cable stroke,Maximum cable length variation,mm,NaN,TBD,Cable length range over evaluation poses
+R10,Low-tension operation,Tension and balloon disturbance,N / disturbance,NaN,TBD,Tension and passive motion experiments
+R11,Reconstruction reliability,Estimator failure rate,percent,NaN,TBD,Record divergence and failed estimates
+R12,Measurement update rate,Estimated poses per second,Hz,NaN,TBD,Timing on intended processing hardware
+R13,Installation robustness,Sensitivity to mounting errors,multiple,NaN,TBD,Mounting parameter perturbation study
+R14,Independent ground truth,Independent pose measurement accuracy,mm / degree,NaN,TBD,External pose tracking or reference system
