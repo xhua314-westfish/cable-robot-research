@@ -1,3 +1,6 @@
+# 已作废
+# 作为历史记录
+
 # AGENTS.md — Repository Instructions for AI Coding Agents
 
 **Project:** Cable-Robot-Based Sensing for a Passive Deformable Balloon
