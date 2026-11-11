@@ -1,11 +1,10 @@
-
 # AGENTS2 — Research and AI Working Rules
 
-**Version:** 0.6
-**Last Updated:** 2026-11-04
-**Project:** Cable-Robot-Based Sensing for a Passive Deformable Balloon
-**Primary Tool:** MATLAB
-**Research Strategy:** Research-Driven, Prototype-First, Parallel Workstreams
+**Version:** 0.7  
+**Last Updated:** 2026-11-12  
+**Project:** Cable-Robot-Based Sensing for a Passive Deformable Balloon  
+**Primary Tool:** MATLAB  
+**Research Strategy:** Research-Driven, Prototype-Oriented, Parallel Workstreams
 
 ---
 
@@ -17,28 +16,43 @@ It governs:
 
 - Research-question-driven learning.
 - Scientific reasoning and literature use.
-- Mathematical modelling and numerical verification.
-- MATLAB implementation.
+- Mathematical modelling.
+- MATLAB implementation and verification.
+- Configuration optimisation.
 - Experimental planning.
 - Parallel cable-number research.
 - GitHub and Codex collaboration.
+- Research documentation and session handoff.
 
 **This is a working-rules document, not a research progress report.**
 
-Do not duplicate completed numerical results, detailed daily schedules, or frequently changing research status here.
+Do not duplicate completed numerical results, detailed daily schedules, specific candidate coordinates or frequently changing research status here.
 
-Authoritative project information:
+### Authoritative Repository Documents
 
 | Document | Responsibility |
 |---|---|
-| `AGENTS.md` | AI/Codex entry point |
-| `AGENTS2.md` | Detailed research and AI working rules |
-| `CURRENT_STATE2.md` | Verified current research state |
-| `08_Project_Management/Roadmap.md` | Long-term research milestones |
-| Active November TODO | Research tasks and acceptance criteria |
-| Active November Weekly Plan | Daily research schedule |
+| `AGENTS.md` | AI/Codex repository entry point |
+| `AGENTS2.md` | Stable research and AI working rules |
+| `CURRENT_STATE2.md` | Latest verified research state |
+| `08_Project_Management/Roadmap.md` | Long-term milestones and research direction |
+| Active Research Plan | Current tasks, methods and acceptance criteria |
+| Active Weekly Plan | Daily execution schedule, when maintained |
 | `05_My_Research/` | Technical design and mathematical models |
-| `06_Research_Log/` | Numerical and experimental evidence |
+| `03_Simulation/MATLAB/` | Source code and numerical datasets |
+| `06_Research_Log/` | Detailed numerical and experimental evidence |
+
+### Document Responsibility Principle
+
+Each document should have one clear purpose.
+
+- Current progress belongs in `CURRENT_STATE2.md`.
+- Long-term research milestones belong in `Roadmap.md`.
+- Specific procedures belong in the active Research Plan.
+- Verified experimental evidence belongs in Research Logs.
+- Stable AI working rules belong in `AGENTS2.md`.
+
+Do not copy the same detailed results into every document.
 
 ---
 
@@ -46,9 +60,9 @@ Authoritative project information:
 
 ### 2.1 Long-Term Research Goal
 
-Develop and evaluate a cable-based sensing system capable of estimating the position, orientation, and eventually deformation or shape of a passively moving balloon-like object.
+Develop and evaluate a cable-based sensing system capable of estimating the position, orientation and eventually deformation or shape of a passively moving balloon-like object.
 
-The application is motivated by a simplified intragastric-balloon sensing environment.
+The research is motivated by a simplified intragastric-balloon sensing environment.
 
 The system is intended for measurement and state estimation, not active trajectory control.
 
@@ -67,6 +81,7 @@ The comparison should consider:
 - Measurement redundancy.
 - Sensing workspace.
 - Geometric and mechanical feasibility.
+- Installation robustness.
 - Implementation complexity.
 
 The six-cable configuration serves as the initial experimental reference.
@@ -85,6 +100,8 @@ The motors must not intentionally prescribe the balloon trajectory.
 
 The low-tension tracking architecture requires physical validation.
 
+A prescribed reference motion may be used during calibration or controlled testing, but it must not be confused with the final passive sensing principle.
+
 ---
 
 ## 3. Parallel Research Workstreams
@@ -93,17 +110,20 @@ The low-tension tracking architecture requires physical validation.
 
 **Primary engineering priority**
 
-1. Evaluate and select an adjustable six-cable configuration.
-2. Verify initial rigid-to-flexible balloon compatibility.
-3. Calculate cable length, tension, motor and sensor requirements.
-4. Build an adjustable experimental test rig.
-5. Validate rigid-body pose estimation.
-6. Extend experiments to a flexible balloon.
-7. Refine the configuration using experimental evidence.
+1. Evaluate and compare candidate six-cable configurations.
+2. Optimise anchor locations, attachment locations and pairing.
+3. Verify geometry and sensing over relevant pose regions.
+4. Investigate robustness and installation constraints.
+5. Validate nonlinear pose reconstruction.
+6. Define cable length, tension, motor and sensor requirements.
+7. Develop an adjustable experimental test rig.
+8. Validate rigid-body pose estimation experimentally.
+9. Investigate flexible-balloon compatibility.
+10. Refine the configuration using experimental evidence.
 
 The initial prototype does not require proof of global configuration optimality.
 
-However, essential geometric and mechanical constraints must be evaluated before hardware implementation.
+However, essential geometric, sensing and mechanical constraints must be evaluated before hardware implementation.
 
 ### Workstream B — Seven-/Eight-Cable Theory and Simulation
 
@@ -115,6 +135,7 @@ However, essential geometric and mechanical constraints must be evaluated before
 4. Analyse geometric workspace and cable interference.
 5. Investigate tension feasibility where mechanically relevant.
 6. Compare six-, seven- and eight-cable systems using consistent criteria.
+7. Evaluate whether additional cable channels justify their mechanical and sensing complexity.
 
 Workstream B may proceed while the six-cable test rig is being designed, assembled or tested.
 
@@ -147,10 +168,12 @@ Before beginning a new research task, read the minimum relevant repository conte
 1. `AGENTS.md` — Repository entry instructions.
 2. `AGENTS2.md` — Stable working rules.
 3. `CURRENT_STATE2.md` — Current verified progress.
-4. Active TODO in `08_Project_Management/November/`.
-5. Active Weekly Plan in `08_Project_Management/November/`.
-6. `08_Project_Management/Roadmap.md` when long-term milestones are relevant.
-7. Relevant technical models, MATLAB scripts and research logs.
+4. Active Research Plan — Current research methods and tasks.
+5. Active Weekly Plan — Daily research schedule, if applicable.
+6. `08_Project_Management/Roadmap.md` — Long-term milestones.
+7. Relevant technical models, MATLAB scripts and Research Logs.
+
+Do not assume an older plan remains active merely because it exists in the repository.
 
 ### Context Rules
 
@@ -158,10 +181,24 @@ Before beginning a new research task, read the minimum relevant repository conte
 - Do not assume a task is completed because its planned date has passed.
 - Verify completion using actual saved results.
 - Do not claim to have read inaccessible files.
-- Prefer the active plan over archived schedules.
+- Prefer the current Research Plan over superseded schedules.
 - Report contradictions between documents.
 - Preserve verified findings from previous sessions.
 - Avoid re-reading unrelated files unnecessarily.
+
+### Handling Conflicting Information
+
+When repository documents disagree:
+
+1. Identify the specific contradiction.
+2. Check the relevant Research Log and MATLAB evidence.
+3. Distinguish historical results from current research status.
+4. Use `CURRENT_STATE2.md` to establish the current milestone.
+5. Use the active Research Plan to determine the next procedure.
+6. Do not silently overwrite one verified result with another.
+7. Ask for clarification when a material contradiction cannot be resolved using available evidence.
+
+A newer planning document does not automatically invalidate earlier numerical evidence.
 
 Historical learning plans must not override current research instructions.
 
@@ -214,6 +251,22 @@ Next Research Decision
 
 Do not introduce advanced algorithms solely because they are available.
 
+### Required Research Explanation
+
+For a substantial research lesson, explain:
+
+**1. Why is this task necessary?**
+
+Identify the unresolved research problem or limitation.
+
+**2. What theory or literature supports the method?**
+
+Explain the relevant mathematical principles and applicable published methods.
+
+**3. What research decision will the result enable?**
+
+Define what can be concluded from the outcome and what remains unresolved.
+
 ---
 
 ## 6. AI Teaching and Explanation Rules
@@ -222,10 +275,10 @@ When guiding research:
 
 1. Explain the research objective.
 2. Introduce relevant equations and physical meaning.
-3. Identify relevant literature and DOI information.
+3. Identify relevant literature and DOI information where applicable.
 4. Explain assumptions and coordinate conventions.
-5. Introduce MATLAB code in manageable sections.
-6. Allow the user to run and inspect numerical results.
+5. Provide a logical implementation sequence.
+6. Allow the user to run and inspect MATLAB results.
 7. Interpret actual outputs before continuing.
 8. Verify unexpected results instead of guessing.
 9. Include short research reflection questions where useful.
@@ -234,6 +287,36 @@ When guiding research:
 Prefer incremental research sessions over large collections of unrelated exercises.
 
 The purpose is to support independent research understanding, not merely provide working code.
+
+### MATLAB Teaching Preferences
+
+For each practical numerical research lesson:
+
+- Begin with the research question.
+- Explain why the mathematical method is appropriate.
+- Identify the required inputs.
+- State which variables are fixed and which are changed.
+- Provide a complete runnable MATLAB script when requested.
+- Use clear Chinese comments to explain the code.
+- Reuse verified functions where practical.
+- Explain expected outputs and numerical checks.
+- Wait for actual execution results before interpreting unverified outcomes.
+- Explain the physical significance of the obtained results.
+- Avoid introducing unrelated new tasks before the current lesson is understood.
+
+### Research Reflection
+
+Use short research questions to encourage interpretation.
+
+Reflection questions should focus on:
+
+- Why a result occurred.
+- What the result demonstrates.
+- What it does not demonstrate.
+- Which design decision follows.
+- Whether additional verification is needed.
+
+Do not treat a numerical improvement as self-explanatory.
 
 ---
 
@@ -256,6 +339,7 @@ Unless explicitly stated otherwise:
 
 - Geometry and cable length: millimetres.
 - Local rotation increments: radians.
+- Reported orientation angles: degrees when explicitly labelled.
 - Tension and force: newtons.
 - Motor torque: newton-metres.
 
@@ -323,13 +407,15 @@ Translation and rotation have different physical units.
 
 Use a declared characteristic length when evaluating scaled singular values and condition numbers.
 
-Keep the scaling convention consistent across cable-number comparisons.
+For the current rigid spherical model, the adopted characteristic length is the balloon radius unless another convention is explicitly justified.
+
+Keep the scaling convention consistent across configuration and cable-number comparisons.
 
 ---
 
 ## 8. Cable Configuration and Workspace Rules
 
-### Configuration Variables
+### 8.1 Configuration Variables
 
 For a six-cable reference:
 
@@ -339,7 +425,22 @@ For a six-cable reference:
 
 Anchor positions, attachment positions and cable pairing are distinct design variables.
 
-### Configuration Evaluation
+For the rail-constrained model:
+
+\[
+A_i=A(\rho_i,t_i)
+\]
+
+where:
+
+- \(\rho_i\): Rail assignment.
+- \(t_i\): Normalised anchor position on that rail.
+- \(r_i\): Body-frame attachment coordinate.
+- \(\pi\): Cable pairing permutation.
+
+The configuration must preserve an explicit mapping between every anchor and its attachment.
+
+### 8.2 Configuration Evaluation
 
 Consider:
 
@@ -347,15 +448,17 @@ Consider:
 - Cable–balloon interference.
 - Cable–cable interference.
 - Minimum cable clearance.
+- Outward angular margin.
 - Jacobian rank.
 - Scaled singular values and conditioning.
 - Predicted pose uncertainty.
+- Pose-estimation error.
 - Cable length and stroke.
 - Mechanical mounting feasibility.
 - Positive-tension feasibility.
 - Disturbance of passive balloon motion.
 
-### Workspace Rules
+### 8.3 Workspace Rules
 
 Always distinguish:
 
@@ -371,7 +474,7 @@ Ideal zero-thickness cable non-intersection is not equivalent to practical cable
 
 A full-rank measurement Jacobian is not proof of positive-tension wrench feasibility.
 
-### Optimisation Rules
+### 8.4 Optimisation Rules
 
 - Define variables and constraints before optimisation.
 - Evaluate multiple poses rather than only a reference pose.
@@ -380,6 +483,52 @@ A full-rank measurement Jacobian is not proof of positive-tension wrench feasibi
 - Preserve independent validation poses.
 - Avoid unsupported global-optimality claims.
 - Prefer a practical adjustable design over a numerically attractive but interfering configuration.
+
+### 8.5 Controlled-Variable Experiments
+
+When analysing configuration variables, distinguish:
+
+| Experiment | Variable Parameters | Fixed Parameters |
+|---|---|---|
+| E0 — Baseline | None | All configuration variables |
+| E1a — Rail Position | Rail positions | Rail assignments, attachments, pairing |
+| E1b — Rail Assignment | Rail assignments and associated positions | Attachments, pairing |
+| E2 — Attachment | Attachment coordinates | Anchor configuration, pairing |
+| E3 — Pairing | Pairing permutation | Anchor and attachment point sets |
+| E4 — Joint Optimisation | Multiple configuration variables | Common geometry and evaluation rules |
+
+The exact active experiment and its detailed procedure belong in the Research Plan.
+
+### 8.6 Fair Configuration Comparison
+
+When comparing multiple configurations:
+
+1. Retain each configuration's original identity and geometry.
+2. Apply the same objective and constraints.
+3. Use comparable optimisation budgets.
+4. Use the same development pose sets.
+5. Use identical sensing definitions.
+6. Record failed and rejected candidates.
+7. Evaluate final candidates using common independent validation data.
+8. Distinguish baseline superiority from improvements caused by additional optimisation effort.
+
+Do not declare one configuration globally superior merely because it received more optimisation or debugging.
+
+### 8.7 Robustness and Validation
+
+A configuration should not be ranked using geometry pass counts alone.
+
+Where applicable, evaluate:
+
+- Minimum outward angular margin.
+- Minimum cable distance.
+- Independent unseen poses.
+- Anchor installation perturbations.
+- Attachment placement uncertainty.
+- Cable-length measurement noise.
+- Pose-estimator convergence.
+
+Keep clear distinctions between numerical robustness tests and experimentally validated mechanical tolerances.
 
 ---
 
@@ -452,6 +601,45 @@ Before accepting numerical results:
 
 Do not label unexecuted or unverified code as validated.
 
+### Development and Validation Data
+
+Distinguish:
+
+**Development Set**
+
+Used for:
+
+- Configuration optimisation.
+- Parameter tuning.
+- Algorithm development.
+- Failure diagnosis.
+- Targeted repair.
+
+**Independent Validation Set**
+
+Used to assess frozen candidates under previously unused conditions.
+
+If a validation pose is used to modify the configuration, it becomes part of the development evidence and is no longer fully independent for that candidate.
+
+Generate or reserve a fresh holdout when an independent final comparison is needed.
+
+### Reproducibility
+
+Record:
+
+- MATLAB version when relevant.
+- Configuration identifiers.
+- Fixed and variable parameters.
+- Dataset names.
+- Random seeds.
+- Solver tolerances.
+- Numerical thresholds.
+- Search budgets.
+- Successful and failed trials.
+- Output file paths.
+
+Results from different pose sets must not be compared as if they were computed under identical conditions.
+
 ---
 
 ## 11. Measurement Accuracy and Experimental Evidence
@@ -490,6 +678,22 @@ Independent ground truth is required for experimental estimation-error claims.
 
 Simulation noise assumptions must not be treated as calibrated sensor specifications.
 
+### Performance Reporting Rules
+
+Every reported performance improvement must specify:
+
+1. Baseline configuration.
+2. Modified configuration.
+3. Evaluation pose set.
+4. Measurement or metric definition.
+5. Numerical assumptions.
+6. Relative or absolute improvement.
+7. Remaining limitations.
+
+Do not calculate improvement percentages using statistics from different pose sets without explicitly explaining their incompatibility.
+
+When comparing candidate configurations, report sensing quality and geometric feasibility separately.
+
 ---
 
 ## 12. Literature and Citation Rules
@@ -511,38 +715,45 @@ Distinguish mathematical theory, published methods and project-specific adaptati
 
 Literature should be selected according to the active research question.
 
+When a method is adapted from a published active cable-driven robot to passive sensing, explicitly explain which objectives or constraints have changed.
+
 Do not reproduce entire papers without a clear research need.
 
 ---
 
 ## 13. GitHub and Codex Collaboration
 
-### Repository Responsibilities
+### 13.1 Repository Responsibilities
 
 - `AGENTS.md`: AI entry point.
 - `AGENTS2.md`: Stable research rules.
 - `CURRENT_STATE2.md`: Current progress.
-- `Roadmap.md`: Long-term planning.
-- November TODO: Research tasks and acceptance criteria.
-- November Weekly Plan: Daily execution.
+- `08_Project_Management/Roadmap.md`: Long-term planning.
+- Active Research Plan: Research tasks and acceptance criteria.
+- Active Weekly Plan: Daily execution, when maintained.
 - Technical design files: Mathematical and engineering models.
 - Research Logs: Detailed numerical and experimental evidence.
 
-### Manual GitHub Update Rules
+### 13.2 Manual GitHub Update Rules
 
 When the user requests manual updates:
 
 1. Read the current repository file.
 2. Identify outdated, conflicting or duplicated content.
 3. Preserve validated research information.
-4. Provide copyable Markdown text.
-5. Prefer precise section replacements when practical.
+4. Provide the complete, copyable Markdown content directly in the chat.
+5. Keep the existing file path and filename unless a change is explicitly needed.
 6. Update only one file at a time.
 7. Do not directly modify GitHub without explicit approval.
-8. Wait for confirmation before moving to another file.
+8. Wait for the user's confirmation before moving to another file.
 9. Do not create duplicate updated-version files without a clear need.
+10. Keep stable rules, current status, plans and historical results in their designated documents.
 
-### Codex Rules
+When the user explicitly requests a small local change, a precise section replacement may be provided instead of rewriting unrelated content.
+
+For full-file revisions, provide the complete replacement text.
+
+### 13.3 Codex Rules
 
 - Read repository instructions before modifying code.
 - Work within the user's selected research task.
@@ -552,7 +763,7 @@ When the user requests manual updates:
 - Distinguish successful execution from scientific validation.
 - Do not commit or push without user approval.
 
-### Session Handoff
+### 13.4 Session Handoff
 
 At the end of a research session, provide:
 
@@ -574,7 +785,7 @@ The repository should preserve essential project context across different conver
 
 **Research Direction**
 
-Maintain the long-term comparison of six-, seven-, and eight-cable sensing systems.
+Maintain the long-term comparison of six-, seven- and eight-cable sensing systems.
 
 **Engineering Priority**
 
@@ -583,6 +794,18 @@ Develop an adjustable six-cable experimental reference as early as reasonably pr
 **Parallel Research**
 
 Allow seven-/eight-cable theory and simulation to progress alongside six-cable hardware development.
+
+**Controlled Research**
+
+Use separate experiments to understand the contributions of rail position, rail assignment, attachment location and cable pairing before attempting joint optimisation.
+
+**Fair Comparison**
+
+Apply consistent evaluation conditions and comparable optimisation effort across alternative configurations.
+
+**Robustness**
+
+Evaluate geometric margins, installation uncertainty and independent motion conditions rather than relying on pass counts alone.
 
 **Flexible Sensing**
 
