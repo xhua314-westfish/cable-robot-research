@@ -1,3 +1,5 @@
+# 已作废
+# 作为历史记录
 
 # Weekly Plan 03 — Historical Six-Cable Research Schedule
 
