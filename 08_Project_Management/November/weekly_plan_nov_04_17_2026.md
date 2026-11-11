@@ -1,3 +1,6 @@
+# 已作废
+# 当作历史文件
+
 # November Research Plan — Weeks 1–2 (4–17 November 2026)
 
 **Created:** 2026-11-04  
