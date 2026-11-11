@@ -1,3 +1,6 @@
+# 已作废
+# 作为历史文件
+
 # October–November Research TODO
 
 **Last Updated:** 2026-11-03  
