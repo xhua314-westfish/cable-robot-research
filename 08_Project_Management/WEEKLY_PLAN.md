@@ -1,3 +1,6 @@
+# 已作废 
+# 作为历史记录
+
 # WEEKLY_PLAN.md — Archived Research Schedule
 
 > **ARCHIVED — Superseded Weekly Plan**
