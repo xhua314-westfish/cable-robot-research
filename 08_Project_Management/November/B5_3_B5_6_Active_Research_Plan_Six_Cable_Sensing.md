@@ -1,3 +1,81 @@
+# ARCHIVED — Superseded Research Plan
+
+**Document Status:** SUPERSEDED — Historical Reference Only  
+**Superseded On:** 2026-11-18  
+**Original Plan Version:** 0.4 (2026-11-12)  
+**Project:** Cable-Robot-Based Sensing for a Passive Deformable Balloon
+
+> **IMPORTANT — This is no longer the active research plan.**
+>
+> This document is preserved to maintain the history of the B5.3–B5.6 research strategy, original optimisation procedures, assumptions and planned experiments.
+>
+> Sections below describing E1a-B as the next task, E1b/E2 as future activities, or E3/E4 as mandatory subsequent steps reflect the planning state on 12 November 2026. They must not be interpreted as the current project status.
+
+## Current Authoritative Documents
+
+**Active Research Plan:**
+
+[Prototype V1 — Build and Validation Plan](Prototype_V1_Build_and_Validation_Plan.md)
+
+**Latest Research State:**
+
+[CURRENT_STATE2.md](../../CURRENT_STATE2.md)
+
+**Completed E2 Research Summary:**
+
+[B5.4 — E2 Attachment Optimisation Research Summary](../../06_Research_Log/2026-11/B5_4_E2_Phase_Research_Summary.md)
+
+## Research Transition Summary
+
+The project has progressed beyond the starting point documented in this historical plan.
+
+As of 18 November 2026:
+
+- B5.3 structured configuration screening is completed.
+- B5.4 E1a/E1b candidate anchor optimisation and E2 attachment optimisation have been completed for the retained design branches.
+- Four final E2 numerical candidates have been retained: C2-2 Repaired M, C4-1 E2 M, C8-16 E2 M and C12 E2 M.
+- All four candidates passed 539/539 nominal development-pose geometric checks.
+- C4-1 E2 M is the provisional primary prototype configuration.
+- C12 E2 M is the provisional backup.
+- Initial single-frame mechanical and cable-guide analyses M1.1–M1.4 have been completed.
+- Full E3 pairing optimisation and E4 joint optimisation have not been performed and are currently paused.
+
+The research priority has changed from broad configuration optimisation to targeted mechanical refinement, continuous-motion interference screening, prototype preparation and experimental validation.
+
+## Current Next Task
+
+**P0.1 — Targeted Anchor Refinement**
+
+Evaluate limited rail-constrained adjustments to:
+
+- C4-1 E2 M — Cable 2, Rail 6.
+- C12 E2 M — Cable 6, Rail 10.
+
+The subsequent task is **P0.2 — Continuous Motion Interference Screening**.
+
+The detailed procedures, milestones and acceptance criteria are defined in the active Prototype V1 plan.
+
+## Preservation Policy
+
+The original B5.3–B5.6 plan below is intentionally preserved.
+
+Its earlier schedules, optimisation tasks and next-action statements are historical records rather than current instructions.
+
+Do not execute the old E1a-B → E1b → E2 → E3 → E4 sequence automatically.
+
+Do not delete historical research assumptions, planned methods or references solely because the project has moved into a new phase.
+
+For new research activities, follow the active plan and the latest verified research state.
+
+---
+
+# Original B5.3–B5.6 Research Plan — Preserved Below
+
+---
+
+<!-- Keep the entire original document unchanged below this line. -->
+
+
 # B5.3–B5.6 Active Research Plan — Six-Cable Sensing
 
 **Version:** 0.4  
