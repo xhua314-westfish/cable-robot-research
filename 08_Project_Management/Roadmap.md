@@ -1,406 +1,110 @@
-# Research Roadmap
+# Research Roadmap — Cable-Based Sensing of a Passive Balloon
 
-**Version:** 0.7  
-**Last Updated:** 2026-11-12  
-**Project:** Cable-Robot-Based Sensing for a Passive Deformable Balloon  
-**Current Phase:** B5.4 — Six-Cable Configuration Optimisation  
-**Next Technical Milestone:** E1a-B — Six-Configuration Fair Comparison  
-**Primary Tool:** MATLAB
+**Revised:** 2026-11-18  
+**Primary research tool:** MATLAB  
+**Current milestone:** Refine C4-1 and C12, evaluate their usable workspaces, and select a provisional six-cable geometry for bench testing.
 
----
+## 1. Research goal
 
-## 1. Research Goal
+Develop a cable-length measurement system that can estimate the pose of a passively moving balloon-like object in a stomach-inspired test environment.
 
-Develop and experimentally validate a cable-length-based sensing system for estimating the position, orientation and eventually deformation of a passively moving balloon-like object.
+The first prototype uses six cables and a rigid reference body with known attachment coordinates. Independent pose measurements will establish how accurately the cable system reconstructs rigid-body motion. An inflated-balloon pilot will then investigate how attachment movement, surface deformation and cable tension affect the measurements.
 
-The research is motivated by intragastric balloon monitoring in a simplified stomach-inspired environment.
+The immediate engineering objective is to obtain a configuration that can be built, calibrated and tested over a stated operating region.
 
-### Main Research Question
+## 2. Research completed to date
 
-> Can cable measurements reliably reconstruct passive balloon motion, and how should cable number and configuration be selected to improve sensing performance while satisfying geometric and mechanical constraints?
-
-The system focuses on measurement and state estimation rather than active trajectory control.
-
-### Long-Term Objectives
-
-1. Establish reliable six-degree-of-freedom rigid-body pose sensing.
-2. Develop a practical low-tension cable measurement prototype.
-3. Validate pose-estimation accuracy experimentally.
-4. Investigate deformable-balloon sensing.
-5. Compare six-, seven- and eight-cable sensing systems.
-
----
-
-## 2. Research Strategy
-
-The project follows a research-question-driven, prototype-oriented strategy with two parallel workstreams.
-
-### Workstream A — Six-Cable Prototype and Experiments
-
-**Primary priority**
-
-Develop a numerically justified and experimentally testable six-cable sensing system.
-
-Main activities:
-
-- Cable configuration design.
-- Geometric feasibility.
-- Sensing optimisation.
-- Robustness analysis.
-- Pose reconstruction.
-- Measurement calibration.
-- Mechanical and hardware development.
-- Experimental validation.
-- Initial deformable-balloon investigation.
-
-### Workstream B — Seven-/Eight-Cable Theory and Simulation
-
-**Parallel theoretical priority**
-
-Investigate:
-
-- Measurement redundancy.
-- Local observability.
-- Sensing quality and pose uncertainty.
-- Geometric workspace.
-- Cable interference.
-- Tension feasibility.
-- Hardware complexity.
-- Performance relative to six cables.
-
-Additional cables are not assumed to improve performance automatically.
-
-The two workstreams should use consistent evaluation definitions and comparable assumptions.
-
----
-
-## 3. Overall Research Phases
-
-| Phase | Main Objective | Status |
-|---|---|---|
-| Phase 0 | Define application and measurement objectives | Initial synthesis completed |
-| Phase A | Reproduce relevant literature methods | Core scope completed |
-| B1 | Establish balloon and workspace geometry | Completed |
-| B2 | Generate initial six-cable configurations | Completed |
-| B3 | Evaluate geometric feasibility | Completed |
-| B4 | Evaluate Jacobian and initial sensing quality | Initial scope completed |
-| B5.1–B5.2 | Diagnose and redesign configurations | Completed |
-| B5.3 | Develop twelve-rail structured configurations | Completed |
-| B5.4 | Optimise cable configuration and assess robustness | Active |
-| B5.5 | Validate pose estimation and calibration | Planned |
-| B5.6 | Develop and evaluate Prototype V1.0 | Planned |
-| B6–B8 | Extend engineering and experimental validation | Future |
-| B9 | Integrate cable-number and configuration comparisons | Future |
-
-Detailed completed results are maintained in [CURRENT_STATE2.md](../CURRENT_STATE2.md) and the [Research Logs](../06_Research_Log/).
-
----
-
-## 4. Phase 0 — Application Definition
-
-**Status:** Initial synthesis completed.
-
-### Objective
-
-Establish the sensing application, research requirements and initial engineering assumptions.
-
-### Outcome
-
-- Passive balloon sensing objective defined.
-- Six-degree-of-freedom rigid-body pose selected as the initial measurement state.
-- Nominal balloon geometry established.
-- Simplified stomach-inspired engineering boundary adopted.
-
-### Remaining Limitation
-
-The engineering geometry and motion region are not clinically validated continuous gastric workspace boundaries.
-
----
-
-## 5. Phase A — Literature-Based Method Reproduction
-
-**Status:** Core scope completed.
-
-### Objective
-
-Understand and verify mathematical methods relevant to cable-based measurement.
-
-### Main Methods
-
-- Cable wrench and tension feasibility.
-- Single-pose feasible-region analysis.
-- Multi-pose feasible-region intersection.
-- Forward kinematics.
-- Jacobian and uncertainty analysis.
-- Workspace sampling.
-
-### Milestone
-
-Reusable theoretical and MATLAB methods are available for balloon-specific sensing research.
-
-These methods do not, by themselves, validate the final balloon sensing system.
-
----
-
-## 6. Phase B — Six-Cable Sensing Development
-
-### B1 — Geometry Definition
-
-**Status:** Completed.
-
-**Objective:** Establish the initial balloon model, engineering boundary and candidate connection regions.
-
-**Milestone:** Reproducible geometric model.
-
-### B2 — Initial Configuration Search
-
-**Status:** Completed.
-
-**Objective:** Investigate how anchor and attachment arrangements influence local sensing quality.
-
-**Milestone:** Baseline six-cable configurations and initial sensing comparison.
-
-### B3 — Geometric Feasibility
-
-**Status:** Completed.
-
-**Objective:** Evaluate cable interference and geometry across multiple balloon positions and orientations.
-
-**Milestone:** Multi-pose feasibility assessment.
-
-### B4 — Sensing Quality
-
-**Status:** Initial scope completed.
-
-**Objective:** Evaluate local six-degree-of-freedom identifiability, sensitivity and uncertainty.
-
-**Milestone:** Verified measurement Jacobian and initial sensing-quality analysis.
-
-Further nonlinear estimation and experimental accuracy validation continue in B5.4 and B5.5.
-
----
-
-## 7. B5 — Configuration Optimisation and Prototype Preparation
-
-### B5.1 — Configuration Audit and Candidate Expansion
-
-**Status:** Completed.
-
-**Objective:** Diagnose limitations of initial configurations and expand the available design space.
-
-### B5.2 — Multi-Pose Configuration Screening
-
-**Status:** Completed.
-
-**Objective:** Evaluate alternative layouts and cable pairings under common geometric and sensing criteria.
-
-### B5.3 — Twelve-Rail Structured Configuration Design
-
-**Status:** Completed.
-
-**Objective:** Introduce mechanically meaningful anchor mounting regions and generate structured configuration families.
-
-**Milestone:** A reproducible set of eligible twelve-rail six-cable starting configurations.
-
-### B5.4 — Configuration Optimisation
-
-**Status:** Active.
-
-**Objective:** Understand and optimise the effects of rail position, rail assignment, attachment position and cable pairing.
-
-| Task | Research Focus | Status |
-|---|---|---|
-| E1a-A | Develop rail-position optimisation method using Config 2 | Completed |
-| E1a-B | Apply fair rail-position optimisation across six candidates | Next |
-| E1b | Rail assignment optimisation | Planned |
-| E2 | Attachment optimisation | Planned |
-| E3 | Cable pairing optimisation | Planned |
-| E4 | Joint configuration optimisation | Planned |
-| Final evaluation | Independent validation, robustness and shortlist | Planned |
-
-**B5.4 Completion Milestone**
-
-A small shortlist of configurations supported by:
-
-- Geometric feasibility.
-- Sensing performance.
-- Pose-estimation evidence.
-- Robustness evaluation.
-- Mechanical plausibility.
-- Independent validation.
-
-The objective is a justified design shortlist, not an unsupported global optimum.
-
-Detailed procedures are maintained in the [Active Research Plan](November/B5_3_B5_6_Active_Research_Plan_Six_Cable_Sensing.md).
-
----
-
-## 8. B5.5 — Measurement Validation and Calibration
-
-**Status:** Planned.
-
-### Research Question
-
-Can cable-length measurements reconstruct passive balloon pose accurately under realistic noise, bias and model uncertainty?
-
-### Main Activities
-
-- Measurement noise and bias modelling.
-- Nonlinear pose reconstruction.
-- Sensor and geometric calibration.
-- Independent pose testing.
-- Estimator convergence and failure analysis.
-- Ground-truth measurement protocol.
-
-### Completion Milestone
-
-A reproducible pose-estimation method with documented uncertainty, calibration requirements and independent validation evidence.
-
-Simulated accuracy must remain distinguishable from experimentally measured accuracy.
-
----
-
-## 9. B5.6 — Prototype Engineering and Decision
-
-**Status:** Planned.
-
-### Research Question
-
-Can the selected six-cable configuration be implemented as a practical low-tension measurement system?
-
-### Main Activities
-
-- Mechanical frame and mounting design.
-- Pulley and cable-guide geometry.
-- Cable length and stroke requirements.
-- Sensor and motor selection.
-- Positive-tension and passive-motion disturbance assessment.
-- Assembly and calibration.
-- Prototype measurement experiments.
-
-### Completion Milestone
-
-A reproducible Prototype V1.0 design and, when hardware is available, experimental evidence supporting a retain, modify or redesign decision.
-
-A numerically feasible configuration does not automatically qualify as a physically validated prototype.
-
----
-
-## 10. Longer-Term Research — B6 to B9
-
-These stages describe work beyond the first prototype-development cycle.
-
-They must not duplicate engineering and calibration activities already completed under B5.5–B5.6.
-
-| Stage | Main Focus | Expected Outcome |
-|---|---|---|
-| B6 | Detailed hardware sizing and engineering refinement | Improved mechanical and sensing specifications |
-| B7 | Prototype refinement and expansion capability | More robust experimental platform |
-| B8 | Extended rigid/flexible balloon experiments | Broader experimental performance evidence |
-| B9 | Final configuration and cable-number comparison | Integrated research conclusions |
-
-### Rigid-to-Flexible Transition
-
-Future work will investigate:
-
-- Balloon deformation models.
-- Attachment migration.
-- Flexible-surface cable routing.
-- Joint pose/deformation identifiability.
-- Additional sensing requirements.
-
-Six instantaneous cable-length measurements do not generally identify six unconstrained rigid-body pose variables plus additional independent deformation variables.
-
-Shape reconstruction therefore requires justified additional information, constraints or reduced-order modelling.
-
----
-
-## 11. Parallel Seven-/Eight-Cable Research
-
-**Status:** Planned theoretical and numerical workstream.
-
-### Main Questions
-
-1. Does additional measurement redundancy improve pose estimation?
-2. How does cable number change the measurement Jacobian?
-3. How does geometric interference change?
-4. Are improvements robust under equivalent measurement assumptions?
-5. What mechanical complexity is introduced?
-6. Which findings justify hardware expansion?
-
-### Comparison Requirements
-
-Use:
-
-- Common pose sets.
-- Consistent geometric assumptions.
-- Compatible sensor-noise models.
-- Comparable sensing metrics.
-- Explicit mechanical constraints.
-
-### Completion Milestone
-
-An evidence-based assessment of when six, seven or eight cables are preferable for the intended sensing task.
-
----
-
-## 12. Research Milestones and Decision Gates
-
-| Gate | Required Decision |
+| Stage | Contribution to the current design |
 |---|---|
-| G1 — Mathematical model | Are the measurement equations and assumptions verified? |
-| G2 — Geometry | Are configurations feasible across the required evaluation region? |
-| G3 — Sensing | Is local pose information sufficient, and does nonlinear estimation perform adequately? |
-| G4 — Optimisation | Have relevant configuration variables been compared fairly? |
-| G5 — Robustness | Are results sufficiently stable under independent tests and uncertainty? |
-| G6 — Engineering | Can the selected geometry be physically implemented? |
-| G7 — Measurement validation | Does the system meet justified accuracy and repeatability requirements? |
-| G8 — Prototype | Does physical evidence support retaining or modifying the design? |
-| G9 — Final research | What configuration and cable-number conclusions are supported? |
+| Phase 0 and Phase A | Defined the application and measurement objective, and reproduced selected literature methods. |
+| B1–B4 | Established the frame and spherical surrogate, cable-length model, geometric checks, measurement Jacobian and initial uncertainty analysis. |
+| B5.1–B5.3 | Diagnosed interference and sensitivity failures, studied cable pairing, and introduced anchor layouts constrained to twelve frame-edge rails. |
+| B5.4 E1 and E2 | Refined anchor layouts, then optimised spherical attachments with the parent anchors and pairing fixed. Four final E2 candidates passed nominal geometry checks at 539 development poses. |
+| Initial engineering work | Identified rail-end mounting risks, connector-spacing questions and cable-guide design choices. M1.1–M1.4 provide preliminary mechanical evidence. |
 
-Numerical feasibility, sensing quality, mechanical feasibility and experimental validation are separate requirements.
+C4-1 is the provisional primary candidate and C12 is the provisional backup. C8-16 and C2-2 remain available as reference or reserve configurations. Detailed metrics and limitations are recorded in the [E2 research summary](../06_Research_Log/2026-11/B5_4_E2_Phase_Research_Summary.md).
 
-A failed gate should lead to a documented research decision rather than an unsupported acceptance claim.
+## 3. P0 — Complete the theoretical design for the first experiments
 
----
+### P0.1 — Refine C4-1 and C12 under physical installation constraints
 
-## 13. Current Milestone
+**Research question:** Once the guides and connectors have physical dimensions, does moving anchors and attachments together produce a useful improvement over changing either group alone?
 
-**Current Phase:** B5.4 — Configuration Optimisation.
+Start with the two installation questions that can affect the prototype choice:
 
-**Latest Completed Task:** E1a-A — Config 2 Anchor Rail Position Optimisation.
+- **C4-1:** Determine where Cable 2 anchor A2 can be installed on Rail 6 near the frame vertex. Use the effective cable exit point as the model coordinate.
+- **C12:** Determine the installable range of Cable 6 anchor A6 on Rail 10 and check the separate B1–B5 connector-spacing constraint on the sphere.
 
-**Next Technical Task:** E1a-B — Six-Configuration Fair Comparison.
+Measure the available extrusion and corner fittings. Use a trial guide or dimensioned design to establish mounting footprints and allowable shifts. Record which dimensions were measured and which remain provisional.
 
-### Immediate Objective
+Compare four variants within each candidate family:
 
-Compare the six Core-eligible starting configurations using equivalent rail-position optimisation and common evaluation criteria.
+| Variant | Anchor positions | Attachment positions | Decision supported |
+|---|---|---|---|
+| Original E2 | E2 values | E2 values | Establish the starting performance and installation limitations. |
+| Anchor only | Selected rail coordinates adjustable | E2 values | Determine the effect of correcting the mounting position alone. |
+| Attachment only | E2 values | Selected surface coordinates adjustable | Determine the benefit available from attachment changes at fixed anchors. Reuse E2 evidence where the comparison conditions match. |
+| Joint | Selected rail coordinates adjustable | Selected surface coordinates adjustable | Determine whether coordinated changes recover or improve clearance and sensing after installation constraints are applied. |
 
-The outcome will support subsequent Rail Assignment, Attachment, Pairing and Joint Optimisation.
+Keep rail assignments and cable pairing fixed for this targeted study. In the joint search, allow an anchor to be revisited after an attachment changes. Use comparable objectives, constraints, evaluation poses and documented search budgets. Full E4 optimisation across additional design variables remains paused.
 
-### Next Decision
+**Milestone:** Retain the installable variants that merit workspace analysis. Record why any remaining gain in sensing sensitivity justifies the associated mounting or clearance trade-off.
 
-Determine which configurations merit continued investigation based on their combined sensing, geometry and robustness performance.
+### P0.2 — Evaluate feasibility across the prescribed workspace
 
-Detailed steps and acceptance criteria are maintained exclusively in the Active Research Plan.
+**Research question:** Over which combinations of translation and rotation can each retained variant measure pose while satisfying geometric and installation constraints?
 
----
+1. Define the common six-dimensional test domain, including translation bounds, orientation bounds and rotation convention. The frame dimensions alone do not specify the usable workspace.
+2. Map containment, cable departure, clearance between all 15 cable pairs, and interference with guides, connectors and frame hardware.
+3. Evaluate Jacobian rank, worst-direction sensitivity and predicted pose uncertainty over the same domain. State the characteristic length and measurement-noise assumptions.
+4. Refine near small margins and feasibility boundaries. Apply continuous bounds where available, identify what each bound covers, and record unresolved regions.
+5. Identify the connected feasible region containing the intended starting pose. Distinguish positions usable at some orientations from positions usable throughout the required orientation range.
+6. Recheck frozen variants on independent poses or cells. Keep the original 539 development poses as a historical benchmark.
 
-## 14. Repository Navigation
+**Milestone:** Produce comparable workspace maps for C4-1 and C12. Report the limiting poses, failure mechanisms, connected operating regions and strength of the evidence. A sampled pass rate alone is insufficient to establish continuous feasibility.
 
-| Document | Purpose |
+### P0.3 — Select the provisional V1 configuration
+
+Choose the configuration and variant using installation feasibility, usable workspace, limiting cable clearance, sensing performance and sensitivity to placement errors. Record the six effective anchor coordinates, six attachment coordinates, cable pairing and supported test region.
+
+If neither candidate covers the intended domain, identify the limiting constraint. Use that evidence to choose between a targeted redesign and a smaller, explicitly documented first-test region.
+
+**Milestone:** One provisional V1 geometry, a justified backup decision and a defined range for the first experiments.
+
+### P0.4–P0.5 — Prepare the single-channel design and funding request
+
+Prepare the single-cable CAD concept, preliminary bill of materials and supervisor presentation. Reuse laboratory extrusion and fittings. Identify printed components, purchased components and quantities needed for a single working channel. Use the selected geometry to derive the required cable travel and guide-angle range.
+
+**Milestone:** A costed first experiment with a stated measurement purpose for each major purchase.
+
+## 4. P1–P6 — Build, measure and revise the prototype
+
+| Stage | Main work | Evidence and decision |
+|---|---|---|
+| P1 — Single-cable module | Build one channel with a guide, spool, encoder and take-up mechanism. Establish a repeatable length reference. | Confirm that the channel can be assembled, adjusted and calibrated over the required travel. |
+| P2 — Length and low-tension tests | Measure payout and retraction error, repeatability, reversal behaviour, slack and balloon-side tension across representative guide angles and speeds. | Determine whether reliable take-up and acceptable balloon disturbance can coexist. Select or revise the motor, spool and guide before replicating the module. |
+| P3 — Final mechanical configuration | Update effective exit coordinates, guide geometry and error assumptions using the single-channel results. Repeat the affected P0 checks. | Decide which dimensions, components and settings to use for six-channel assembly. |
+| P4 — Six-cable rigid prototype | Assemble and label six channels, measure the installed geometry, calibrate length offsets and establish synchronised data capture. | Obtain an as-built model and a reproducible calibration record. |
+| P5 — Experimental six-DOF validation | Test known poses and continuous motions using an independent reference. Separate calibration data from evaluation data. | Report position and orientation errors, repeatability, failed estimates and the experimentally supported operating region. |
+| P6 — Inflated-balloon pilot | Track surface markers and attachment motion under documented inflation and tension settings. | Estimate how much additional error and disturbance arise with a deformable specimen, and identify the next rig modification. |
+
+If a bench test reveals a systematic length bias, moving exit point, attachment slip or excessive disturbance, revise the affected component or model and repeat the relevant test. Preserve each as-built geometry and its calibration data so improvements can be compared.
+
+## 5. Longer-term research
+
+| Workstream | Research direction |
 |---|---|
-| [README](../README.md) | Project overview |
-| [AGENTS2](../AGENTS2.md) | Stable research and AI working rules |
-| [CURRENT_STATE2](../CURRENT_STATE2.md) | Verified current progress |
-| [Active Research Plan](November/B5_3_B5_6_Active_Research_Plan_Six_Cable_Sensing.md) | Current technical research procedures |
-| [Research Logs](../06_Research_Log/) | Numerical and experimental evidence |
-| [Weekly Presentation Template](Weekly_Presentation_Template.md) | Research presentation workflow |
+| B6–B7 — Hardware and platform refinement | Use V1 data to improve mechanical sizing, sensing, calibration and repeatability. |
+| B8 — Extended rigid and flexible experiments | Expand the tested motion and deformation conditions. Determine which deformation parameters can be identified and what additional measurements they require. |
+| B9 — Configuration and cable-number comparison | Compare six-, seven- and eight-cable systems under common workspace, noise, installation and interference assumptions. Use the measured six-cable baseline to judge whether additional channels justify their complexity. |
 
-Historical and superseded plans should not be used as current execution instructions.
+Seven- and eight-cable theory can proceed in parallel. The six-cable experimental timeline depends on the P0–P6 evidence above.
 
----
+## 6. Current milestone and project records
 
-**Research Direction:** Six-cable pose-sensing optimisation and experimental development, parallel seven-/eight-cable theory, and eventual deformable-balloon measurement.
+The next technical task is to establish the mountable ranges of C4-1 A2 and C12 A6, identify the attachment variables implicated by the engineering audit, and define the matched single-group and joint comparisons. Final V1 selection follows the workspace analysis.
 
-**Guiding Principle:** Research questions determine the methods. Numerical evidence informs design decisions. Independent validation and experiments establish practical performance.
+- [Current research state](../CURRENT_STATE2.md)
+- [Prototype V1 build and validation plan](November/Prototype_V1_Build_and_Validation_Plan.md)
+- [MATLAB simulations](../03_Simulation/MATLAB/)
+- [Research logs](../06_Research_Log/)
