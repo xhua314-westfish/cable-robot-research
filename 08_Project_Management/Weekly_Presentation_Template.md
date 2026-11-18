@@ -50,32 +50,27 @@ The PPT should develop alongside research rather than becoming a separate major 
 
 ---
 
-## 2. Authoritative Research Sources
+## 2. Research Sources and Reporting Dates
 
-Use the following repository documents:
+At the start of each presentation, identify the reporting date and the research question the supervisor needs to assess. Select the weekly plan covering that date. If one plan spans two Fridays, prepare each presentation from the evidence available by its own reporting date.
 
-| Source | Purpose |
-|---|---|
-| [CURRENT_STATE2.md](../CURRENT_STATE2.md) | Latest verified progress |
-| [Active Research Plan](November/B5_3_B5_6_Active_Research_Plan_Six_Cable_Sensing.md) | Current tasks and procedures |
-| [Roadmap.md](Roadmap.md) | Long-term milestones |
-| [Research Logs](../06_Research_Log/) | Actual research results |
-| [MATLAB Simulations](../03_Simulation/MATLAB/) | Code, figures and numerical data |
-| [AGENTS2.md](../AGENTS2.md) | Research and verification rules |
+| Question | Source | How to use it |
+|---|---|---|
+| What was scheduled for this reporting period? | The dated weekly plan in [Project Management](./) | Identify the intended question, comparison and expected output. |
+| Which prototype decision does this work support? | [Prototype V1 — Build and Validation Plan](November/Prototype_V1_Build_and_Validation_Plan.md) | Locate the relevant P0–P6 task and its decision criteria. |
+| What was actually completed? | [Research logs](../06_Research_Log/) and the corresponding [MATLAB scripts and saved results](../03_Simulation/MATLAB/) | Verify configuration IDs, evaluation conditions, numerical values, figures and limitations. For bench work, use the corresponding measurement and calibration records. |
+| What is the current interpretation or open issue? | [Current research state](../CURRENT_STATE2.md) | Confirm candidate roles, unresolved questions and the next research decision. |
+| Where does the decision fit in the wider project? | [Research roadmap](Roadmap.md) | Explain the milestone and its dependency on earlier or later work. |
+| Which modelling and reporting conventions apply? | [Research and collaboration rules](../AGENTS2.md) | Check units, coordinate conventions, comparison fairness and validation terminology. |
 
-If a newer active research plan is created, use the latest explicitly designated active plan.
+### Figures and claims
 
-Historical or superseded plans must not be used to determine current research tasks.
+- For an optimisation result, name the parent configuration, the variables changed and the comparison baseline. When claiming a benefit from joint adjustment, compare it with the best installable single-group variant evaluated under comparable conditions.
+- For a workspace figure, state the position and orientation domain, the criterion displayed and the coverage achieved. Identify whether the figure shows sampled poses, checked paths or cells verified under a stated bound.
+- For an experimental result, name the specimen, measurement reference and test conditions. Where a hardware dimension or performance target is provisional, label it explicitly.
+- If an expected result is unavailable by the reporting date, show the open question, the evidence obtained so far and the next measurement or calculation. Keep the planned result as a placeholder in the working deck.
 
-### Evidence Priority
-
-1. Verified MATLAB outputs and experimental data.
-2. Research Logs.
-3. Current Research State.
-4. Active Research Plan.
-5. Historical documents, only when needed for background.
-
-A scheduled task does not imply completion.
+Use this reusable template for ordinary weekly research presentations. For the dedicated supervisor funding request, use the eleven-slide outline in P0.5 of the active V1 plan.
 
 ---
 
