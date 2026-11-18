@@ -1,0 +1,3 @@
+DesignID,CableID,Alpha_deg,Beta_deg,GeometryPass,RankPass,MinAngle_deg,MinCableDistance_mm,MinAttachmentDistance_mm,WorstCoreSigma,ClearanceEligible,SpacingEligible,FullEligible
+1,1,2,180,189,189,0.725771239319385,6.11809429053972,22.3602117288247,0.617941376933261,1,1,1
+1,3,5,0,189,189,0.349533052612128,6.11809429053972,22.3602117288247,0.623501871302265,1,1,1
