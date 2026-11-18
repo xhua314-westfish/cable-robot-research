@@ -1,4 +1,3 @@
-2026-11-18
 
 # Prototype V1 — Build and Validation Plan
 
