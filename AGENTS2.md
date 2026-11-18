@@ -1,822 +1,623 @@
-# AGENTS2 — Research and AI Working Rules
+# CURRENT_STATE2 — Current Research State
 
-**Version:** 0.7  
-**Last Updated:** 2026-11-12  
+**Version:** 1.0  
+**Last Updated:** 2026-11-18  
 **Project:** Cable-Robot-Based Sensing for a Passive Deformable Balloon  
+**Current Phase:** Prototype V1 — Pre-Prototype Design Finalisation  
+**Current Task:** P0.1 — Targeted Anchor Refinement  
 **Primary Tool:** MATLAB  
-**Research Strategy:** Research-Driven, Prototype-Oriented, Parallel Workstreams
+**Status:** Numerical E1/E2 development completed; physical prototype not yet built.
 
 ---
 
-## 1. Purpose and Document Role
+## 1. Purpose of This Document
 
-This document defines the stable research and AI collaboration rules for the cable-robot sensing project.
+This document provides the latest verified research state and immediate technical context for continuing the project.
 
-It governs:
+It is intended to support research continuity across GitHub, ChatGPT and Codex sessions.
 
-- Research-question-driven learning.
-- Scientific reasoning and literature use.
-- Mathematical modelling.
-- MATLAB implementation and verification.
-- Configuration optimisation.
-- Experimental planning.
-- Parallel cable-number research.
-- GitHub and Codex collaboration.
-- Research documentation and session handoff.
+Document responsibilities:
 
-**This is a working-rules document, not a research progress report.**
-
-Do not duplicate completed numerical results, detailed daily schedules, specific candidate coordinates or frequently changing research status here.
-
-### Authoritative Repository Documents
-
-| Document | Responsibility |
+| Document | Purpose |
 |---|---|
-| `AGENTS.md` | AI/Codex repository entry point |
-| `AGENTS2.md` | Stable research and AI working rules |
-| `CURRENT_STATE2.md` | Latest verified research state |
-| `08_Project_Management/Roadmap.md` | Long-term milestones and research direction |
-| Active Research Plan | Current tasks, methods and acceptance criteria |
-| Active Weekly Plan | Daily execution schedule, when maintained |
-| `05_My_Research/` | Technical design and mathematical models |
-| `03_Simulation/MATLAB/` | Source code and numerical datasets |
-| `06_Research_Log/` | Detailed numerical and experimental evidence |
+| `AGENTS2.md` | Stable research and AI collaboration rules |
+| `CURRENT_STATE2.md` | Current verified progress, decisions, limitations and next task |
+| `08_Project_Management/Roadmap.md` | Long-term research direction |
+| Active Research Plan | Detailed upcoming tasks, methods and completion criteria |
+| `06_Research_Log/` | Detailed methods, experimental evidence and numerical results |
+| `03_Simulation/MATLAB/` | MATLAB source code and numerical datasets |
 
-### Document Responsibility Principle
+**Active Research Plan:**
 
-Each document should have one clear purpose.
+`08_Project_Management/November/Prototype_V1_Build_and_Validation_Plan.md`
 
-- Current progress belongs in `CURRENT_STATE2.md`.
-- Long-term research milestones belong in `Roadmap.md`.
-- Specific procedures belong in the active Research Plan.
-- Verified experimental evidence belongs in Research Logs.
-- Stable AI working rules belong in `AGENTS2.md`.
-
-Do not copy the same detailed results into every document.
+The previous B5.3–B5.6 plan and November weekly plans remain historical planning references. Their outstanding E3/E4 tasks do not override the current prototype-oriented priorities.
 
 ---
 
-## 2. Scientific Research Direction
+## 2. Main Research Objective
 
-### 2.1 Long-Term Research Goal
+Develop a cable-length-based sensing system capable of estimating the six-degree-of-freedom pose of a passively moving balloon-like object.
 
-Develop and evaluate a cable-based sensing system capable of estimating the position, orientation and eventually deformation or shape of a passively moving balloon-like object.
+The application is motivated by intragastric balloons used in obesity treatment.
 
-The research is motivated by a simplified intragastric-balloon sensing environment.
+The intended system measures motion rather than actively controlling the balloon trajectory.
 
-The system is intended for measurement and state estimation, not active trajectory control.
+### Initial Measurement Outputs
 
-### 2.2 Cable Number Research Objective
+- X, Y and Z translation.
+- Roll, pitch and yaw orientation.
+- Future extension to deformation and shape estimation.
 
-The long-term research objective includes comparing:
+### Experimental Development Strategy
 
-- Six-cable sensing.
-- Seven-cable sensing.
-- Eight-cable sensing.
+**Stage 1 — Rigid sphere**
 
-The comparison should consider:
+Validate six-cable geometry, cable-length sensing and rigid-body six-DOF pose estimation.
 
-- Pose estimation accuracy.
-- Local identifiability.
-- Measurement redundancy.
-- Sensing workspace.
-- Geometric and mechanical feasibility.
-- Installation robustness.
-- Implementation complexity.
+**Stage 2 — Air-filled flexible balloon**
 
-The six-cable configuration serves as the initial experimental reference.
+Investigate attachment stability, deformation, motion disturbance and the limitations of the rigid-body model.
 
-Seven- and eight-cable theory and simulation remain essential research directions.
+**Stage 3 — More realistic balloon model**
 
-### 2.3 Passive Motion Principle
+Investigate a liquid-filled silicone balloon surrogate and additional application-related physical effects.
 
-The balloon undergoes passive and potentially irregular motion.
-
-The estimator must not require the true trajectory as an input.
-
-Motors may be used to follow cable displacement and maintain low positive tension.
-
-The motors must not intentionally prescribe the balloon trajectory.
-
-The low-tension tracking architecture requires physical validation.
-
-A prescribed reference motion may be used during calibration or controlled testing, but it must not be confused with the final passive sensing principle.
+The current project does not claim clinical validation.
 
 ---
 
-## 3. Parallel Research Workstreams
-
-### Workstream A — Six-Cable Prototype and Experiments
-
-**Primary engineering priority**
-
-1. Evaluate and compare candidate six-cable configurations.
-2. Optimise anchor locations, attachment locations and pairing.
-3. Verify geometry and sensing over relevant pose regions.
-4. Investigate robustness and installation constraints.
-5. Validate nonlinear pose reconstruction.
-6. Define cable length, tension, motor and sensor requirements.
-7. Develop an adjustable experimental test rig.
-8. Validate rigid-body pose estimation experimentally.
-9. Investigate flexible-balloon compatibility.
-10. Refine the configuration using experimental evidence.
-
-The initial prototype does not require proof of global configuration optimality.
-
-However, essential geometric, sensing and mechanical constraints must be evaluated before hardware implementation.
-
-### Workstream B — Seven-/Eight-Cable Theory and Simulation
-
-**Parallel theoretical priority**
-
-1. Derive seven- and eight-cable measurement Jacobians.
-2. Investigate measurement redundancy and observability.
-3. Evaluate singular values, conditioning and pose covariance.
-4. Analyse geometric workspace and cable interference.
-5. Investigate tension feasibility where mechanically relevant.
-6. Compare six-, seven- and eight-cable systems using consistent criteria.
-7. Evaluate whether additional cable channels justify their mechanical and sensing complexity.
-
-Workstream B may proceed while the six-cable test rig is being designed, assembled or tested.
-
-Theoretical work must not unnecessarily delay Workstream A.
-
-Hardware expansion beyond six cables requires separate engineering justification.
-
-### Workstream Integration Rules
-
-When comparing configurations:
-
-- Use common target pose sets.
-- Use consistent geometry and coordinate conventions.
-- Apply equivalent measurement-noise assumptions.
-- Use identical sensing-performance definitions.
-- Distinguish geometric, sensing and tension feasibility.
-- Report changes in sensor count and hardware complexity.
-- Do not assume additional cables automatically improve performance.
-
-When the user selects a task from either workstream, prioritise that task unless a necessary technical dependency prevents progress.
-
----
-
-## 4. Research Context Loading
-
-Before beginning a new research task, read the minimum relevant repository context.
-
-### Required Loading Order
-
-1. `AGENTS.md` — Repository entry instructions.
-2. `AGENTS2.md` — Stable working rules.
-3. `CURRENT_STATE2.md` — Current verified progress.
-4. Active Research Plan — Current research methods and tasks.
-5. Active Weekly Plan — Daily research schedule, if applicable.
-6. `08_Project_Management/Roadmap.md` — Long-term milestones.
-7. Relevant technical models, MATLAB scripts and Research Logs.
-
-Do not assume an older plan remains active merely because it exists in the repository.
-
-### Context Rules
-
-- Do not rely on chat history alone.
-- Do not assume a task is completed because its planned date has passed.
-- Verify completion using actual saved results.
-- Do not claim to have read inaccessible files.
-- Prefer the current Research Plan over superseded schedules.
-- Report contradictions between documents.
-- Preserve verified findings from previous sessions.
-- Avoid re-reading unrelated files unnecessarily.
-
-### Handling Conflicting Information
-
-When repository documents disagree:
-
-1. Identify the specific contradiction.
-2. Check the relevant Research Log and MATLAB evidence.
-3. Distinguish historical results from current research status.
-4. Use `CURRENT_STATE2.md` to establish the current milestone.
-5. Use the active Research Plan to determine the next procedure.
-6. Do not silently overwrite one verified result with another.
-7. Ask for clarification when a material contradiction cannot be resolved using available evidence.
-
-A newer planning document does not automatically invalidate earlier numerical evidence.
-
-Historical learning plans must not override current research instructions.
-
----
-
-## 5. Research-Driven Workflow
-
-Every research task should follow:
-
-```text
-Research Question
-       |
-       v
-Existing Evidence
-       |
-       v
-Relevant Literature and Theory
-       |
-       v
-Mathematical Model
-       |
-       v
-MATLAB Implementation
-       |
-       v
-Numerical Verification
-       |
-       v
-Physical Interpretation
-       |
-       v
-Research Documentation
-       |
-       v
-Next Research Decision
-```
-
-### General Rules
-
-1. Start from a concrete research question.
-2. Explain why the task matters to the project.
-3. Identify the required output and acceptance criteria.
-4. Review relevant existing work before starting new code.
-5. Learn only the theory needed for the task.
-6. Use the simplest defensible mathematical model.
-7. Verify numerical results before extending the model.
-8. Distinguish observed results from assumptions.
-9. Document limitations and unresolved problems.
-10. Avoid unnecessary repetition of completed lessons.
-
-Do not introduce advanced algorithms solely because they are available.
-
-### Required Research Explanation
-
-For a substantial research lesson, explain:
-
-**1. Why is this task necessary?**
-
-Identify the unresolved research problem or limitation.
-
-**2. What theory or literature supports the method?**
-
-Explain the relevant mathematical principles and applicable published methods.
-
-**3. What research decision will the result enable?**
-
-Define what can be concluded from the outcome and what remains unresolved.
-
----
-
-## 6. AI Teaching and Explanation Rules
-
-When guiding research:
-
-1. Explain the research objective.
-2. Introduce relevant equations and physical meaning.
-3. Identify relevant literature and DOI information where applicable.
-4. Explain assumptions and coordinate conventions.
-5. Provide a logical implementation sequence.
-6. Allow the user to run and inspect MATLAB results.
-7. Interpret actual outputs before continuing.
-8. Verify unexpected results instead of guessing.
-9. Include short research reflection questions where useful.
-10. Summarise findings before moving to the next task.
-
-Prefer incremental research sessions over large collections of unrelated exercises.
-
-The purpose is to support independent research understanding, not merely provide working code.
-
-### MATLAB Teaching Preferences
-
-For each practical numerical research lesson:
-
-- Begin with the research question.
-- Explain why the mathematical method is appropriate.
-- Identify the required inputs.
-- State which variables are fixed and which are changed.
-- Provide a complete runnable MATLAB script when requested.
-- Use clear Chinese comments to explain the code.
-- Reuse verified functions where practical.
-- Explain expected outputs and numerical checks.
-- Wait for actual execution results before interpreting unverified outcomes.
-- Explain the physical significance of the obtained results.
-- Avoid introducing unrelated new tasks before the current lesson is understood.
-
-### Research Reflection
-
-Use short research questions to encourage interpretation.
-
-Reflection questions should focus on:
-
-- Why a result occurred.
-- What the result demonstrates.
-- What it does not demonstrate.
-- Which design decision follows.
-- Whether additional verification is needed.
-
-Do not treat a numerical improvement as self-explanatory.
-
----
-
-## 7. Mathematical Modelling Rules
-
-Every technical model must declare:
-
-- Coordinate frames.
-- Known variables and unknown state variables.
-- Inputs and measurements.
-- Units.
-- Matrix dimensions.
-- Geometric and physical constraints.
-- Modelling assumptions.
-- Expected outputs.
-
-### Units
-
-Unless explicitly stated otherwise:
-
-- Geometry and cable length: millimetres.
-- Local rotation increments: radians.
-- Reported orientation angles: degrees when explicitly labelled.
-- Tension and force: newtons.
-- Motor torque: newton-metres.
-
-Do not mix units within a model.
-
-### Rigid-Body Cable Geometry
-
-For cable \(i\):
+## 3. Current Geometry and Measurement Baseline
+
+| Parameter | Current Value |
+|---|---|
+| Computational boundary | 280 × 300 × 320 mm |
+| Coordinate convention | X = length, Y = width, Z = height |
+| Nominal balloon volume | 550 mL |
+| Equivalent rigid-sphere radius | 50.8266 mm |
+| Initial cable number | 6 |
+| Anchor candidate geometry | Twelve edges of a rectangular computational frame |
+| Attachment geometry | Six points on the nominal sphere surface |
+| Main measured quantity | Cable length / displacement |
+| Initial cable-length noise assumption | Standard deviation = 0.100 mm |
+| Core evaluation set | 189 sampled poses |
+| Extended development set | 539 sampled poses |
+| Preferred physical architecture | Single 3030 aluminium extrusion frame |
+| Motor function | Low-tension cable tracking, not commanded balloon motion |
+
+The 280 × 300 × 320 mm computational boundary is not automatically the physical frame manufacturing size or a proven collision-free motion workspace.
+
+The 539 sampled poses are development evidence, not an untouched independent validation set.
+
+### Rigid Cable Geometry
+
+For cable i:
 
 \[
 B_i=P+Rr_i
 \]
 
 \[
-d_i=A_i-B_i
+D_i=A_i-B_i
 \]
 
 \[
-L_i=\|d_i\|
+L_i=\|D_i\|
 \]
 
 where:
 
-- \(A_i\): World-fixed anchor.
-- \(r_i\): Body-frame attachment.
-- \(P\): Balloon-centre position.
-- \(R\): Body-to-world rotation matrix.
+- \(P\): balloon-centre position.
+- \(R\): body-to-world rotation matrix.
+- \(r_i\): body-frame attachment point.
+- \(A_i\): effective cable exit point in world coordinates.
+- \(B_i\): attachment point in world coordinates.
+- \(L_i\): ideal straight cable length.
 
-The cable direction \(d_i\) points from the attachment toward the anchor.
-
-When using alternative wrench conventions from literature, explicitly check the sign definitions.
-
-### Measurement Jacobian
-
-For a local world-frame rotation perturbation:
-
-\[
-u_i=\frac{d_i}{L_i}, \qquad s_i=Rr_i
-\]
-
-\[
-H_i=
-\begin{bmatrix}
--u_i^T & (u_i\times s_i)^T
-\end{bmatrix}
-\]
-
-\[
-\delta L\approx H\delta q
-\]
-
-For \(n\) cables and six rigid-body degrees of freedom:
-
-\[
-H\in\mathbb{R}^{n\times6}
-\]
-
-Local first-order identifiability requires full column rank.
-
-Full rank does not guarantee global uniqueness or acceptable experimental accuracy.
-
-### Jacobian Scaling
-
-Translation and rotation have different physical units.
-
-Use a declared characteristic length when evaluating scaled singular values and condition numbers.
-
-For the current rigid spherical model, the adopted characteristic length is the balloon radius unless another convention is explicitly justified.
-
-Keep the scaling convention consistent across configuration and cable-number comparisons.
+The physical guide, pulley and routing mechanism may require corrections to this ideal length model.
 
 ---
 
-## 8. Cable Configuration and Workspace Rules
+## 4. Completed Research
 
-### 8.1 Configuration Variables
+### B1 — Geometry Baseline
 
-For a six-cable reference:
+Completed:
+
+- Three-dimensional engineering boundary.
+- Equivalent rigid-sphere balloon model.
+- Initial feasible centre region.
+- Initial anchor candidates.
+- Initial attachment candidates.
+- Basic geometry verification.
+
+### B2 — Six-Cable Configuration Search
+
+Completed initial configuration exploration.
+
+Experiment A optimised attachment locations with fixed anchors.
+
+Experiment B allowed anchor and attachment locations to vary.
+
+The experiments demonstrated that good reference-pose sensing alone does not guarantee multi-pose geometric feasibility.
+
+### B3–B4 — Motion Feasibility and Sensing Evaluation
+
+Completed:
+
+- Translation and rotation pose evaluation.
+- Cable–sphere interference screening.
+- Cable–cable finite-segment distance calculations.
+- Analytical and numerical Jacobian checks.
+- Singular-value and condition-number analysis.
+- Initial measurement-noise and uncertainty simulations.
+
+These established the evaluation framework for later configuration optimisation.
+
+### B5.1–B5.3 — Configuration Redesign
+
+Completed:
+
+- Twelve-rail anchor constraints.
+- Structured configuration families.
+- Expanded attachment candidate generation.
+- Attachment selection and pairing enumeration.
+- Multi-pose geometric screening.
+
+Eighteen structured configurations were generated.
+
+Six configurations passed the Core 189-pose geometry and rank screening:
+
+`[2, 4, 6, 8, 12, 17]`
+
+### B5.4 E1 — Anchor Optimisation
+
+Completed the relevant candidate development work involving:
+
+- Anchor-position optimisation along selected rails.
+- Selected rail-reassignment investigations.
+- Controlled optimisation comparisons.
+- Multi-pose geometry and sensing evaluation.
+- Selected installation perturbation checks.
+
+The resulting candidate branches used in E2 were:
+
+- E1b C2-2
+- E1b C4-1
+- E1b C8-16
+- E1a C12
+
+Important: E1a C12 is the direct parent for the final E2 C12 candidate. E1b C12-40 belongs to a different design branch and must not be substituted.
+
+### B5.4 E2 — Attachment Optimisation
+
+Completed development-stage attachment optimisation with fixed parent anchors and pairing.
+
+Four final designs were retained:
+
+1. C2-2 Repaired M
+2. C4-1 E2 M
+3. C8-16 E2 M
+4. C12 E2 M
+
+All four passed 539/539 nominal development-pose geometry checks.
+
+E2 attachment matrices are already arranged by cable row. Historical pairing permutations must not be applied again.
+
+Detailed evidence:
+
+`06_Research_Log/2026-11/B5_4_E2_Phase_Research_Summary.md`
+
+---
+
+## 5. Current Four-Configuration Comparison
+
+### 5.1 Numerical Performance
+
+All sigma values in the table below are worst scaled minimum Jacobian singular values over the 539 development poses.
+
+| Metric | C2-2 Repaired M | C4-1 E2 M | C8-16 E2 M | C12 E2 M |
+|---|---:|---:|---:|---:|
+| Worst scaled sigma-min | 0.702000 | 0.582702 | 0.569039 | 0.505817 |
+| Nominal geometry pass | 539/539 | 539/539 | 539/539 | 539/539 |
+| Minimum ideal cable distance (mm) | 5.2958 | 39.0163 | 16.0627 | 13.5666 |
+| Minimum nominal outward angle (deg) | 0.4254 | 13.7606 | 0.8580 | 16.3849 |
+| Attachment perturbation protocol | 23/24 | 24/24 | 24/24 | 24/24 |
+| Position RMSE (mm) | 0.15268 | 0.15348 | 0.15813 | 0.16120 |
+| Orientation RMSE (deg) | 0.18153 | 0.21433 | 0.20998 | 0.21895 |
+
+The pose-estimation RMSE values were obtained using synthetic independent cable-length errors with a standard deviation of 0.100 mm.
+
+They are simulation results, not measured hardware accuracy.
+
+The attachment perturbation protocol used specified individual point perturbations. Passing 24/24 does not establish general manufacturing reliability.
+
+### 5.2 Engineering Mounting Comparison
+
+Results from the Prototype V1 hardware-envelope and rail-mounting audits:
+
+| Design | Minimum rail-end distance (mm) | Limiting cable | Minimum attachment chord (mm) | Maximum sampled cable travel (mm) |
+|---|---:|---:|---:|---:|
+| C2-2 Repaired M | 31.111 | C3 | 28.306 | 72.505 |
+| C4-1 E2 M | 0.000 | C2 | 39.016 | 75.056 |
+| C8-16 E2 M | 66.667 | C5 | 29.489 | 74.887 |
+| C12 E2 M | 10.000 | C6 | 21.584 | 73.872 |
+
+The cable-travel figures come from the 539 development poses and are not complete hardware stroke specifications.
+
+### 5.3 Provisional Configuration Decision
+
+**Provisional primary: C4-1 E2 M**
+
+Reason:
+
+- Good sensing performance.
+- Largest nominal cable-pair separation among the four candidates.
+- Relatively large outward-angle margin.
+- Largest minimum attachment spacing.
+
+Outstanding issue:
+
+- Cable 2 anchor lies at a rail endpoint.
+- Mechanical mounting and possible anchor relocation remain unresolved.
+
+**Provisional backup: C12 E2 M**
+
+Reason:
+
+- Relatively large outward-angle margin.
+- Acceptable nominal sensing and geometric results.
+- Passed the specified attachment perturbation protocol.
+
+Outstanding issues:
+
+- Cable 6 anchor lies 10 mm from a rail endpoint.
+- Connector spacing requires physical verification.
+- Ideal cable clearance is smaller than C4-1.
+
+**Alternative: C8-16 E2 M**
+
+Advantages:
+
+- Convenient anchor mounting distances.
+- Good numerical sensing performance.
+
+Concern:
+
+- Small outward-angle margin, including limited margin under specified installation perturbations.
+
+**High-sensing reference: C2-2 Repaired M**
+
+Advantage:
+
+- Best numerical sensing performance of the four.
+
+Concerns:
+
+- Small ideal cable clearance.
+- One specified attachment perturbation failure involving Cable 6.
+
+**No design is yet approved as the final physical prototype configuration.**
+
+---
+
+## 6. Preliminary Mechanical Research — M1.1 to M1.4
+
+### M1.1 — Single-Frame Reference Geometry
+
+A single-frame 3030 aluminium extrusion architecture was selected for initial development.
+
+The current concept distinguishes:
+
+- The theoretical effective anchor \(A_i\).
+- The physical guide mounting reference \(M_i\).
+- The actual cable exit geometry.
+- The motor and winch installation position.
+
+With a simplified 30 mm profile and zero additional gap, the reference distance between the theoretical edge anchor and the associated extrusion-centre reference is:
 
 \[
-\mathcal C_6=\{(A_i,r_i)\}_{i=1}^{6}
+\|M_i-A_i\|=21.213\ \mathrm{mm}
 \]
 
-Anchor positions, attachment positions and cable pairing are distinct design variables.
+This is a coordinate-reference distance, not a manufactured guide bracket length.
 
-For the rail-constrained model:
+### M1.2 — Simplified Frame Occupancy
+
+A solid 30 × 30 mm extrusion-envelope approximation was used.
+
+All 24 reference lines from extrusion centre to theoretical anchor crossed their corresponding solid profile envelopes.
+
+This was a consequence of the chosen reference geometry and does not establish that all 24 anchors are mechanically impossible.
+
+Two anchors were identified as lying within 20 mm of their corresponding rail endpoints:
+
+- C4-1 E2 M — Cable 2.
+- C12 E2 M — Cable 6.
+
+### M1.3 — Fixed-Plane Guide Direction Analysis
+
+The 539 development poses were used to calculate cable directions.
+
+A least-squares fixed plane was fitted for each cable.
+
+Maximum out-of-plane direction deviations across the four designs were approximately 11.0–12.1 degrees when considering the worst cable in each design.
+
+These are geometric direction metrics, not actual pulley friction or cable measurement errors.
+
+### M1.4 — Local Guide Angular Envelope
+
+The development-pose directional envelopes showed:
+
+| Design | Largest local yaw range | Largest local pitch range | Maximum reference cone angle |
+|---|---:|---:|---:|
+| C2-2 Repaired M | 19.411° | 20.585° | 11.713° |
+| C4-1 E2 M | 22.443° | 21.994° | 12.745° |
+| C8-16 E2 M | 21.107° | 23.443° | 12.716° |
+| C12 E2 M | 21.658° | 24.079° | 12.694° |
+
+These values describe cable directions in local reference coordinates.
+
+They are not certified swivel-pulley joint travel requirements.
+
+### Mechanical Guide Direction
+
+The preferred approach is to evaluate:
+
+- A compact low-friction eyelet as a reference.
+- A swivel or panning pulley as a candidate mechanism.
+
+A standard fixed single-groove pulley is not assumed suitable without geometric and friction testing.
+
+No guide hardware has yet been experimentally validated.
+
+---
+
+## 7. External Prototype Information
+
+Consultation with Jingjun Liu from Darwin Lau's research group provided practical prototype information.
+
+Reported components and methods include:
+
+- 3030 aluminium extrusion frame.
+- An existing experimental frame measuring 700 × 560 × 540 mm.
+- Custom 3D-printed routing pieces and winches.
+- T-slot fasteners for mounting cable routing components.
+- Feetech SM45BL servo motors.
+- No.10 PE fishing line.
+- TPU-95 flexible printed structures with mechanical screw attachments.
+- Temporary tape-based cable attachment for an earlier balloon experiment.
+
+Jingjun noted that SM45BL has relatively low back-drivability and may not suit a passive balloon measurement system.
+
+These details are references from another prototype, not final specifications selected for the present project.
+
+Specific pulley, winch, sensor and mounting dimensions remain to be determined for Prototype V1.
+
+---
+
+## 8. Main Unresolved Problems
+
+### Problem 1 — Anchor Installation
+
+C4-1 Cable 2 is located at the endpoint of Rail 6:
 
 \[
-A_i=A(\rho_i,t_i)
+A_2=(140,150,-160)\ \mathrm{mm}
 \]
 
-where:
+C12 Cable 6 is 10 mm from the start of Rail 10:
 
-- \(\rho_i\): Rail assignment.
-- \(t_i\): Normalised anchor position on that rail.
-- \(r_i\): Body-frame attachment coordinate.
-- \(\pi\): Cable pairing permutation.
+\[
+A_6=(140,-140,-160)\ \mathrm{mm}
+\]
 
-The configuration must preserve an explicit mapping between every anchor and its attachment.
+Both anchors may be adjusted locally along their existing rails.
 
-### 8.2 Configuration Evaluation
+However, no adjusted design has yet been accepted.
 
-Consider:
+Any proposed movement must be re-evaluated for geometric feasibility, sensing performance and installation constraints.
 
-- Balloon containment.
-- Cable–balloon interference.
-- Cable–cable interference.
-- Minimum cable clearance.
-- Outward angular margin.
-- Jacobian rank.
-- Scaled singular values and conditioning.
-- Predicted pose uncertainty.
-- Pose-estimation error.
-- Cable length and stroke.
-- Mechanical mounting feasibility.
-- Positive-tension feasibility.
-- Disturbance of passive balloon motion.
+### Problem 2 — Continuous Motion Interference
 
-### 8.3 Workspace Rules
+The current 539-pose evaluation is discrete.
 
-Always distinguish:
+It does not certify all continuous motion paths or the complete six-dimensional motion workspace.
 
-1. Engineering boundary.
-2. Geometrically feasible workspace.
-3. Cable-routing feasible workspace.
-4. Tension-feasible workspace.
-5. Sensing-feasible workspace.
+Outstanding checks include:
 
-A sampled feasibility ratio does not establish continuous workspace coverage.
+- Continuous translation and rotation paths.
+- High-risk intermediate configurations.
+- Conservative minimum-distance bounds.
+- Finite cable diameters.
+- Cable–guide and cable–frame interference.
+- Connector geometry and manufacturing tolerances.
 
-Ideal zero-thickness cable non-intersection is not equivalent to practical cable clearance.
+### Problem 3 — Physical Cable Guide
 
-A full-rank measurement Jacobian is not proof of positive-tension wrench feasibility.
+A physical guide must:
 
-### 8.4 Optimisation Rules
+- Be mountable on the single 3030 frame.
+- Accommodate the required cable direction variation.
+- Avoid excessive friction under low tension.
+- Maintain a modelled or calibrated effective cable exit geometry.
+- Support sufficiently accurate cable-length measurements.
 
-- Define variables and constraints before optimisation.
-- Evaluate multiple poses rather than only a reference pose.
-- Use reproducible search settings.
-- Keep failed candidates and failure reasons.
-- Preserve independent validation poses.
-- Avoid unsupported global-optimality claims.
-- Prefer a practical adjustable design over a numerically attractive but interfering configuration.
+### Problem 4 — Attachment Interface
 
-### 8.5 Controlled-Variable Experiments
+Actual connector dimensions and mounting techniques remain unresolved.
 
-When analysing configuration variables, distinguish:
+The initial rigid sphere may use mechanical attachment points.
 
-| Experiment | Variable Parameters | Fixed Parameters |
+Flexible balloon attachment must be investigated separately, with attention to local deformation, slippage and leakage.
+
+### Problem 5 — Experimental Measurement Architecture
+
+The following are not yet finalised:
+
+- Cable and guide dimensions.
+- Encoder and displacement measurement hardware.
+- Low-tension cable tracking method.
+- Winch geometry.
+- Actual cable-length measurement noise and bias.
+- Ground-truth pose measurement arrangement.
+
+---
+
+## 9. Current Engineering Decision
+
+The current priority is not to maximise the Jacobian minimum singular value indefinitely.
+
+The priority is to obtain a six-cable configuration that satisfies four requirements:
+
+1. Practical installation.
+2. Interference-free motion within a defined and verified operating region.
+3. Adequate sensing and pose-estimation performance.
+4. Overall geometric and mechanical feasibility.
+
+The initial architecture is a single 3030 aluminium frame with independently mounted cable guides and suitably located cable-length measurement/actuation components.
+
+The final guide and motor architecture must be experimentally validated.
+
+Full E3 Pairing Optimisation and E4 Joint Optimisation are paused.
+
+They may be reopened only if targeted mechanical or geometric problems cannot be resolved with simpler modifications.
+
+---
+
+## 10. Active Research Plan
+
+The current active plan is:
+
+`08_Project_Management/November/Prototype_V1_Build_and_Validation_Plan.md`
+
+### Pre-Procurement Tasks
+
+| Task | Description | Status |
 |---|---|---|
-| E0 — Baseline | None | All configuration variables |
-| E1a — Rail Position | Rail positions | Rail assignments, attachments, pairing |
-| E1b — Rail Assignment | Rail assignments and associated positions | Attachments, pairing |
-| E2 — Attachment | Attachment coordinates | Anchor configuration, pairing |
-| E3 — Pairing | Pairing permutation | Anchor and attachment point sets |
-| E4 — Joint Optimisation | Multiple configuration variables | Common geometry and evaluation rules |
+| P0.1 | Targeted anchor refinement for C4-1 C2 and C12 C6 | Next technical task |
+| P0.2 | Continuous motion interference screening | Pending |
+| P0.3 | Provisional primary/backup configuration freeze | Pending |
+| P0.4 | Single-cable mechanical concept and preliminary BOM | Pending |
+| P0.5 | Supervisor presentation and funding request | Pending |
 
-The exact active experiment and its detailed procedure belong in the Research Plan.
+### Hardware Development Tasks
 
-### 8.6 Fair Configuration Comparison
+| Task | Description | Status |
+|---|---|---|
+| P1 | One-cable mechanical assembly | Not started |
+| P2 | Low-tension and cable-length measurement validation | Not started |
+| P3 | Final mechanical geometry and CAD/BOM freeze | Not started |
+| P4 | Six-cable rigid prototype assembly | Not started |
+| P5 | Experimental six-DOF pose validation | Not started |
+| P6 | Flexible balloon pilot testing | Not started |
 
-When comparing multiple configurations:
+**Prototype V1.0 completion:** P5 — functional and experimentally evaluated six-cable rigid-body sensing system.
 
-1. Retain each configuration's original identity and geometry.
-2. Apply the same objective and constraints.
-3. Use comparable optimisation budgets.
-4. Use the same development pose sets.
-5. Use identical sensing definitions.
-6. Record failed and rejected candidates.
-7. Evaluate final candidates using common independent validation data.
-8. Distinguish baseline superiority from improvements caused by additional optimisation effort.
-
-Do not declare one configuration globally superior merely because it received more optimisation or debugging.
-
-### 8.7 Robustness and Validation
-
-A configuration should not be ranked using geometry pass counts alone.
-
-Where applicable, evaluate:
-
-- Minimum outward angular margin.
-- Minimum cable distance.
-- Independent unseen poses.
-- Anchor installation perturbations.
-- Attachment placement uncertainty.
-- Cable-length measurement noise.
-- Pose-estimator convergence.
-
-Keep clear distinctions between numerical robustness tests and experimentally validated mechanical tolerances.
+**Prototype V1.1 extension:** P6 — preliminary flexible-balloon compatibility study.
 
 ---
 
-## 9. Rigid-to-Flexible Transition Rules
+## 11. Immediate Next Task — P0.1
 
-The rigid sphere is an engineering reference model.
+**Research question**
 
-Before finalising prototype hardware, perform an initial flexible compatibility assessment.
+Can small rail-constrained adjustments resolve the most critical anchor installation issues without unacceptable loss of geometric and sensing performance?
 
-### Required Considerations
+### Configuration A — C4-1 E2 M
 
-1. Simplified deformation model.
-2. Attachment migration.
-3. Cable–deformed-surface interference.
-4. Cable-length changes.
-5. Combined rigid-pose and deformation observability.
-6. Hardware adaptability.
+Cable 2:
 
-For deformation parameters \(\eta\):
+- Rail ID: 6.
+- Original \(t=1\).
+- Original anchor: \((140,150,-160)\) mm.
+- Initial candidate inward adjustments: 10, 20, 25 and 30 mm.
 
-\[
-B_i=P+R[r_{i0}+d_i(\eta)]
-\]
+These are proposed test inputs, not verified improved designs.
 
-The local measurement relationship is:
+### Configuration B — C12 E2 M
 
-\[
-\delta L\approx
-H_{\mathrm{rigid}}\delta q+
-H_{\mathrm{def}}\delta\eta
-\]
+Cable 6:
 
-Six instantaneous scalar cable-length measurements cannot generically identify six independent rigid-body pose components plus additional unconstrained deformation variables.
+- Rail ID: 10.
+- Original \(t\approx0.033333\).
+- Original anchor: \((140,-140,-160)\) mm.
+- Initial candidate inward adjustments: 5, 10, 15 and 20 mm.
 
-Additional measurements, physical constraints or reduced-order models may be required.
+These are proposed test inputs, not verified improved designs.
 
-Do not claim complete deformation reconstruction merely because the rigid model is locally identifiable.
+### Fixed Variables
 
----
+- All other anchor points.
+- All paired attachment points.
+- Cable pairing.
+- Rigid-sphere dimensions.
+- Computational boundary.
 
-## 10. MATLAB and Numerical Verification
+### Required Outputs
 
-MATLAB is the primary computational platform.
+- Original-versus-adjusted anchor coordinates.
+- Rail-end installation distances.
+- Geometry pass counts.
+- Minimum cable separation.
+- Minimum outward departure angles.
+- Worst scaled Jacobian singular values.
+- Condition-number comparison.
+- Relevant installation robustness checks.
 
-CASPR may be used for secondary verification.
+### Completion Decision
 
-### Implementation Rules
+Retain an adjusted design only if its practical installation advantage justifies its geometry and sensing trade-offs.
 
-- Reuse verified functions when possible.
-- Prefer readable and modular scripts.
-- Document units and coordinate conventions.
-- Separate geometry, simulation, estimation and evaluation.
-- Preserve configuration datasets.
-- Record random seeds and solver settings.
-- Save meaningful numerical outputs.
-- Avoid unnecessary duplicate implementations.
+Otherwise, retain the original candidate with a justified special mounting arrangement, or evaluate the next eligible configuration.
 
-### Verification Rules
-
-Before accepting numerical results:
-
-1. Check matrix dimensions.
-2. Check coordinate conventions and units.
-3. Verify simple known cases.
-4. Compare analytical derivatives with finite differences.
-5. Check residuals and feasibility constraints.
-6. Test relevant failure cases.
-7. Record actual output values.
-8. Document numerical tolerances and limitations.
-
-Do not label unexecuted or unverified code as validated.
-
-### Development and Validation Data
-
-Distinguish:
-
-**Development Set**
-
-Used for:
-
-- Configuration optimisation.
-- Parameter tuning.
-- Algorithm development.
-- Failure diagnosis.
-- Targeted repair.
-
-**Independent Validation Set**
-
-Used to assess frozen candidates under previously unused conditions.
-
-If a validation pose is used to modify the configuration, it becomes part of the development evidence and is no longer fully independent for that candidate.
-
-Generate or reserve a fresh holdout when an independent final comparison is needed.
-
-### Reproducibility
-
-Record:
-
-- MATLAB version when relevant.
-- Configuration identifiers.
-- Fixed and variable parameters.
-- Dataset names.
-- Random seeds.
-- Solver tolerances.
-- Numerical thresholds.
-- Search budgets.
-- Successful and failed trials.
-- Output file paths.
-
-Results from different pose sets must not be compared as if they were computed under identical conditions.
+**Do not start P0.1 until the planned GitHub documentation updates are completed.**
 
 ---
 
-## 11. Measurement Accuracy and Experimental Evidence
+## 12. Research Documentation and Continuity
 
-Relevant metrics include:
+### Relevant Evidence
 
-- Jacobian rank.
-- Scaled minimum singular value.
-- Scaled condition number.
-- Local pose covariance.
-- Position RMSE.
-- Orientation RMSE.
-- Estimator convergence.
-- Estimation failures.
-- Calibration sensitivity.
-- Measurement-noise sensitivity.
-- Workspace coverage.
-- Cable-induced disturbance.
+- `06_Research_Log/2026-11/B5_3_Twelve_Rail_Structured_Configuration_Research_Log_2026_11_11.md`
+- `06_Research_Log/2026-11/B5_4_E1a_Anchor_Rail_Position_Optimisation_Research_Log_2026_11_12.md`
+- `06_Research_Log/2026-11/B5_4_E2_Phase_Research_Summary.md`
+- Prototype V1 M1.1–M1.4 MATLAB outputs retained in the local working directory.
 
-### Evidence Rules
+### Data Integrity Rules
 
-Distinguish:
+- Preserve the original E2 candidate configurations.
+- Do not overwrite the saved baseline matrices.
+- Do not invent missing numerical results.
+- Do not present development poses as an independent holdout.
+- Do not present numerical cable separation as certified physical clearance.
+- Do not describe simulated RMSE as hardware measurement accuracy.
+- Keep the final E2 C12 lineage linked to E1a C12.
+- Do not reapply historical pairing indices to already paired attachment matrices.
 
-| Evidence Type | Meaning |
-|---|---|
-| Reported | Directly stated by a reliable source |
-| Derived | Mathematically calculated |
-| Assumed | Introduced for modelling |
-| Numerically verified | Supported by executed computation |
-| Experimentally validated | Supported by physical measurements |
-| Unknown | Not yet established |
+### Collaboration Workflow
 
-Do not describe local covariance predictions as experimentally measured pose accuracy.
+Research discussions may be conducted in Chinese.
 
-Independent ground truth is required for experimental estimation-error claims.
+GitHub technical documents and research presentations are written in English.
 
-Simulation noise assumptions must not be treated as calibrated sensor specifications.
+When providing new MATLAB scripts:
 
-### Performance Reporting Rules
+1. Explain the research question.
+2. Explain why the step is necessary.
+3. Explain the mathematical or engineering principle.
+4. Summarise the code logic.
+5. Provide directly copyable MATLAB code with Chinese comments.
+6. Review actual output before making a research decision.
 
-Every reported performance improvement must specify:
-
-1. Baseline configuration.
-2. Modified configuration.
-3. Evaluation pose set.
-4. Measurement or metric definition.
-5. Numerical assumptions.
-6. Relative or absolute improvement.
-7. Remaining limitations.
-
-Do not calculate improvement percentages using statistics from different pose sets without explicitly explaining their incompatibility.
-
-When comparing candidate configurations, report sensing quality and geometric feasibility separately.
+GitHub updates are performed manually, one file at a time, after user confirmation.
 
 ---
 
-## 12. Literature and Citation Rules
+## 13. Current One-Paragraph Research Summary
 
-For relevant academic literature, record:
-
-- Exact article title.
-- Authors and publication year.
-- DOI where available.
-- Research question.
-- Applicable equations and methods.
-- Required assumptions.
-- Limitations and transferability.
-- Relevance to the current task.
-
-Do not invent citations or use a paper to support claims outside its actual scope.
-
-Distinguish mathematical theory, published methods and project-specific adaptations.
-
-Literature should be selected according to the active research question.
-
-When a method is adapted from a published active cable-driven robot to passive sensing, explicitly explain which objectives or constraints have changed.
-
-Do not reproduce entire papers without a clear research need.
+The project has progressed from initial three-dimensional workspace definition and six-cable configuration search through rail-constrained anchor optimisation and sphere-constrained attachment optimisation. Four E2 candidate configurations have been retained after 539-pose development-stage geometric and sensing evaluation. C4-1 E2 M is the provisional primary design, with C12 E2 M as backup. Preliminary 3030 single-frame and cable guide analyses have been completed, but physical mounting, continuous-motion interference, low-tension cable tracking and experimental measurement accuracy remain unverified. The immediate objective is to complete targeted anchor refinement and interference screening, then prepare the mechanical concept, procurement request and experimental validation of a one-cable module before building the six-cable rigid prototype.
 
 ---
 
-## 13. GitHub and Codex Collaboration
-
-### 13.1 Repository Responsibilities
-
-- `AGENTS.md`: AI entry point.
-- `AGENTS2.md`: Stable research rules.
-- `CURRENT_STATE2.md`: Current progress.
-- `08_Project_Management/Roadmap.md`: Long-term planning.
-- Active Research Plan: Research tasks and acceptance criteria.
-- Active Weekly Plan: Daily execution, when maintained.
-- Technical design files: Mathematical and engineering models.
-- Research Logs: Detailed numerical and experimental evidence.
-
-### 13.2 Manual GitHub Update Rules
-
-When the user requests manual updates:
-
-1. Read the current repository file.
-2. Identify outdated, conflicting or duplicated content.
-3. Preserve validated research information.
-4. Provide the complete, copyable Markdown content directly in the chat.
-5. Keep the existing file path and filename unless a change is explicitly needed.
-6. Update only one file at a time.
-7. Do not directly modify GitHub without explicit approval.
-8. Wait for the user's confirmation before moving to another file.
-9. Do not create duplicate updated-version files without a clear need.
-10. Keep stable rules, current status, plans and historical results in their designated documents.
-
-When the user explicitly requests a small local change, a precise section replacement may be provided instead of rewriting unrelated content.
-
-For full-file revisions, provide the complete replacement text.
-
-### 13.3 Codex Rules
-
-- Read repository instructions before modifying code.
-- Work within the user's selected research task.
-- Make small, reviewable changes.
-- Preserve verified datasets and scripts.
-- Report files changed and tests performed.
-- Distinguish successful execution from scientific validation.
-- Do not commit or push without user approval.
-
-### 13.4 Session Handoff
-
-At the end of a research session, provide:
-
-```text
-Current workstream:
-Current task:
-Research question:
-Files used:
-Verified results:
-Unresolved issues:
-Next action:
-```
-
-The repository should preserve essential project context across different conversations and coding sessions.
-
----
-
-## 14. Guiding Principles
-
-**Research Direction**
-
-Maintain the long-term comparison of six-, seven- and eight-cable sensing systems.
-
-**Engineering Priority**
-
-Develop an adjustable six-cable experimental reference as early as reasonably practical.
-
-**Parallel Research**
-
-Allow seven-/eight-cable theory and simulation to progress alongside six-cable hardware development.
-
-**Controlled Research**
-
-Use separate experiments to understand the contributions of rail position, rail assignment, attachment location and cable pairing before attempting joint optimisation.
-
-**Fair Comparison**
-
-Apply consistent evaluation conditions and comparable optimisation effort across alternative configurations.
-
-**Robustness**
-
-Evaluate geometric margins, installation uncertainty and independent motion conditions rather than relying on pass counts alone.
-
-**Flexible Sensing**
-
-Evaluate rigid-to-flexible compatibility before final hardware sizing while retaining deformation and shape reconstruction as longer-term research goals.
-
-**Scientific Integrity**
-
-Distinguish numerical predictions, physical assumptions and experimental evidence.
-
-**AI Collaboration**
-
-Follow the active research question, preserve verified work and avoid unnecessary duplication.
-
-> Research questions determine the methods. Numerical evidence supports design decisions. Experiments validate the physical system.
+**Next technical action:** P0.1 — Targeted Anchor Refinement, after completing GitHub documentation updates.
